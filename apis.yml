@@ -1,0 +1,444 @@
+aid: deutsche-telekom
+url: https://raw.githubusercontent.com/api-evangelist/deutsche-telekom/refs/heads/main/apis.yml
+apis:
+- aid: deutsche-telekom:sms-api
+  name: Deutsche Telekom SMS API
+  tags:
+  - Communications
+  - CPaaS
+  - Messaging
+  - SMS
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  properties:
+  - url: https://developer.telekom.com/en/products/sms-api
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Programmatically send and receive text messages in practically every country through Deutsche
+    Telekom's CPaaS platform (built in partnership with Vonage). Part of the MagentaBusiness API portfolio.
+- aid: deutsche-telekom:rcs-api
+  name: Deutsche Telekom Rich Communication Services API
+  tags:
+  - Communications
+  - CPaaS
+  - Messaging
+  - RCS
+  humanURL: https://developer.telekom.com/en/products/RCS
+  properties:
+  - url: https://developer.telekom.com/en/products/RCS
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Improve customer experience using Rich Communication Services for branded, interactive messaging
+    that extends beyond SMS with media, carousels, and verified sender identity.
+- aid: deutsche-telekom:conversational-connect-api
+  name: Deutsche Telekom Conversational Connect API
+  tags:
+  - Communications
+  - CPaaS
+  - Conversational
+  - Marketing
+  humanURL: https://developer.telekom.com/en/products/conversational_connect
+  properties:
+  - url: https://developer.telekom.com/en/products/conversational_connect
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Transform customer communications with intelligent conversational marketing across messaging
+    channels, integrating bots, agents, and rich media into a single conversational flow.
+- aid: deutsche-telekom:voice-api
+  name: Deutsche Telekom Voice API
+  tags:
+  - Communications
+  - CPaaS
+  - Voice
+  humanURL: https://developer.telekom.com/en/products/voice-api
+  properties:
+  - url: https://developer.telekom.com/en/products/voice-api
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Deliver high-quality voice experiences over the low-latency, feature-rich, global Deutsche Telekom
+    network — programmable inbound, outbound, and in-app calling with global reach.
+- aid: deutsche-telekom:video-api
+  name: Deutsche Telekom Video API
+  tags:
+  - Communications
+  - CPaaS
+  - Video
+  humanURL: https://developer.telekom.com/en/products/video-api
+  properties:
+  - url: https://developer.telekom.com/en/products/video-api
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Bring people together globally through fully programmable, customizable, live video sessions
+    embedded in applications, including multi-party meetings, screen sharing, and recording.
+- aid: deutsche-telekom:reports-api
+  name: Deutsche Telekom Reports API
+  tags:
+  - Communications
+  - CPaaS
+  - Reporting
+  - Analytics
+  humanURL: https://developer.telekom.com/en/products/reports_api
+  properties:
+  - url: https://developer.telekom.com/en/products/reports_api
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Programmatic access to communications usage data, delivery reports, and billing breakdowns across
+    the CPaaS portfolio for analytics, reconciliation, and customer dashboards.
+- aid: deutsche-telekom:ai-studio
+  name: Deutsche Telekom AI Studio
+  tags:
+  - AI
+  - Communications
+  - Conversational
+  - Natural Language
+  humanURL: https://developer.telekom.com/en/products/ai-studio
+  properties:
+  - url: https://developer.telekom.com/en/products/ai-studio
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Build conversational customer experiences in natural language across SMS, RCS, voice, video, and
+    chat channels using Deutsche Telekom's hosted AI Studio tooling.
+- aid: deutsche-telekom:number-verify-api
+  name: Deutsche Telekom Number Verification API
+  tags:
+  - Authentication
+  - Identity
+  - Network API
+  - CAMARA
+  humanURL: https://developer.telekom.com/en/products/number-verify
+  properties:
+  - url: https://developer.telekom.com/en/products/number-verify
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Seamless silent verification of a mobile phone number directly through the mobile network —
+    authentication without SMS-based one-time passwords. Aligned with the CAMARA Network API initiative and
+    offered jointly with T-Mobile US through the Bridge Alliance / GSMA Open Gateway.
+- aid: deutsche-telekom:verify-api
+  name: Deutsche Telekom Verify API
+  tags:
+  - Authentication
+  - Identity
+  - 2FA
+  - Network API
+  humanURL: https://developer.telekom.com/en/products/verify-api
+  properties:
+  - url: https://developer.telekom.com/en/products/verify-api
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Easily validate customers with two-factor authentication across multiple channels (SMS, voice,
+    push) backed by Deutsche Telekom's mobile network signaling.
+- aid: deutsche-telekom:5g-slices-api
+  name: Deutsche Telekom 5G Slices for App Developers
+  tags:
+  - 5G
+  - Network API
+  - Network Slicing
+  - Quality of Service
+  humanURL: https://developer.telekom.com/en
+  properties:
+  - url: https://developer.telekom.com/en
+    type: Documentation
+  - url: https://developer.telekom.com/en/api-portal
+    type: Portal
+  description: Programmatic access to 5G network slicing so application developers can request guaranteed quality
+    of service (latency, throughput) for specific traffic flows over Deutsche Telekom's 5G standalone network.
+- aid: deutsche-telekom:tardis-rover-api
+  name: TARDIS Rover API
+  tags:
+  - API Gateway
+  - Internal Developer Platform
+  - TARDIS
+  - Open Telekom Integration Platform
+  humanURL: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  properties:
+  - url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+    type: Documentation
+  - url: openapi/controlplane-rover-server-openapi.yml
+    type: OpenAPI
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  description: Control-plane API for the TARDIS (Telekom API Reference Documentation & Integration Service)
+    internal developer platform. Manages Rovers, ApiSpecifications, ApiRoadmaps, FileSpecifications, and
+    EventSpecifications for application teams onboarding APIs to the Open Telekom Integration Platform.
+- aid: deutsche-telekom:tardis-controlplane-api
+  name: TARDIS Controlplane API
+  tags:
+  - API Gateway
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-cpapi-openapi.yml
+    type: OpenAPI
+  description: Cross-instance configuration and connectivity API of the TARDIS control plane, ensuring federated
+    integration across multiple TARDIS instances.
+- aid: deutsche-telekom:tardis-identity-api
+  name: TARDIS Identity API
+  tags:
+  - Identity
+  - OIDC
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-identity-openapi.yml
+    type: OpenAPI
+  description: Identity, OIDC client, and realm management API used by the TARDIS control plane and the Open
+    Telekom Integration Platform's Keycloak-based identity layer.
+- aid: deutsche-telekom:tardis-discovery-application-api
+  name: TARDIS Discovery Application API
+  tags:
+  - API Discovery
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-discovery-application-openapi.yml
+    type: OpenAPI
+  description: Discovery service exposing applications registered with the TARDIS control plane, including
+    metadata, ownership, and lifecycle state.
+- aid: deutsche-telekom:tardis-discovery-event-api
+  name: TARDIS Discovery Event API
+  tags:
+  - Event-Driven
+  - API Discovery
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-discovery-event-openapi.yml
+    type: OpenAPI
+  description: Discovery service for event-driven specifications managed by TARDIS, providing inventory and
+    metadata for AsyncAPI-style event APIs across the Open Telekom Integration Platform.
+- aid: deutsche-telekom:tardis-discovery-stargate-api
+  name: TARDIS Discovery Stargate API
+  tags:
+  - API Gateway
+  - API Discovery
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-discovery-stargate-openapi.yml
+    type: OpenAPI
+  description: Discovery API for Stargate (the TARDIS API gateway routing layer), exposing gateway configuration
+    and downstream service mappings.
+- aid: deutsche-telekom:tardis-file-manager-api
+  name: TARDIS File Manager API
+  tags:
+  - File Management
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-file-manager-openapi.yml
+    type: OpenAPI
+  description: File and asset management API for TARDIS — handles attachments, schema artifacts, and binary
+    payloads referenced by API specifications.
+- aid: deutsche-telekom:tardis-secret-manager-api
+  name: TARDIS Secret Manager API
+  tags:
+  - Secrets
+  - Security
+  - Internal Developer Platform
+  - TARDIS
+  humanURL: https://github.com/telekom/controlplane
+  properties:
+  - url: https://github.com/telekom/controlplane
+    type: SourceCode
+  - url: openapi/controlplane-secret-manager-openapi.yml
+    type: OpenAPI
+  description: Secret resolution API for the TARDIS control plane — resolves secret references to their actual
+    confidential values for authorized control-plane components.
+- aid: deutsche-telekom:open-telekom-cloud
+  name: Open Telekom Cloud
+  tags:
+  - Cloud
+  - IaaS
+  - PaaS
+  - OpenStack
+  - T-Systems
+  humanURL: https://docs.otc.t-systems.com/
+  properties:
+  - url: https://docs.otc.t-systems.com/
+    type: Documentation
+  - url: https://www.open-telekom-cloud.com/en
+    type: Portal
+  - url: https://public.t-cloud.com/en/products-services/core-services/api-gateway
+    type: Product
+  description: Open Telekom Cloud (OTC) is T-Systems' GAIA-X-aligned, OpenStack-based public cloud operated from
+    Germany. Offers compute, storage, networking, database, container, AI, and API Gateway services with full
+    REST APIs and SDKs aligned with the upstream Huawei Cloud / OpenStack APIs.
+- aid: deutsche-telekom:open-telekom-integration-platform
+  name: Open Telekom Integration Platform
+  tags:
+  - API Gateway
+  - Integration Platform
+  - Enterprise Integration
+  - Kong
+  humanURL: https://github.com/telekom/Open-Telekom-Integration-Platform
+  properties:
+  - url: https://github.com/telekom/Open-Telekom-Integration-Platform
+    type: Documentation
+  - url: https://github.com/telekom/gateway-jumper
+    type: SourceCode
+  - url: https://github.com/telekom/gateway-kong-charts
+    type: SourceCode
+  description: Cloud-native, ubiquitous enterprise integration platform open-sourced by Deutsche Telekom. Combines
+    a Kong-based API gateway, the Jumper sidecar, Keycloak identity, and the TARDIS control plane to provide
+    governed API exposure and consumption across the group.
+name: Deutsche Telekom
+tags:
+- Telecommunications
+- Telco
+- Mobile Network Operator
+- CPaaS
+- Network API
+- 5G
+- Cloud
+- Identity
+- Number Verification
+- Open Gateway
+- CAMARA
+- T-Systems
+- T-Mobile
+- Magenta
+- MagentaBusiness
+- API Gateway
+- Open Source
+- Germany
+- Europe
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+position: Provider
+common:
+- type: Website
+  url: https://www.telekom.com/en
+- type: DeveloperPortal
+  url: https://developer.telekom.com/en
+- type: APIPortal
+  url: https://developer.telekom.com/en/api-portal
+- type: Products
+  url: https://developer.telekom.com/en/products
+- type: InternalDeveloperPortal
+  url: https://developer.telekom.de/
+- type: Catalog
+  url: https://developer.telekom.de/catalog
+- type: OpenTelekomCloud
+  url: https://www.open-telekom-cloud.com/en
+- type: OpenTelekomCloudDocs
+  url: https://docs.otc.t-systems.com/
+- type: TSystems
+  url: https://www.t-systems.com/
+- type: TMobileUS
+  url: https://www.t-mobile.com/
+- type: Company
+  url: https://www.telekom.com/en/company
+- type: Newsroom
+  url: https://www.telekom.com/en/media
+- type: InvestorRelations
+  url: https://www.telekom.com/en/investor-relations
+- type: Careers
+  url: https://www.telekom.com/en/careers
+- type: GitHubOrganization
+  url: https://github.com/telekom
+- type: GitHubOpenSource
+  url: https://www.telekom.com/en/corporate-responsibility/digital-responsibility/details/open-source
+- type: ContactOpenSource
+  url: mailto:opensource@telekom.de
+- type: Twitter
+  url: https://twitter.com/deutschetelekom
+- type: LinkedIn
+  url: https://www.linkedin.com/company/deutsche-telekom/
+- type: YouTube
+  url: https://www.youtube.com/@deutschetelekom
+- type: Documentation
+  url: https://developer.telekom.com/en
+- type: GettingStarted
+  url: https://developer.telekom.com/en/api-portal
+- type: Partner
+  url: https://www.vonage.com/communications-apis/
+  name: Vonage CPaaS Partner
+- type: OpenGateway
+  url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/
+- type: CAMARA
+  url: https://camaraproject.org/
+- type: Features
+  data:
+  - MagentaBusiness CPaaS portfolio — SMS, RCS, Voice, Video, Conversational Connect, Reports, and AI Studio
+    delivered in partnership with Vonage
+  - GSMA Open Gateway / CAMARA-aligned Network APIs — Number Verification and Verify launched jointly with
+    T-Mobile US across Germany and the United States
+  - 5G network capability APIs including 5G Slices for App Developers and 5G Live Video Production reserved
+    bandwidth services
+  - Open Telekom Cloud — T-Systems' OpenStack-based sovereign public cloud operated from Germany, with full REST
+    APIs covering compute, storage, networking, container, database, AI, and API Gateway services
+  - Open Telekom Integration Platform (O28M) — open-sourced cloud-native API gateway built on Kong with the
+    Jumper sidecar, Keycloak identity, and the TARDIS control plane
+  - TARDIS internal developer platform with multiple control-plane APIs (Rover, Controlplane, Identity,
+    Discovery, File Manager, Secret Manager, Stargate) published on GitHub as OpenAPI 3
+  - Horizon event-streaming ecosystem (Galaxy, Comet, Quasar, Vortex, Cosmoparrot, Golaris) for pub/sub event
+    delivery, circuit breaking, and Kafka-to-MongoDB synchronization
+  - Sparrow infrastructure-network monitoring tool, K8s-Breakglass privilege-elevation operator, and the
+    Das-Schiff EVPN-to-the-Host network operator
+  - Scale design system — the digital design system underpinning Telekom products and Magenta-branded
+    experiences
+  - Wurzel — Python ETL framework for Retrieval-Augmented Generation pipelines powering Telekom's generative AI
+    workloads
+  - 5G Trace Visualizer for converting protocol traces into SVG sequence diagrams
+  - Parent of T-Mobile US (NASDAQ: TMUS) and majority owner of T-Systems International
+  - 245+ public repositories under the github.com/telekom organization with active contributions to Kubernetes,
+    Cluster API, and CNCF projects
+  sources:
+  - https://developer.telekom.com/en
+  - https://developer.telekom.com/en/api-portal
+  - https://developer.telekom.com/en/products
+  - https://www.telekom.com/en/media/media-information/archive/new-network-apis-1027626
+  - https://github.com/telekom
+  - https://github.com/telekom/controlplane
+  - https://github.com/telekom/Open-Telekom-Integration-Platform
+  - https://www.open-telekom-cloud.com/en
+  - https://docs.otc.t-systems.com/
+  updated: '2026-05-25'
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Deutsche Telekom AG is Europe's largest telecommunications operator, headquartered in Bonn, Germany,
+  serving more than 250 million mobile customers across 50+ countries. It is the parent company of T-Mobile US
+  (NASDAQ TMUS) and the majority owner of T-Systems International, its enterprise IT and cloud arm. For
+  developers, Deutsche Telekom operates a public developer portal at developer.telekom.com offering a
+  MagentaBusiness CPaaS suite (SMS, RCS, Voice, Video, Conversational Connect, Reports, AI Studio) built in
+  partnership with Vonage, plus a growing portfolio of GSMA Open Gateway / CAMARA-aligned Network APIs (Number
+  Verification, Verify, 5G Slices) launched jointly with T-Mobile US. T-Systems operates Open Telekom Cloud, an
+  OpenStack-based sovereign public cloud with full REST APIs across compute, storage, networking, container,
+  database, AI, and API Gateway services. Deutsche Telekom is also a substantial open-source contributor — its
+  github.com/telekom organization publishes 245+ repositories including the Open Telekom Integration Platform
+  (O28M), the TARDIS control-plane suite (with OpenAPI 3 specs for Rover, Controlplane, Identity, Discovery,
+  File Manager, Secret Manager, and Stargate), the Horizon pub/sub event-streaming ecosystem, the Scale design
+  system, Wurzel RAG ETL framework, and Kubernetes-native networking and IPAM operators.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.20'
