@@ -6,7 +6,7 @@ info:
     operator attestation, per-API-call user consent flows, regulatory audit retention, and
     rate limits measured in carrier-network terms. Three-layer trust model: operator (carrier
     knows who is calling), agent (Web Bot Auth identifies the specific agent), call (end-user
-    authorizes this specific lookup).'
+    authorizes this specific lookup). Runtime policy enforcement (signature verify, consent check, scope classify, audit emit) lives in the orchestration.steps below — each step that gates issuance carries on_failure: deny. Lint-time validation of this capability shape lives in the companion Polychro ruleset at https://github.com/api-evangelist/posts/blob/main/polychro/agent-onboarding-rules.yaml — Polychro is Naftiko''s governance layer, separate from the capability spec, and is the correct home for cross-object consistency rules that apply across every agent-onboarding capability.'
   tags:
   - Deutsche Telekom
   - CAMARA
@@ -274,10 +274,3 @@ capability:
     skill:
       name: onboard-agent
       file: skills/onboard-agent.md
-  governance:
-  - { id: require-active-master-agreement, severity: blocking, description: 'Operator must hold an active Phase 1 master agreement with the carrier-aggregator before any agent under them can register.', enforce_at: [runtime] }
-  - { id: require-web-bot-auth, severity: blocking, description: 'All onboard calls must carry a valid RFC 9421 signature.', enforce_at: [runtime] }
-  - { id: require-consent-hash-match, severity: blocking, description: 'Submitted consent_hash must match AGENT_CONSENT_HASH.', enforce_at: [runtime] }
-  - { id: regulatory-audit-immutable, severity: blocking, description: 'Regulatory audit events MUST be written to the long-retention archive; the orchestration MUST NOT return success if the archive write fails.', enforce_at: [runtime] }
-  - { id: forbidden-apis-deny, severity: blocking, description: 'APIs outside the operator''s master agreement permitted-list return 403.', enforce_at: [runtime] }
-  - { id: per-call-consent-required, severity: advisory, description: 'CAMARA APIs requiring per-call user consent (location, SIM-swap, etc.) gate at runtime per the consent-flow definition; the credential alone does not authorize lookup.', enforce_at: [runtime] }
