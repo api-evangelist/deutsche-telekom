@@ -1,0 +1,257 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stargate Api",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiExposure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiExposures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures"
+          },
+          "docs": "Find all ApiExposures of this application"
+        },
+        {
+          "info": {
+            "name": "Create an ApiExposures",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures/:apiExposureName",
+            "params": [
+              {
+                "name": "apiExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiExposure"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures/:apiExposureName",
+            "params": [
+              {
+                "name": "apiExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiExposure"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures/:apiExposureName",
+            "params": [
+              {
+                "name": "apiExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiExposure"
+              }
+            ]
+          },
+          "docs": "Delete an ApiExposure"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiExposure and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures/:apiExposureName/status",
+            "params": [
+              {
+                "name": "apiExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiExposure and return its status"
+        },
+        {
+          "info": {
+            "name": "Find all ApiSubscriptions of this ApiExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apiexposures/:apiExposureName/apisubscriptions",
+            "params": [
+              {
+                "name": "apiExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiExposure"
+              }
+            ]
+          },
+          "docs": "Find all ApiSubscriptions of this ApiExposure"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApiSubscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiSubscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions"
+          },
+          "docs": "Find all ApiSubscriptions of this application"
+        },
+        {
+          "info": {
+            "name": "Create an ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiSubscription"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Delete an ApiSubscription"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSubscription and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/stargate/v2/applications/:applicationId/apisubscriptions/:apiSubscriptionName/status",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiSubscription and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

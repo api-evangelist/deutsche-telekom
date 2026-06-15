@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "File manager API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "downloading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://locahost:8080/v1/files/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the file, should follow the convention <env>--<group>--<team>--<fileName>"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a file from the server with the specified Id. The id should follow the convention."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "uploading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://locahost:8080/v1/files/:fileId",
+            "headers": [
+              {
+                "name": "X-File-Content-Type",
+                "value": ""
+              },
+              {
+                "name": "X-File-Checksum",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the file, should follow the convention <env>--<group>--<team>--<fileName>"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Uploads a file to the server with the specified Id. The id should follow the convention."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "deleting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://locahost:8080/v1/files/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the file, should follow the convention <env>--<group>--<team>--<fileName>"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a file from the server with the specified Id. The id should follow the convention."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

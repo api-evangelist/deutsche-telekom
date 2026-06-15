@@ -1,0 +1,219 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event Api",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventTypes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/eventtypes"
+          },
+          "docs": "Find all registered EventTypes without any restrictions. \nThis operation is global and not scoped to a specific application or team.\n"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/eventtypes/:eventTypeId",
+            "params": [
+              {
+                "name": "eventTypeId",
+                "value": "",
+                "type": "path",
+                "description": "The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+              }
+            ]
+          },
+          "docs": "Find an existing EventType by its complete identifier"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventType and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/eventtypes/:eventTypeId/status",
+            "params": [
+              {
+                "name": "eventTypeId",
+                "value": "",
+                "type": "path",
+                "description": "The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+              }
+            ]
+          },
+          "docs": "Find an existing EventType and return its status"
+        },
+        {
+          "info": {
+            "name": "Find the active EventType for a given name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/eventtypes/:eventTypeName/active",
+            "params": [
+              {
+                "name": "eventTypeName",
+                "value": "",
+                "type": "path",
+                "description": "The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+              }
+            ]
+          },
+          "docs": "Returns the currently active EventType for the given resource name. This operation is global and not scoped to a specific application or team.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EventExposure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventExposures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventexposures"
+          },
+          "docs": "Find all EventExposures of this application"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventexposures/:eventExposureName",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing EventExposure"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventExposure and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventexposures/:eventExposureName/status",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing EventExposure and return its status"
+        },
+        {
+          "info": {
+            "name": "Find all EventSubscriptions of this EventExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventexposures/:eventExposureName/eventsubscriptions",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find all EventSubscriptions that subscribe to this EventExposure"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EventSubscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventSubscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventsubscriptions"
+          },
+          "docs": "Find all EventSubscriptions of this application"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventsubscriptions/:eventSubscriptionName",
+            "params": [
+              {
+                "name": "eventSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing EventSubscription"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSubscription and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/event/v2/applications/:applicationId/eventsubscriptions/:eventSubscriptionName/status",
+            "params": [
+              {
+                "name": "eventSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing EventSubscription and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

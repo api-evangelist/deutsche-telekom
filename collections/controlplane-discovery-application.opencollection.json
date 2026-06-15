@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Application Api",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/application/v2/applications",
+            "params": [
+              {
+                "name": "icto",
+                "value": "",
+                "type": "query",
+                "description": "Filter by icto"
+              },
+              {
+                "name": "apid",
+                "value": "",
+                "type": "query",
+                "description": "Filter by apid"
+              },
+              {
+                "name": "psiid",
+                "value": "",
+                "type": "query",
+                "description": "Filter by psiid (pattern configurable via PSIID_PATTERN env var)"
+              }
+            ]
+          },
+          "docs": "Find all Applications"
+        },
+        {
+          "info": {
+            "name": "Create an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/application/v2/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to b"
+        },
+        {
+          "info": {
+            "name": "Find an existing Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/application/v2/applications/:applicationId"
+          },
+          "docs": "Find an existing Application"
+        },
+        {
+          "info": {
+            "name": "Update an existing Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/application/v2/applications/:applicationId",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to b"
+        },
+        {
+          "info": {
+            "name": "Delete an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/application/v2/applications/:applicationId"
+          },
+          "docs": "Delete an application - all ApiSubscriptions are deleted as well"
+        },
+        {
+          "info": {
+            "name": "Find an existing Application and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/application/v2/applications/:applicationId/status"
+          },
+          "docs": "Find an existing Application and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1079 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rover Api",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all Rovers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "page size requested by the consumer; must not be larger than the maximal page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "list of fields to be used for sorting. Default is name"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find all Rovers of a Team"
+        },
+        {
+          "info": {
+            "name": "Create a Rover",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/rover/v3/rovers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a Rover. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status "
+        },
+        {
+          "info": {
+            "name": "Read info of all applications of a Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers/info",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "page size requested by the consumer; must not be larger than the maximal page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "list of fields to be used for sorting. Default is name"
+              },
+              {
+                "name": "names",
+                "value": "",
+                "type": "query",
+                "description": "Filter by application names"
+              },
+              {
+                "name": "shallowInfo",
+                "value": "",
+                "type": "query",
+                "description": "If true, the status and information of all sub-resources will be omitted in the response. Only the information about the application itself will be returned. This will significantly reduce the response size and time. Default is false."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Read info of all applications of a Team"
+        },
+        {
+          "info": {
+            "name": "Find an existing Rover",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers/:roverId",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing Rover"
+        },
+        {
+          "info": {
+            "name": "Update an existing Rover",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/rover/v3/rovers/:roverId",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing Rover. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processi"
+        },
+        {
+          "info": {
+            "name": "Delete a Rover",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/rover/v3/rovers/:roverId",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete Rover - will remove your API / Subscriptions / Exposures\n"
+        },
+        {
+          "info": {
+            "name": "Read info of a specific application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers/:roverId/info",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              },
+              {
+                "name": "shallowInfo",
+                "value": "",
+                "type": "query",
+                "description": "If true, the status and information of all sub-resources will be omitted in the response. Only the information about the application itself will be returned. This will significantly reduce the response size and time. Default is false."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Read info of a specific application"
+        },
+        {
+          "info": {
+            "name": "Rotate the clientSecret for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}/rover/v3/rovers/:roverId/secret",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Initiates a secret rotation for the Application. The rotation is handled by the admission webhook which decides whether to perform a graceful rotation (old secret remains valid during a grace period) or a non-graceful rotation based on the zone configuration.\n"
+        },
+        {
+          "info": {
+            "name": "Get the secret rotation status for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers/:roverId/secret/status",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the current secret rotation status for an Application, including whether a graceful rotation is in progress, whether it has converged, and the relevant expiry timestamps.\n"
+        },
+        {
+          "info": {
+            "name": "Find an existing Rover and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/rovers/:roverId/status",
+            "params": [
+              {
+                "name": "roverId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing Rover and return its status"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApiSpecification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiSpecifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apispecifications",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "page size requested by the consumer; must not be larger than the maximal page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "list of fields to be used for sorting. Default is name"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find all API Specifications of a Team"
+        },
+        {
+          "info": {
+            "name": "Create an ApiSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/rover/v3/apispecifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the proces"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSpecification and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apispecifications/:apiSpecificationId/status",
+            "params": [
+              {
+                "name": "apiSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiSpecification and return its status"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apispecifications/:apiSpecificationId",
+            "params": [
+              {
+                "name": "apiSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiSpecification"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/rover/v3/apispecifications/:apiSpecificationId",
+            "params": [
+              {
+                "name": "apiSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, t"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/rover/v3/apispecifications/:apiSpecificationId",
+            "params": [
+              {
+                "name": "apiSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--resourceName"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an ApiSpecification\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EventSpecification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventSpecifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/eventspecifications",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "page size requested by the consumer; must not be larger than the maximal page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "list of fields to be used for sorting. Default is name"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find all EventSpecifications of a Team"
+        },
+        {
+          "info": {
+            "name": "Create an EventSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/rover/v3/eventspecifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the proc"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/eventspecifications/:eventSpecificationId",
+            "params": [
+              {
+                "name": "eventSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing EventSpecification"
+        },
+        {
+          "info": {
+            "name": "Update an existing EventSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/rover/v3/eventspecifications/:eventSpecificationId",
+            "params": [
+              {
+                "name": "eventSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect,"
+        },
+        {
+          "info": {
+            "name": "Delete an EventSpecification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/rover/v3/eventspecifications/:eventSpecificationId",
+            "params": [
+              {
+                "name": "eventSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an EventSpecification\n"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSpecification and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/eventspecifications/:eventSpecificationId/status",
+            "params": [
+              {
+                "name": "eventSpecificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing EventSpecification and return its status"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApiRoadmap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiRoadmaps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apiroadmaps",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor for pagination"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find all ApiRoadmaps of a Team"
+        },
+        {
+          "info": {
+            "name": "Create an ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/rover/v3/apiroadmaps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an ApiRoadmap resource"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/rover/v3/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/rover/v3/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiRoadmap and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apiroadmaps/:apiRoadmapId/status",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiRoadmap and return its status"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApiChangelog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiChangelogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apichangelogs",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor for pagination"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find all ApiChangelogs of a Team"
+        },
+        {
+          "info": {
+            "name": "Create a new ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/rover/v3/apichangelogs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a new ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Create or update an ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/rover/v3/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create or update an ApiChangelog using declarative PUT."
+        },
+        {
+          "info": {
+            "name": "Delete an ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/rover/v3/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiChangelog and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/rover/v3/apichangelogs/:apiChangelogId/status",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://example.com/auth/realms/realm//protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Find an existing ApiChangelog and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

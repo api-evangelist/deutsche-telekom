@@ -1,0 +1,1665 @@
+{
+  "item": [
+    {
+      "id": "2e9997cb-2a0b-4f7f-b9ae-b3e4b84ea315",
+      "name": "Application",
+      "description": {
+        "content": "Manage applications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56fbe4af-d53d-472e-b79f-c08932b9d051",
+          "name": "Find all Applications",
+          "request": {
+            "name": "Find all Applications",
+            "description": {
+              "content": "Find all Applications",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "icto",
+                  "value": "<string>",
+                  "description": "Filter by icto"
+                },
+                {
+                  "disabled": false,
+                  "key": "apid",
+                  "value": "<string>",
+                  "description": "Filter by apid"
+                },
+                {
+                  "disabled": false,
+                  "key": "psiid",
+                  "value": "<string>",
+                  "description": "Filter by psiid (pattern configurable via PSIID_PATTERN env var)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "561ea9d0-674c-450a-b901-7cf4724bff26",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Result-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"id\": \"hub42--team2--myapp\",\n      \"team\": {\n        \"hub\": \"eni\",\n        \"name\": \"hyperion\",\n        \"email\": \"tnrsmvax9Jt@VJLdSQsnvEWiInBbCjCuROZTZremyi.af\",\n        \"category\": \"CUSTOMER\"\n      },\n      \"name\": \"myapp\",\n      \"zone\": \"aws\",\n      \"icto\": \"icto-12345\",\n      \"apid\": \"AP-12AB-34AB-56AB\",\n      \"psiid\": \"PSI-123456\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"security\": {\n        \"ipRestrictions\": {\n          \"allow\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"hub42--team2--myapp\",\n      \"team\": {\n        \"hub\": \"eni\",\n        \"name\": \"hyperion\",\n        \"email\": \"8PtbWpyDiIjYl@lVSHcnjYfmZKkgHsZjfn.lu\",\n        \"category\": \"CUSTOMER\"\n      },\n      \"name\": \"myapp\",\n      \"zone\": \"aws\",\n      \"icto\": \"icto-12345\",\n      \"apid\": \"AP-12AB-34AB-56AB\",\n      \"psiid\": \"PSI-123456\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"security\": {\n        \"ipRestrictions\": {\n          \"allow\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9083d63b-3ed0-4714-9efc-a50105dd257b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "883474f7-92ec-4326-a8d8-4bbd69608978",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efa7dd90-7cd4-4b27-925f-7aa362f249e8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59369e87-19fe-4816-80c5-874ce794d44c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e01da878-8ae5-4ff5-ae0c-91cc0e55e733",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "icto",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psiid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4076a57-ccad-4a6a-a74c-d9791a217a42",
+          "name": "Create an Application",
+          "request": {
+            "name": "Create an Application",
+            "description": {
+              "content": "Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b97b1cf5-74b7-4f35-8aa0-ca0a3e2c3595",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"hub42--team2--myapp\",\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\",\n    \"email\": \"irpM@sSMtOCSBFcSAWRnJqSKIEAjrr.ncot\",\n    \"category\": \"CUSTOMER\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68f97e50-1c9a-4f15-b816-757278655bd7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7cc66ea-9109-4161-9dc0-143444f4132c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b4d9819-1921-4299-bb01-42af027a9028",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f7bddb3-2fc2-4a77-9eb0-9562d1b544da",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d17bbda-2ca2-4e8a-9ab6-0c11ceaf38f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7457e53e-604e-440a-b48c-d8bb56d3457f",
+          "name": "Find an existing Application",
+          "request": {
+            "name": "Find an existing Application",
+            "description": {
+              "content": "Find an existing Application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "72010e06-d9f2-4566-8330-c06108afc247",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"hub42--team2--myapp\",\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\",\n    \"email\": \"irpM@sSMtOCSBFcSAWRnJqSKIEAjrr.ncot\",\n    \"category\": \"CUSTOMER\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32437b2d-3451-4463-bc6b-ffd0edbe5fde",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fded556d-7874-40c1-9dd1-22d73f7c9214",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3008b24-3109-414f-8827-67c4c86abd3d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21e66836-2721-40e5-869c-e0d833c3f453",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82206005-e460-4842-abca-7196b30583a0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ee6f374-be8d-4c58-806b-b5130299bd9a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c42c3ea3-90a6-4505-814d-cd5813b6ee49",
+          "name": "Update an existing Application",
+          "request": {
+            "name": "Update an existing Application",
+            "description": {
+              "content": "Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"team\": {\n    \"hub\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"zone\": \"<string>\",\n  \"icto\": \"<string>\",\n  \"apid\": \"<string>\",\n  \"psiid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36110c93-63ab-4b9c-a0f9-3ef25ecd171c",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"hub42--team2--myapp\",\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\",\n    \"email\": \"irpM@sSMtOCSBFcSAWRnJqSKIEAjrr.ncot\",\n    \"category\": \"CUSTOMER\"\n  },\n  \"name\": \"myapp\",\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"security\": {\n    \"ipRestrictions\": {\n      \"allow\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5593a10b-2142-4bb2-8266-295bae1e911b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7209a349-7716-4a9a-ac51-ac201fd5e257",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d68820b-cfbd-441c-bcf1-91007a72c100",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58bd1481-9f30-47d4-acd5-d89bb177e841",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb3a8ca6-05fa-4279-b78e-42bca06eddee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4873f74c-3ec3-4163-a0d7-5ab52b3f25af",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team\": {\n    \"hub\": \"eni\",\n    \"name\": \"hyperion\"\n  },\n  \"zone\": \"aws\",\n  \"icto\": \"icto-12345\",\n  \"apid\": \"AP-12AB-34AB-56AB\",\n  \"psiid\": \"PSI-123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6948ff1c-044d-4156-baf0-7690fd49a748",
+          "name": "Delete an Application",
+          "request": {
+            "name": "Delete an Application",
+            "description": {
+              "content": "Delete an application - all ApiSubscriptions are deleted as well",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "065c72e8-245e-40fc-89a1-df1a002069a6",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ab05a0e-3484-43d2-954e-a2138efa3b06",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb3176f2-b9cb-42e6-b946-0a51a3bc1c4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45f06668-431e-458c-94af-c6d383668403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "025ac3f6-0df8-4ce1-9753-d5939a54c077",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23f5497f-60b3-4212-8d2d-ffea714c637f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55301e24-34ac-48ba-b469-ff775d487820",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60196cef-5330-44c6-863f-2a2364962458",
+          "name": "Find an existing Application and return its status",
+          "request": {
+            "name": "Find an existing Application and return its status",
+            "description": {
+              "content": "Find an existing Application and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f192d126-effc-47a8-a87e-fe2723de6572",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ddf49c9-b57b-4fa3-a203-796c55215b21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9278ff4f-9ba8-4f78-b7d4-3d4f0ca411bb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c790ec6-9ac3-4880-8089-e60063a7530c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dbb61c9-6c38-4cb8-9e1c-9abd6f1fe415",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae22ea56-a339-4dbf-a1f0-d7bec2dee882",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2d60feb5-be86-4185-b6bf-f2772c70f5ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/application/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "34f4a847-280e-496a-9ef9-c9a35f370f39",
+    "name": "Application Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API, you can manage your Applications.\nThis is a **read-only** API. You can only read the resources. \nFor creating and updating resources, you may use the Rover-API.\n\n**Important:** \n- You may use this API by subscribing to it by using the usual process. \nYou **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.\nIf you require more permissions, please contact the TARDIS team.\n\n- This is a Team-API and may be used by any team using TARDIS. \nIn the future, you can simply use your Team-credentials to access this API.\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RemoteSubscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create/Update a RemoteSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/remoteSubscriptions/:remoteSubscriptionId",
+            "params": [
+              {
+                "name": "remoteSubscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique resource id of this remoteSubscription"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a RemoteSubscription or updating an existing RemoteSubscription."
+        },
+        {
+          "info": {
+            "name": "Delete a RemoteSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/remoteSubscriptions/:remoteSubscriptionId",
+            "params": [
+              {
+                "name": "remoteSubscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique resource id of this remoteSubscription"
+              }
+            ]
+          },
+          "docs": "Delete an existing RemoteSubscription."
+        },
+        {
+          "info": {
+            "name": "Update a RemoteSubscriptionStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/remoteSubscriptions/:remoteSubscriptionId/status",
+            "params": [
+              {
+                "name": "remoteSubscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique resource id of this remoteSubscription"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a RemoteSubscription."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
