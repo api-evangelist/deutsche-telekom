@@ -333,6 +333,8 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.j
 access: 3rd-Party
 position: Provider
 common:
+- type: OAuthScopes
+  url: scopes/deutsche-telekom-scopes.yml
 - type: Website
   url: https://www.telekom.com/en
 - type: DeveloperPortal
@@ -421,6 +423,8 @@ common:
   - https://www.open-telekom-cloud.com/en
   - https://docs.otc.t-systems.com/
   updated: '2026-05-25'
+- url: https://developer.telekom.com/en/news
+  type: Blog
 created: '2026-05-25'
 modified: '2026-05-25'
 description: Deutsche Telekom AG is Europe's largest telecommunications operator, headquartered in Bonn, Germany,

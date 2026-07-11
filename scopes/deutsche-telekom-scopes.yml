@@ -1,0 +1,89 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/controlplane-rover-server-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/controlplane-rover-server-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://example.com/auth/realms/realm//protocol/openid-connect/token
+  description: OAuth2 client_credentials flow
+scopes:
+- scope: tardis:admin:all
+  description: Admin access to all resources
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:admin:obfuscated
+  description: Admin obfuscated access to all resources
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:admin:read
+  description: Admin read access to all resources
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:hub:all
+  description: Access to all resources of a hub
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:hub:obfuscated
+  description: Obfuscated access to all resources of a hub
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:hub:read
+  description: Read access to all resources of a hub
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:supervisor:read
+  description: (deprecated) Admin obfuscated access to all resources
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:team:all
+  description: Access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:team:obfuscated
+  description: Obfuscated access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:team:read
+  description: Read access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:user:all
+  description: (deprecated) Access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:user:obfuscated
+  description: (deprecated) Obfuscated access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
+- scope: tardis:user:read
+  description: (deprecated) Read access to all resources of a team
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
