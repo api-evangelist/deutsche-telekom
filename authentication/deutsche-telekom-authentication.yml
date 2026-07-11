@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/controlplane-file-manager-openapi.yml, openapi/controlplane-identity-openapi.yml,
+  openapi/controlplane-rover-server-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: JWT Bearer token authentication
+  sources:
+  - openapi/controlplane-file-manager-openapi.yml
+  - openapi/controlplane-identity-openapi.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://example.com/auth/realms/realm//protocol/openid-connect/token
+    scopes: 13
+  description: OAuth2 client_credentials flow
+  sources:
+  - openapi/controlplane-rover-server-openapi.yml
