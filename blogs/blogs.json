@@ -1,0 +1,14 @@
+{
+  "repo": "deutsche-telekom",
+  "feeds": [
+    {
+      "source": "https://developer.telekom.com/en/news",
+      "feed_url": "https://developer.telekom.com/en/news",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 6
+}
