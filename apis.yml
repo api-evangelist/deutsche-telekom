@@ -333,6 +333,8 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.j
 access: 3rd-Party
 position: Provider
 common:
+- type: AgenticAccess
+  url: agentic-access/deutsche-telekom-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/deutsche-telekom-vulnerability-disclosure.yml
 - type: DomainSecurity
