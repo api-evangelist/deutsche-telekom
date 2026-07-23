@@ -1,0 +1,258 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Client Attribute Certificate API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Client Attribute Certificate
+paths:
+  /{realm}/clients/{id}/certificates/{attr}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Attribute Certificate
+      summary: Get key info
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateRepresentation'
+  /{realm}/clients/{id}/certificates/{attr}/download:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Client Attribute Certificate
+      summary: Get a keystore file for the client, containing private key and public certificate
+      requestBody:
+        description: Keystore configuration as JSON
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyStoreConfig'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: byte
+  /{realm}/clients/{id}/certificates/{attr}/generate:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Client Attribute Certificate
+      summary: Generate a new certificate with new key pair
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateRepresentation'
+  /{realm}/clients/{id}/certificates/{attr}/generate-and-download:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Client Attribute Certificate
+      summary: Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.
+      requestBody:
+        description: Keystore configuration as JSON
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyStoreConfig'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: byte
+  /{realm}/clients/{id}/certificates/{attr}/upload:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Client Attribute Certificate
+      summary: Upload certificate and eventually private key
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateRepresentation'
+  /{realm}/clients/{id}/certificates/{attr}/upload-certificate:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: attr
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Client Attribute Certificate
+      summary: Upload only certificate, not private key
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateRepresentation'
+components:
+  schemas:
+    KeyStoreConfig:
+      type: object
+      properties:
+        format:
+          type: string
+        keyAlias:
+          type: string
+        keyPassword:
+          type: string
+        realmAlias:
+          type: string
+        realmCertificate:
+          type: boolean
+        storePassword:
+          type: string
+    CertificateRepresentation:
+      type: object
+      properties:
+        certificate:
+          type: string
+        kid:
+          type: string
+        privateKey:
+          type: string
+        publicKey:
+          type: string

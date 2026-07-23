@@ -1,0 +1,583 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog ApiSpecification API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: ApiSpecification
+  description: Manage ApiSpecifications
+paths:
+  /apispecifications:
+    get:
+      tags:
+      - ApiSpecification
+      summary: Find all ApiSpecifications
+      description: Find all API Specifications of a Team
+      operationId: getAllApiSpecifications
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/XTotalCount'
+            X-Result-Count:
+              $ref: '#/components/headers/XResultCount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSpecificationListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    post:
+      tags:
+      - ApiSpecification
+      summary: Create an ApiSpecification
+      description: Create an ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
+      operationId: createApiSpecification
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiSpecificationCreateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+  /apispecifications/{apiSpecificationId}/status:
+    get:
+      tags:
+      - ApiSpecification
+      summary: Find an existing ApiSpecification and return its status
+      description: Find an existing ApiSpecification and return its status
+      operationId: getApiSpecificationStatus
+      parameters:
+      - $ref: '#/components/parameters/ApiSpecificationId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+  /apispecifications/{apiSpecificationId}:
+    get:
+      tags:
+      - ApiSpecification
+      summary: Find an existing ApiSpecification
+      description: Find an existing ApiSpecification
+      operationId: getApiSpecifications
+      parameters:
+      - $ref: '#/components/parameters/ApiSpecificationId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    put:
+      tags:
+      - ApiSpecification
+      summary: Update an existing ApiSpecification
+      description: Update an existing ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
+      operationId: updateApiSpecification
+      parameters:
+      - $ref: '#/components/parameters/ApiSpecificationId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiSpecificationUpdateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+    delete:
+      tags:
+      - ApiSpecification
+      summary: Delete an ApiSpecification
+      description: "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an ApiSpecification\n"
+      operationId: deleteApiSpecification
+      parameters:
+      - $ref: '#/components/parameters/ApiSpecificationId'
+      responses:
+        '204':
+          description: DELETED
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+components:
+  schemas:
+    ApiSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiSpecification'
+    ApiSpecification:
+      type: object
+      required:
+      - specification
+      properties:
+        specification:
+          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
+          type: object
+          additionalProperties: true
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ApiSpecificationCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiSpecification'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    ApiSpecificationResponse:
+      type: object
+      required:
+      - id
+      - name
+      - category
+      - vendorApi
+      - specification
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        specification:
+          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
+          type: object
+          additionalProperties: true
+        id:
+          description: Unique id of this resource. Can be used to directly address this specific resource
+          type: string
+          example: my-hub--my-team--eni-foo-v3
+        category:
+          description: Category of this api
+          type: string
+          example: G_API
+        vendorApi:
+          description: Whether this api is an vendor api
+          type: boolean
+        name:
+          description: Name of the created api (subset of id)
+          type: string
+          example: eni-foo-v3
+    ApiSpecificationListResponse:
+      type: object
+      required:
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSpecificationResponse'
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
+  responses:
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    Sort:
+      name: sort
+      in: query
+      description: list of fields to be used for sorting. Default is name
+      required: false
+      schema:
+        type: string
+        enum:
+        - name
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
+    ApiSpecificationId:
+      name: apiSpecificationId
+      description: The unique id of this resource following the pattern group--team--resourceName
+      in: path
+      required: true
+      schema:
+        type: string
+    Limit:
+      name: limit
+      description: page size requested by the consumer; must not be larger than the maximal page size
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 20
+        default: 20
+  headers:
+    XResultCount:
+      description: Actual number of items returned in the response body for this page.
+      schema:
+        type: integer
+        minimum: 0
+    XTotalCount:
+      description: Total number of items matching criteria.
+      schema:
+        type: integer
+        minimum: 0

@@ -1,0 +1,863 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Authentication Management API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Authentication Management
+paths:
+  /{realm}/authentication/authenticator-providers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authenticator providers   Returns a list of authenticator providers.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /{realm}/authentication/client-authenticator-providers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get client authenticator providers   Returns a list of client authenticator providers.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /{realm}/authentication/config-description/{providerId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: providerId
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authenticator provider’s configuration description
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticatorConfigInfoRepresentation'
+  /{realm}/authentication/config/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: Configuration id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authenticator configuration
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
+    put:
+      tags:
+      - Authentication Management
+      summary: Update authenticator configuration
+      requestBody:
+        description: JSON describing new state of authenticator configuration
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Authentication Management
+      summary: Delete authenticator configuration
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/executions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Add new authentication execution
+      requestBody:
+        description: JSON model describing authentication execution
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationExecutionRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/executions/{executionId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: executionId
+      description: Execution id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get Single Execution
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Authentication Management
+      summary: Delete execution
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/executions/{executionId}/config:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: executionId
+      description: Execution id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Update execution with new configuration
+      requestBody:
+        description: JSON with new configuration
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/executions/{executionId}/lower-priority:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: executionId
+      description: Execution id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Lower execution’s priority
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/executions/{executionId}/raise-priority:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: executionId
+      description: Execution id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Raise execution’s priority
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authentication flows   Returns a list of authentication flows.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+    post:
+      tags:
+      - Authentication Management
+      summary: Create a new authentication flow
+      requestBody:
+        description: Authentication flow representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows/{flowAlias}/copy:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: flowAlias
+      description: Name of the existing authentication flow
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object
+      requestBody:
+        description: JSON containing 'newName' attribute
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows/{flowAlias}/executions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: flowAlias
+      description: Flow alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authentication executions for a flow
+      responses:
+        2XX:
+          description: success
+    put:
+      tags:
+      - Authentication Management
+      summary: Update authentication executions of a flow
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationExecutionInfoRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows/{flowAlias}/executions/execution:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: flowAlias
+      description: Alias of parent flow
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Add new authentication execution to a flow
+      requestBody:
+        description: New execution JSON data containing 'provider' attribute
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows/{flowAlias}/executions/flow:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: flowAlias
+      description: Alias of parent authentication flow
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Add new flow with new execution to existing flow
+      requestBody:
+        description: New authentication flow / execution JSON data containing 'alias', 'type', 'provider', and 'description' attributes
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/flows/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: Flow id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get authentication flow for id
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+    put:
+      tags:
+      - Authentication Management
+      summary: Update an authentication flow
+      requestBody:
+        description: Authentication flow representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Authentication Management
+      summary: Delete an authentication flow
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/form-action-providers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get form action providers   Returns a list of form action providers.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /{realm}/authentication/form-providers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get form providers   Returns a list of form providers.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /{realm}/authentication/per-client-config-description:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get configuration descriptions for all clients
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/authentication/register-required-action:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Register a new required actions
+      requestBody:
+        description: JSON containing 'providerId', and 'name' attributes.
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/required-actions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get required actions   Returns a list of required actions.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+  /{realm}/authentication/required-actions/{alias}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      description: Alias of required action
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get required action for alias
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+    put:
+      tags:
+      - Authentication Management
+      summary: Update required action
+      requestBody:
+        description: JSON describing new state of required action
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Authentication Management
+      summary: Delete required action
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/required-actions/{alias}/lower-priority:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      description: Alias of required action
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Lower required action’s priority
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/required-actions/{alias}/raise-priority:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      description: Alias of required action
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Authentication Management
+      summary: Raise required action’s priority
+      responses:
+        2XX:
+          description: success
+  /{realm}/authentication/unregistered-required-actions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Authentication Management
+      summary: Get unregistered required actions   Returns a list of unregistered required actions.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  schemas:
+    AuthenticationExecutionInfoRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationConfig:
+          type: string
+        authenticationFlow:
+          type: boolean
+        configurable:
+          type: boolean
+        displayName:
+          type: string
+        flowId:
+          type: string
+        id:
+          type: string
+        index:
+          type: integer
+          format: int32
+        level:
+          type: integer
+          format: int32
+        providerId:
+          type: string
+        requirement:
+          type: string
+        requirementChoices:
+          type: array
+          items:
+            type: string
+    ConfigPropertyRepresentation:
+      type: object
+      properties:
+        defaultValue:
+          type: object
+        helpText:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
+          type: string
+    RequiredActionProviderRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        defaultAction:
+          type: boolean
+        enabled:
+          type: boolean
+        name:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        providerId:
+          type: string
+    AuthenticationExecutionRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowId:
+          type: string
+        id:
+          type: string
+        parentFlow:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
+          type: string
+    AuthenticatorConfigRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+    AuthenticationFlowRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationExecutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
+        builtIn:
+          type: boolean
+        description:
+          type: string
+        id:
+          type: string
+        providerId:
+          type: string
+        topLevel:
+          type: boolean
+    AuthenticationExecutionExportRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowAlias:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
+          type: string
+        userSetupAllowed:
+          type: boolean
+    AuthenticatorConfigInfoRepresentation:
+      type: object
+      properties:
+        helpText:
+          type: string
+        name:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
+        providerId:
+          type: string

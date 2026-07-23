@@ -1,0 +1,303 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog EventType API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: EventType
+  description: 'An EventType is a registry entry representing a known event type. It
+
+    serves as the canonical reference that both EventExposures and
+
+    EventSubscriptions point to. EventTypes are identified by a dot-separated
+
+    identifier (e.g. "de.telekom.eni.quickstart.v1").
+
+    '
+paths:
+  /eventtypes:
+    get:
+      tags:
+      - EventType
+      summary: Find all EventTypes
+      description: "Find all registered EventTypes without any restrictions. \nThis operation is global and not scoped to a specific application or team.\n"
+      operationId: getAllEventTypes
+      parameters:
+      - $ref: common.yaml#/components/parameters/Limit
+      - $ref: common.yaml#/components/parameters/Offset
+      - $ref: common.yaml#/components/parameters/Sort
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Total-Count:
+              $ref: common.yaml#/components/headers/XTotalCount
+            X-Result-Count:
+              $ref: common.yaml#/components/headers/XResultCount
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventTypeListResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read - tardis:user:obfuscated
+  /eventtypes/{eventTypeId}:
+    get:
+      tags:
+      - EventType
+      summary: Find an existing EventType
+      description: Find an existing EventType by its complete identifier
+      operationId: getEventType
+      parameters:
+      - name: eventTypeId
+        description: 'The complete identifier of the EventType (e.g. "de-telekom-eni-quickstart-v1--1-0-0")
+
+          '
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventTypeResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+  /eventtypes/{eventTypeId}/status:
+    get:
+      tags:
+      - EventType
+      summary: Find an existing EventType and return its status
+      description: Find an existing EventType and return its status
+      operationId: getEventTypeStatus
+      parameters:
+      - name: eventTypeId
+        description: 'The complete identifier of the EventType (e.g. "de-telekom-eni-quickstart-v1--1-0-0")
+
+          '
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: common.yaml#/components/schemas/ResourceStatusResponse
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+  /eventtypes/{eventTypeName}/active:
+    get:
+      tags:
+      - EventType
+      summary: Find the active EventType for a given name
+      description: 'Returns the currently active EventType for the given resource name. This operation is global and not scoped to a specific application or team.
+
+        '
+      operationId: getActiveEventType
+      parameters:
+      - name: eventTypeName
+        description: 'The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. "de-telekom-eni-quickstart-v1")
+
+          '
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventTypeResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+components:
+  schemas:
+    EventTypeResponse:
+      type: object
+      readOnly: true
+      required:
+      - name
+      - type
+      - version
+      allOf:
+      - $ref: '#/components/schemas/EventType'
+      - properties:
+          id:
+            type: string
+            readOnly: true
+            description: 'The complete resource identifier of the EventType
+
+              '
+            example: eni--hyperion--de-telekom-eni-quickstart-v1
+          name:
+            type: string
+            readOnly: true
+            description: 'Resource name (dot-to-hyphen conversion of type, e.g. "de-telekom-eni-quickstart-v1").
+
+              '
+            example: de-telekom-eni-quickstart-v1
+          active:
+            type: boolean
+            readOnly: true
+            description: 'Whether this EventType is the active singleton for its type string. When multiple EventTypes exist for the same type, only the oldest non-deleted one is active.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status
+    EventTypeListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventTypeResponse'
+    EventType:
+      type: object
+      description: 'Registry entry for a known event type. Serves as the canonical reference
+
+        that both EventExposure and EventSubscription point to.
+
+        Maps to EventTypeSpec in the EventType CR.
+
+        '
+      properties:
+        type:
+          type: string
+          description: 'Dot-separated event type identifier (e.g. "de.telekom.eni.quickstart.v1"). The last segment must be a version prefix matching the major version.
+
+            '
+          pattern: ^[a-z0-9]+(\.[a-z0-9]+)*$
+          minLength: 1
+          maxLength: 253
+          example: de.telekom.eni.quickstart.v1
+        version:
+          type: string
+          description: 'Version of the event type specification (e.g. "1.0.0"). The major version must match the version suffix in the type field.
+
+            '
+          pattern: ^\d+.*$
+          example: 1.0.0
+        description:
+          type: string
+          description: Human-readable summary of this event type.
+          example: Quickstart events for the ENI platform
+        specification:
+          type: string
+          description: 'File ID reference from the file manager for the optional JSON schema that describes the event payload.
+
+            '

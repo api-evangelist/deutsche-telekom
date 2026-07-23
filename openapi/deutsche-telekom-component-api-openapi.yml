@@ -1,0 +1,205 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Component API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Component
+paths:
+  /{realm}/components:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Component
+      parameters:
+      - in: query
+        name: name
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: parent
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: type
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentRepresentation'
+    post:
+      tags:
+      - Component
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComponentRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/components/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Component
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentRepresentation'
+    put:
+      tags:
+      - Component
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComponentRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Component
+      responses:
+        2XX:
+          description: success
+  /{realm}/components/{id}/sub-component-types:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Component
+      summary: List of subcomponent types that are available to configure for a particular parent component.
+      parameters:
+      - in: query
+        name: type
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentTypeRepresentation'
+components:
+  schemas:
+    ComponentTypeRepresentation:
+      type: object
+      properties:
+        helpText:
+          type: string
+        id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
+    MultivaluedHashMap:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        loadFactor:
+          type: number
+          format: float
+        threshold:
+          type: integer
+          format: int32
+    ComponentRepresentation:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MultivaluedHashMap'
+        id:
+          type: string
+        name:
+          type: string
+        parentId:
+          type: string
+        providerId:
+          type: string
+        providerType:
+          type: string
+        subType:
+          type: string
+    ConfigPropertyRepresentation:
+      type: object
+      properties:
+        defaultValue:
+          type: object
+        helpText:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
+          type: string

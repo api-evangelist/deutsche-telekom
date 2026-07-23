@@ -1,0 +1,383 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog EventSubscription API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: EventSubscription
+  description: 'An EventSubscription declares that your application wants to receive
+
+    events of a specific type. You can configure the delivery mechanism
+
+    (callback or server-sent events), payload format, and subscriber-side
+
+    filtering criteria.
+
+    '
+paths:
+  /applications/{applicationId}/eventsubscriptions:
+    get:
+      tags:
+      - EventSubscription
+      summary: Find all EventSubscriptions
+      description: Find all EventSubscriptions of this application
+      operationId: getAllEventSubscriptions
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - $ref: common.yaml#/components/parameters/Limit
+      - $ref: common.yaml#/components/parameters/Offset
+      - $ref: common.yaml#/components/parameters/Sort
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Total-Count:
+              $ref: common.yaml#/components/headers/XTotalCount
+            X-Result-Count:
+              $ref: common.yaml#/components/headers/XResultCount
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSubscriptionListResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read - tardis:user:obfuscated
+  /applications/{applicationId}/eventsubscriptions/{eventSubscriptionName}:
+    get:
+      tags:
+      - EventSubscription
+      summary: Find an existing EventSubscription
+      description: Find an existing EventSubscription
+      operationId: getEventSubscription
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: eventSubscriptionName
+        description: The name of the EventSubscription
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSubscriptionResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read - tardis:user:obfuscated
+  /applications/{applicationId}/eventsubscriptions/{eventSubscriptionName}/status:
+    get:
+      tags:
+      - EventSubscription
+      summary: Find an existing EventSubscription and return its status
+      description: Find an existing EventSubscription and return its status
+      operationId: getEventSubscriptionStatus
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: eventSubscriptionName
+        description: The name of the EventSubscription
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: common.yaml#/components/schemas/ResourceStatusResponse
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+components:
+  schemas:
+    EventSubscription:
+      type: object
+      description: 'Declaration that an application subscribes to events of a specific type.
+
+        Maps to EventSubscriptionSpec in the EventSubscription CR.
+
+        '
+      properties:
+        eventType:
+          type: string
+          description: 'Dot-separated event type identifier (e.g. "de.telekom.eni.quickstart.v1"). References the EventType CR.
+
+            '
+          minLength: 1
+          example: de.telekom.eni.quickstart.v1
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+        trigger:
+          $ref: '#/components/schemas/EventTrigger'
+        scopes:
+          type: array
+          description: 'Selects which publisher-defined scopes to subscribe to. Must match scope names defined on the corresponding EventExposure. Maps to EventSubscriptionSpec.Scopes in the EventSubscription CR.
+
+            '
+          items:
+            type: string
+          example:
+          - high-priority
+    ResponseFilter:
+      type: object
+      description: Controls which fields are included or excluded from the event payload.
+      properties:
+        paths:
+          type: array
+          description: JSON paths to include or exclude from the event payload.
+          items:
+            type: string
+          example:
+          - $.data.orderId
+          - $.data.status
+        mode:
+          $ref: '#/components/schemas/ResponseFilterMode'
+    EventTrigger:
+      type: object
+      description: 'Defines filtering criteria for event delivery.
+
+        Maps to EventTrigger in the EventExposure/EventSubscription CR.
+
+        '
+      properties:
+        responseFilter:
+          $ref: '#/components/schemas/ResponseFilter'
+        selectionFilter:
+          $ref: '#/components/schemas/SelectionFilter'
+    EventSubscriptionApproval:
+      type: object
+      readOnly: true
+      description: Approval status of the event subscription.
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    Delivery:
+      type: object
+      description: 'Configures how events are delivered to the subscriber.
+
+        Maps to EventSubscriptionSpec.Delivery in the EventSubscription CR.
+
+        '
+      required:
+      - type
+      properties:
+        type:
+          $ref: '#/components/schemas/DeliveryType'
+        payload:
+          $ref: '#/components/schemas/PayloadType'
+        callback:
+          type: string
+          format: uri
+          description: 'URL where events are delivered. Required when type is "Callback", must not be set for "ServerSentEvent".
+
+            '
+          example: https://myapp.example.com/events/callback
+        eventRetentionTime:
+          type: string
+          description: How long events are retained for this subscriber.
+          example: 7d
+        circuitBreakerOptOut:
+          type: boolean
+          description: Disables the circuit breaker for this subscription.
+          default: false
+        retryableStatusCodes:
+          type: array
+          description: HTTP status codes that should trigger a retry.
+          items:
+            type: integer
+          example:
+          - 502
+          - 503
+          - 504
+        redeliveriesPerSecond:
+          type: integer
+          description: Limits the rate of event redeliveries.
+          example: 10
+        enforceGetHttpRequestMethodForHealthCheck:
+          type: boolean
+          description: Forces GET for health check probes instead of HEAD.
+          default: false
+    PayloadType:
+      enum:
+      - Data
+      - DataRef
+      type: string
+      description: 'Defines the event payload format.
+
+        Maps to EventSubscriptionSpec.Delivery.Payload in the EventSubscription CR.
+
+        '
+    DeliveryType:
+      enum:
+      - Callback
+      - ServerSentEvent
+      type: string
+      description: 'Defines how events are delivered to subscribers.
+
+        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
+
+        '
+    EventSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/EventSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: de-telekom-eni-quickstart-v1
+          zone:
+            type: string
+            readOnly: true
+            description: 'The zone where this subscription is placed. Maps to EventSubscriptionSpec.Zone in the EventSubscription CR.
+
+              '
+          url:
+            type: string
+            readOnly: true
+            description: 'SSE endpoint URL for this subscription. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.URL.
+
+              '
+            example: https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1
+          subscriptionId:
+            type: string
+            readOnly: true
+            description: 'Unique identifier of the subscriber. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.SubscriptionId.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/EventSubscriptionApproval'
+    EventSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSubscriptionResponse'
+    ResponseFilterMode:
+      enum:
+      - Include
+      - Exclude
+      type: string
+      description: Controls whether the response filter includes or excludes the specified fields.
+    SelectionFilter:
+      type: object
+      description: Defines criteria for selecting which events are delivered.
+      properties:
+        attributes:
+          type: object
+          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
+
+            '
+          additionalProperties:
+            type: string
+          example:
+            source: de.telekom.eni.quickstart
+            type: de.telekom.eni.quickstart.v1
+        expression:
+          type: object
+          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
+
+            '
+          additionalProperties: true

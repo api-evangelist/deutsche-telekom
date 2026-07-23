@@ -1,0 +1,384 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Identity Providers API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Identity Providers
+paths:
+  /{realm}/identity-provider/import-config:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Identity Providers
+      summary: Import identity provider from uploaded JSON file
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/identity-provider/instances:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get identity providers
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IdentityProviderRepresentation'
+    post:
+      tags:
+      - Identity Providers
+      summary: Create a new identity provider
+      requestBody:
+        description: JSON body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/instances/{alias}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get the identity provider
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderRepresentation'
+    put:
+      tags:
+      - Identity Providers
+      summary: Update the identity provider
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Identity Providers
+      summary: Delete the identity provider
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/instances/{alias}/export:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Export public broker configuration for identity provider
+      parameters:
+      - in: query
+        name: format
+        description: Format to use
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/instances/{alias}/management/permissions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+    put:
+      tags:
+      - Identity Providers
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagementPermissionReference'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+  /{realm}/identity-provider/instances/{alias}/mapper-types:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get mapper types for identity provider
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/instances/{alias}/mappers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get mappers for identity provider
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
+    post:
+      tags:
+      - Identity Providers
+      summary: Add a mapper to identity provider
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/instances/{alias}/mappers/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: alias
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: Mapper id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get mapper by id for the identity provider
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
+    put:
+      tags:
+      - Identity Providers
+      summary: Update a mapper for the identity provider
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Identity Providers
+      summary: Delete a mapper for the identity provider
+      responses:
+        2XX:
+          description: success
+  /{realm}/identity-provider/providers/{provider_id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: provider_id
+      description: Provider id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Identity Providers
+      summary: Get identity providers
+      responses:
+        2XX:
+          description: success
+components:
+  schemas:
+    IdentityProviderRepresentation:
+      type: object
+      properties:
+        addReadTokenRoleOnCreate:
+          type: boolean
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        displayName:
+          type: string
+        enabled:
+          type: boolean
+        firstBrokerLoginFlowAlias:
+          type: string
+        internalId:
+          type: string
+        linkOnly:
+          type: boolean
+        postBrokerLoginFlowAlias:
+          type: string
+        providerId:
+          type: string
+        storeToken:
+          type: boolean
+        trustEmail:
+          type: boolean
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    IdentityProviderMapperRepresentation:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        identityProviderAlias:
+          type: string
+        identityProviderMapper:
+          type: string
+        name:
+          type: string

@@ -1,0 +1,484 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog ApiSubscription API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: ApiSubscription
+  description: 'After an API is successful subscribed, you are able to use the API. It is
+
+    only possible to subscribe to the entire API. It is not possible to
+
+    subscribe only to a single resource
+
+    '
+paths:
+  /applications/{applicationId}/apisubscriptions:
+    get:
+      tags:
+      - ApiSubscription
+      summary: Find all ApiSubscriptions
+      description: Find all ApiSubscriptions of this application
+      operationId: getAllApiSubscriptions
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - $ref: common.yaml#/components/parameters/Limit
+      - $ref: common.yaml#/components/parameters/Offset
+      - $ref: common.yaml#/components/parameters/Sort
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Total-Count:
+              $ref: common.yaml#/components/headers/XTotalCount
+            X-Result-Count:
+              $ref: common.yaml#/components/headers/XResultCount
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSubscriptionListResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    post:
+      deprecated: true
+      tags:
+      - ApiSubscription
+      summary: Create an ApiSubscription
+      description: 'Creating and updating resources is asynchronous, which is why the status
+
+        is given as an answer to a POST/PUT request, since it is possible that
+
+        the resource to be created has not yet been processed at the time the
+
+        response is created. If the status after creation is in state
+
+        "Processing", the resource must be queried with GET to see whether it
+
+        was created successfully or whether errors/warnings are written in the
+
+        status. If the creation/update is incorrect, the processing status will
+
+        be set to blocked. Otherwise to "failed". Status 201 means, that we
+
+        accepted the request and there are no syntactic or semantic errors, but
+
+        there can occur failures in the after processing. That will be shown in
+
+        the status if you request the appropriate resource.
+
+        '
+      operationId: createApiSubscription
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiSubscriptionCreateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSubscriptionResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+  /applications/{applicationId}/apisubscriptions/{apiSubscriptionName}:
+    get:
+      tags:
+      - ApiSubscription
+      summary: Find an existing ApiSubscription
+      description: Find an existing ApiSubscription
+      operationId: getApiSubscription
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: apiSubscriptionName
+        description: The name of the ApiSubscription
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSubscriptionResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    put:
+      deprecated: true
+      tags:
+      - ApiSubscription
+      summary: Update an existing ApiSubscription
+      description: 'Creating and updating resources is asynchronous, which is why the status
+
+        is given as an answer to a POST/PUT request, since it is possible that
+
+        the resource to be created has not yet been processed at the time the
+
+        response is created. If the status after creation is in state
+
+        "Processing", the resource must be queried with GET to see whether it
+
+        was created successfully or whether errors/warnings are written in the
+
+        status. If the creation/update is incorrect, the processing status will
+
+        be set to blocked. Otherwise to "failed". Status 201 means, that we
+
+        accepted the request and there are no syntactic or semantic errors, but
+
+        there can occur failures in the after processing. That will be shown in
+
+        the status if you request the appropriate resource.
+
+        '
+      operationId: updateApiSubscription
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: apiSubscriptionName
+        in: path
+        description: The name of the ApiSubscription
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiSubscriptionUpdateRequest'
+      responses:
+        '200':
+          description: UPDATE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiSubscriptionResponse'
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+    delete:
+      deprecated: true
+      tags:
+      - ApiSubscription
+      summary: Delete an ApiSubscription
+      description: Delete an ApiSubscription
+      operationId: deleteApiSubscription
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: apiSubscriptionName
+        in: path
+        description: The name of the ApiSubscription
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: DELETED
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+  /applications/{applicationId}/apisubscriptions/{apiSubscriptionName}/status:
+    get:
+      tags:
+      - ApiSubscription
+      summary: Find an existing ApiSubscription and return its status
+      description: Find an existing ApiSubscription and return its status
+      operationId: getApiSubscriptionStatus
+      parameters:
+      - $ref: common.yaml#/components/parameters/ApplicationId
+      - name: apiSubscriptionName
+        description: The name of the ApiSubscription
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: common.yaml#/components/schemas/ResourceStatusResponse
+        '400':
+          $ref: common.yaml#/components/responses/BadRequest
+        '401':
+          $ref: common.yaml#/components/responses/Unauthorized
+        '403':
+          $ref: common.yaml#/components/responses/Forbidden
+        '404':
+          $ref: common.yaml#/components/responses/NotFound
+        '415':
+          $ref: common.yaml#/components/responses/UnsupportedMediaType
+        '500':
+          $ref: common.yaml#/components/responses/ServerError
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+components:
+  schemas:
+    ApiSubscription:
+      type: object
+      properties:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+          type: string
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    ApiSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: eni-echo-v1
+          zone:
+            type: string
+            readOnly: true
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/Approval'
+          failover:
+            $ref: '#/components/schemas/SubscriptionFailover'
+    ApiSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSubscriptionResponse'
+    OAuth2:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - oauth2
+        tokenEndpoint:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        username:
+          type: string
+        password:
+          type: string
+        refreshToken:
+          type: string
+        grantType:
+          type: string
+        tokenRequest:
+          type: string
+          enum:
+          - body
+          - header
+          description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    SubscriptionFailover:
+      type: array
+      readOnly: true
+      items:
+        type: object
+        properties:
+          zone:
+            type: string
+            readOnly: true
+            example: aws
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+    ApiSubscriptionUpdateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+    ApiSubscriptionCreateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+    Approval:
+      type: object
+      readOnly: true
+      required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'

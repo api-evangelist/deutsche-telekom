@@ -1,0 +1,539 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog ApiRoadmap API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: ApiRoadmap
+  description: Manage ApiRoadmaps
+paths:
+  /apiroadmaps:
+    get:
+      tags:
+      - ApiRoadmap
+      summary: Find all ApiRoadmaps
+      description: Find all ApiRoadmaps of a Team
+      operationId: getAllApiRoadmaps
+      parameters:
+      - name: cursor
+        in: query
+        description: cursor for pagination
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiRoadmapListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+    post:
+      tags:
+      - ApiRoadmap
+      summary: Create an ApiRoadmap
+      description: Create an ApiRoadmap resource
+      operationId: createApiRoadmap
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRoadmapCreateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiRoadmapResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+  /apiroadmaps/{apiRoadmapId}:
+    get:
+      tags:
+      - ApiRoadmap
+      summary: Find an existing ApiRoadmap
+      description: Find an existing ApiRoadmap
+      operationId: getApiRoadmap
+      parameters:
+      - $ref: '#/components/parameters/ApiRoadmapId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiRoadmapResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+    put:
+      tags:
+      - ApiRoadmap
+      summary: Update an existing ApiRoadmap
+      description: Update an existing ApiRoadmap
+      operationId: updateApiRoadmap
+      parameters:
+      - $ref: '#/components/parameters/ApiRoadmapId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRoadmapUpdateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiRoadmapResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+    delete:
+      tags:
+      - ApiRoadmap
+      summary: Delete an ApiRoadmap
+      description: Delete an ApiRoadmap
+      operationId: deleteApiRoadmap
+      parameters:
+      - $ref: '#/components/parameters/ApiRoadmapId'
+      responses:
+        '204':
+          description: DELETED
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+  /apiroadmaps/{apiRoadmapId}/status:
+    get:
+      tags:
+      - ApiRoadmap
+      summary: Find an existing ApiRoadmap and return its status
+      description: Find an existing ApiRoadmap and return its status
+      operationId: getApiRoadmapStatus
+      parameters:
+      - $ref: '#/components/parameters/ApiRoadmapId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+components:
+  responses:
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    ApiRoadmap:
+      type: object
+      required:
+      - basePath
+      - items
+      properties:
+        basePath:
+          description: The API basePath
+          type: string
+          example: /eni/test-api/v1
+        items:
+          description: List of roadmap timeline entries
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ApiRoadmapItem'
+    ApiRoadmapUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+    ApiRoadmapResponse:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+      - type: object
+        properties:
+          id:
+            description: Unique id of this resource
+            type: string
+            readOnly: true
+            example: my-hub--my-team--my-roadmap
+          name:
+            description: Name of the roadmap
+            type: string
+            readOnly: true
+            example: my-roadmap
+          status:
+            $ref: '#/components/schemas/Status'
+    ApiRoadmapItem:
+      type: object
+      required:
+      - date
+      - title
+      - description
+      properties:
+        date:
+          description: Timeline date or period
+          type: string
+          example: Q1 2024
+        title:
+          description: Milestone title
+          type: string
+          example: MVP Release
+        description:
+          description: Detailed description of the milestone
+          type: string
+          example: Initial release with core features
+        titleUrl:
+          description: Optional URL for more information
+          type: string
+          format: uri
+          example: https://example.com/mvp
+    ApiRoadmapListResponse:
+      type: object
+      required:
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiRoadmapResponse'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ApiRoadmapCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
+  parameters:
+    ApiRoadmapId:
+      name: apiRoadmapId
+      description: The unique id of this resource following the pattern group--team--basePath
+      in: path
+      required: true
+      schema:
+        type: string

@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Client Scopes API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Client Scopes
+paths:
+  /{realm}/client-scopes:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Scopes
+      summary: Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientScopeRepresentation'
+    post:
+      tags:
+      - Client Scopes
+      summary: Create a new client scope   Client Scope’s name must be unique!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientScopeRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/client-scopes/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client scope (not name)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Scopes
+      summary: Get representation of the client scope
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientScopeRepresentation'
+    put:
+      tags:
+      - Client Scopes
+      summary: Update the client scope
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientScopeRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Client Scopes
+      summary: Delete the client scope
+      responses:
+        2XX:
+          description: success
+components:
+  schemas:
+    ProtocolMapperRepresentation:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMapper:
+          type: string
+    ClientScopeRepresentation:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMappers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'

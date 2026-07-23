@@ -1,0 +1,109 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog uploading API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: uploading
+  description: An endpoint to upload new files
+paths:
+  /v1/files/{fileId}:
+    put:
+      operationId: uploadFile
+      summary: Upload a file
+      description: Uploads a file to the server with the specified Id. The id should follow the convention.
+      tags:
+      - uploading
+      parameters:
+      - name: fileId
+        in: path
+        description: Id of the file, should follow the convention <env>--<group>--<team>--<fileName>
+        required: true
+        schema:
+          type: string
+      - name: X-File-Content-Type
+        in: header
+        description: Content type of the file (e.g., text/yaml, text/json) that will be stored as metadata
+        required: false
+        schema:
+          type: string
+      - name: X-File-Checksum
+        in: header
+        description: Checksum of the file that will be stored as metadata
+        required: false
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      requestBody:
+        $ref: '#/components/requestBodies/FileUploadRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileUploadResponse'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  responses:
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
+    FileUploadResponse:
+      description: Successful upload of a file. Contains the assigned id.
+      headers:
+        X-File-Content-Type:
+          description: Content type of the file as stored in metadata
+          schema:
+            type: string
+        X-File-Checksum:
+          description: Checksum of the file as stored in metadata
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                type: string
+  schemas:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+  requestBodies:
+    FileUploadRequest:
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary

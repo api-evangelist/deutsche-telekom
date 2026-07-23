@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog downloading API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: downloading
+  description: An endpoint to download existing files
+paths:
+  /v1/files/{fileId}:
+    get:
+      operationId: downloadFile
+      summary: Download a file
+      description: Retrieves a file from the server with the specified Id. The id should follow the convention.
+      tags:
+      - downloading
+      parameters:
+      - name: fileId
+        in: path
+        description: Id of the file, should follow the convention <env>--<group>--<team>--<fileName>
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          $ref: '#/components/responses/FileDownloadResponse'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  responses:
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
+    FileDownloadResponse:
+      description: Successful download of a file with the specified id. Responds with the file contents.
+      headers:
+        X-File-Content-Type:
+          description: Content type of the file as stored in metadata
+          schema:
+            type: string
+        X-File-Checksum:
+          description: Checksum of the file as stored in metadata
+          schema:
+            type: string
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+  schemas:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string

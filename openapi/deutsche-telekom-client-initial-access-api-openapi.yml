@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Client Initial Access API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Client Initial Access
+paths:
+  /{realm}/clients-initial-access:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Initial Access
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientInitialAccessPresentation'
+    post:
+      tags:
+      - Client Initial Access
+      summary: Create a new initial access token.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientInitialAccessCreatePresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientInitialAccessPresentation'
+  /{realm}/clients-initial-access/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    delete:
+      tags:
+      - Client Initial Access
+      responses:
+        2XX:
+          description: success
+components:
+  schemas:
+    ClientInitialAccessPresentation:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        expiration:
+          type: integer
+          format: int32
+        id:
+          type: string
+        remainingCount:
+          type: integer
+          format: int32
+        timestamp:
+          type: integer
+          format: int32
+        token:
+          type: string
+    ClientInitialAccessCreatePresentation:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        expiration:
+          type: integer
+          format: int32

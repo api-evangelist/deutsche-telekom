@@ -1,0 +1,604 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog EventSpecification API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: EventSpecification
+  description: Manage EventSpecifications
+paths:
+  /eventspecifications:
+    get:
+      tags:
+      - EventSpecification
+      summary: Find all EventSpecifications
+      description: Find all EventSpecifications of a Team
+      operationId: getAllEventSpecifications
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/XTotalCount'
+            X-Result-Count:
+              $ref: '#/components/headers/XResultCount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSpecificationListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    post:
+      tags:
+      - EventSpecification
+      summary: Create an EventSpecification
+      description: Create an EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
+      operationId: createEventSpecification
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventSpecificationCreateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+  /eventspecifications/{eventSpecificationId}:
+    get:
+      tags:
+      - EventSpecification
+      summary: Find an existing EventSpecification
+      description: Find an existing EventSpecification
+      operationId: getEventSpecification
+      parameters:
+      - name: eventSpecificationId
+        description: The unique id of this resource
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+    put:
+      tags:
+      - EventSpecification
+      summary: Update an existing EventSpecification
+      description: Update an existing EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
+      operationId: updateEventSpecification
+      parameters:
+      - name: eventSpecificationId
+        description: The unique id of this resource
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventSpecificationUpdateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSpecificationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+    delete:
+      tags:
+      - EventSpecification
+      summary: Delete an EventSpecification
+      description: "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an EventSpecification\n"
+      operationId: deleteEventSpecification
+      parameters:
+      - name: eventSpecificationId
+        description: The unique id of this resource
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: DELETED
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+        - tardis:user:all
+  /eventspecifications/{eventSpecificationId}/status:
+    get:
+      tags:
+      - EventSpecification
+      summary: Find an existing EventSpecification and return its status
+      description: Find an existing EventSpecification and return its status
+      operationId: getEventSpecificationStatus
+      parameters:
+      - name: eventSpecificationId
+        description: The unique id of this resource
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:admin:obfuscated
+        - tardis:supervisor:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:hub:obfuscated
+        - tardis:team:all
+        - tardis:team:read
+        - tardis:team:obfuscated
+        - tardis:user:all
+        - tardis:user:read
+        - tardis:user:obfuscated
+components:
+  responses:
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    Sort:
+      name: sort
+      in: query
+      description: list of fields to be used for sorting. Default is name
+      required: false
+      schema:
+        type: string
+        enum:
+        - name
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
+    Limit:
+      name: limit
+      description: page size requested by the consumer; must not be larger than the maximal page size
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 20
+        default: 20
+  schemas:
+    EventSpecification:
+      type: object
+      required:
+      - type
+      - version
+      - description
+      properties:
+        type:
+          description: Your event type (separated with dots)
+          type: string
+          example: de.telekom.eni.quickstart.v1
+        version:
+          type: string
+          example: 1.0.0
+        category:
+          allOf:
+          - $ref: '#/components/schemas/Category'
+          - description: Category of this EventSpecification
+        description:
+          description: A short description for your events
+          type: string
+          example: An event type for the quickstart guide
+        specification:
+          description: Optional JSON scheme
+          type: object
+          additionalProperties: true
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
+    EventSpecificationListResponse:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSpecificationResponse'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    EventSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    EventSpecificationCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    EventSpecificationResponse:
+      required:
+      - id
+      - type
+      - version
+      - category
+      - description
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
+      - type: object
+        properties:
+          status:
+            $ref: '#/components/schemas/Status'
+          id:
+            readOnly: true
+            description: Your event type name (separated with dashes)
+            type: string
+            example: my-hub--my-team--de-telekom-eni-quickstart-v1
+    Category:
+      type: string
+  headers:
+    XResultCount:
+      description: Actual number of items returned in the response body for this page.
+      schema:
+        type: integer
+        minimum: 0
+    XTotalCount:
+      description: Total number of items matching criteria.
+      schema:
+        type: integer
+        minimum: 0

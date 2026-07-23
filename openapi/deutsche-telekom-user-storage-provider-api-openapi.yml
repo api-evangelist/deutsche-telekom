@@ -1,0 +1,198 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog User Storage Provider API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: User Storage Provider
+paths:
+  /{id}/name:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - User Storage Provider
+      summary: Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/user-storage/{id}/name:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - User Storage Provider
+      summary: Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/user-storage/{id}/remove-imported-users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - User Storage Provider
+      summary: Remove imported users
+      responses:
+        2XX:
+          description: success
+  /{realm}/user-storage/{id}/sync:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - User Storage Provider
+      summary: Trigger sync of users   Action can be "triggerFullSync" or "triggerChangedUsersSync"
+      parameters:
+      - in: query
+        name: action
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SynchronizationResult'
+  /{realm}/user-storage/{id}/unlink-users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - User Storage Provider
+      summary: Unlink imported users from a storage provider
+      responses:
+        2XX:
+          description: success
+  /{realm}/user-storage/{parentId}/mappers/{id}/sync:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: parentId
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - User Storage Provider
+      summary: Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is "fedToKeycloak" or "keycloakToFed"
+      parameters:
+      - in: query
+        name: direction
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SynchronizationResult'
+components:
+  schemas:
+    SynchronizationResult:
+      type: object
+      properties:
+        added:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        ignored:
+          type: boolean
+        removed:
+          type: integer
+          format: int32
+        status:
+          type: string
+        updated:
+          type: integer
+          format: int32

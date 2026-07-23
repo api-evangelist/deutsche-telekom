@@ -1,0 +1,270 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Roles (by ID) API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Roles (by ID)
+paths:
+  /{realm}/roles-by-id/{role-id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-id
+      description: id of role
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles (by ID)
+      summary: Get a specific role’s representation
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleRepresentation'
+    put:
+      tags:
+      - Roles (by ID)
+      summary: Update the role
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles (by ID)
+      summary: Delete the role
+      responses:
+        2XX:
+          description: success
+  /{realm}/roles-by-id/{role-id}/composites:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-id
+      description: Role id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles (by ID)
+      summary: Get role’s children   Returns a set of role’s children provided the role is a composite.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Roles (by ID)
+      summary: Make the role a composite role by associating some child roles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles (by ID)
+      summary: Remove a set of roles from the role’s composite
+      requestBody:
+        description: A set of roles to be removed
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/roles-by-id/{role-id}/composites/clients/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles (by ID)
+      summary: Get client-level roles for the client that are in the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/roles-by-id/{role-id}/composites/realm:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles (by ID)
+      summary: Get realm-level roles that are in the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/roles-by-id/{role-id}/management/permissions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles (by ID)
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+    put:
+      tags:
+      - Roles (by ID)
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagementPermissionReference'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+components:
+  schemas:
+    RoleRepresentation:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRole:
+          type: boolean
+        composite:
+          type: boolean
+        composites:
+          $ref: '#/components/schemas/RoleRepresentation-Composites'
+        containerId:
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string

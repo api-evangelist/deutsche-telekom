@@ -1,0 +1,326 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog onboarding API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: onboarding
+paths:
+  /v1/onboarding/environments/{envId}:
+    put:
+      operationId: upsertEnvironment
+      summary: Create or update an environment
+      description: Create or update an environment that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/EnvironmentWriteRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/OnboardingResponse'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+    delete:
+      operationId: deleteEnvironment
+      summary: Delete an environment
+      description: Delete an environment that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+  /v1/onboarding/environments/{envId}/teams/{teamId}:
+    put:
+      operationId: upsertTeam
+      summary: Create or update a team
+      description: Create or update a team that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      - name: teamId
+        in: path
+        description: The id or reference to a team
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/TeamWriteRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/OnboardingResponse'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+    delete:
+      operationId: deleteTeam
+      summary: Delete a team
+      description: Delete a team that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      - name: teamId
+        in: path
+        description: The id or reference to a team
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+  /v1/onboarding/environments/{envId}/teams/{teamId}/apps/{appId}:
+    put:
+      operationId: upsertApp
+      summary: Create or update an app
+      description: Create or update an app that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      - name: teamId
+        in: path
+        description: The id or reference to a team
+        required: true
+        schema:
+          type: string
+      - name: appId
+        in: path
+        description: The id or reference to an app
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ApplicationWriteRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/OnboardingResponse'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+    delete:
+      operationId: deleteApp
+      summary: Delete an app
+      description: Delete an app that is identified by its reference in the request body
+      tags:
+      - onboarding
+      parameters:
+      - name: envId
+        in: path
+        description: The id or reference to an environment
+        required: true
+        schema:
+          type: string
+      - name: teamId
+        in: path
+        description: The id or reference to a team
+        required: true
+        schema:
+          type: string
+      - name: appId
+        in: path
+        description: The id or reference to an app
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    ListSecretItem:
+      type: object
+      required:
+      - name
+      - id
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        id:
+          $ref: '#/components/schemas/SecretRef'
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+    SecretRef:
+      description: A reference to a secret
+      type: string
+    TeamWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the team
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    ApplicationWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the application
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    EnvironmentWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the environment
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    NamedSecret:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        value:
+          type: string
+          description: The value of the secret
+    WriteStrategy:
+      type: string
+      enum:
+      - merge
+      - replace
+      default: replace
+      description: 'The strategy defines how the provided secrets should be applied.
+
+        With "merge", the provided secrets will be merged with the existing secrets. With "replace",
+
+        the provided secrets will replace the existing secrets.
+
+        If not provided, "replace" will be used as default strategy.
+
+        '
+  requestBodies:
+    TeamWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeamWriteRequest'
+    EnvironmentWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EnvironmentWriteRequest'
+    ApplicationWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApplicationWriteRequest'
+  responses:
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
+    OnboardingResponse:
+      description: Successful retrieval of secrets
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+            - items
+            properties:
+              items:
+                type: array
+                description: A list of available secret references
+                minItems: 0
+                maxItems: 10
+                items:
+                  $ref: '#/components/schemas/ListSecretItem'
+    NoContent:
+      description: Successful operation with no content

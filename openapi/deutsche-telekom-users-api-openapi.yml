@@ -1,0 +1,1060 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Users API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Users
+paths:
+  /{realm}/users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get users   Returns a list of users, filtered according to query parameters
+      parameters:
+      - in: query
+        name: briefRepresentation
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: email
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: firstName
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: lastName
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: max
+        description: Maximum results size (defaults to 100)
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: search
+        description: A String contained in username, first or last name, or email
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: username
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRepresentation'
+    post:
+      tags:
+      - Users
+      summary: Create a new user   Username must be unique.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/count:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Returns the number of users that match the given criteria.
+      parameters:
+      - in: query
+        name: email
+        description: email filter
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: firstName
+        description: first name filter
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: lastName
+        description: last name filter
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: search
+        description: arbitrary search string for all the fields below
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: username
+        description: username filter
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+  /{realm}/users/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get representation of the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRepresentation'
+    put:
+      tags:
+      - Users
+      summary: Update the user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Users
+      summary: Delete the user
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/configured-user-storage-credential-types:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Return credential types, which are provided by the user storage where user is stored.
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /{realm}/users/{id}/consents:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get consents granted by the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /{realm}/users/{id}/consents/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      description: Client id
+      required: true
+      schema:
+        type: string
+      style: simple
+    delete:
+      tags:
+      - Users
+      summary: Revoke consent and offline tokens for particular client from user
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/credentials:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CredentialRepresentation'
+  /{realm}/users/{id}/credentials/{credentialId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: credentialId
+      required: true
+      schema:
+        type: string
+      style: simple
+    delete:
+      tags:
+      - Users
+      summary: Remove a credential for a user
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: credentialId
+      description: The credential to move
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: newPreviousCredentialId
+      description: The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list.
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Users
+      summary: Move a credential to a position behind another credential
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/credentials/{credentialId}/moveToFirst:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: credentialId
+      description: The credential to move
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Users
+      summary: Move a credential to a first position in the credentials list of the user
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/credentials/{credentialId}/userLabel:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: credentialId
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      summary: Update a credential label for a user
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/disable-credential-types:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      summary: Disable all credentials for a user of a specific type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/execute-actions-email:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      summary: Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.
+      parameters:
+      - in: query
+        name: client_id
+        description: Client id
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: lifespan
+        description: Number of seconds after which the generated token expires
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: redirect_uri
+        description: Redirect uri
+        schema:
+          type: string
+        style: form
+      requestBody:
+        description: required actions the user needs to complete
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/federated-identity:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get social logins associated with the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FederatedIdentityRepresentation'
+  /{realm}/users/{id}/federated-identity/{provider}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: provider
+      description: Social login provider id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Users
+      summary: Add a social login provider to the user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FederatedIdentityRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Users
+      summary: Remove a social login provider from user
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/groups:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      parameters:
+      - in: query
+        name: briefRepresentation
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupRepresentation'
+  /{realm}/users/{id}/groups/count:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      parameters:
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/users/{id}/groups/{groupId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: groupId
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Users
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/impersonation:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Users
+      summary: Impersonate the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/users/{id}/logout:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Users
+      summary: Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/offline-sessions/{clientId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: clientId
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get offline sessions associated with the user and client
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSessionRepresentation'
+  /{realm}/users/{id}/reset-password:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      summary: Set up a new password for the user.
+      requestBody:
+        description: The representation must contain a rawPassword with the plain-text password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CredentialRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/send-verify-email:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    put:
+      tags:
+      - Users
+      summary: Send an email-verification email to the user   An email contains a link the user can click to verify their email address.
+      parameters:
+      - in: query
+        name: client_id
+        description: Client id
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: redirect_uri
+        description: Redirect uri
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/sessions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Users
+      summary: Get sessions associated with the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSessionRepresentation'
+components:
+  schemas:
+    UserRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientConsents:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConsentRepresentation'
+        clientRoles:
+          type: object
+          additionalProperties: true
+        createdTimestamp:
+          type: integer
+          format: int64
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialRepresentation'
+        disableableCredentialTypes:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        enabled:
+          type: boolean
+        federatedIdentities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FederatedIdentityRepresentation'
+        federationLink:
+          type: string
+        firstName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        lastName:
+          type: string
+        notBefore:
+          type: integer
+          format: int32
+        origin:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        requiredActions:
+          type: array
+          items:
+            type: string
+        self:
+          type: string
+        serviceAccountClientId:
+          type: string
+        username:
+          type: string
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+    UserSessionRepresentation:
+      type: object
+      properties:
+        clients:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        ipAddress:
+          type: string
+        lastAccess:
+          type: integer
+          format: int64
+        start:
+          type: integer
+          format: int64
+        userId:
+          type: string
+        username:
+          type: string

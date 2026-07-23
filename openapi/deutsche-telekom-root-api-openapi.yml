@@ -1,0 +1,170 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Root API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Root
+paths:
+  /:
+    get:
+      tags:
+      - Root
+      summary: Get themes, social providers, auth providers, and event listeners available on this server
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerInfoRepresentation'
+components:
+  schemas:
+    MemoryInfoRepresentation:
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int64
+        freeFormated:
+          type: string
+        freePercentage:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+        totalFormated:
+          type: string
+        used:
+          type: integer
+          format: int64
+        usedFormated:
+          type: string
+    ProfileInfoRepresentation:
+      type: object
+      properties:
+        disabledFeatures:
+          type: array
+          items:
+            type: string
+        experimentalFeatures:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        previewFeatures:
+          type: array
+          items:
+            type: string
+    SystemInfoRepresentation:
+      type: object
+      properties:
+        fileEncoding:
+          type: string
+        javaHome:
+          type: string
+        javaRuntime:
+          type: string
+        javaVendor:
+          type: string
+        javaVersion:
+          type: string
+        javaVm:
+          type: string
+        javaVmVersion:
+          type: string
+        osArchitecture:
+          type: string
+        osName:
+          type: string
+        osVersion:
+          type: string
+        serverTime:
+          type: string
+        uptime:
+          type: string
+        uptimeMillis:
+          type: integer
+          format: int64
+        userDir:
+          type: string
+        userLocale:
+          type: string
+        userName:
+          type: string
+        userTimezone:
+          type: string
+        version:
+          type: string
+    PasswordPolicyTypeRepresentation:
+      type: object
+      properties:
+        configType:
+          type: string
+        defaultValue:
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        multipleSupported:
+          type: boolean
+    ServerInfoRepresentation:
+      type: object
+      properties:
+        builtinProtocolMappers:
+          type: object
+          additionalProperties: true
+        clientImporters:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        clientInstallations:
+          type: object
+          additionalProperties: true
+        componentTypes:
+          type: object
+          additionalProperties: true
+        enums:
+          type: object
+          additionalProperties: true
+        identityProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        memoryInfo:
+          $ref: '#/components/schemas/MemoryInfoRepresentation'
+        passwordPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PasswordPolicyTypeRepresentation'
+        profileInfo:
+          $ref: '#/components/schemas/ProfileInfoRepresentation'
+        protocolMapperTypes:
+          type: object
+          additionalProperties: true
+        providers:
+          type: object
+          additionalProperties: true
+        socialProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        systemInfo:
+          $ref: '#/components/schemas/SystemInfoRepresentation'
+        themes:
+          type: object
+          additionalProperties: true

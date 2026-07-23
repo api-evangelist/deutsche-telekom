@@ -1,0 +1,352 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Protocol Mappers API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Protocol Mappers
+paths:
+  /{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id1
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id2
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mapper by id
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    put:
+      tags:
+      - Protocol Mappers
+      summary: Update the mapper
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Protocol Mappers
+      summary: Delete the mapper
+      responses:
+        2XX:
+          description: success
+  /{realm}/client-scopes/{id}/protocol-mappers/add-models:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client scope (not name)
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Protocol Mappers
+      summary: Create multiple mappers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/client-scopes/{id}/protocol-mappers/models:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client scope (not name)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mappers
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    post:
+      tags:
+      - Protocol Mappers
+      summary: Create a mapper
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client scope (not name)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: protocol
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mappers by name for a specific protocol
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+  /{realm}/clients/{id1}/protocol-mappers/models/{id2}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id1
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id2
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mapper by id
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    put:
+      tags:
+      - Protocol Mappers
+      summary: Update the mapper
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Protocol Mappers
+      summary: Delete the mapper
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/protocol-mappers/add-models:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Protocol Mappers
+      summary: Create multiple mappers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/protocol-mappers/models:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mappers
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    post:
+      tags:
+      - Protocol Mappers
+      summary: Create a mapper
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProtocolMapperRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/protocol-mappers/protocol/{protocol}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: protocol
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Protocol Mappers
+      summary: Get mappers by name for a specific protocol
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+components:
+  schemas:
+    ProtocolMapperRepresentation:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMapper:
+          type: string

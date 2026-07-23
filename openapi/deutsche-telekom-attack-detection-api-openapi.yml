@@ -1,0 +1,66 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Attack Detection API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Attack Detection
+paths:
+  /{realm}/attack-detection/brute-force/users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    delete:
+      tags:
+      - Attack Detection
+      summary: Clear any user login failures for all users   This can release temporary disabled users
+      responses:
+        2XX:
+          description: success
+  /{realm}/attack-detection/brute-force/users/{userId}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Attack Detection
+      summary: Get status of a username in brute force detection
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+    delete:
+      tags:
+      - Attack Detection
+      summary: Clear any user login failures for the user   This can release temporary disabled user
+      responses:
+        2XX:
+          description: success

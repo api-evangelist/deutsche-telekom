@@ -1,0 +1,423 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Groups API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Groups
+paths:
+  /{realm}/groups:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Groups
+      summary: Get group hierarchy.
+      parameters:
+      - in: query
+        name: briefRepresentation
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupRepresentation'
+    post:
+      tags:
+      - Groups
+      summary: create or add a top level realm groupSet or create child.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/groups/count:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Groups
+      summary: Returns the groups counts.
+      parameters:
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      - in: query
+        name: top
+        schema:
+          type: boolean
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /{realm}/groups/{id}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Groups
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupRepresentation'
+    put:
+      tags:
+      - Groups
+      summary: Update group, ignores subgroups.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Groups
+      responses:
+        2XX:
+          description: success
+  /{realm}/groups/{id}/children:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    post:
+      tags:
+      - Groups
+      summary: Set or create child.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/groups/{id}/management/permissions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Groups
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+    put:
+      tags:
+      - Groups
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagementPermissionReference'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+  /{realm}/groups/{id}/members:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Groups
+      summary: Get users   Returns a list of users, filtered according to query parameters
+      parameters:
+      - in: query
+        name: briefRepresentation
+        description: "Only return basic information (only guaranteed to return id, username, created, first and last name,\n email, enabled state, email verification state, federation link, and access.\n Note that it means that namely user attributes, required actions, and not before are not returned.)"
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        description: Pagination offset
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        description: Maximum results size (defaults to 100)
+        schema:
+          type: integer
+          format: int32
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRepresentation'
+components:
+  schemas:
+    UserRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientConsents:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConsentRepresentation'
+        clientRoles:
+          type: object
+          additionalProperties: true
+        createdTimestamp:
+          type: integer
+          format: int64
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialRepresentation'
+        disableableCredentialTypes:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        enabled:
+          type: boolean
+        federatedIdentities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FederatedIdentityRepresentation'
+        federationLink:
+          type: string
+        firstName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        lastName:
+          type: string
+        notBefore:
+          type: integer
+          format: int32
+        origin:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        requiredActions:
+          type: array
+          items:
+            type: string
+        self:
+          type: string
+        serviceAccountClientId:
+          type: string
+        username:
+          type: string
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'

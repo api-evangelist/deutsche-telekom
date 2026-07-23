@@ -1,0 +1,542 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: ApiChangelog
+paths:
+  /apichangelogs:
+    get:
+      tags:
+      - ApiChangelog
+      summary: Find all ApiChangelogs
+      description: Find all ApiChangelogs of a Team
+      operationId: getAllApiChangelogs
+      parameters:
+      - name: cursor
+        in: query
+        description: cursor for pagination
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiChangelogListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+    post:
+      tags:
+      - ApiChangelog
+      summary: Create a new ApiChangelog
+      description: Create a new ApiChangelog
+      operationId: createApiChangelog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiChangelogCreateRequest'
+      responses:
+        '202':
+          description: ACCEPTED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiChangelogResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+  /apichangelogs/{apiChangelogId}:
+    get:
+      tags:
+      - ApiChangelog
+      summary: Find an existing ApiChangelog
+      description: Find an existing ApiChangelog
+      operationId: getApiChangelog
+      parameters:
+      - $ref: '#/components/parameters/ApiChangelogId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiChangelogResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+    put:
+      tags:
+      - ApiChangelog
+      summary: Create or update an ApiChangelog
+      description: Create or update an ApiChangelog using declarative PUT.
+      operationId: updateApiChangelog
+      parameters:
+      - $ref: '#/components/parameters/ApiChangelogId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiChangelogUpdateRequest'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiChangelogResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+    delete:
+      tags:
+      - ApiChangelog
+      summary: Delete an ApiChangelog
+      description: Delete an ApiChangelog
+      operationId: deleteApiChangelog
+      parameters:
+      - $ref: '#/components/parameters/ApiChangelogId'
+      responses:
+        '204':
+          description: DELETED
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:hub:all
+        - tardis:team:all
+  /apichangelogs/{apiChangelogId}/status:
+    get:
+      tags:
+      - ApiChangelog
+      summary: Find an existing ApiChangelog and return its status
+      description: Find an existing ApiChangelog and return its status
+      operationId: getApiChangelogStatus
+      parameters:
+      - $ref: '#/components/parameters/ApiChangelogId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      security:
+      - OAuth2:
+        - tardis:admin:all
+        - tardis:admin:read
+        - tardis:hub:all
+        - tardis:hub:read
+        - tardis:team:all
+        - tardis:team:read
+components:
+  parameters:
+    ApiChangelogId:
+      name: apiChangelogId
+      description: The unique id of this resource following the pattern group--team--basePath
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    ApiChangelogListResponse:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiChangelogResponse'
+    ApiChangelogResponse:
+      required:
+      - id
+      - name
+      - basePath
+      - items
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+      - type: object
+        properties:
+          id:
+            readOnly: true
+            description: Unique id of this resource
+            type: string
+            example: group--team--api-name
+          name:
+            readOnly: true
+            description: Name of the changelog
+            type: string
+            example: api-name
+          status:
+            readOnly: true
+            $ref: '#/components/schemas/Status'
+    ApiChangelogItem:
+      type: object
+      required:
+      - date
+      - version
+      - description
+      properties:
+        date:
+          description: Release date or period
+          type: string
+          example: '2024-03-15'
+        version:
+          description: Semantic version number
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+          example: 1.2.3
+        description:
+          description: Description of changes in this version
+          type: string
+          example: Security fixes and performance improvements
+        versionUrl:
+          description: Optional URL to release notes
+          type: string
+          format: uri
+          example: https://example.com/releases/v1.2.3
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ApiChangelog:
+      type: object
+      required:
+      - basePath
+      - items
+      properties:
+        basePath:
+          description: The API basePath
+          type: string
+          example: /eni/test-api/v1
+        items:
+          description: List of changelog version entries
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ApiChangelogItem'
+    ApiChangelogCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+      - type: object
+        properties:
+          team:
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+            type: string
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ApiChangelogUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string

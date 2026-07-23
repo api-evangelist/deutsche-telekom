@@ -1,0 +1,315 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Client Role Mappings API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Client Role Mappings
+paths:
+  /{realm}/groups/{id}/role-mappings/clients/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get client-level role mappings for the user, and the app
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Client Role Mappings
+      summary: Add client-level roles to the user role mapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Client Role Mappings
+      summary: Delete client-level roles from user role mapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/groups/{id}/role-mappings/clients/{client}/available:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get available client-level roles that can be mapped to the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/groups/{id}/role-mappings/clients/{client}/composite:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get effective client-level role mappings   This recurses any composite roles
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/users/{id}/role-mappings/clients/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get client-level role mappings for the user, and the app
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Client Role Mappings
+      summary: Add client-level roles to the user role mapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Client Role Mappings
+      summary: Delete client-level roles from user role mapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/users/{id}/role-mappings/clients/{client}/available:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get available client-level roles that can be mapped to the user
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/users/{id}/role-mappings/clients/{client}/composite:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: User id
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Role Mappings
+      summary: Get effective client-level role mappings   This recurses any composite roles
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+components:
+  schemas:
+    RoleRepresentation:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRole:
+          type: boolean
+        composite:
+          type: boolean
+        composites:
+          $ref: '#/components/schemas/RoleRepresentation-Composites'
+        containerId:
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Client Registration Policy API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Client Registration Policy
+paths:
+  /{realm}/client-registration-policy/providers:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Client Registration Policy
+      summary: Base path for retrieve providers with the configProperties properly filled
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentTypeRepresentation'
+components:
+  schemas:
+    ComponentTypeRepresentation:
+      type: object
+      properties:
+        helpText:
+          type: string
+        id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
+    ConfigPropertyRepresentation:
+      type: object
+      properties:
+        defaultValue:
+          type: object
+        helpText:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
+          type: string

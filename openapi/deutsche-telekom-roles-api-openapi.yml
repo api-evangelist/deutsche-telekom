@@ -1,0 +1,975 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Roles API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Roles
+paths:
+  /{realm}/clients/{id}/roles:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get all roles for the realm or client
+      parameters:
+      - in: query
+        name: briefRepresentation
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Roles
+      summary: Create a new role for the realm or client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/roles/{role-name}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get a role by name
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleRepresentation'
+    put:
+      tags:
+      - Roles
+      summary: Update a role by name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles
+      summary: Delete a role by name
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/roles/{role-name}/composites:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get composites of the role
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Roles
+      summary: Add a composite to the role
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles
+      summary: Remove roles from the role’s composite
+      requestBody:
+        description: roles to remove
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: An app-level roles for the specified app for the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/clients/{id}/roles/{role-name}/composites/realm:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get realm-level roles of the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/clients/{id}/roles/{role-name}/groups:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return List of Groups that have the specified role name
+      parameters:
+      - in: query
+        name: briefRepresentation
+        description: if false, return a full representation of the GroupRepresentation objects
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupRepresentation'
+  /{realm}/clients/{id}/roles/{role-name}/management/permissions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+    put:
+      tags:
+      - Roles
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagementPermissionReference'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+  /{realm}/clients/{id}/roles/{role-name}/users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: id
+      description: id of client (not client-id)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return List of Users that have the specified role name
+      parameters:
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRepresentation'
+  /{realm}/roles:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get all roles for the realm or client
+      parameters:
+      - in: query
+        name: briefRepresentation
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: search
+        schema:
+          type: string
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Roles
+      summary: Create a new role for the realm or client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/roles/{role-name}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get a role by name
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleRepresentation'
+    put:
+      tags:
+      - Roles
+      summary: Update a role by name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles
+      summary: Delete a role by name
+      responses:
+        2XX:
+          description: success
+  /{realm}/roles/{role-name}/composites:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get composites of the role
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+    post:
+      tags:
+      - Roles
+      summary: Add a composite to the role
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+      - Roles
+      summary: Remove roles from the role’s composite
+      requestBody:
+        description: roles to remove
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+  /{realm}/roles/{role-name}/composites/clients/{client}:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: client
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: An app-level roles for the specified app for the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/roles/{role-name}/composites/realm:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      description: role’s name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Get realm-level roles of the role’s composite
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleRepresentation'
+  /{realm}/roles/{role-name}/groups:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return List of Groups that have the specified role name
+      parameters:
+      - in: query
+        name: briefRepresentation
+        description: if false, return a full representation of the GroupRepresentation objects
+        schema:
+          type: boolean
+        style: form
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupRepresentation'
+  /{realm}/roles/{role-name}/management/permissions:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+    put:
+      tags:
+      - Roles
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagementPermissionReference'
+        required: true
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagementPermissionReference'
+  /{realm}/roles/{role-name}/users:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    - in: path
+      name: role-name
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Roles
+      summary: Return List of Users that have the specified role name
+      parameters:
+      - in: query
+        name: first
+        schema:
+          type: integer
+          format: int32
+        style: form
+      - in: query
+        name: max
+        schema:
+          type: integer
+          format: int32
+        style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRepresentation'
+components:
+  schemas:
+    UserRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientConsents:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConsentRepresentation'
+        clientRoles:
+          type: object
+          additionalProperties: true
+        createdTimestamp:
+          type: integer
+          format: int64
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialRepresentation'
+        disableableCredentialTypes:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        enabled:
+          type: boolean
+        federatedIdentities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FederatedIdentityRepresentation'
+        federationLink:
+          type: string
+        firstName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        lastName:
+          type: string
+        notBefore:
+          type: integer
+          format: int32
+        origin:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        requiredActions:
+          type: array
+          items:
+            type: string
+        self:
+          type: string
+        serviceAccountClientId:
+          type: string
+        username:
+          type: string
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+    RoleRepresentation:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRole:
+          type: boolean
+        composite:
+          type: boolean
+        composites:
+          $ref: '#/components/schemas/RoleRepresentation-Composites'
+        containerId:
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string

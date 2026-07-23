@@ -1,0 +1,69 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog deleting API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: deleting
+paths:
+  /v1/files/{fileId}:
+    delete:
+      operationId: deleteFile
+      summary: Delete a file
+      description: Deletes a file from the server with the specified Id. The id should follow the convention.
+      tags:
+      - deleting
+      parameters:
+      - name: fileId
+        in: path
+        description: Id of the file, should follow the convention <env>--<group>--<team>--<fileName>
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '204':
+          description: File deleted
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '404':
+          $ref: '#/components/responses/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  responses:
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
+  schemas:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string

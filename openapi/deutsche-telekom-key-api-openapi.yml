@@ -1,0 +1,67 @@
+openapi: 3.0.1
+info:
+  title: Controlplane Api ApiChangelog Key API
+  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  contact:
+    name: TARDIS
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
+    email: FMB_TARDIS_Support@telekom.de
+  version: 1.0.0
+  x-api-category: TARDIS
+  x-vendor: false
+servers:
+- url: https://api.telekom.de/controlplane/v1
+tags:
+- name: Key
+paths:
+  /{realm}/keys:
+    parameters:
+    - in: path
+      name: realm
+      description: realm name (not id!)
+      required: true
+      schema:
+        type: string
+      style: simple
+    get:
+      tags:
+      - Key
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysMetadataRepresentation'
+components:
+  schemas:
+    KeysMetadataRepresentation:
+      type: object
+      properties:
+        active:
+          type: object
+          additionalProperties: true
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeysMetadataRepresentation-KeyMetadataRepresentation'
+    KeysMetadataRepresentation-KeyMetadataRepresentation:
+      type: object
+      properties:
+        algorithm:
+          type: string
+        certificate:
+          type: string
+        kid:
+          type: string
+        providerId:
+          type: string
+        providerPriority:
+          type: integer
+          format: int64
+        publicKey:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
