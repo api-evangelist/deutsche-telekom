@@ -14,8 +14,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Programmatically send and receive text messages in practically every country through Deutsche
-    Telekom's CPaaS platform (built in partnership with Vonage). Part of the MagentaBusiness API portfolio.
+  description: >-
+    Programmatically send and receive text messages in practically every country through Deutsche Telekom's
+    CPaaS platform (built in partnership with Vonage). Part of the MagentaBusiness API portfolio.
 - aid: deutsche-telekom:rcs-api
   name: Deutsche Telekom Rich Communication Services API
   tags:
@@ -29,8 +30,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Improve customer experience using Rich Communication Services for branded, interactive messaging
-    that extends beyond SMS with media, carousels, and verified sender identity.
+  description: >-
+    Improve customer experience using Rich Communication Services for branded, interactive messaging that
+    extends beyond SMS with media, carousels, and verified sender identity.
 - aid: deutsche-telekom:conversational-connect-api
   name: Deutsche Telekom Conversational Connect API
   tags:
@@ -44,8 +46,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Transform customer communications with intelligent conversational marketing across messaging
-    channels, integrating bots, agents, and rich media into a single conversational flow.
+  description: >-
+    Transform customer communications with intelligent conversational marketing across messaging channels,
+    integrating bots, agents, and rich media into a single conversational flow.
 - aid: deutsche-telekom:voice-api
   name: Deutsche Telekom Voice API
   tags:
@@ -58,7 +61,8 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Deliver high-quality voice experiences over the low-latency, feature-rich, global Deutsche Telekom
+  description: >-
+    Deliver high-quality voice experiences over the low-latency, feature-rich, global Deutsche Telekom
     network — programmable inbound, outbound, and in-app calling with global reach.
 - aid: deutsche-telekom:video-api
   name: Deutsche Telekom Video API
@@ -72,8 +76,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Bring people together globally through fully programmable, customizable, live video sessions
-    embedded in applications, including multi-party meetings, screen sharing, and recording.
+  description: >-
+    Bring people together globally through fully programmable, customizable, live video sessions embedded
+    in applications, including multi-party meetings, screen sharing, and recording.
 - aid: deutsche-telekom:reports-api
   name: Deutsche Telekom Reports API
   tags:
@@ -87,7 +92,8 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Programmatic access to communications usage data, delivery reports, and billing breakdowns across
+  description: >-
+    Programmatic access to communications usage data, delivery reports, and billing breakdowns across
     the CPaaS portfolio for analytics, reconciliation, and customer dashboards.
 - aid: deutsche-telekom:ai-studio
   name: Deutsche Telekom AI Studio
@@ -102,8 +108,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Build conversational customer experiences in natural language across SMS, RCS, voice, video, and
-    chat channels using Deutsche Telekom's hosted AI Studio tooling.
+  description: >-
+    Build conversational customer experiences in natural language across SMS, RCS, voice, video, and chat
+    channels using Deutsche Telekom's hosted AI Studio tooling.
 - aid: deutsche-telekom:number-verify-api
   name: Deutsche Telekom Number Verification API
   tags:
@@ -117,9 +124,10 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Seamless silent verification of a mobile phone number directly through the mobile network —
-    authentication without SMS-based one-time passwords. Aligned with the CAMARA Network API initiative and
-    offered jointly with T-Mobile US through the Bridge Alliance / GSMA Open Gateway.
+  description: >-
+    Seamless silent verification of a mobile phone number directly through the mobile network — authentication
+    without SMS-based one-time passwords. Aligned with the CAMARA Network API initiative and offered jointly
+    with T-Mobile US through the Bridge Alliance / GSMA Open Gateway.
 - aid: deutsche-telekom:verify-api
   name: Deutsche Telekom Verify API
   tags:
@@ -133,8 +141,9 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Easily validate customers with two-factor authentication across multiple channels (SMS, voice,
-    push) backed by Deutsche Telekom's mobile network signaling.
+  description: >-
+    Easily validate customers with two-factor authentication across multiple channels (SMS, voice, push)
+    backed by Deutsche Telekom's mobile network signaling.
 - aid: deutsche-telekom:5g-slices-api
   name: Deutsche Telekom 5G Slices for App Developers
   tags:
@@ -148,128 +157,10 @@ apis:
     type: Documentation
   - url: https://developer.telekom.com/en/api-portal
     type: Portal
-  description: Programmatic access to 5G network slicing so application developers can request guaranteed quality
-    of service (latency, throughput) for specific traffic flows over Deutsche Telekom's 5G standalone network.
-- aid: deutsche-telekom:tardis-rover-api
-  name: TARDIS Rover API
-  tags:
-  - API Gateway
-  - Internal Developer Platform
-  - TARDIS
-  - Open Telekom Integration Platform
-  humanURL: https://developer.telekom.de/docs/src/tardis_customer_handbook
-  properties:
-  - url: https://developer.telekom.de/docs/src/tardis_customer_handbook
-    type: Documentation
-  - url: openapi/controlplane-rover-server-openapi.yml
-    type: OpenAPI
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  description: Control-plane API for the TARDIS (Telekom API Reference Documentation & Integration Service)
-    internal developer platform. Manages Rovers, ApiSpecifications, ApiRoadmaps, FileSpecifications, and
-    EventSpecifications for application teams onboarding APIs to the Open Telekom Integration Platform.
-- aid: deutsche-telekom:tardis-controlplane-api
-  name: TARDIS Controlplane API
-  tags:
-  - API Gateway
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-cpapi-openapi.yml
-    type: OpenAPI
-  description: Cross-instance configuration and connectivity API of the TARDIS control plane, ensuring federated
-    integration across multiple TARDIS instances.
-- aid: deutsche-telekom:tardis-identity-api
-  name: TARDIS Identity API
-  tags:
-  - Identity
-  - OIDC
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-identity-openapi.yml
-    type: OpenAPI
-  description: Identity, OIDC client, and realm management API used by the TARDIS control plane and the Open
-    Telekom Integration Platform's Keycloak-based identity layer.
-- aid: deutsche-telekom:tardis-discovery-application-api
-  name: TARDIS Discovery Application API
-  tags:
-  - API Discovery
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-discovery-application-openapi.yml
-    type: OpenAPI
-  description: Discovery service exposing applications registered with the TARDIS control plane, including
-    metadata, ownership, and lifecycle state.
-- aid: deutsche-telekom:tardis-discovery-event-api
-  name: TARDIS Discovery Event API
-  tags:
-  - Event-Driven
-  - API Discovery
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-discovery-event-openapi.yml
-    type: OpenAPI
-  description: Discovery service for event-driven specifications managed by TARDIS, providing inventory and
-    metadata for AsyncAPI-style event APIs across the Open Telekom Integration Platform.
-- aid: deutsche-telekom:tardis-discovery-stargate-api
-  name: TARDIS Discovery Stargate API
-  tags:
-  - API Gateway
-  - API Discovery
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-discovery-stargate-openapi.yml
-    type: OpenAPI
-  description: Discovery API for Stargate (the TARDIS API gateway routing layer), exposing gateway configuration
-    and downstream service mappings.
-- aid: deutsche-telekom:tardis-file-manager-api
-  name: TARDIS File Manager API
-  tags:
-  - File Management
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-file-manager-openapi.yml
-    type: OpenAPI
-  description: File and asset management API for TARDIS — handles attachments, schema artifacts, and binary
-    payloads referenced by API specifications.
-- aid: deutsche-telekom:tardis-secret-manager-api
-  name: TARDIS Secret Manager API
-  tags:
-  - Secrets
-  - Security
-  - Internal Developer Platform
-  - TARDIS
-  humanURL: https://github.com/telekom/controlplane
-  properties:
-  - url: https://github.com/telekom/controlplane
-    type: SourceCode
-  - url: openapi/controlplane-secret-manager-openapi.yml
-    type: OpenAPI
-  description: Secret resolution API for the TARDIS control plane — resolves secret references to their actual
-    confidential values for authorized control-plane components.
+  description: >-
+    Programmatic access to 5G network slicing so application developers can request guaranteed quality
+    of service (latency, throughput) for specific traffic flows over Deutsche Telekom's 5G standalone
+    network.
 - aid: deutsche-telekom:open-telekom-cloud
   name: Open Telekom Cloud
   tags:
@@ -286,9 +177,10 @@ apis:
     type: Portal
   - url: https://public.t-cloud.com/en/products-services/core-services/api-gateway
     type: Product
-  description: Open Telekom Cloud (OTC) is T-Systems' GAIA-X-aligned, OpenStack-based public cloud operated from
-    Germany. Offers compute, storage, networking, database, container, AI, and API Gateway services with full
-    REST APIs and SDKs aligned with the upstream Huawei Cloud / OpenStack APIs.
+  description: >-
+    Open Telekom Cloud (OTC) is T-Systems' GAIA-X-aligned, OpenStack-based public cloud operated from
+    Germany. Offers compute, storage, networking, database, container, AI, and API Gateway services with
+    full REST APIs and SDKs aligned with the upstream Huawei Cloud / OpenStack APIs.
 - aid: deutsche-telekom:open-telekom-integration-platform
   name: Open Telekom Integration Platform
   tags:
@@ -304,9 +196,547 @@ apis:
     type: SourceCode
   - url: https://github.com/telekom/gateway-kong-charts
     type: SourceCode
-  description: Cloud-native, ubiquitous enterprise integration platform open-sourced by Deutsche Telekom. Combines
+  description: >-
+    Cloud-native, ubiquitous enterprise integration platform open-sourced by Deutsche Telekom. Combines
     a Kong-based API gateway, the Jumper sidecar, Keycloak identity, and the TARDIS control plane to provide
     governed API exposure and consumption across the group.
+- aid: deutsche-telekom:deutsche-telekom-apichangelog-api
+  name: Deutsche Telekom ApiChangelog API
+  description: The ApiChangelog API from Deutsche Telekom — 3 operation(s) for apichangelog.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - ApiChangelog
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-apichangelog-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-apiexposure-api
+  name: Deutsche Telekom ApiExposure API
+  description: >-
+    With an ApiExposure you can define and API you want to expose on TARDIS,
+
+    to provide it to other consumers. It is only possible to expose the entire
+
+    API. It is not possible to expose a single resource. Therefore, every
+
+    exposure needs the API Base Path which you can find in the Open API
+
+    Specification File of your API and the upstream URL.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - ApiExposure
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-apiexposure-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-apiroadmap-api
+  name: Deutsche Telekom ApiRoadmap API
+  description: Manage ApiRoadmaps
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - ApiRoadmap
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-apiroadmap-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-apispecification-api
+  name: Deutsche Telekom ApiSpecification API
+  description: Manage ApiSpecifications
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - ApiSpecification
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-apispecification-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-apisubscription-api
+  name: Deutsche Telekom ApiSubscription API
+  description: >-
+    After an API is successful subscribed, you are able to use the API. It is
+
+    only possible to subscribe to the entire API. It is not possible to
+
+    subscribe only to a single resource
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - ApiSubscription
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-apisubscription-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-application-api
+  name: Deutsche Telekom Application API
+  description: Manage applications
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Application
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-application-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-attack-detection-api
+  name: Deutsche Telekom Attack Detection API
+  description: The Attack Detection API from Deutsche Telekom — 2 operation(s) for attack detection.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Attack Detection
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-attack-detection-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-authentication-management-api
+  name: Deutsche Telekom Authentication Management API
+  description: >-
+    The Authentication Management API from Deutsche Telekom — 24 operation(s) for authentication management.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Authentication Management
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-authentication-management-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-client-attribute-certificate-api
+  name: Deutsche Telekom Client Attribute Certificate API
+  description: >-
+    The Client Attribute Certificate API from Deutsche Telekom — 6 operation(s) for client attribute certificate.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Client Attribute Certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-client-attribute-certificate-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-client-initial-access-api
+  name: Deutsche Telekom Client Initial Access API
+  description: >-
+    The Client Initial Access API from Deutsche Telekom — 2 operation(s) for client initial access.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Client Initial Access
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-client-initial-access-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-client-registration-policy-api
+  name: Deutsche Telekom Client Registration Policy API
+  description: >-
+    The Client Registration Policy API from Deutsche Telekom — 1 operation(s) for client registration
+    policy.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Client Registration Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-client-registration-policy-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-client-role-mappings-api
+  name: Deutsche Telekom Client Role Mappings API
+  description: >-
+    The Client Role Mappings API from Deutsche Telekom — 6 operation(s) for client role mappings.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Client Role Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-client-role-mappings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-client-scopes-api
+  name: Deutsche Telekom Client Scopes API
+  description: The Client Scopes API from Deutsche Telekom — 2 operation(s) for client scopes.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Client Scopes
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-client-scopes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-clients-api
+  name: Deutsche Telekom Clients API
+  description: The Clients API from Deutsche Telekom — 24 operation(s) for clients.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Clients
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-clients-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-component-api
+  name: Deutsche Telekom Component API
+  description: The Component API from Deutsche Telekom — 3 operation(s) for component.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Component
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-component-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-deleting-api
+  name: Deutsche Telekom deleting API
+  description: The deleting API from Deutsche Telekom — 1 operation(s) for deleting.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - deleting
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-deleting-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-downloading-api
+  name: Deutsche Telekom downloading API
+  description: An endpoint to download existing files
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - downloading
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-downloading-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-eventexposure-api
+  name: Deutsche Telekom EventExposure API
+  description: >-
+    With an EventExposure you declare that your application publishes events
+
+    of a specific type. This makes the events available for subscription by
+
+    other applications. Each exposure is scoped to a zone and can define
+
+    visibility, approval strategy, and publisher-side scopes with filtering.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - EventExposure
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-eventexposure-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-eventspecification-api
+  name: Deutsche Telekom EventSpecification API
+  description: Manage EventSpecifications
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - EventSpecification
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-eventspecification-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-eventsubscription-api
+  name: Deutsche Telekom EventSubscription API
+  description: >-
+    An EventSubscription declares that your application wants to receive
+
+    events of a specific type. You can configure the delivery mechanism
+
+    (callback or server-sent events), payload format, and subscriber-side
+
+    filtering criteria.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - EventSubscription
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-eventsubscription-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-eventtype-api
+  name: Deutsche Telekom EventType API
+  description: >-
+    An EventType is a registry entry representing a known event type. It
+
+    serves as the canonical reference that both EventExposures and
+
+    EventSubscriptions point to. EventTypes are identified by a dot-separated
+
+    identifier (e.g. "de.telekom.eni.quickstart.v1").
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - EventType
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-eventtype-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-groups-api
+  name: Deutsche Telekom Groups API
+  description: The Groups API from Deutsche Telekom — 6 operation(s) for groups.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-groups-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-identity-providers-api
+  name: Deutsche Telekom Identity Providers API
+  description: >-
+    The Identity Providers API from Deutsche Telekom — 9 operation(s) for identity providers.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Identity Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-identity-providers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-key-api
+  name: Deutsche Telekom Key API
+  description: The Key API from Deutsche Telekom — 1 operation(s) for key.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Key
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-key-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-onboarding-api
+  name: Deutsche Telekom onboarding API
+  description: The onboarding API from Deutsche Telekom — 3 operation(s) for onboarding.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - onboarding
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-onboarding-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-protocol-mappers-api
+  name: Deutsche Telekom Protocol Mappers API
+  description: The Protocol Mappers API from Deutsche Telekom — 8 operation(s) for protocol mappers.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Protocol Mappers
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-protocol-mappers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-realms-admin-api
+  name: Deutsche Telekom Realms Admin API
+  description: The Realms Admin API from Deutsche Telekom — 28 operation(s) for realms admin.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Realms Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-realms-admin-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-remotesubscription-api
+  name: Deutsche Telekom RemoteSubscription API
+  description: Manage remoteSubscriptions
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - RemoteSubscription
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-remotesubscription-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-role-mapper-api
+  name: Deutsche Telekom Role Mapper API
+  description: The Role Mapper API from Deutsche Telekom — 8 operation(s) for role mapper.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Role Mapper
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-role-mapper-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-roles-api
+  name: Deutsche Telekom Roles API
+  description: The Roles API from Deutsche Telekom — 16 operation(s) for roles.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-roles-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-roles-by-id-api
+  name: Deutsche Telekom Roles (by ID) API
+  description: The Roles (by ID) API from Deutsche Telekom — 5 operation(s) for roles (by id).
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Roles (by ID)
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-roles-by-id-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-root-api
+  name: Deutsche Telekom Root API
+  description: The Root API from Deutsche Telekom — 1 operation(s) for root.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Root
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-root-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-rover-api
+  name: Deutsche Telekom Rover API
+  description: Manage Rovers
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Rover
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-rover-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-scope-mappings-api
+  name: Deutsche Telekom Scope Mappings API
+  description: The Scope Mappings API from Deutsche Telekom — 14 operation(s) for scope mappings.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Scope Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-scope-mappings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-secrets-api
+  name: Deutsche Telekom secrets API
+  description: Everything regarding storing and resolving secrets
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-uploading-api
+  name: Deutsche Telekom uploading API
+  description: An endpoint to upload new files
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - uploading
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-uploading-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-user-storage-provider-api
+  name: Deutsche Telekom User Storage Provider API
+  description: >-
+    The User Storage Provider API from Deutsche Telekom — 6 operation(s) for user storage provider.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - User Storage Provider
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-user-storage-provider-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-users-api
+  name: Deutsche Telekom Users API
+  description: The Users API from Deutsche Telekom — 24 operation(s) for users.
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
 name: Deutsche Telekom
 tags:
 - Telecommunications
@@ -329,7 +759,19 @@ tags:
 - Germany
 - Europe
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deutsche-telekom.png
 access: 3rd-Party
 position: Provider
 common:
