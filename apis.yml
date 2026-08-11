@@ -775,6 +775,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deutsche-t
 access: 3rd-Party
 position: Provider
 common:
+- type: IssueTracker
+  url: https://github.com/telekom/controlplane/issues
+- type: Releases
+  url: https://github.com/telekom/controlplane/releases
+- type: CodeOfConduct
+  url: https://github.com/telekom/controlplane/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/telekom/controlplane/blob/main/CONTRIBUTING.md
 - type: AgenticAccess
   url: agentic-access/deutsche-telekom-agentic-access.yml
 - type: VulnerabilityDisclosure
