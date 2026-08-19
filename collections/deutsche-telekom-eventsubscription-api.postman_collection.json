@@ -1,0 +1,925 @@
+{
+  "item": [
+    {
+      "id": "0682bd2a-c33f-40fc-a97a-2b6256576851",
+      "name": "EventSubscription",
+      "description": {
+        "content": "An EventSubscription declares that your application wants to receive\nevents of a specific type. You can configure the delivery mechanism\n(callback or server-sent events), payload format, and subscriber-side\nfiltering criteria.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54eb737c-7146-4f48-8f90-d4696542abb3",
+          "name": "Find all EventSubscriptions",
+          "request": {
+            "name": "Find all EventSubscriptions",
+            "description": {
+              "content": "Find all EventSubscriptions of this application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventsubscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "b9c45b6d-ee7e-48ef-91bd-465c93e99a7b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Result-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"delivery\": {\n        \"type\": \"Callback\",\n        \"payload\": \"DataRef\",\n        \"callback\": \"https://myapp.example.com/events/callback\",\n        \"eventRetentionTime\": \"7d\",\n        \"circuitBreakerOptOut\": false,\n        \"retryableStatusCodes\": [\n          502,\n          503,\n          504\n        ],\n        \"redeliveriesPerSecond\": 10,\n        \"enforceGetHttpRequestMethodForHealthCheck\": false\n      },\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"scopes\": [\n        \"high-priority\"\n      ],\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"url\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\",\n      \"subscriptionId\": \"string\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      }\n    },\n    {\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"delivery\": {\n        \"type\": \"Callback\",\n        \"payload\": \"DataRef\",\n        \"callback\": \"https://myapp.example.com/events/callback\",\n        \"eventRetentionTime\": \"7d\",\n        \"circuitBreakerOptOut\": false,\n        \"retryableStatusCodes\": [\n          502,\n          503,\n          504\n        ],\n        \"redeliveriesPerSecond\": 10,\n        \"enforceGetHttpRequestMethodForHealthCheck\": false\n      },\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"scopes\": [\n        \"high-priority\"\n      ],\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"url\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\",\n      \"subscriptionId\": \"string\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4de9735e-a49c-4321-8612-479bbcd70312",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72e78519-3894-4377-bd40-af24eb20da81",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "acc346ce-f2d8-45f7-9d31-89004352ab44",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45560ec1-9437-403c-a214-a79b2a909dc8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d41fd337-d4d3-43a4-bfc7-0011310bae08",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89301a45-682c-43d5-b824-b5f9ed84a529",
+          "name": "Find an existing EventSubscription",
+          "request": {
+            "name": "Find an existing EventSubscription",
+            "description": {
+              "content": "Find an existing EventSubscription",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventsubscriptions",
+                ":eventSubscriptionName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSubscriptionName",
+                  "description": "(Required) The name of the EventSubscription"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1f306f7d-1321-4f1b-9489-265401ae57b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventType\": \"de.telekom.eni.quickstart.v1\",\n  \"delivery\": {\n    \"type\": \"Callback\",\n    \"payload\": \"DataRef\",\n    \"callback\": \"https://myapp.example.com/events/callback\",\n    \"eventRetentionTime\": \"7d\",\n    \"circuitBreakerOptOut\": false,\n    \"retryableStatusCodes\": [\n      502,\n      503,\n      504\n    ],\n    \"redeliveriesPerSecond\": 10,\n    \"enforceGetHttpRequestMethodForHealthCheck\": false\n  },\n  \"trigger\": {\n    \"responseFilter\": {\n      \"paths\": [\n        \"$.data.orderId\",\n        \"$.data.status\"\n      ],\n      \"mode\": \"Exclude\"\n    },\n    \"selectionFilter\": {\n      \"attributes\": {\n        \"source\": \"de.telekom.eni.quickstart\",\n        \"type\": \"de.telekom.eni.quickstart.v1\"\n      },\n      \"expression\": {\n        \"key_0\": 1919,\n        \"key_1\": 165\n      }\n    }\n  },\n  \"scopes\": [\n    \"high-priority\"\n  ],\n  \"name\": \"de-telekom-eni-quickstart-v1\",\n  \"zone\": \"string\",\n  \"url\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\",\n  \"subscriptionId\": \"string\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"application\": {\n    \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n  },\n  \"team\": {\n    \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n  },\n  \"approval\": {\n    \"status\": \"granted\",\n    \"comment\": \"trusted team\",\n    \"decider\": \"hyperion@telekom.de\",\n    \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3a527bd-93d9-4282-a5cb-e45f780ed0ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f5fd71e-b603-4751-915f-e5b41504d39b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f1b0eed-b8aa-4c3a-b78a-77f387bfd28f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82404d45-a744-4a32-b95a-dcce39f54336",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b927a1e-4200-4134-9808-bd8e41bcffa3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afdbcc95-145d-4829-b902-dc46a874a1c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55bca53c-c96b-4606-8bd2-c24758536be2",
+          "name": "Find an existing EventSubscription and return its status",
+          "request": {
+            "name": "Find an existing EventSubscription and return its status",
+            "description": {
+              "content": "Find an existing EventSubscription and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventsubscriptions",
+                ":eventSubscriptionName",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSubscriptionName",
+                  "description": "(Required) The name of the EventSubscription"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0a4568e7-f9c3-454d-962c-aec25b033a0b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c54dff7d-3fab-4290-a74b-fe8e0095a14d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a79b2fd3-43df-4ed4-939f-c76b95d76594",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f280ce0c-0072-49e5-851b-798492640f80",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b595525-1128-4a9c-823d-b62a4fa71d5b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0702e61a-8a26-4775-899a-ad36562fa9d5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d96865fd-5db2-4e32-b10c-2810ac58a29d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventsubscriptions",
+                    ":eventSubscriptionName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSubscriptionName",
+                      "description": "(Required) The name of the EventSubscription"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9232a7af-838e-4fd9-a7b9-183caa628c0c",
+    "name": "Controlplane Api ApiChangelog EventSubscription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

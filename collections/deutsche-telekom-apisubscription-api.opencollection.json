@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog ApiSubscription API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiSubscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiSubscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions"
+          },
+          "docs": "Find all ApiSubscriptions of this application"
+        },
+        {
+          "info": {
+            "name": "Create an ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiSubscription"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to b"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions/:apiSubscriptionName",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Delete an ApiSubscription"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiSubscription and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/apisubscriptions/:apiSubscriptionName/status",
+            "params": [
+              {
+                "name": "apiSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the ApiSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiSubscription and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

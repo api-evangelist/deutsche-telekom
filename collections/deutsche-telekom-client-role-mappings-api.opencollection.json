@@ -1,0 +1,329 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Client Role Mappings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Role Mappings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get client-level role mappings for the user, and the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/groups/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get client-level role mappings for the user, and the app"
+        },
+        {
+          "info": {
+            "name": "Add client-level roles to the user role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/groups/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add client-level roles to the user role mapping"
+        },
+        {
+          "info": {
+            "name": "Delete client-level roles from user role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/groups/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete client-level roles from user role mapping"
+        },
+        {
+          "info": {
+            "name": "Get available client-level roles that can be mapped to the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/groups/:id/role-mappings/clients/:client/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get available client-level roles that can be mapped to the user"
+        },
+        {
+          "info": {
+            "name": "Get effective client-level role mappings   This recurses any composite roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/groups/:id/role-mappings/clients/:client/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get effective client-level role mappings   This recurses any composite roles"
+        },
+        {
+          "info": {
+            "name": "Get client-level role mappings for the user, and the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "User id"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get client-level role mappings for the user, and the app"
+        },
+        {
+          "info": {
+            "name": "Add client-level roles to the user role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "User id"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add client-level roles to the user role mapping"
+        },
+        {
+          "info": {
+            "name": "Delete client-level roles from user role mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users/:id/role-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "User id"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete client-level roles from user role mapping"
+        },
+        {
+          "info": {
+            "name": "Get available client-level roles that can be mapped to the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users/:id/role-mappings/clients/:client/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "User id"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get available client-level roles that can be mapped to the user"
+        },
+        {
+          "info": {
+            "name": "Get effective client-level role mappings   This recurses any composite roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users/:id/role-mappings/clients/:client/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "User id"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get effective client-level role mappings   This recurses any composite roles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

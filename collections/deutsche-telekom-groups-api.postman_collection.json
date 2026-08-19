@@ -1,0 +1,1140 @@
+{
+  "item": [
+    {
+      "id": "2b8e8ec4-0554-458a-829d-f33147bf9acf",
+      "name": "Groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96930cb5-f1ea-4850-847b-f7f7a144838a",
+          "name": "Get group hierarchy.",
+          "request": {
+            "name": "Get group hierarchy.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "briefRepresentation",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0108ae2c-1dd7-4070-892b-4322118c125a",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "briefRepresentation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "first",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"access\": {\n      \"key_0\": 6612,\n      \"key_1\": 5948.386778221936\n    },\n    \"attributes\": {\n      \"key_0\": 1363.2946055466123,\n      \"key_1\": \"string\"\n    },\n    \"clientRoles\": {\n      \"key_0\": 5797.521861186929,\n      \"key_1\": 4377.534356990474,\n      \"key_2\": 8321.498572943174\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"path\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subGroups\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      }\n    ]\n  },\n  {\n    \"access\": {\n      \"key_0\": true,\n      \"key_1\": 2375,\n      \"key_2\": 3365.098709353919,\n      \"key_3\": 3734\n    },\n    \"attributes\": {\n      \"key_0\": 7336.073530266115\n    },\n    \"clientRoles\": {\n      \"key_0\": true,\n      \"key_1\": 3102,\n      \"key_2\": 208,\n      \"key_3\": 2923\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"path\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subGroups\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be638bee-62ca-469f-bf21-883e34960f76",
+          "name": "create or add a top level realm groupSet or create child.",
+          "request": {
+            "name": "create or add a top level realm groupSet or create child.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"key_0\": \"string\"\n  },\n  \"attributes\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": 717.1478434448109\n  },\n  \"clientRoles\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6060\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": 1248\n      },\n      \"clientRoles\": {\n        \"key_0\": 1953.8203881488614,\n        \"key_1\": 4730.764167907128,\n        \"key_2\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": true,\n        \"key_1\": 239.70020878478215,\n        \"key_2\": 8671.102271216987,\n        \"key_3\": 3963,\n        \"key_4\": 974\n      },\n      \"attributes\": {\n        \"key_0\": 8585.174456119325,\n        \"key_1\": 6752,\n        \"key_2\": \"string\",\n        \"key_3\": 2181\n      },\n      \"clientRoles\": {\n        \"key_0\": 3057,\n        \"key_1\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0035841f-21c4-4d3d-9504-70fd370a2c1b",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"key_0\": true\n  },\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"clientRoles\": {\n    \"key_0\": 6400.769958366346,\n    \"key_1\": true,\n    \"key_2\": 4952\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": 7409,\n        \"key_1\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": true,\n        \"key_1\": 177.1337839938758\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": 4447.28176301635\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03be671d-0b27-4580-bf2b-0ed8690c350c",
+          "name": "Returns the groups counts.",
+          "request": {
+            "name": "Returns the groups counts.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "top",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21e7364f-a365-4f13-9ed8-91749f9f1032",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "top",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f5a6769-6318-45ae-a1e3-b7f2d06a4756",
+          "name": "/:realm/groups/:id",
+          "request": {
+            "name": "/:realm/groups/:id",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "179053ba-7e8c-4b43-9cc8-720409ee7045",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access\": {\n    \"key_0\": true\n  },\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"clientRoles\": {\n    \"key_0\": 6400.769958366346,\n    \"key_1\": true,\n    \"key_2\": 4952\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": 7409,\n        \"key_1\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": true,\n        \"key_1\": 177.1337839938758\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": 4447.28176301635\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3667a87-b0bf-4202-809a-2acab471d3ca",
+          "name": "Update group, ignores subgroups.",
+          "request": {
+            "name": "Update group, ignores subgroups.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"key_0\": \"string\"\n  },\n  \"attributes\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": 717.1478434448109\n  },\n  \"clientRoles\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6060\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": 1248\n      },\n      \"clientRoles\": {\n        \"key_0\": 1953.8203881488614,\n        \"key_1\": 4730.764167907128,\n        \"key_2\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": true,\n        \"key_1\": 239.70020878478215,\n        \"key_2\": 8671.102271216987,\n        \"key_3\": 3963,\n        \"key_4\": 974\n      },\n      \"attributes\": {\n        \"key_0\": 8585.174456119325,\n        \"key_1\": 6752,\n        \"key_2\": \"string\",\n        \"key_3\": 2181\n      },\n      \"clientRoles\": {\n        \"key_0\": 3057,\n        \"key_1\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ef9103d-75d9-48e4-9e37-ae7c548b1468",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"key_0\": true\n  },\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"clientRoles\": {\n    \"key_0\": 6400.769958366346,\n    \"key_1\": true,\n    \"key_2\": 4952\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": 7409,\n        \"key_1\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": true,\n        \"key_1\": 177.1337839938758\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": 4447.28176301635\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5f2d9c8-f80a-442d-b768-b56b526e4afe",
+          "name": "/:realm/groups/:id",
+          "request": {
+            "name": "/:realm/groups/:id",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58dcdc2b-1095-4e24-b2dc-42fc6decf007",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e60d682d-49d0-4090-b8fb-d86eae4ad960",
+          "name": "Set or create child.",
+          "request": {
+            "name": "Set or create child.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id",
+                "children"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"key_0\": \"string\"\n  },\n  \"attributes\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": 717.1478434448109\n  },\n  \"clientRoles\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6060\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": 1248\n      },\n      \"clientRoles\": {\n        \"key_0\": 1953.8203881488614,\n        \"key_1\": 4730.764167907128,\n        \"key_2\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": true,\n        \"key_1\": 239.70020878478215,\n        \"key_2\": 8671.102271216987,\n        \"key_3\": 3963,\n        \"key_4\": 974\n      },\n      \"attributes\": {\n        \"key_0\": 8585.174456119325,\n        \"key_1\": 6752,\n        \"key_2\": \"string\",\n        \"key_3\": 2181\n      },\n      \"clientRoles\": {\n        \"key_0\": 3057,\n        \"key_1\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9e6c8c5-6fd2-4daf-bbca-b6cbb457fbc2",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id",
+                    "children"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"key_0\": true\n  },\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"clientRoles\": {\n    \"key_0\": 6400.769958366346,\n    \"key_1\": true,\n    \"key_2\": 4952\n  },\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subGroups\": [\n    {\n      \"access\": {\n        \"key_0\": 7409,\n        \"key_1\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": true,\n        \"key_1\": 177.1337839938758\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    },\n    {\n      \"access\": {\n        \"key_0\": 4447.28176301635\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"clientRoles\": {\n        \"key_0\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"path\": \"<string>\",\n      \"realmRoles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subGroups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce676de5-601d-4e79-bae5-01bebb970cb2",
+          "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+          "request": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id",
+                "management",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00432e49-ea90-42bf-8779-373e0efeb2d3",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id",
+                    "management",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": true,\n  \"resource\": \"string\",\n  \"scopePermissions\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12961e7c-4970-42f2-ac7d-6565ed011f66",
+          "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+          "request": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id",
+                "management",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": 848.0018947897195,\n    \"key_1\": 6629.05771986697,\n    \"key_2\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b613491f-ff10-4747-8785-d6f30dc4f3af",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id",
+                    "management",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": 6769,\n    \"key_1\": 4636,\n    \"key_2\": 4580.366684024479\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": 6769,\n    \"key_1\": 4636,\n    \"key_2\": 4580.366684024479\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cba5ecaa-66da-43bb-82c1-c855573651e7",
+          "name": "Get users   Returns a list of users, filtered according to query parameters",
+          "request": {
+            "name": "Get users   Returns a list of users, filtered according to query parameters",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "groups",
+                ":id",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "briefRepresentation",
+                  "value": "<boolean>",
+                  "description": "Only return basic information (only guaranteed to return id, username, created, first and last name,\n email, enabled state, email verification state, federation link, and access.\n Note that it means that namely user attributes, required actions, and not before are not returned.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "first",
+                  "value": "<integer>",
+                  "description": "Pagination offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum results size (defaults to 100)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c85e516-88fa-4410-9cd9-7366b646ca84",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "groups",
+                    ":id",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "briefRepresentation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "first",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"access\": {\n      \"key_0\": false,\n      \"key_1\": 7219,\n      \"key_2\": \"string\"\n    },\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 1852.8502762689814,\n      \"key_2\": 6280,\n      \"key_3\": false\n    },\n    \"clientConsents\": [\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 5045,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 193\n      },\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 7443,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 5047\n      }\n    ],\n    \"clientRoles\": {\n      \"key_0\": false\n    },\n    \"createdTimestamp\": 2770,\n    \"credentials\": [\n      {\n        \"createdDate\": 667,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 4366,\n        \"secretData\": \"string\",\n        \"temporary\": false,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"createdDate\": 5271,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 3978,\n        \"secretData\": \"string\",\n        \"temporary\": false,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"disableableCredentialTypes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"email\": \"string\",\n    \"emailVerified\": false,\n    \"enabled\": true,\n    \"federatedIdentities\": [\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      },\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      }\n    ],\n    \"federationLink\": \"string\",\n    \"firstName\": \"string\",\n    \"groups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"notBefore\": 4317,\n    \"origin\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"requiredActions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"self\": \"string\",\n    \"serviceAccountClientId\": \"string\",\n    \"username\": \"string\"\n  },\n  {\n    \"access\": {\n      \"key_0\": 9451.120345824263,\n      \"key_1\": 3363,\n      \"key_2\": \"string\"\n    },\n    \"attributes\": {\n      \"key_0\": false,\n      \"key_1\": \"string\"\n    },\n    \"clientConsents\": [\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 8063,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 3428\n      },\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 5043,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 4273\n      }\n    ],\n    \"clientRoles\": {\n      \"key_0\": \"string\"\n    },\n    \"createdTimestamp\": 1251,\n    \"credentials\": [\n      {\n        \"createdDate\": 5412,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 2348,\n        \"secretData\": \"string\",\n        \"temporary\": true,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"createdDate\": 9186,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 8636,\n        \"secretData\": \"string\",\n        \"temporary\": false,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"disableableCredentialTypes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"email\": \"string\",\n    \"emailVerified\": false,\n    \"enabled\": false,\n    \"federatedIdentities\": [\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      },\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      }\n    ],\n    \"federationLink\": \"string\",\n    \"firstName\": \"string\",\n    \"groups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"notBefore\": 3632,\n    \"origin\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"requiredActions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"self\": \"string\",\n    \"serviceAccountClientId\": \"string\",\n    \"username\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e85f5c35-8b9e-4bf4-8ede-404ff7537958",
+    "name": "Controlplane Api ApiChangelog Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

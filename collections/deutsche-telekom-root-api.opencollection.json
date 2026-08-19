@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Root API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Root",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get themes, social providers, auth providers, and event listeners available on this server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/"
+          },
+          "docs": "Get themes, social providers, auth providers, and event listeners available on this server"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

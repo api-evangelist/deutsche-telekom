@@ -1,0 +1,2256 @@
+{
+  "item": [
+    {
+      "id": "be04a6cd-5def-473a-8a2d-703edfb83e97",
+      "name": "ApiSpecification",
+      "description": {
+        "content": "Manage ApiSpecifications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b55fac76-8520-4022-81fc-743a86b07e8d",
+          "name": "Find all ApiSpecifications",
+          "request": {
+            "name": "Find all ApiSpecifications",
+            "description": {
+              "content": "Find all API Specifications of a Team",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "page size requested by the consumer; must not be larger than the maximal page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "list of fields to be used for sorting. Default is name"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d14b40cc-a8d5-43e5-8f6e-09308dfd288d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items matching criteria.",
+                  "key": "X-Total-Count",
+                  "value": "942"
+                },
+                {
+                  "disabled": false,
+                  "description": "Actual number of items returned in the response body for this page.",
+                  "key": "X-Result-Count",
+                  "value": "942"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"my-hub--my-team--eni-foo-v3\",\n      \"name\": \"eni-foo-v3\",\n      \"category\": \"G_API\",\n      \"vendorApi\": false,\n      \"specification\": {\n        \"key_0\": 6230.220857601361,\n        \"key_1\": \"string\"\n      },\n      \"status\": {\n        \"processingState\": \"pending\",\n        \"state\": \"blocked\",\n        \"errors\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"my-hub--my-team--eni-foo-v3\",\n      \"name\": \"eni-foo-v3\",\n      \"category\": \"G_API\",\n      \"vendorApi\": true,\n      \"specification\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2504.162302109714\n      },\n      \"status\": {\n        \"processingState\": \"none\",\n        \"state\": \"complete\",\n        \"errors\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          },\n          {\n            \"message\": \"string\",\n            \"cause\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"_links\": {\n    \"self\": \"http://ZUWjsxueSQhXQLYHncwRSPjeSFRPxw.zkljvtM5DfplIOpxscdMWmq67ID90NbjanQ\",\n    \"next\": \"https://XeCBNrKQlpgsHMaUVfOej.efi,+gjUFDLXmAGNCwTyf2rQDHC43SFuKKywb9Jnpgxlq3l-9dDfmyZxVxYqjgR\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15d04ac9-4ef7-4413-af80-44d83e4cf915",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2601.695478077769,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7960a029-0a7b-4880-b543-97ef48de498e",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d13126ef-79b3-4d30-a1f1-da6b751fbcd8",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0968592c-afa7-48af-be51-965f042355b7",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c96b2666-7dae-43cc-bab5-2a7b07987d06",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd553ac0-cc37-4430-94d6-e93e3f1b0b1d",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58680208-a689-49ad-a693-39c83d88804c",
+          "name": "Create an ApiSpecification",
+          "request": {
+            "name": "Create an ApiSpecification",
+            "description": {
+              "content": "Create an ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"specification\": {\n    \"key_0\": 7336,\n    \"key_1\": false,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"team\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac3fe366-eae1-4848-a279-cb69873e6e86",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"my-hub--my-team--eni-foo-v3\",\n  \"name\": \"eni-foo-v3\",\n  \"category\": \"G_API\",\n  \"vendorApi\": true,\n  \"specification\": {\n    \"key_0\": true,\n    \"key_1\": 2521.098411852798,\n    \"key_2\": true\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c697ad6d-a9ca-426c-8b6c-fc397d32deeb",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7edecdf-f7f6-4ed3-a88b-22e09f671d4a",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f899e97-85b1-4eda-a066-77010a115dea",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18c15a39-764c-4f91-9073-39f338df4d01",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f586d0f4-b11e-4815-b0a0-bd18f74f50d7",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d24a5a81-ef68-481f-98c7-7c584f64311f",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": 2906.554826754576,\n    \"key_1\": 1717,\n    \"key_2\": 952.7831393657216\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5152384-ee58-4c89-b408-00aee1fa7b3b",
+          "name": "Find an existing ApiSpecification and return its status",
+          "request": {
+            "name": "Find an existing ApiSpecification and return its status",
+            "description": {
+              "content": "Find an existing ApiSpecification and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications",
+                ":apiSpecificationId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiSpecificationId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "83e5d9aa-bd6c-4511-b58b-12c6f4cffe3a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"state\": \"none\",\n  \"processingState\": \"none\",\n  \"overallStatus\": \"complete\",\n  \"createdAt\": \"1967-08-18T07:07:00.339Z\",\n  \"processedAt\": \"1956-11-26T14:28:19.206Z\",\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"infos\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e38eaa10-28ba-498e-8118-28317d07d990",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3970b747-fedc-47d0-b4c4-c85ec6ad8d3e",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e24d9f42-23fe-4d60-ac24-038be8195901",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89b935ec-6acd-4836-aa5e-3dbc5731c7b5",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1b92043-687a-46c0-938a-8b44833d59b0",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e4ccbf8-f47d-4481-916d-2f8899d2990b",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d90dc0ed-f2f7-47bc-942c-def5b34dbfbb",
+          "name": "Find an existing ApiSpecification",
+          "request": {
+            "name": "Find an existing ApiSpecification",
+            "description": {
+              "content": "Find an existing ApiSpecification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications",
+                ":apiSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiSpecificationId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f3c6b92e-c72c-44b2-ab81-b29f213478d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"my-hub--my-team--eni-foo-v3\",\n  \"name\": \"eni-foo-v3\",\n  \"category\": \"G_API\",\n  \"vendorApi\": true,\n  \"specification\": {\n    \"key_0\": true,\n    \"key_1\": 2521.098411852798,\n    \"key_2\": true\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d51f8d5-0515-47f6-bb70-65309d2ced66",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a197b64-1c8a-4129-ad3f-29ffc683a22c",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14bc573d-d9b8-42fb-8be1-fb02a906f63f",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e64306d-460a-4889-84fd-261b341e61e5",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "480f7971-5c2a-4fb3-9d0f-e8fef547e5ad",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b39e964-bac3-453a-bddd-f88b47e75e97",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0bb6c17b-0cc4-4900-8ebf-54a9992de588",
+          "name": "Update an existing ApiSpecification",
+          "request": {
+            "name": "Update an existing ApiSpecification",
+            "description": {
+              "content": "Update an existing ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications",
+                ":apiSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiSpecificationId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"specification\": {\n    \"key_0\": 2986,\n    \"key_1\": false,\n    \"key_2\": 3932.678405551464\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b14a5412-aa5f-4f9a-9625-cff6368abc1a",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"my-hub--my-team--eni-foo-v3\",\n  \"name\": \"eni-foo-v3\",\n  \"category\": \"G_API\",\n  \"vendorApi\": true,\n  \"specification\": {\n    \"key_0\": true,\n    \"key_1\": 2521.098411852798,\n    \"key_2\": true\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ff261e9-cabe-4b8f-b4bb-ee756339ba2c",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9abd2b4-3168-46e5-ba8e-63f1a857495f",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b313e8f2-b3be-4343-9080-c0228326a29d",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84d9ee30-bd53-4f6f-a9e2-a7c28c25cbcd",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bf20850-b263-4178-9ec4-5d6046d14320",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05253f46-5c48-4036-826f-8a4d7eab630f",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"specification\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f0b2e69-fa35-4aa3-bf9b-eedc79f3ff69",
+          "name": "Delete an ApiSpecification",
+          "request": {
+            "name": "Delete an ApiSpecification",
+            "description": {
+              "content": "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an ApiSpecification\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apispecifications",
+                ":apiSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiSpecificationId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "0548c7b8-7625-42ea-b99c-8c9947a769b1",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "924cea56-294b-4a24-90f3-694b40522d2f",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1874b8a8-0245-423f-8ca2-8bad0d21c16a",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "612912b8-3e65-4b21-9ffe-25b770f504c3",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38eeaa0f-2ee7-43b2-9229-3b1ea076f91d",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a549f67c-eff5-43f6-93b0-58010cdec00f",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d36208dd-d85e-4d94-91ef-039b0c19f441",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apispecifications",
+                    ":apiSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiSpecificationId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--resourceName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7040.516835642129,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "83cd2cd1-0b9b-497a-b2a3-36c69b770c0d",
+    "name": "Controlplane Api ApiChangelog ApiSpecification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

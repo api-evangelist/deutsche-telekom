@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Client Scopes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Scopes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm"
+        },
+        {
+          "info": {
+            "name": "Create a new client scope   Client Scope’s name must be unique!",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new client scope   Client Scope’s name must be unique!"
+        },
+        {
+          "info": {
+            "name": "Get representation of the client scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get representation of the client scope"
+        },
+        {
+          "info": {
+            "name": "Update the client scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the client scope"
+        },
+        {
+          "info": {
+            "name": "Delete the client scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Delete the client scope"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

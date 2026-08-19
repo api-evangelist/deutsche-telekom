@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog EventSubscription API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventSubscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventSubscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventsubscriptions"
+          },
+          "docs": "Find all EventSubscriptions of this application"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventsubscriptions/:eventSubscriptionName",
+            "params": [
+              {
+                "name": "eventSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing EventSubscription"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventSubscription and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventsubscriptions/:eventSubscriptionName/status",
+            "params": [
+              {
+                "name": "eventSubscriptionName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventSubscription"
+              }
+            ]
+          },
+          "docs": "Find an existing EventSubscription and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

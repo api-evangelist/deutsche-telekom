@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "fae77708-7397-46bd-a643-3ab4666de0f8",
+      "name": "Client Registration Policy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a485848f-178e-4b7d-8d46-d5db715a3da8",
+          "name": "Base path for retrieve providers with the configProperties properly filled",
+          "request": {
+            "name": "Base path for retrieve providers with the configProperties properly filled",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-registration-policy",
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36c457fc-8924-4b74-9fda-2439f60e0d7e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-registration-policy",
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"helpText\": \"string\",\n    \"id\": \"string\",\n    \"metadata\": {\n      \"key_0\": 8108.298345232938,\n      \"key_1\": \"string\",\n      \"key_2\": 1612.1119156221853,\n      \"key_3\": true,\n      \"key_4\": 4362.755557770363\n    },\n    \"properties\": [\n      {\n        \"defaultValue\": {},\n        \"helpText\": \"string\",\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"options\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secret\": false,\n        \"type\": \"string\"\n      },\n      {\n        \"defaultValue\": {},\n        \"helpText\": \"string\",\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"options\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secret\": true,\n        \"type\": \"string\"\n      }\n    ]\n  },\n  {\n    \"helpText\": \"string\",\n    \"id\": \"string\",\n    \"metadata\": {\n      \"key_0\": 426.98362392459944,\n      \"key_1\": false\n    },\n    \"properties\": [\n      {\n        \"defaultValue\": {},\n        \"helpText\": \"string\",\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"options\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secret\": true,\n        \"type\": \"string\"\n      },\n      {\n        \"defaultValue\": {},\n        \"helpText\": \"string\",\n        \"label\": \"string\",\n        \"name\": \"string\",\n        \"options\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secret\": false,\n        \"type\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0d12d1f6-3f38-4a69-b673-e3bf46821185",
+    "name": "Controlplane Api ApiChangelog Client Registration Policy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

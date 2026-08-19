@@ -1,0 +1,820 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Authentication Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get authenticator providers   Returns a list of authenticator providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/authenticator-providers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get authenticator providers   Returns a list of authenticator providers."
+        },
+        {
+          "info": {
+            "name": "Get client authenticator providers   Returns a list of client authenticator providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/client-authenticator-providers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get client authenticator providers   Returns a list of client authenticator providers."
+        },
+        {
+          "info": {
+            "name": "Get authenticator provider’s configuration description",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/config-description/:providerId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get authenticator provider’s configuration description"
+        },
+        {
+          "info": {
+            "name": "Get authenticator configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/config/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Configuration id"
+              }
+            ]
+          },
+          "docs": "Get authenticator configuration"
+        },
+        {
+          "info": {
+            "name": "Update authenticator configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/config/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Configuration id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update authenticator configuration"
+        },
+        {
+          "info": {
+            "name": "Delete authenticator configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/config/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Configuration id"
+              }
+            ]
+          },
+          "docs": "Delete authenticator configuration"
+        },
+        {
+          "info": {
+            "name": "Add new authentication execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new authentication execution"
+        },
+        {
+          "info": {
+            "name": "Get Single Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions/:executionId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "Execution id"
+              }
+            ]
+          },
+          "docs": "Get Single Execution"
+        },
+        {
+          "info": {
+            "name": "Delete execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions/:executionId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "Execution id"
+              }
+            ]
+          },
+          "docs": "Delete execution"
+        },
+        {
+          "info": {
+            "name": "Update execution with new configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions/:executionId/config",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "Execution id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update execution with new configuration"
+        },
+        {
+          "info": {
+            "name": "Lower execution’s priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions/:executionId/lower-priority",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "Execution id"
+              }
+            ]
+          },
+          "docs": "Lower execution’s priority"
+        },
+        {
+          "info": {
+            "name": "Raise execution’s priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/executions/:executionId/raise-priority",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "Execution id"
+              }
+            ]
+          },
+          "docs": "Raise execution’s priority"
+        },
+        {
+          "info": {
+            "name": "Get authentication flows   Returns a list of authentication flows.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get authentication flows   Returns a list of authentication flows."
+        },
+        {
+          "info": {
+            "name": "Create a new authentication flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new authentication flow"
+        },
+        {
+          "info": {
+            "name": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:flowAlias/copy",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "flowAlias",
+                "value": "",
+                "type": "path",
+                "description": "Name of the existing authentication flow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object"
+        },
+        {
+          "info": {
+            "name": "Get authentication executions for a flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:flowAlias/executions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "flowAlias",
+                "value": "",
+                "type": "path",
+                "description": "Flow alias"
+              }
+            ]
+          },
+          "docs": "Get authentication executions for a flow"
+        },
+        {
+          "info": {
+            "name": "Update authentication executions of a flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:flowAlias/executions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "flowAlias",
+                "value": "",
+                "type": "path",
+                "description": "Flow alias"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update authentication executions of a flow"
+        },
+        {
+          "info": {
+            "name": "Add new authentication execution to a flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:flowAlias/executions/execution",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "flowAlias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of parent flow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new authentication execution to a flow"
+        },
+        {
+          "info": {
+            "name": "Add new flow with new execution to existing flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:flowAlias/executions/flow",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "flowAlias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of parent authentication flow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new flow with new execution to existing flow"
+        },
+        {
+          "info": {
+            "name": "Get authentication flow for id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Flow id"
+              }
+            ]
+          },
+          "docs": "Get authentication flow for id"
+        },
+        {
+          "info": {
+            "name": "Update an authentication flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Flow id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an authentication flow"
+        },
+        {
+          "info": {
+            "name": "Delete an authentication flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/flows/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Flow id"
+              }
+            ]
+          },
+          "docs": "Delete an authentication flow"
+        },
+        {
+          "info": {
+            "name": "Get form action providers   Returns a list of form action providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/form-action-providers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get form action providers   Returns a list of form action providers."
+        },
+        {
+          "info": {
+            "name": "Get form providers   Returns a list of form providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/form-providers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get form providers   Returns a list of form providers."
+        },
+        {
+          "info": {
+            "name": "Get configuration descriptions for all clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/per-client-config-description",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get configuration descriptions for all clients"
+        },
+        {
+          "info": {
+            "name": "Register a new required actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/register-required-action",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new required actions"
+        },
+        {
+          "info": {
+            "name": "Get required actions   Returns a list of required actions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get required actions   Returns a list of required actions."
+        },
+        {
+          "info": {
+            "name": "Get required action for alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of required action"
+              }
+            ]
+          },
+          "docs": "Get required action for alias"
+        },
+        {
+          "info": {
+            "name": "Update required action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of required action"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update required action"
+        },
+        {
+          "info": {
+            "name": "Delete required action",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of required action"
+              }
+            ]
+          },
+          "docs": "Delete required action"
+        },
+        {
+          "info": {
+            "name": "Lower required action’s priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions/:alias/lower-priority",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of required action"
+              }
+            ]
+          },
+          "docs": "Lower required action’s priority"
+        },
+        {
+          "info": {
+            "name": "Raise required action’s priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/required-actions/:alias/raise-priority",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path",
+                "description": "Alias of required action"
+              }
+            ]
+          },
+          "docs": "Raise required action’s priority"
+        },
+        {
+          "info": {
+            "name": "Get unregistered required actions   Returns a list of unregistered required actions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/authentication/unregistered-required-actions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get unregistered required actions   Returns a list of unregistered required actions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

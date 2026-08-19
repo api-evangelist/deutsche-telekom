@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Client Registration Policy API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Registration Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Base path for retrieve providers with the configProperties properly filled",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-registration-policy/providers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Base path for retrieve providers with the configProperties properly filled"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

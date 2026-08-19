@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog ApiRoadmap API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiRoadmap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiRoadmaps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor for pagination"
+              }
+            ]
+          },
+          "docs": "Find all ApiRoadmaps of a Team"
+        },
+        {
+          "info": {
+            "name": "Create an ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an ApiRoadmap resource"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Update an existing ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Delete an ApiRoadmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps/:apiRoadmapId",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Delete an ApiRoadmap"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiRoadmap and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apiroadmaps/:apiRoadmapId/status",
+            "params": [
+              {
+                "name": "apiRoadmapId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiRoadmap and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

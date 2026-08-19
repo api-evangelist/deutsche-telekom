@@ -1,0 +1,1196 @@
+{
+  "item": [
+    {
+      "id": "42863f4c-43f9-4eb4-98ce-c63952ed3de6",
+      "name": "EventType",
+      "description": {
+        "content": "An EventType is a registry entry representing a known event type. It\nserves as the canonical reference that both EventExposures and\nEventSubscriptions point to. EventTypes are identified by a dot-separated\nidentifier (e.g. \"de.telekom.eni.quickstart.v1\").\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb795d33-045a-4a07-8444-3f4055c13eff",
+          "name": "Find all EventTypes",
+          "request": {
+            "name": "Find all EventTypes",
+            "description": {
+              "content": "Find all registered EventTypes without any restrictions. \nThis operation is global and not scoped to a specific application or team.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventtypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "743a516b-0311-4f99-8e1c-a1acd18b47f7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Result-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"type\": \"de.telekom.eni.quickstart.v1\",\n      \"version\": \"1.0.0\",\n      \"description\": \"Quickstart events for the ENI platform\",\n      \"specification\": \"string\",\n      \"id\": \"eni--hyperion--de-telekom-eni-quickstart-v1\",\n      \"active\": false,\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"type\": \"de.telekom.eni.quickstart.v1\",\n      \"version\": \"1.0.0\",\n      \"description\": \"Quickstart events for the ENI platform\",\n      \"specification\": \"string\",\n      \"id\": \"eni--hyperion--de-telekom-eni-quickstart-v1\",\n      \"active\": true,\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2c37c29-29de-46cd-95fd-851d67779074",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df077120-4614-47a5-a1f8-f7f00832252e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e1dcc54-3432-489c-a94d-5ee90f01430e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2328880-6e4e-40c0-840b-61fb6c4b9b2c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10bd4ae8-ef5e-4bb9-9e6d-b83de1a3e87b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "519ef28f-41ae-42cc-b904-c932b30a3047",
+          "name": "Find an existing EventType",
+          "request": {
+            "name": "Find an existing EventType",
+            "description": {
+              "content": "Find an existing EventType by its complete identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventtypes",
+                ":eventTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventTypeId",
+                  "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a2e74e31-f147-420f-8dc7-af354143cc73",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"de-telekom-eni-quickstart-v1\",\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Quickstart events for the ENI platform\",\n  \"specification\": \"string\",\n  \"id\": \"eni--hyperion--de-telekom-eni-quickstart-v1\",\n  \"active\": true,\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a54a1175-b20e-44e2-8000-f5f279acb0db",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a673aa1-b196-48a3-9341-03b975a62b8e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60fc97a7-62b6-4f2b-aff4-c365843652c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39a27329-aca5-4824-af4e-3841cd50c282",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be6520ba-708e-410e-8431-a752b4578674",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e6c4c58-9a46-46b6-ba6e-4f1b65da6b02",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5149dbb-a71e-4198-a8bf-186c5db7c230",
+          "name": "Find an existing EventType and return its status",
+          "request": {
+            "name": "Find an existing EventType and return its status",
+            "description": {
+              "content": "Find an existing EventType and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventtypes",
+                ":eventTypeId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventTypeId",
+                  "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "290d84f4-03af-496f-8cd9-94a6c3049fdc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05caf48f-f3f1-4883-938e-d2d04b62185f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b155d683-4ca0-42e7-856f-62ec1d437bf3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0124efb9-a6f5-4b1f-bd3d-eb0891e5c0de",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ca148b1-8d1c-401e-a7d2-570a1179835f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "234c62ae-0f21-4dde-9c5a-8ca5697ab6da",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9617bc60-6dd8-4c95-a3df-a074611475b0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeId",
+                      "description": "(Required) The complete identifier of the EventType (e.g. \"de-telekom-eni-quickstart-v1--1-0-0\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3d2fdaa-322d-4110-a68b-ce0ff21453e2",
+          "name": "Find the active EventType for a given name",
+          "request": {
+            "name": "Find the active EventType for a given name",
+            "description": {
+              "content": "Returns the currently active EventType for the given resource name. This operation is global and not scoped to a specific application or team.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventtypes",
+                ":eventTypeName",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventTypeName",
+                  "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "8f1650a4-12cc-4fbe-89ab-cbf18df0b0be",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"de-telekom-eni-quickstart-v1\",\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Quickstart events for the ENI platform\",\n  \"specification\": \"string\",\n  \"id\": \"eni--hyperion--de-telekom-eni-quickstart-v1\",\n  \"active\": true,\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c049f53-f48a-4c7e-bd9e-80aa41c800f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f95901e-946d-4159-ad88-605ca4089a5d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf07e8b9-b43b-420e-b963-577af66f50b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "375b2126-5f6d-4e1d-9781-46a90645364e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fc2cf6a-467e-4ba7-a7c0-f5b91b80ade2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d102e04-44e8-49bc-a0d5-4b3642198cf2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventtypes",
+                    ":eventTypeName",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventTypeName",
+                      "description": "(Required) The resource name of the EventType (dot-separated identifier converted to hyphens, e.g. \"de-telekom-eni-quickstart-v1\")\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "98df8924-37f6-4f35-b036-8a162fd8a4ee",
+    "name": "Controlplane Api ApiChangelog EventType API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

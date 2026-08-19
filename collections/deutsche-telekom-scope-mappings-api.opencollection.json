@@ -1,0 +1,650 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Scope Mappings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scope Mappings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all scope mappings for the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get all scope mappings for the client"
+        },
+        {
+          "info": {
+            "name": "Get the roles associated with a client’s scope   Returns roles for the client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the roles associated with a client’s scope   Returns roles for the client."
+        },
+        {
+          "info": {
+            "name": "Add client-level roles to the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add client-level roles to the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Remove client-level roles from the client’s scope.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove client-level roles from the client’s scope."
+        },
+        {
+          "info": {
+            "name": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/clients/:client/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/clients/:client/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope."
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles associated with the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles associated with the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Add a set of realm-level roles to the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a set of realm-level roles to the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Remove a set of realm-level roles from the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a set of realm-level roles from the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles that are available to attach to this client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/realm/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles that are available to attach to this client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/scope-mappings/realm/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists."
+        },
+        {
+          "info": {
+            "name": "Get all scope mappings for the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get all scope mappings for the client"
+        },
+        {
+          "info": {
+            "name": "Get the roles associated with a client’s scope   Returns roles for the client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the roles associated with a client’s scope   Returns roles for the client."
+        },
+        {
+          "info": {
+            "name": "Add client-level roles to the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add client-level roles to the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Remove client-level roles from the client’s scope.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove client-level roles from the client’s scope."
+        },
+        {
+          "info": {
+            "name": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/clients/:client/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/clients/:client/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope."
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles associated with the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles associated with the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Add a set of realm-level roles to the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a set of realm-level roles to the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Remove a set of realm-level roles from the client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a set of realm-level roles from the client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles that are available to attach to this client’s scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/realm/available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles that are available to attach to this client’s scope"
+        },
+        {
+          "info": {
+            "name": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/scope-mappings/realm/composite",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

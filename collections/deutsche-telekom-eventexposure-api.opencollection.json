@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog EventExposure API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventExposure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all EventExposures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventexposures"
+          },
+          "docs": "Find all EventExposures of this application"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventexposures/:eventExposureName",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing EventExposure"
+        },
+        {
+          "info": {
+            "name": "Find an existing EventExposure and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventexposures/:eventExposureName/status",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find an existing EventExposure and return its status"
+        },
+        {
+          "info": {
+            "name": "Find all EventSubscriptions of this EventExposure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/applications/:applicationId/eventexposures/:eventExposureName/eventsubscriptions",
+            "params": [
+              {
+                "name": "eventExposureName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the EventExposure"
+              }
+            ]
+          },
+          "docs": "Find all EventSubscriptions that subscribe to this EventExposure"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

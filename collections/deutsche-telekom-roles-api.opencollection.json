@@ -1,0 +1,912 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Roles API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all roles for the realm or client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "briefRepresentation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all roles for the realm or client"
+        },
+        {
+          "info": {
+            "name": "Create a new role for the realm or client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new role for the realm or client"
+        },
+        {
+          "info": {
+            "name": "Get a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get a role by name"
+        },
+        {
+          "info": {
+            "name": "Update a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a role by name"
+        },
+        {
+          "info": {
+            "name": "Delete a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Delete a role by name"
+        },
+        {
+          "info": {
+            "name": "Get composites of the role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get composites of the role"
+        },
+        {
+          "info": {
+            "name": "Add a composite to the role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a composite to the role"
+        },
+        {
+          "info": {
+            "name": "Remove roles from the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove roles from the role’s composite"
+        },
+        {
+          "info": {
+            "name": "An app-level roles for the specified app for the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/composites/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "An app-level roles for the specified app for the role’s composite"
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles of the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/composites/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles of the role’s composite"
+        },
+        {
+          "info": {
+            "name": "Return List of Groups that have the specified role name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/groups",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "briefRepresentation",
+                "value": "",
+                "type": "query",
+                "description": "if false, return a full representation of the GroupRepresentation objects"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return List of Groups that have the specified role name"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return List of Users that have the specified role name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/roles/:role-name/users",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return List of Users that have the specified role name"
+        },
+        {
+          "info": {
+            "name": "Get all roles for the realm or client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "briefRepresentation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all roles for the realm or client"
+        },
+        {
+          "info": {
+            "name": "Create a new role for the realm or client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new role for the realm or client"
+        },
+        {
+          "info": {
+            "name": "Get a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get a role by name"
+        },
+        {
+          "info": {
+            "name": "Update a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a role by name"
+        },
+        {
+          "info": {
+            "name": "Delete a role by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Delete a role by name"
+        },
+        {
+          "info": {
+            "name": "Get composites of the role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get composites of the role"
+        },
+        {
+          "info": {
+            "name": "Add a composite to the role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a composite to the role"
+        },
+        {
+          "info": {
+            "name": "Remove roles from the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/composites",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove roles from the role’s composite"
+        },
+        {
+          "info": {
+            "name": "An app-level roles for the specified app for the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/composites/clients/:client",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "An app-level roles for the specified app for the role’s composite"
+        },
+        {
+          "info": {
+            "name": "Get realm-level roles of the role’s composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/composites/realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path",
+                "description": "role’s name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get realm-level roles of the role’s composite"
+        },
+        {
+          "info": {
+            "name": "Return List of Groups that have the specified role name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/groups",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "briefRepresentation",
+                "value": "",
+                "type": "query",
+                "description": "if false, return a full representation of the GroupRepresentation objects"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return List of Groups that have the specified role name"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return List of Users that have the specified role name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/roles/:role-name/users",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "role-name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return List of Users that have the specified role name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

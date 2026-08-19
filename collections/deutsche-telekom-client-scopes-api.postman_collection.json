@@ -1,0 +1,515 @@
+{
+  "item": [
+    {
+      "id": "50b07092-729b-44bb-9d2b-e6cf20d444ff",
+      "name": "Client Scopes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1965e9a-ba77-4d40-837b-2817eb87b0b2",
+          "name": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
+          "request": {
+            "name": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-scopes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03a62520-dad7-4352-84dc-6b841f26cf3f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-scopes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 7763\n    },\n    \"description\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"protocol\": \"string\",\n    \"protocolMappers\": [\n      {\n        \"config\": {\n          \"key_0\": 7397,\n          \"key_1\": \"string\",\n          \"key_2\": true\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"protocol\": \"string\",\n        \"protocolMapper\": \"string\"\n      },\n      {\n        \"config\": {\n          \"key_0\": \"string\",\n          \"key_1\": 735.0559530349732\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"protocol\": \"string\",\n        \"protocolMapper\": \"string\"\n      }\n    ]\n  },\n  {\n    \"attributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    },\n    \"description\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"protocol\": \"string\",\n    \"protocolMappers\": [\n      {\n        \"config\": {\n          \"key_0\": false\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"protocol\": \"string\",\n        \"protocolMapper\": \"string\"\n      },\n      {\n        \"config\": {\n          \"key_0\": true\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"protocol\": \"string\",\n        \"protocolMapper\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c97f8b08-792e-4489-b49a-a5d182babe9a",
+          "name": "Create a new client scope   Client Scope’s name must be unique!",
+          "request": {
+            "name": "Create a new client scope   Client Scope’s name must be unique!",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-scopes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": {\n    \"key_0\": false\n  },\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"protocol\": \"<string>\",\n  \"protocolMappers\": [\n    {\n      \"config\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    },\n    {\n      \"config\": {\n        \"key_0\": 6195.77504987893,\n        \"key_1\": 1343.3039429014348\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6383af1c-6b07-4de7-a970-30ad21892215",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-scopes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": 5193,\n    \"key_1\": 6896\n  },\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"protocol\": \"<string>\",\n  \"protocolMappers\": [\n    {\n      \"config\": {\n        \"key_0\": 3895,\n        \"key_1\": false,\n        \"key_2\": 9062\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    },\n    {\n      \"config\": {\n        \"key_0\": 8692.042387797952,\n        \"key_1\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "246665cf-7c5f-4f0d-9642-26d18ba8ce61",
+          "name": "Get representation of the client scope",
+          "request": {
+            "name": "Get representation of the client scope",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-scopes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of client scope (not name)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e70aee5a-b426-498a-baba-05d4f962989d",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-scopes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id of client scope (not name)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributes\": {\n    \"key_0\": 5193,\n    \"key_1\": 6896\n  },\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"protocol\": \"<string>\",\n  \"protocolMappers\": [\n    {\n      \"config\": {\n        \"key_0\": 3895,\n        \"key_1\": false,\n        \"key_2\": 9062\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    },\n    {\n      \"config\": {\n        \"key_0\": 8692.042387797952,\n        \"key_1\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f0e8940-98d8-427b-b51b-442f05ec0ce6",
+          "name": "Update the client scope",
+          "request": {
+            "name": "Update the client scope",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-scopes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of client scope (not name)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": {\n    \"key_0\": false\n  },\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"protocol\": \"<string>\",\n  \"protocolMappers\": [\n    {\n      \"config\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    },\n    {\n      \"config\": {\n        \"key_0\": 6195.77504987893,\n        \"key_1\": 1343.3039429014348\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61d698da-b62b-4ed2-b809-cfaae97489ac",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-scopes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id of client scope (not name)"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": 5193,\n    \"key_1\": 6896\n  },\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"protocol\": \"<string>\",\n  \"protocolMappers\": [\n    {\n      \"config\": {\n        \"key_0\": 3895,\n        \"key_1\": false,\n        \"key_2\": 9062\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    },\n    {\n      \"config\": {\n        \"key_0\": 8692.042387797952,\n        \"key_1\": true\n      },\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"protocolMapper\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89849b45-54a6-4e11-bbbd-1ae21b478a0e",
+          "name": "Delete the client scope",
+          "request": {
+            "name": "Delete the client scope",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "client-scopes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of client scope (not name)"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed33db70-133a-46f1-a383-99fbcfa643e4",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "client-scopes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id of client scope (not name)"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2f289bfd-5873-4fa8-81a9-f34e2b52f844",
+    "name": "Controlplane Api ApiChangelog Client Scopes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

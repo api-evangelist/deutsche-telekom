@@ -1,0 +1,1218 @@
+{
+  "item": [
+    {
+      "id": "6b70e67e-5232-43c1-bf8c-73e9a71e543d",
+      "name": "EventExposure",
+      "description": {
+        "content": "With an EventExposure you declare that your application publishes events\nof a specific type. This makes the events available for subscription by\nother applications. Each exposure is scoped to a zone and can define\nvisibility, approval strategy, and publisher-side scopes with filtering.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "059f922d-cd70-4b2f-8886-d318f2131a6c",
+          "name": "Find all EventExposures",
+          "request": {
+            "name": "Find all EventExposures",
+            "description": {
+              "content": "Find all EventExposures of this application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventexposures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d172d6a1-ba2f-4267-b3bf-b22fcbef1b9d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Result-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"visibility\": \"Zone\",\n      \"approval\": {\n        \"strategy\": \"FourEyes\",\n        \"trustedTeams\": [\n          \"eni--hyperion\"\n        ]\n      },\n      \"scopes\": [\n        {\n          \"name\": \"high-priority\",\n          \"trigger\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": \"high-priority\",\n          \"trigger\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"additionalPublisherIds\": [\n        \"hub42--team2--secondary-publisher\"\n      ],\n      \"active\": true,\n      \"sseUrls\": {\n        \"aws\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\"\n      },\n      \"callbackURL\": \"https://stargate-playground.live.dhei.telekom.de/callback/eni/quickstart/v1\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"visibility\": \"Enterprise\",\n      \"approval\": {\n        \"strategy\": \"FourEyes\",\n        \"trustedTeams\": [\n          \"eni--hyperion\"\n        ]\n      },\n      \"scopes\": [\n        {\n          \"name\": \"high-priority\",\n          \"trigger\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": \"high-priority\",\n          \"trigger\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"additionalPublisherIds\": [\n        \"hub42--team2--secondary-publisher\"\n      ],\n      \"active\": true,\n      \"sseUrls\": {\n        \"aws\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\"\n      },\n      \"callbackURL\": \"https://stargate-playground.live.dhei.telekom.de/callback/eni/quickstart/v1\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6814d27-ae81-472e-bd35-0734e716a214",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ca47766-ad9e-4667-a6a3-a4f1d272403b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2f0ff6d-d5a9-49aa-8c32-ddc73b099ec0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32f75334-5dc5-4f7e-a0df-52a09fa4d0c2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7471881a-0d05-42f0-88c3-05badfe3165a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ca2371d-a538-44a6-a829-e47cfe38f4bd",
+          "name": "Find an existing EventExposure",
+          "request": {
+            "name": "Find an existing EventExposure",
+            "description": {
+              "content": "Find an existing EventExposure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventexposures",
+                ":eventExposureName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventExposureName",
+                  "description": "(Required) The name of the EventExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1a2827dc-c0dd-4797-8768-99ead3797dff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"de-telekom-eni-quickstart-v1\",\n  \"zone\": \"string\",\n  \"eventType\": \"de.telekom.eni.quickstart.v1\",\n  \"visibility\": \"Enterprise\",\n  \"approval\": {\n    \"strategy\": \"Auto\",\n    \"trustedTeams\": [\n      \"eni--hyperion\"\n    ]\n  },\n  \"scopes\": [\n    {\n      \"name\": \"high-priority\",\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"high-priority\",\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ],\n  \"additionalPublisherIds\": [\n    \"hub42--team2--secondary-publisher\"\n  ],\n  \"active\": false,\n  \"sseUrls\": {\n    \"aws\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\"\n  },\n  \"callbackURL\": \"https://stargate-playground.live.dhei.telekom.de/callback/eni/quickstart/v1\",\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  },\n  \"application\": {\n    \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n  },\n  \"team\": {\n    \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "295327bc-eba5-41d8-84b0-2d42f70a050e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a06ef8b6-f61d-4983-9657-a09f3dca8650",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c5952e6-2109-4030-ac14-2768d1537cf6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dab5f31-d356-4b75-90ca-a2034da8bcc3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "025d64e0-e40e-4854-bf40-31eda03c3859",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dce1d93-e02e-4bc7-9ae6-536dc4702004",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8e2b563-8e55-4f98-821f-563cb213a40d",
+          "name": "Find an existing EventExposure and return its status",
+          "request": {
+            "name": "Find an existing EventExposure and return its status",
+            "description": {
+              "content": "Find an existing EventExposure and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventexposures",
+                ":eventExposureName",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventExposureName",
+                  "description": "(Required) The name of the EventExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "29cc99b5-e5ce-49f8-ba4f-a5ad478f33e5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9ff4eda-0860-446f-9104-eb5fc9890240",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45d17c39-4f9c-4efd-9e50-a3543ead0548",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02312c31-8ed5-4380-af8f-4ea94f55168f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03dccf84-180b-4714-8512-3925b7313c7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7476d04d-14ef-450e-9ec1-218b3e25d761",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a68e2fe0-cafb-43f2-a478-9ba492e2cc78",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abfbb8d7-3180-464c-b21b-20ad0c320f40",
+          "name": "Find all EventSubscriptions of this EventExposure",
+          "request": {
+            "name": "Find all EventSubscriptions of this EventExposure",
+            "description": {
+              "content": "Find all EventSubscriptions that subscribe to this EventExposure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "eventexposures",
+                ":eventExposureName",
+                "eventsubscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventExposureName",
+                  "description": "(Required) The name of the EventExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ee4f343a-11ca-4433-81e0-a2fc168cf479",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"delivery\": {\n        \"type\": \"Callback\",\n        \"payload\": \"Data\",\n        \"callback\": \"https://myapp.example.com/events/callback\",\n        \"eventRetentionTime\": \"7d\",\n        \"circuitBreakerOptOut\": false,\n        \"retryableStatusCodes\": [\n          502,\n          503,\n          504\n        ],\n        \"redeliveriesPerSecond\": 10,\n        \"enforceGetHttpRequestMethodForHealthCheck\": false\n      },\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"scopes\": [\n        \"high-priority\"\n      ],\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"url\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\",\n      \"subscriptionId\": \"string\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      }\n    },\n    {\n      \"eventType\": \"de.telekom.eni.quickstart.v1\",\n      \"delivery\": {\n        \"type\": \"Callback\",\n        \"payload\": \"DataRef\",\n        \"callback\": \"https://myapp.example.com/events/callback\",\n        \"eventRetentionTime\": \"7d\",\n        \"circuitBreakerOptOut\": false,\n        \"retryableStatusCodes\": [\n          502,\n          503,\n          504\n        ],\n        \"redeliveriesPerSecond\": 10,\n        \"enforceGetHttpRequestMethodForHealthCheck\": false\n      },\n      \"trigger\": {\n        \"responseFilter\": {\n          \"paths\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"selectionFilter\": {\n          \"attributes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expression\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"scopes\": [\n        \"high-priority\"\n      ],\n      \"name\": \"de-telekom-eni-quickstart-v1\",\n      \"zone\": \"string\",\n      \"url\": \"https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1\",\n      \"subscriptionId\": \"string\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "424d774d-cf81-47c7-83cc-df4bf3d4ce20",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9074c5e9-8edf-48f7-8847-81899d30c82b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4e409b1-ba6d-4683-98bf-0c8694cc903a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ca0cbf1-f2f1-451d-bde4-8eb2cdcc2638",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41eddd92-df8b-4920-93b8-b2e54cba3e4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "eventexposures",
+                    ":eventExposureName",
+                    "eventsubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventExposureName",
+                      "description": "(Required) The name of the EventExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e43c5b4-783b-4a8b-a7f8-cda8fddccbd8",
+    "name": "Controlplane Api ApiChangelog EventExposure API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

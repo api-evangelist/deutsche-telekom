@@ -1,0 +1,3323 @@
+{
+  "item": [
+    {
+      "id": "43ffa3ca-ac62-4b31-b161-15d5b9bd287d",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de06c607-71f8-4bed-9439-ef24de8a143c",
+          "name": "Get users   Returns a list of users, filtered according to query parameters",
+          "request": {
+            "name": "Get users   Returns a list of users, filtered according to query parameters",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "briefRepresentation",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum results size (defaults to 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A String contained in username, first or last name, or email"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6206fb28-23ea-4030-a924-1185422f16fb",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "briefRepresentation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "first",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"access\": {\n      \"key_0\": 5737,\n      \"key_1\": 6319,\n      \"key_2\": true\n    },\n    \"attributes\": {\n      \"key_0\": 1696.4154794945619\n    },\n    \"clientConsents\": [\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 3813,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 5350\n      },\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 9929,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 4489\n      }\n    ],\n    \"clientRoles\": {\n      \"key_0\": 9993.24684868685,\n      \"key_1\": 174.1967612438622,\n      \"key_2\": 6316.810630850818\n    },\n    \"createdTimestamp\": 372,\n    \"credentials\": [\n      {\n        \"createdDate\": 1658,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 2526,\n        \"secretData\": \"string\",\n        \"temporary\": true,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"createdDate\": 9024,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 6229,\n        \"secretData\": \"string\",\n        \"temporary\": false,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"disableableCredentialTypes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"email\": \"string\",\n    \"emailVerified\": false,\n    \"enabled\": false,\n    \"federatedIdentities\": [\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      },\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      }\n    ],\n    \"federationLink\": \"string\",\n    \"firstName\": \"string\",\n    \"groups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"notBefore\": 5780,\n    \"origin\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"requiredActions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"self\": \"string\",\n    \"serviceAccountClientId\": \"string\",\n    \"username\": \"string\"\n  },\n  {\n    \"access\": {\n      \"key_0\": true,\n      \"key_1\": 6862\n    },\n    \"attributes\": {\n      \"key_0\": false,\n      \"key_1\": 3987.971845430338,\n      \"key_2\": 4978\n    },\n    \"clientConsents\": [\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 9392,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 5399\n      },\n      {\n        \"clientId\": \"string\",\n        \"createdDate\": 8127,\n        \"grantedClientScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastUpdatedDate\": 4692\n      }\n    ],\n    \"clientRoles\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"createdTimestamp\": 7370,\n    \"credentials\": [\n      {\n        \"createdDate\": 3879,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 3140,\n        \"secretData\": \"string\",\n        \"temporary\": true,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"createdDate\": 5977,\n        \"credentialData\": \"string\",\n        \"id\": \"string\",\n        \"priority\": 2429,\n        \"secretData\": \"string\",\n        \"temporary\": false,\n        \"type\": \"string\",\n        \"userLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"disableableCredentialTypes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"email\": \"string\",\n    \"emailVerified\": false,\n    \"enabled\": false,\n    \"federatedIdentities\": [\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      },\n      {\n        \"identityProvider\": \"string\",\n        \"userId\": \"string\",\n        \"userName\": \"string\"\n      }\n    ],\n    \"federationLink\": \"string\",\n    \"firstName\": \"string\",\n    \"groups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"lastName\": \"string\",\n    \"notBefore\": 165,\n    \"origin\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"requiredActions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"self\": \"string\",\n    \"serviceAccountClientId\": \"string\",\n    \"username\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eda80281-6c95-44f9-b4b4-b3d9742dbc75",
+          "name": "Create a new user   Username must be unique.",
+          "request": {
+            "name": "Create a new user   Username must be unique.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"key_0\": false,\n    \"key_1\": 9775.168922425544,\n    \"key_2\": 1183.26003025216\n  },\n  \"attributes\": {\n    \"key_0\": 2610,\n    \"key_1\": true\n  },\n  \"clientConsents\": [\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    },\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    }\n  ],\n  \"clientRoles\": {\n    \"key_0\": 5704\n  },\n  \"createdTimestamp\": \"<long>\",\n  \"credentials\": [\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"disableableCredentialTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"enabled\": \"<boolean>\",\n  \"federatedIdentities\": [\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"federationLink\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"notBefore\": \"<integer>\",\n  \"origin\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requiredActions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"self\": \"<string>\",\n  \"serviceAccountClientId\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a29ad7d4-8213-4657-9d3f-8f6e4867e996",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"key_0\": 1446\n  },\n  \"attributes\": {\n    \"key_0\": false,\n    \"key_1\": 7014.9828003446\n  },\n  \"clientConsents\": [\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    },\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    }\n  ],\n  \"clientRoles\": {\n    \"key_0\": 9089.33075851416,\n    \"key_1\": 1108.50464974264,\n    \"key_2\": false\n  },\n  \"createdTimestamp\": \"<long>\",\n  \"credentials\": [\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"disableableCredentialTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"enabled\": \"<boolean>\",\n  \"federatedIdentities\": [\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"federationLink\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"notBefore\": \"<integer>\",\n  \"origin\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requiredActions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"self\": \"<string>\",\n  \"serviceAccountClientId\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "961d3639-47ca-478c-870a-55c724dd9563",
+          "name": "Returns the number of users that match the given criteria.",
+          "request": {
+            "name": "Returns the number of users that match the given criteria.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "email filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "first name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "last name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "arbitrary search string for all the fields below"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "username filter"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9beeb0c-a414-4d65-ad58-35a951f28089",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "8256",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4ff9fbc-bbc8-48ce-b087-ad48f20ae950",
+          "name": "Get representation of the user",
+          "request": {
+            "name": "Get representation of the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "946d9daa-9e5d-4cd0-95de-4a4b88e150ca",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access\": {\n    \"key_0\": 1446\n  },\n  \"attributes\": {\n    \"key_0\": false,\n    \"key_1\": 7014.9828003446\n  },\n  \"clientConsents\": [\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    },\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    }\n  ],\n  \"clientRoles\": {\n    \"key_0\": 9089.33075851416,\n    \"key_1\": 1108.50464974264,\n    \"key_2\": false\n  },\n  \"createdTimestamp\": \"<long>\",\n  \"credentials\": [\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"disableableCredentialTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"enabled\": \"<boolean>\",\n  \"federatedIdentities\": [\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"federationLink\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"notBefore\": \"<integer>\",\n  \"origin\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requiredActions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"self\": \"<string>\",\n  \"serviceAccountClientId\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61c5a40e-1998-4844-8315-438a3f66fdc2",
+          "name": "Update the user",
+          "request": {
+            "name": "Update the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"key_0\": true,\n    \"key_1\": 5444.295473733949\n  },\n  \"attributes\": {\n    \"key_0\": 5027,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"clientConsents\": [\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    },\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    }\n  ],\n  \"clientRoles\": {\n    \"key_0\": 8682\n  },\n  \"createdTimestamp\": \"<long>\",\n  \"credentials\": [\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"disableableCredentialTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"enabled\": \"<boolean>\",\n  \"federatedIdentities\": [\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"federationLink\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"notBefore\": \"<integer>\",\n  \"origin\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requiredActions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"self\": \"<string>\",\n  \"serviceAccountClientId\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f8d9f66-9f2d-4f6d-b9cc-0a9b0c344891",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"key_0\": 1446\n  },\n  \"attributes\": {\n    \"key_0\": false,\n    \"key_1\": 7014.9828003446\n  },\n  \"clientConsents\": [\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    },\n    {\n      \"clientId\": \"<string>\",\n      \"createdDate\": \"<long>\",\n      \"grantedClientScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdatedDate\": \"<long>\"\n    }\n  ],\n  \"clientRoles\": {\n    \"key_0\": 9089.33075851416,\n    \"key_1\": 1108.50464974264,\n    \"key_2\": false\n  },\n  \"createdTimestamp\": \"<long>\",\n  \"credentials\": [\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"createdDate\": \"<long>\",\n      \"credentialData\": \"<string>\",\n      \"id\": \"<string>\",\n      \"priority\": \"<integer>\",\n      \"secretData\": \"<string>\",\n      \"temporary\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"userLabel\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"disableableCredentialTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"enabled\": \"<boolean>\",\n  \"federatedIdentities\": [\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"identityProvider\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"federationLink\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"notBefore\": \"<integer>\",\n  \"origin\": \"<string>\",\n  \"realmRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requiredActions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"self\": \"<string>\",\n  \"serviceAccountClientId\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "463adfcd-42fa-4cb2-9bf2-0d73bf3e5289",
+          "name": "Delete the user",
+          "request": {
+            "name": "Delete the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f262e393-ef4b-448f-a37e-7194e7410b3c",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d79ca5c-71e8-4888-a21f-a00721df497c",
+          "name": "Return credential types, which are provided by the user storage where user is stored.",
+          "request": {
+            "name": "Return credential types, which are provided by the user storage where user is stored.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "configured-user-storage-credential-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "020afea4-cf6c-479c-97e6-829de47a5da2",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "configured-user-storage-credential-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5c506be-4792-4293-9f0d-8a972cbbd790",
+          "name": "Get consents granted by the user",
+          "request": {
+            "name": "Get consents granted by the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "consents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80c542de-833b-4972-9261-b263ea92b5fa",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "consents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": \"string\"\n  },\n  {\n    \"key_0\": 6822.440186803547,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24844ecd-6716-44f4-9ce0-8ab9482c68fb",
+          "name": "Revoke consent and offline tokens for particular client from user",
+          "request": {
+            "name": "Revoke consent and offline tokens for particular client from user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "consents",
+                ":client"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "client",
+                  "description": "(Required) Client id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31c2d079-ba03-4be7-be01-488d56278d29",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "consents",
+                    ":client"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client",
+                      "description": "(Required) Client id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2d5a42d-1ad3-4ff8-8454-bf6b38144675",
+          "name": "/:realm/users/:id/credentials",
+          "request": {
+            "name": "/:realm/users/:id/credentials",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a9d413f-58ef-45c8-b316-4d0230b2d2b5",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdDate\": \"<long>\",\n    \"credentialData\": \"<string>\",\n    \"id\": \"<string>\",\n    \"priority\": \"<integer>\",\n    \"secretData\": \"<string>\",\n    \"temporary\": \"<boolean>\",\n    \"type\": \"<string>\",\n    \"userLabel\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"createdDate\": \"<long>\",\n    \"credentialData\": \"<string>\",\n    \"id\": \"<string>\",\n    \"priority\": \"<integer>\",\n    \"secretData\": \"<string>\",\n    \"temporary\": \"<boolean>\",\n    \"type\": \"<string>\",\n    \"userLabel\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fbfa884-abd0-4573-8a9b-ce79af3920da",
+          "name": "Remove a credential for a user",
+          "request": {
+            "name": "Remove a credential for a user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "credentials",
+                ":credentialId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "269d534a-d5be-42d1-b2b9-0bcb70418673",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "credentials",
+                    ":credentialId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09936612-00b9-4054-b09e-60f90bc5283e",
+          "name": "Move a credential to a position behind another credential",
+          "request": {
+            "name": "Move a credential to a position behind another credential",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "credentials",
+                ":credentialId",
+                "moveAfter",
+                ":newPreviousCredentialId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "credentialId",
+                  "description": "(Required) The credential to move"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "newPreviousCredentialId",
+                  "description": "(Required) The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db4ce7f6-f210-4a42-b593-4ba35618303b",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "credentials",
+                    ":credentialId",
+                    "moveAfter",
+                    ":newPreviousCredentialId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "credentialId",
+                      "description": "(Required) The credential to move"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "newPreviousCredentialId",
+                      "description": "(Required) The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bcec10b-ea51-494d-9448-5d4e94fbe89f",
+          "name": "Move a credential to a first position in the credentials list of the user",
+          "request": {
+            "name": "Move a credential to a first position in the credentials list of the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "credentials",
+                ":credentialId",
+                "moveToFirst"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "credentialId",
+                  "description": "(Required) The credential to move"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fec107da-7a58-4c03-9b2b-9543fa55f04e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "credentials",
+                    ":credentialId",
+                    "moveToFirst"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "credentialId",
+                      "description": "(Required) The credential to move"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf77c37-05cc-4e12-b939-087e6612eda4",
+          "name": "Update a credential label for a user",
+          "request": {
+            "name": "Update a credential label for a user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "credentials",
+                ":credentialId",
+                "userLabel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "8a019dda-946b-4666-a315-d25396187cba",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "credentials",
+                    ":credentialId",
+                    "userLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3c5b6a5-4408-4a4c-89b5-9d352b4e2d45",
+          "name": "Disable all credentials for a user of a specific type",
+          "request": {
+            "name": "Disable all credentials for a user of a specific type",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "disable-credential-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "890454a5-39d9-4f86-a68f-2cb3c5d0593e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "disable-credential-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f427de8-c378-49a5-b4a2-2d16ff4d827e",
+          "name": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
+          "request": {
+            "name": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "execute-actions-email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "Client id"
+                },
+                {
+                  "disabled": false,
+                  "key": "lifespan",
+                  "value": "<integer>",
+                  "description": "Number of seconds after which the generated token expires"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "Redirect uri"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ccea3422-944c-4f50-bdd9-881b04774047",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "execute-actions-email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lifespan",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3478d81b-fcb6-4383-be75-0c2752663942",
+          "name": "Get social logins associated with the user",
+          "request": {
+            "name": "Get social logins associated with the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "federated-identity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2543b39b-fb1d-430d-9101-e26e06cd044c",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "federated-identity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identityProvider\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"userName\": \"<string>\"\n  },\n  {\n    \"identityProvider\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"userName\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c87ce06-76c9-42ae-9657-c141629b45ea",
+          "name": "Add a social login provider to the user",
+          "request": {
+            "name": "Add a social login provider to the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "federated-identity",
+                ":provider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) Social login provider id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identityProvider\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"userName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "275cf408-0734-45fd-81a2-dfd5ac33fa3e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "federated-identity",
+                    ":provider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) Social login provider id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identityProvider\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"userName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43cdf1ae-25d5-4c36-9f63-82d6e4b9a45d",
+          "name": "Remove a social login provider from user",
+          "request": {
+            "name": "Remove a social login provider from user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "federated-identity",
+                ":provider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) Social login provider id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c16c411d-3d7f-4a54-a222-148e0279a550",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "federated-identity",
+                    ":provider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) Social login provider id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeb8f1c9-66ef-45f9-b8ef-d1c265eae876",
+          "name": "/:realm/users/:id/groups",
+          "request": {
+            "name": "/:realm/users/:id/groups",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "briefRepresentation",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f24a6b7-f0da-47ac-9eab-d77e9b4d54c7",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "briefRepresentation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "first",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"access\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    },\n    \"attributes\": {\n      \"key_0\": 5120,\n      \"key_1\": true\n    },\n    \"clientRoles\": {\n      \"key_0\": true\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"path\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subGroups\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      }\n    ]\n  },\n  {\n    \"access\": {\n      \"key_0\": true\n    },\n    \"attributes\": {\n      \"key_0\": 8784,\n      \"key_1\": 2685,\n      \"key_2\": true\n    },\n    \"clientRoles\": {\n      \"key_0\": 3475,\n      \"key_1\": 987.1812349112308\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"path\": \"string\",\n    \"realmRoles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subGroups\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/GroupRepresentation detected>\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a24a0bcd-21d9-4714-8adc-35fbc0f8a20b",
+          "name": "/:realm/users/:id/groups/count",
+          "request": {
+            "name": "/:realm/users/:id/groups/count",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "groups",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b3654aa-769a-4fb7-9273-c449ae547f1b",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "groups",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 6336.052367482757\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d36ad376-bd93-4982-ae95-bf002fbbb5bc",
+          "name": "/:realm/users/:id/groups/:groupId",
+          "request": {
+            "name": "/:realm/users/:id/groups/:groupId",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf2bbb80-890e-4190-95a6-dc2bea7b7358",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cf0ee83-d3d6-40a2-a72c-b20c83923c62",
+          "name": "/:realm/users/:id/groups/:groupId",
+          "request": {
+            "name": "/:realm/users/:id/groups/:groupId",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b04c9aae-090f-4587-8568-84351576c004",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eeb76b3-e6fa-40b3-836d-1a88089fa373",
+          "name": "Impersonate the user",
+          "request": {
+            "name": "Impersonate the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "impersonation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10dd04fa-2d6c-4bc7-90f1-0243f9b0cf51",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "impersonation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 6336.052367482757\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1539e03c-8d0f-4bfd-b8d7-8f1b59174828",
+          "name": "Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.",
+          "request": {
+            "name": "Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d94c149-8ce9-4275-9557-31501d2bd947",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39974d28-9392-4e5e-8fb8-6d2b89807e5a",
+          "name": "Get offline sessions associated with the user and client",
+          "request": {
+            "name": "Get offline sessions associated with the user and client",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "offline-sessions",
+                ":clientId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clientId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ee2db60-04bf-43d3-b99a-ea9a09dd5ca1",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "offline-sessions",
+                    ":clientId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clientId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clients\": {\n      \"key_0\": true\n    },\n    \"id\": \"string\",\n    \"ipAddress\": \"string\",\n    \"lastAccess\": 4944,\n    \"start\": 1538,\n    \"userId\": \"string\",\n    \"username\": \"string\"\n  },\n  {\n    \"clients\": {\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": 1721\n    },\n    \"id\": \"string\",\n    \"ipAddress\": \"string\",\n    \"lastAccess\": 9423,\n    \"start\": 2935,\n    \"userId\": \"string\",\n    \"username\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "197554a8-5c07-4e47-8e31-44b0adab34f3",
+          "name": "Set up a new password for the user.",
+          "request": {
+            "name": "Set up a new password for the user.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "reset-password"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdDate\": \"<long>\",\n  \"credentialData\": \"<string>\",\n  \"id\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"secretData\": \"<string>\",\n  \"temporary\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"userLabel\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b198e018-5133-4f64-b4d3-df8aa838ae20",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "reset-password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdDate\": \"<long>\",\n  \"credentialData\": \"<string>\",\n  \"id\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"secretData\": \"<string>\",\n  \"temporary\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"userLabel\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4412d1a-d9a3-4711-86d8-4e5c3b127503",
+          "name": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
+          "request": {
+            "name": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "send-verify-email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "Client id"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "Redirect uri"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2b5b192-1240-4604-b7b9-b0f51c54ec9e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "send-verify-email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa482b12-d109-428b-b66a-a48bfba42b33",
+          "name": "Get sessions associated with the user",
+          "request": {
+            "name": "Get sessions associated with the user",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "users",
+                ":id",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47f4cd7d-bbe8-49f9-a700-cb137dd8feaa",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "users",
+                    ":id",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clients\": {\n      \"key_0\": true\n    },\n    \"id\": \"string\",\n    \"ipAddress\": \"string\",\n    \"lastAccess\": 4944,\n    \"start\": 1538,\n    \"userId\": \"string\",\n    \"username\": \"string\"\n  },\n  {\n    \"clients\": {\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": 1721\n    },\n    \"id\": \"string\",\n    \"ipAddress\": \"string\",\n    \"lastAccess\": 9423,\n    \"start\": 2935,\n    \"userId\": \"string\",\n    \"username\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d2ae936e-cffa-49cb-95e8-199a79485cf2",
+    "name": "Controlplane Api ApiChangelog Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

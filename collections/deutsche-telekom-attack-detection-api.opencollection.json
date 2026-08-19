@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Attack Detection API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attack Detection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clear any user login failures for all users   This can release temporary disabled users",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/attack-detection/brute-force/users",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Clear any user login failures for all users   This can release temporary disabled users"
+        },
+        {
+          "info": {
+            "name": "Get status of a username in brute force detection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/attack-detection/brute-force/users/:userId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get status of a username in brute force detection"
+        },
+        {
+          "info": {
+            "name": "Clear any user login failures for the user   This can release temporary disabled user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/attack-detection/brute-force/users/:userId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Clear any user login failures for the user   This can release temporary disabled user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

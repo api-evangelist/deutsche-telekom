@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "315d5223-5c8c-4fb5-aa87-e5812c635bc1",
+      "name": "Root",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8da13fa-c62a-4eb2-bf69-2617f39d91d1",
+          "name": "Get themes, social providers, auth providers, and event listeners available on this server",
+          "request": {
+            "name": "Get themes, social providers, auth providers, and event listeners available on this server",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ad29bca-7b94-4232-8023-1981a3dfc7cd",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"builtinProtocolMappers\": {\n    \"key_0\": 5282,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": true,\n    \"key_4\": \"string\"\n  },\n  \"clientImporters\": [\n    {\n      \"key_0\": 9796.25678353003,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 6218.561634318381\n    }\n  ],\n  \"clientInstallations\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6021.729997109414,\n    \"key_2\": true,\n    \"key_3\": true\n  },\n  \"componentTypes\": {\n    \"key_0\": 1049,\n    \"key_1\": \"string\"\n  },\n  \"enums\": {\n    \"key_0\": 6059.401997334013\n  },\n  \"identityProviders\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 8502.295781967197\n    }\n  ],\n  \"memoryInfo\": {\n    \"free\": 561,\n    \"freeFormated\": \"string\",\n    \"freePercentage\": 2047,\n    \"total\": 8386,\n    \"totalFormated\": \"string\",\n    \"used\": 4155,\n    \"usedFormated\": \"string\"\n  },\n  \"passwordPolicies\": [\n    {\n      \"configType\": \"string\",\n      \"defaultValue\": \"string\",\n      \"displayName\": \"string\",\n      \"id\": \"string\",\n      \"multipleSupported\": true\n    },\n    {\n      \"configType\": \"string\",\n      \"defaultValue\": \"string\",\n      \"displayName\": \"string\",\n      \"id\": \"string\",\n      \"multipleSupported\": false\n    }\n  ],\n  \"profileInfo\": {\n    \"disabledFeatures\": [\n      \"string\",\n      \"string\"\n    ],\n    \"experimentalFeatures\": [\n      \"string\",\n      \"string\"\n    ],\n    \"name\": \"string\",\n    \"previewFeatures\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"protocolMapperTypes\": {\n    \"key_0\": false,\n    \"key_1\": true\n  },\n  \"providers\": {\n    \"key_0\": 5884.091512442822\n  },\n  \"socialProviders\": [\n    {\n      \"key_0\": true\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"systemInfo\": {\n    \"fileEncoding\": \"string\",\n    \"javaHome\": \"string\",\n    \"javaRuntime\": \"string\",\n    \"javaVendor\": \"string\",\n    \"javaVersion\": \"string\",\n    \"javaVm\": \"string\",\n    \"javaVmVersion\": \"string\",\n    \"osArchitecture\": \"string\",\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serverTime\": \"string\",\n    \"uptime\": \"string\",\n    \"uptimeMillis\": 4869,\n    \"userDir\": \"string\",\n    \"userLocale\": \"string\",\n    \"userName\": \"string\",\n    \"userTimezone\": \"string\",\n    \"version\": \"string\"\n  },\n  \"themes\": {\n    \"key_0\": 7702,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc90ec03-9f7e-44f1-a11d-26f1d6ee6387",
+    "name": "Controlplane Api ApiChangelog Root API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

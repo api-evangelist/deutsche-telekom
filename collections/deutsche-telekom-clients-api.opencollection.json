@@ -1,0 +1,938 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Clients API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "query",
+                "description": "filter by clientId"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query",
+                "description": "the first result"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "the max results to return"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "whether this is a search query or a getClientById query"
+              },
+              {
+                "name": "viewableOnly",
+                "value": "",
+                "type": "query",
+                "description": "filter clients that cannot be viewed in full by admin"
+              }
+            ]
+          },
+          "docs": "Get clients belonging to the realm   Returns a list of clients belonging to the realm"
+        },
+        {
+          "info": {
+            "name": "Create a new client   Client’s client_id must be unique!",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new client   Client’s client_id must be unique!"
+        },
+        {
+          "info": {
+            "name": "Get representation of the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get representation of the client"
+        },
+        {
+          "info": {
+            "name": "Update the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the client"
+        },
+        {
+          "info": {
+            "name": "Delete the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Delete the client"
+        },
+        {
+          "info": {
+            "name": "Get the client secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/client-secret",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get the client secret"
+        },
+        {
+          "info": {
+            "name": "Generate a new secret for the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/client-secret",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Generate a new secret for the client"
+        },
+        {
+          "info": {
+            "name": "Get the rotated client secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/client-secret/rotated",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get the rotated client secret"
+        },
+        {
+          "info": {
+            "name": "Invalidate the rotated secret for the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/client-secret/rotated",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Invalidate the rotated secret for the client"
+        },
+        {
+          "info": {
+            "name": "Get default client scopes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/default-client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get default client scopes."
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/default-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/default-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Create JSON with payload of example access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/evaluate-scopes/generate-example-access-token",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Create JSON with payload of example access token"
+        },
+        {
+          "info": {
+            "name": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/evaluate-scopes/protocol-mappers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client."
+        },
+        {
+          "info": {
+            "name": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/evaluate-scopes/scope-mappings/:roleContainerId/granted",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "roleContainerId",
+                "value": "",
+                "type": "path",
+                "description": "either realm name OR client UUID"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him."
+        },
+        {
+          "info": {
+            "name": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/evaluate-scopes/scope-mappings/:roleContainerId/not-granted",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "roleContainerId",
+                "value": "",
+                "type": "path",
+                "description": "either realm name OR client UUID"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him."
+        },
+        {
+          "info": {
+            "name": "GET /{realm}/clients/{id}/installation/providers/{providerId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/installation/providers/:providerId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Return object stating whether client Authorization permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return object stating whether client Authorization permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/nodes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak"
+        },
+        {
+          "info": {
+            "name": "Unregister a cluster node from the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/nodes/:node",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "node",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unregister a cluster node from the client"
+        },
+        {
+          "info": {
+            "name": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/offline-session-count",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }"
+        },
+        {
+          "info": {
+            "name": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/offline-sessions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query",
+                "description": "Paging offset"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results size (defaults to 100)"
+              }
+            ]
+          },
+          "docs": "Get offline sessions for client   Returns a list of offline user sessions associated with this client"
+        },
+        {
+          "info": {
+            "name": "Get optional client scopes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/optional-client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get optional client scopes."
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/optional-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/optional-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/push-revocation",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it."
+        },
+        {
+          "info": {
+            "name": "Generate a new registration access token for the client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/registration-access-token",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Generate a new registration access token for the client"
+        },
+        {
+          "info": {
+            "name": "Get a user dedicated to the service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/service-account-user",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get a user dedicated to the service account"
+        },
+        {
+          "info": {
+            "name": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/session-count",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }"
+        },
+        {
+          "info": {
+            "name": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/test-nodes-available",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes."
+        },
+        {
+          "info": {
+            "name": "Get user sessions for client   Returns a list of user sessions associated with this client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/user-sessions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query",
+                "description": "Paging offset"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results size (defaults to 100)"
+              }
+            ]
+          },
+          "docs": "Get user sessions for client   Returns a list of user sessions associated with this client"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

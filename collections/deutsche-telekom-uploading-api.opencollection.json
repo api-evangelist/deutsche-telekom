@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog uploading API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "uploading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/v1/files/:fileId",
+            "headers": [
+              {
+                "name": "X-File-Content-Type",
+                "value": ""
+              },
+              {
+                "name": "X-File-Checksum",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the file, should follow the convention <env>--<group>--<team>--<fileName>"
+              }
+            ]
+          },
+          "docs": "Uploads a file to the server with the specified Id. The id should follow the convention."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

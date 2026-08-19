@@ -1,0 +1,1228 @@
+{
+  "item": [
+    {
+      "id": "4ca2af49-23de-4d22-96ea-dde7ed65d0b5",
+      "name": "RemoteSubscription",
+      "description": {
+        "content": "Manage remoteSubscriptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d08b58f-9ea3-44ca-927f-d35b9f47072c",
+          "name": "Create/Update a RemoteSubscription",
+          "request": {
+            "name": "Create/Update a RemoteSubscription",
+            "description": {
+              "content": "Creating a RemoteSubscription or updating an existing RemoteSubscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remoteSubscriptions",
+                ":remoteSubscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "remoteSubscriptionId",
+                  "description": "(Required) Unique resource id of this remoteSubscription"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1aaa3290-0e04-4081-af31-d1669fc0f034",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"team123--my-api-v1\",\n  \"updated\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ef5d743-0c06-49c4-9bc4-cdcbac15edf8",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5005.865351826997,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "563277e0-3916-4ca8-8743-88a29c588dbe",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3be08557-490b-4e86-a3cb-03df8e20024b",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dceb3c26-6a63-4156-8d80-f46153334e3e",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db71020f-6e93-4842-98aa-bdb65bdf0d5d",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87349afd-dd21-4de2-ad49-7a6f802266ed",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiBasePath\": \"<string>\",\n  \"requester\": {\n    \"application\": \"<string>\",\n    \"team\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"security\": {\n    \"oauth2\": {\n      \"scopes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f8d80bc-7ce6-4c68-bed3-e2d46b7fca0b",
+          "name": "Delete a RemoteSubscription",
+          "request": {
+            "name": "Delete a RemoteSubscription",
+            "description": {
+              "content": "Delete an existing RemoteSubscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remoteSubscriptions",
+                ":remoteSubscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "remoteSubscriptionId",
+                  "description": "(Required) Unique resource id of this remoteSubscription"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f181523a-237c-4bda-bfc9-25b29d22e493",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "254c48ec-8329-4f57-a9c0-80273dec6f30",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e23f8e42-667d-41c0-a8c0-14cc55dc4aa4",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5594bbe-3468-4ae2-858b-a9250061a85d",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cfe4163-c8e3-45eb-a5c9-08a63f5f886a",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b30cf63b-c9be-4149-84f6-d769cd285d96",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3acd9fe4-87a4-4323-a1c8-5b2de05cdf40",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01131fce-cca8-48f4-adf8-adadac341a00",
+          "name": "Update a RemoteSubscriptionStatus",
+          "request": {
+            "name": "Update a RemoteSubscriptionStatus",
+            "description": {
+              "content": "Update the status of a RemoteSubscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remoteSubscriptions",
+                ":remoteSubscriptionId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "remoteSubscriptionId",
+                  "description": "(Required) Unique resource id of this remoteSubscription"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f87f533a-63d8-4a3d-85ea-7c421387d985",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"team123--my-api-v1\",\n  \"updated\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ac25d64-d1d7-42dc-b4f9-1395f40aef52",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25e5cebe-d7f7-4089-87fb-b4a0a835506b",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e747f6f-2a86-424a-9b96-b4549d89792c",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fbb8325-8c18-456e-aa9c-abfcb1ab4311",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c4e5c9f-2ca6-4c26-84cd-dc3388561219",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bd9b6b7-8601-43e3-a0b8-a5754b31cd5d",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remoteSubscriptions",
+                    ":remoteSubscriptionId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteSubscriptionId",
+                      "description": "(Required) Unique resource id of this remoteSubscription"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conditions\": [\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    },\n    {\n      \"lastTransitionTime\": \"<dateTime>\",\n      \"message\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"observedGeneration\": \"<long>\"\n    }\n  ],\n  \"gatewayUrl\": \"<string>\",\n  \"approval\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"approvalRequest\": {\n    \"state\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5627.9660372915305,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b05a8cdb-6c76-4364-803a-73ef1d693d6a",
+    "name": "Controlplane Api ApiChangelog RemoteSubscription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

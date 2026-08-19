@@ -1,0 +1,2209 @@
+{
+  "item": [
+    {
+      "id": "4199a657-e31d-484c-bc7b-7e7431dbadc6",
+      "name": "ApiExposure",
+      "description": {
+        "content": "With an ApiExposure you can define and API you want to expose on TARDIS,\nto provide it to other consumers. It is only possible to expose the entire\nAPI. It is not possible to expose a single resource. Therefore, every\nexposure needs the API Base Path which you can find in the Open API\nSpecification File of your API and the upstream URL.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57e9cf66-5f1c-4527-8eb7-4ce95aef400f",
+          "name": "Find all ApiExposures",
+          "request": {
+            "name": "Find all ApiExposures",
+            "description": {
+              "content": "Find all ApiExposures of this application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5b876711-7ba5-49f7-9d9d-ac2f5683e6c3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Result-Count",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"name\": \"eni-heartbeat-v1\",\n      \"zone\": \"string\",\n      \"basePath\": \"/WZSHR\",\n      \"upstream\": \"http://cVGqdEMBqNQQsug.wggxXynf9nEt5e9r\",\n      \"visibility\": \"ENTERPRISE\",\n      \"variant\": \"DEFAULT\",\n      \"approval\": \"SIMPLE\",\n      \"rateLimit\": {\n        \"second\": 1381,\n        \"minute\": 1139,\n        \"hour\": 5813,\n        \"faultTolerant\": true,\n        \"hideClientHeaders\": false\n      },\n      \"security\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenEndpoint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientSecret\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scopes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"username\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"password\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refreshToken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"grantType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenRequest\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"failover\": {\n        \"zone\": \"aws\"\n      },\n      \"loadBalancing\": {\n        \"servers\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"trustedTeams\": [\n        {\n          \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n        }\n      ],\n      \"removeHeaders\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"name\": \"eni-heartbeat-v1\",\n      \"zone\": \"string\",\n      \"basePath\": \"/rfcPyd-\",\n      \"upstream\": \"http://CoexfSgajVRbRVhuZHLP.fxzzidwfvNqAiA7zkaB4VFAnVXEp.T6l9O4MrvI.6pJuCSBrXhRGllMFB0a0C\",\n      \"visibility\": \"ENTERPRISE\",\n      \"variant\": \"DEFAULT\",\n      \"approval\": \"FOUREYES\",\n      \"rateLimit\": {\n        \"second\": 4388,\n        \"minute\": 7464,\n        \"hour\": 6722,\n        \"faultTolerant\": true,\n        \"hideClientHeaders\": false\n      },\n      \"security\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenEndpoint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientSecret\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scopes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"username\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"password\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refreshToken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"grantType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenRequest\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"failover\": {\n        \"zone\": \"aws\"\n      },\n      \"loadBalancing\": {\n        \"servers\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"trustedTeams\": [\n        {\n          \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n        }\n      ],\n      \"removeHeaders\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e2cd7e6-0eeb-4652-891f-020fe0560143",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09ffaff5-7c47-4a5b-b8a6-e52375477980",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d8e8094-c291-446f-bf3c-5df1f62cef4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "844fd091-dd1c-435d-b1f0-58f33e50b400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3d82175a-4130-4ff8-9a0a-fce2ba742f42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e767f3f1-e8a4-46ca-abd7-d74585b141ad",
+          "name": "Create an ApiExposures",
+          "request": {
+            "name": "Create an ApiExposures",
+            "description": {
+              "content": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to blocked. Otherwise to \"failed\". Status 201 means, that we\naccepted the request and there are no syntactic or semantic errors, but\nthere can occur failures in the after processing. That will be shown in\nthe status if you request the appropriate resource.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c4f41ee-8928-44cf-8a10-fc78e36d5966",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"eni-heartbeat-v1\",\n  \"zone\": \"string\",\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {\n    \"servers\": [\n      {\n        \"upstream\": \"string\",\n        \"weight\": 8429\n      },\n      {\n        \"upstream\": \"string\",\n        \"weight\": 5904\n      }\n    ]\n  },\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cab3f94-fbb6-4e7d-9f55-58d2481e8561",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6fcacef-bfa7-41fa-b5a7-ff9653b81bdd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33256888-d6f7-4cf0-b37c-fbf1e521ccd1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "65f9d5c3-7efd-48c1-972c-696760594b1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50669590-eaf7-43fd-8674-26bec48249d4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c188077-dfdb-4f0d-a14f-7e8722562706",
+          "name": "Find an existing ApiExposure",
+          "request": {
+            "name": "Find an existing ApiExposure",
+            "description": {
+              "content": "Find an existing ApiExposure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures",
+                ":apiExposureName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiExposureName",
+                  "description": "(Required) The name of the ApiExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "27a664f2-009b-4b0b-bd0c-fca1e669acd6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"eni-heartbeat-v1\",\n  \"zone\": \"string\",\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {\n    \"servers\": [\n      {\n        \"upstream\": \"string\",\n        \"weight\": 8429\n      },\n      {\n        \"upstream\": \"string\",\n        \"weight\": 5904\n      }\n    ]\n  },\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2adb2ac5-b9fb-4b60-abc2-e42da4eb2231",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc2e70e0-fd85-4152-a361-027db8be9338",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93988436-2224-4163-bc38-76d8af67d7f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd2c9ce1-f609-4a3b-b2a9-b13a105b3d32",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac8f1cd9-7acd-48c9-9954-5f2754d3a868",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef1fbb79-540f-4121-b660-628c5d105d03",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "525f4b78-0451-42fb-81f6-ab651ec36dab",
+          "name": "Update an existing ApiExposure",
+          "request": {
+            "name": "Update an existing ApiExposure",
+            "description": {
+              "content": "Creating and updating resources is asynchronous, which is why the status\nis given as an answer to a POST/PUT request, since it is possible that\nthe resource to be created has not yet been processed at the time the\nresponse is created. If the status after creation is in state\n\"Processing\", the resource must be queried with GET to see whether it\nwas created successfully or whether errors/warnings are written in the\nstatus. If the creation/update is incorrect, the processing status will\nbe set to blocked. Otherwise to \"failed\". Status 201 means, that we\naccepted the request and there are no syntactic or semantic errors, but\nthere can occur failures in the after processing. That will be shown in\nthe status if you request the appropriate resource.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures",
+                ":apiExposureName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiExposureName",
+                  "description": "(Required) The name of the ApiExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77510acf-a95f-43c8-8a76-dec270760981",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"eni-heartbeat-v1\",\n  \"zone\": \"string\",\n  \"basePath\": \"<string>\",\n  \"upstream\": \"<uri>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"approval\": \"<string>\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {\n    \"servers\": [\n      {\n        \"upstream\": \"string\",\n        \"weight\": 8429\n      },\n      {\n        \"upstream\": \"string\",\n        \"weight\": 5904\n      }\n    ]\n  },\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": {\n    \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1750935b-8887-47c7-915f-fc178b1f3597",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8bfa925-65de-40e4-a32d-2c884e4bad05",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a844b6ff-dcc2-47c8-aa91-85be0552c717",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3ee4511-7be1-4e73-8249-bf39bf4929ad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c03a3d0a-3ce9-4325-8f26-0b600aae6f54",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8951bd53-c638-4a0d-8835-588a8ace0741",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upstream\": \"<uri>\",\n  \"basePath\": \"<string>\",\n  \"approval\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"variant\": \"DEFAULT\",\n  \"rateLimit\": {\n    \"second\": \"<integer>\",\n    \"minute\": \"<integer>\",\n    \"hour\": \"<integer>\",\n    \"faultTolerant\": \"<boolean>\",\n    \"hideClientHeaders\": \"<boolean>\"\n  },\n  \"security\": {\n    \"type\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"refreshToken\": \"<string>\",\n    \"grantType\": \"<string>\",\n    \"tokenRequest\": \"<string>\"\n  },\n  \"failover\": {\n    \"zone\": \"aws\"\n  },\n  \"loadBalancing\": {},\n  \"trustedTeams\": [\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n    }\n  ],\n  \"removeHeaders\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d679bf05-452f-4e70-9ef6-794db0534948",
+          "name": "Delete an ApiExposure",
+          "request": {
+            "name": "Delete an ApiExposure",
+            "description": {
+              "content": "Delete an ApiExposure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures",
+                ":apiExposureName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiExposureName",
+                  "description": "(Required) The name of the ApiExposure"
+                }
+              ]
+            },
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "a69366c4-0152-467b-bdf0-0123d54c903e",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f8d5736-7355-4cff-a2dd-07c21480a0f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24c058ff-703c-453f-9cbc-8d528e1800da",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1582b70-7434-4c0f-86df-21945b0387f1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abec2e8e-ffd0-4e53-8ccf-9ce0342106f5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "658cb119-51ba-46f7-b3c9-414d6fc8b0e0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b978db7-d734-4718-aa76-78b32f5d3316",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58430e40-3c10-40a1-97b6-b8d4da918800",
+          "name": "Find an existing ApiExposure and return its status",
+          "request": {
+            "name": "Find an existing ApiExposure and return its status",
+            "description": {
+              "content": "Find an existing ApiExposure and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures",
+                ":apiExposureName",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiExposureName",
+                  "description": "(Required) The name of the ApiExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "20a1e715-5601-494c-9750-d24ffc822cfe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de9e6612-3901-4f97-9924-201eabdaa27f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "edd1811e-68cd-4244-87a4-20b73498311f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3d52f47-8d5e-4058-9b70-1b68753959ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c079490a-5574-4020-b1e1-e156ffe1e0c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ce1a0a2-7c60-41ec-a43e-d1380a724846",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a043d5c-72c0-4142-b90a-17fca7b56517",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee756c2e-b3d6-4ff2-9285-534b57b36a5d",
+          "name": "Find all ApiSubscriptions of this ApiExposure",
+          "request": {
+            "name": "Find all ApiSubscriptions of this ApiExposure",
+            "description": {
+              "content": "Find all ApiSubscriptions of this ApiExposure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId",
+                "apiexposures",
+                ":apiExposureName",
+                "apisubscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiExposureName",
+                  "description": "(Required) The name of the ApiExposure"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "accc3bf1-d759-4b9a-ad24-dae346dbdcd0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paging\": {\n    \"value\": \"reference common.yaml#/components/schemas/Paging not found in the OpenAPI spec\"\n  },\n  \"_links\": {\n    \"value\": \"reference common.yaml#/components/schemas/Links not found in the OpenAPI spec\"\n  },\n  \"items\": [\n    {\n      \"basePath\": \"/my-hub/my-app/v1\",\n      \"security\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenEndpoint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientSecret\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scopes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"username\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"password\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refreshToken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"grantType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenRequest\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"name\": \"eni-echo-v1\",\n      \"zone\": \"string\",\n      \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      },\n      \"failover\": [\n        {\n          \"zone\": \"aws\",\n          \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\"\n        },\n        {\n          \"zone\": \"aws\",\n          \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\"\n        }\n      ]\n    },\n    {\n      \"basePath\": \"/my-hub/my-app/v1\",\n      \"security\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenEndpoint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"clientSecret\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"scopes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"username\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"password\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refreshToken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"grantType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tokenRequest\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"name\": \"eni-echo-v1\",\n      \"zone\": \"string\",\n      \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\",\n      \"status\": {\n        \"value\": \"reference common.yaml#/components/schemas/Status not found in the OpenAPI spec\"\n      },\n      \"application\": {\n        \"value\": \"reference common.yaml#/components/schemas/ApplicationRef not found in the OpenAPI spec\"\n      },\n      \"team\": {\n        \"value\": \"reference common.yaml#/components/schemas/TeamRef not found in the OpenAPI spec\"\n      },\n      \"approval\": {\n        \"status\": \"granted\",\n        \"comment\": \"trusted team\",\n        \"decider\": \"hyperion@telekom.de\",\n        \"timestamp\": \"2022-09-28T16:05:46.384Z\"\n      },\n      \"failover\": [\n        {\n          \"zone\": \"aws\",\n          \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\"\n        },\n        {\n          \"zone\": \"aws\",\n          \"gatewayUrl\": \"https://stargate-playground.live.dhei.telekom.de/eni/echo/v1\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "701a364e-4f91-4b85-941c-85a92989488e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "742c4749-0a6e-4ae4-ba44-49aadaad641e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eecae2a2-32b5-4364-911a-8a441f839d70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89ad3086-19ee-495a-a85e-2fcdb044d2d4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "963605f8-ab37-4ed4-b0d2-bd5ec1b2400f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId",
+                    "apiexposures",
+                    ":apiExposureName",
+                    "apisubscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiExposureName",
+                      "description": "(Required) The name of the ApiExposure"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "57af5fdd-c54e-49fa-a1d5-9c401689a3b2",
+    "name": "Controlplane Api ApiChangelog ApiExposure API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

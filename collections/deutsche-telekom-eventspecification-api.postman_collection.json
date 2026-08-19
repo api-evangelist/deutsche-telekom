@@ -1,0 +1,2256 @@
+{
+  "item": [
+    {
+      "id": "959b87c3-427e-4446-beb6-5f896a8a679e",
+      "name": "EventSpecification",
+      "description": {
+        "content": "Manage EventSpecifications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18bd3e9e-f0ef-495a-acd8-e31219399fb0",
+          "name": "Find all EventSpecifications",
+          "request": {
+            "name": "Find all EventSpecifications",
+            "description": {
+              "content": "Find all EventSpecifications of a Team",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "page size requested by the consumer; must not be larger than the maximal page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "list of fields to be used for sorting. Default is name"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f749b5c7-422e-4358-b529-77f112134ffb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items matching criteria.",
+                  "key": "X-Total-Count",
+                  "value": "2567"
+                },
+                {
+                  "disabled": false,
+                  "description": "Actual number of items returned in the response body for this page.",
+                  "key": "X-Result-Count",
+                  "value": "2567"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"self\": \"http://rrBQqgOwFNtUHfNwBIK.zngpCkQWwmBzR,7xN7D+sdn,xt7Y6Rn00XkL12qaxbRVmebJ2Jc36suh.\",\n    \"next\": \"http://veBWNmBKmWaksSeNSTcCowUZzbxNqTuh.izga8IPYFsnNzWIliyx6.2V9XPmSQX14Df8kzjsTMQYUdIL\"\n  },\n  \"items\": [\n    {\n      \"category\": \"string\",\n      \"description\": \"An event type for the quickstart guide\",\n      \"id\": \"my-hub--my-team--de-telekom-eni-quickstart-v1\",\n      \"type\": \"de.telekom.eni.quickstart.v1\",\n      \"version\": \"1.0.0\",\n      \"specification\": {\n        \"key_0\": true\n      },\n      \"status\": {\n        \"processingState\": \"done\",\n        \"state\": \"none\",\n        \"errors\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"category\": \"string\",\n      \"description\": \"An event type for the quickstart guide\",\n      \"id\": \"my-hub--my-team--de-telekom-eni-quickstart-v1\",\n      \"type\": \"de.telekom.eni.quickstart.v1\",\n      \"version\": \"1.0.0\",\n      \"specification\": {\n        \"key_0\": 5506.57373156396,\n        \"key_1\": 3764\n      },\n      \"status\": {\n        \"processingState\": \"failed\",\n        \"state\": \"complete\",\n        \"errors\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86a70d3c-9e84-4974-bb58-c04534f68bd6",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4693.3815747614735,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d928ff5d-534a-4483-b615-7cd2a5c63e9a",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e93e04d-34e2-4e5d-80ea-ca4b72ef3cb4",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f32bfe3d-46a7-4c66-8804-3f09d2034d90",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7531d7ca-1620-46e9-af67-af629514002c",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a7208de-0f4c-4033-8654-c529a95973ea",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "598dbbaf-170a-4d9c-a0f6-c1b69f5df1ac",
+          "name": "Create an EventSpecification",
+          "request": {
+            "name": "Create an EventSpecification",
+            "description": {
+              "content": "Create an EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": 3221,\n    \"key_1\": \"string\"\n  },\n  \"team\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f505456f-137d-4f9d-99f1-af1dd528a184",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"<string>\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"id\": \"my-hub--my-team--de-telekom-eni-quickstart-v1\",\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"specification\": {\n    \"key_0\": 8793,\n    \"key_1\": \"string\"\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1caed5d9-a5c1-45fe-a5be-58ad44d8d0e4",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bbd62b0-7bef-4016-a5d7-02261855cb8a",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7f8257a-b280-4198-a426-6ad5ecca6460",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f24823d-93f8-473f-a448-0e9a50870312",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ef38d5a-576f-4c5f-ad75-5ff37db5dd32",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0de1a6d0-0e6a-4ece-8e71-42338a1df1b5",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": \"string\",\n    \"key_1\": 6398.821661554288\n  },\n  \"team\": \"hyperion\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b711e3a9-725c-4d7d-8ad5-2b6d01f226d5",
+          "name": "Find an existing EventSpecification",
+          "request": {
+            "name": "Find an existing EventSpecification",
+            "description": {
+              "content": "Find an existing EventSpecification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications",
+                ":eventSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSpecificationId",
+                  "description": "(Required) The unique id of this resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0dc148da-e3d4-451a-9a28-632d8496b2cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"<string>\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"id\": \"my-hub--my-team--de-telekom-eni-quickstart-v1\",\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"specification\": {\n    \"key_0\": 8793,\n    \"key_1\": \"string\"\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06013a0c-86b4-4fd7-afc9-d1bba1f85d4e",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5705a1f3-60c2-4446-a1ef-d90ab1681e8e",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bd47563-17ac-47aa-9750-122acee236b7",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "752257bb-44c1-49aa-9144-e30a46a1f8a4",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7362927e-50f2-4477-b548-185f96f5037a",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fea43c00-92af-4428-9fb3-a71a761518d3",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffa39a73-bbe2-48fa-b6d6-419b001c0e77",
+          "name": "Update an existing EventSpecification",
+          "request": {
+            "name": "Update an existing EventSpecification",
+            "description": {
+              "content": "Update an existing EventSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state \"Processing\", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to \"failed\". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications",
+                ":eventSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSpecificationId",
+                  "description": "(Required) The unique id of this resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": true,\n    \"key_1\": 6292.93329973351,\n    \"key_2\": 3084.454166147048\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce323d7a-f288-4987-9e20-3bddaca8b37f",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"<string>\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"id\": \"my-hub--my-team--de-telekom-eni-quickstart-v1\",\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"specification\": {\n    \"key_0\": 8793,\n    \"key_1\": \"string\"\n  },\n  \"status\": {\n    \"processingState\": \"failed\",\n    \"state\": \"none\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18b8595a-1522-427e-900b-4b6f1f249948",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24d0c3e5-75cc-444a-bdd7-33a33ab5fd0d",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dedfcd0a-53a1-44a4-ab9a-dbc9f132d709",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9840ab99-9e74-4a43-a471-cc4050fa0cd5",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b876350f-a7a8-4191-a1a7-b443b9bf7a9a",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64827354-79ed-4aba-8fbf-a0b6b0b1d5b4",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"de.telekom.eni.quickstart.v1\",\n  \"version\": \"1.0.0\",\n  \"description\": \"An event type for the quickstart guide\",\n  \"category\": \"<string>\",\n  \"specification\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 1980.0044179300935,\n    \"key_3\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "793d99c1-20dc-40da-a8ee-979b50e1e702",
+          "name": "Delete an EventSpecification",
+          "request": {
+            "name": "Delete an EventSpecification",
+            "description": {
+              "content": "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an EventSpecification\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications",
+                ":eventSpecificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSpecificationId",
+                  "description": "(Required) The unique id of this resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "50b9660f-c84e-4316-b6ee-66672e1aec38",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7076f94-0f2f-4aa4-b29a-804457c265d0",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0db5f2bc-3aa9-4ec5-9965-75c4c2b0b59e",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4557f864-5276-40b2-b4f7-de7c98b52800",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58e92543-3601-415f-88f7-e2d3518bebe5",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fdb22ca-5d83-4381-948c-d399c391b4f5",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0569809d-a79d-4ab6-a3c4-c6958ef35457",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c559c782-a265-4167-b7d9-53b3932b238b",
+          "name": "Find an existing EventSpecification and return its status",
+          "request": {
+            "name": "Find an existing EventSpecification and return its status",
+            "description": {
+              "content": "Find an existing EventSpecification and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eventspecifications",
+                ":eventSpecificationId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventSpecificationId",
+                  "description": "(Required) The unique id of this resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "83b97db8-95d3-4da4-898f-8a182d1864d7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"state\": \"complete\",\n  \"processingState\": \"done\",\n  \"overallStatus\": \"invalid\",\n  \"createdAt\": \"1978-01-13T11:26:18.717Z\",\n  \"processedAt\": \"2003-09-19T22:14:02.027Z\",\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"infos\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fe65c22-b790-40b9-8eca-6d8dbeced550",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbfba28d-5fcd-448e-95e0-60117ad391a4",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe4c0429-c76a-465c-a5f2-5e780b7b4c8b",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ffd26b7-1140-42e7-b2b6-aa7569f8eabc",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d68ff7ae-634b-4284-b159-18887ff4140a",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77cc6862-a8fe-4ad9-b663-64eddfa53b88",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eventspecifications",
+                    ":eventSpecificationId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventSpecificationId",
+                      "description": "(Required) The unique id of this resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2524.71543237364,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "06a89d35-fac6-43c1-95b2-80cf838b995a",
+    "name": "Controlplane Api ApiChangelog EventSpecification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Client Attribute Certificate API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Attribute Certificate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get key info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get key info"
+        },
+        {
+          "info": {
+            "name": "Get a keystore file for the client, containing private key and public certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr/download",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a keystore file for the client, containing private key and public certificate"
+        },
+        {
+          "info": {
+            "name": "Generate a new certificate with new key pair",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr/generate",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a new certificate with new key pair"
+        },
+        {
+          "info": {
+            "name": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr/generate-and-download",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format."
+        },
+        {
+          "info": {
+            "name": "Upload certificate and eventually private key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr/upload",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upload certificate and eventually private key"
+        },
+        {
+          "info": {
+            "name": "Upload only certificate, not private key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/certificates/:attr/upload-certificate",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "attr",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upload only certificate, not private key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

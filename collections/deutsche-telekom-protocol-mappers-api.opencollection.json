@@ -1,0 +1,426 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Protocol Mappers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Protocol Mappers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get mapper by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mapper by id"
+        },
+        {
+          "info": {
+            "name": "Update the mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the mapper"
+        },
+        {
+          "info": {
+            "name": "Delete the mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the mapper"
+        },
+        {
+          "info": {
+            "name": "Create multiple mappers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/protocol-mappers/add-models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple mappers"
+        },
+        {
+          "info": {
+            "name": "Get mappers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/protocol-mappers/models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ]
+          },
+          "docs": "Get mappers"
+        },
+        {
+          "info": {
+            "name": "Create a mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/protocol-mappers/models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a mapper"
+        },
+        {
+          "info": {
+            "name": "Get mappers by name for a specific protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-scopes/:id/protocol-mappers/protocol/:protocol",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client scope (not name)"
+              },
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mappers by name for a specific protocol"
+        },
+        {
+          "info": {
+            "name": "Get mapper by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mapper by id"
+        },
+        {
+          "info": {
+            "name": "Update the mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the mapper"
+        },
+        {
+          "info": {
+            "name": "Delete the mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id1/protocol-mappers/models/:id2",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the mapper"
+        },
+        {
+          "info": {
+            "name": "Create multiple mappers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/protocol-mappers/add-models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple mappers"
+        },
+        {
+          "info": {
+            "name": "Get mappers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/protocol-mappers/models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ]
+          },
+          "docs": "Get mappers"
+        },
+        {
+          "info": {
+            "name": "Create a mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/protocol-mappers/models",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a mapper"
+        },
+        {
+          "info": {
+            "name": "Get mappers by name for a specific protocol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clients/:id/protocol-mappers/protocol/:protocol",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of client (not client-id)"
+              },
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mappers by name for a specific protocol"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

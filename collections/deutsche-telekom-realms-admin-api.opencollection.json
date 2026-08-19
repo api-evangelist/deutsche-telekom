@@ -1,0 +1,941 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Realms Admin API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Realms Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Import a realm   Imports a realm from a full representation of that realm.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import a realm   Imports a realm from a full representation of that realm."
+        },
+        {
+          "info": {
+            "name": "Get the top-level representation of the realm   It will not include nested information like User and Client representations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get the top-level representation of the realm   It will not include nested information like User and Client representations."
+        },
+        {
+          "info": {
+            "name": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored."
+        },
+        {
+          "info": {
+            "name": "Delete the realm",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Delete the realm"
+        },
+        {
+          "info": {
+            "name": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/admin-events",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "authClient",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "authIpAddress",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "authRealm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "authUser",
+                "value": "",
+                "type": "query",
+                "description": "user id"
+              },
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results size (defaults to 100)"
+              },
+              {
+                "name": "operationTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resourcePath",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resourceTypes",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here"
+        },
+        {
+          "info": {
+            "name": "Delete all admin events",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/admin-events",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Delete all admin events"
+        },
+        {
+          "info": {
+            "name": "Clear cache of external public keys (Public keys of clients or Identity providers)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clear-keys-cache",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Clear cache of external public keys (Public keys of clients or Identity providers)"
+        },
+        {
+          "info": {
+            "name": "Clear realm cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clear-realm-cache",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Clear realm cache"
+        },
+        {
+          "info": {
+            "name": "Clear user cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/clear-user-cache",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Clear user cache"
+        },
+        {
+          "info": {
+            "name": "Base path for importing clients under this realm.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-description-converter",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Base path for importing clients under this realm."
+        },
+        {
+          "info": {
+            "name": "Get client policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-policies/policies",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "include-global-policies",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get client policies"
+        },
+        {
+          "info": {
+            "name": "Update client policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-policies/policies",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update client policies"
+        },
+        {
+          "info": {
+            "name": "Get client profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-policies/profiles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "include-global-profiles",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get client profiles"
+        },
+        {
+          "info": {
+            "name": "Update client profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-policies/profiles",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update client profiles"
+        },
+        {
+          "info": {
+            "name": "Get client session stats   Returns a JSON map.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/client-session-stats",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get client session stats   Returns a JSON map."
+        },
+        {
+          "info": {
+            "name": "GET /{realm}/credential-registrators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/credential-registrators",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Get realm default client scopes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-default-client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get realm default client scopes."
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/default-default-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-default-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /{realm}/default-default-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-default-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Get group hierarchy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-groups",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get group hierarchy."
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/default-groups/{groupId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-groups/:groupId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /{realm}/default-groups/{groupId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-groups/:groupId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Get realm optional client scopes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-optional-client-scopes",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get realm optional client scopes."
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/default-optional-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-optional-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /{realm}/default-optional-client-scopes/{clientScopeId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/default-optional-client-scopes/:clientScopeId",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "clientScopeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Get events   Returns all events, or filters them based on URL query parameters listed here",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/events",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "client",
+                "value": "",
+                "type": "query",
+                "description": "App or oauth client name"
+              },
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query",
+                "description": "From date"
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query",
+                "description": "To date"
+              },
+              {
+                "name": "first",
+                "value": "",
+                "type": "query",
+                "description": "Paging offset"
+              },
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query",
+                "description": "IP address"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results size (defaults to 100)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The types of events to return"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query",
+                "description": "User id"
+              }
+            ]
+          },
+          "docs": "Get events   Returns all events, or filters them based on URL query parameters listed here"
+        },
+        {
+          "info": {
+            "name": "Delete all events",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/events",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Delete all events"
+        },
+        {
+          "info": {
+            "name": "Get the events provider configuration   Returns JSON object with events provider configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/events/config",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get the events provider configuration   Returns JSON object with events provider configuration"
+        },
+        {
+          "info": {
+            "name": "Update the events provider   Change the events provider and/or its configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/events/config",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the events provider   Change the events provider and/or its configuration"
+        },
+        {
+          "info": {
+            "name": "GET /{realm}/group-by-path/{_path}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/group-by-path/:_path",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "_path",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Removes all user sessions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/logout-all",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Removes all user sessions."
+        },
+        {
+          "info": {
+            "name": "Partial export of existing realm into a JSON file.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/partial-export",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "exportClients",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "exportGroupsAndRoles",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Partial export of existing realm into a JSON file."
+        },
+        {
+          "info": {
+            "name": "Partial import from a JSON file to an existing realm.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/partialImport",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partial import from a JSON file to an existing realm."
+        },
+        {
+          "info": {
+            "name": "Push the realm’s revocation policy to any client that has an admin url associated with it.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/push-revocation",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Push the realm’s revocation policy to any client that has an admin url associated with it."
+        },
+        {
+          "info": {
+            "name": "Remove a specific user session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/sessions/:session",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "session",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a specific user session."
+        },
+        {
+          "info": {
+            "name": "Test LDAP connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/testLDAPConnection",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test LDAP connection"
+        },
+        {
+          "info": {
+            "name": "POST /{realm}/testSMTPConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/testSMTPConnection",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /{realm}/users-management-permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users-management-permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /{realm}/users-management-permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/users-management-permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

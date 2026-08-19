@@ -1,0 +1,432 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog Identity Providers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity Providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Import identity provider from uploaded JSON file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/import-config",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Import identity provider from uploaded JSON file"
+        },
+        {
+          "info": {
+            "name": "Get identity providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ]
+          },
+          "docs": "Get identity providers"
+        },
+        {
+          "info": {
+            "name": "Create a new identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new identity provider"
+        },
+        {
+          "info": {
+            "name": "Get the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the identity provider"
+        },
+        {
+          "info": {
+            "name": "Update the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the identity provider"
+        },
+        {
+          "info": {
+            "name": "Delete the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the identity provider"
+        },
+        {
+          "info": {
+            "name": "Export public broker configuration for identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/export",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Format to use"
+              }
+            ]
+          },
+          "docs": "Export public broker configuration for identity provider"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return object stating whether client Authorization permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/management/permissions",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return object stating whether client Authorization permissions have been initialized or not and a reference"
+        },
+        {
+          "info": {
+            "name": "Get mapper types for identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mapper-types",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mapper types for identity provider"
+        },
+        {
+          "info": {
+            "name": "Get mappers for identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mappers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mappers for identity provider"
+        },
+        {
+          "info": {
+            "name": "Add a mapper to identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mappers",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a mapper to identity provider"
+        },
+        {
+          "info": {
+            "name": "Get mapper by id for the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mappers/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Mapper id"
+              }
+            ]
+          },
+          "docs": "Get mapper by id for the identity provider"
+        },
+        {
+          "info": {
+            "name": "Update a mapper for the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mappers/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Mapper id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a mapper for the identity provider"
+        },
+        {
+          "info": {
+            "name": "Delete a mapper for the identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/instances/:alias/mappers/:id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Mapper id"
+              }
+            ]
+          },
+          "docs": "Delete a mapper for the identity provider"
+        },
+        {
+          "info": {
+            "name": "Get identity providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/:realm/identity-provider/providers/:provider_id",
+            "params": [
+              {
+                "name": "realm",
+                "value": "",
+                "type": "path",
+                "description": "realm name (not id!)"
+              },
+              {
+                "name": "provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Provider id"
+              }
+            ]
+          },
+          "docs": "Get identity providers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

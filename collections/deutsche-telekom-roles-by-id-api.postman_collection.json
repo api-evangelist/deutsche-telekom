@@ -1,0 +1,1122 @@
+{
+  "item": [
+    {
+      "id": "24790f18-4a59-4ab7-8f6c-6d0550fe34a2",
+      "name": "Roles (by ID)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0d60c6c-991d-4735-b6d6-9a79c1510acd",
+          "name": "Get a specific role’s representation",
+          "request": {
+            "name": "Get a specific role’s representation",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) id of role"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6af5156-3a7f-4c75-b308-89a3c08c79ed",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) id of role"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributes\": {\n    \"key_0\": false,\n    \"key_1\": 2855.460680540749\n  },\n  \"clientRole\": true,\n  \"composite\": false,\n  \"composites\": {\n    \"client\": {\n      \"key_0\": 3515\n    },\n    \"realm\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"containerId\": \"string\",\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59f74904-09f1-47c6-bc31-787b2fd13a32",
+          "name": "Update the role",
+          "request": {
+            "name": "Update the role",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) id of role"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": {\n    \"key_0\": 3975.6835000136603,\n    \"key_1\": 1872,\n    \"key_2\": true\n  },\n  \"clientRole\": \"<boolean>\",\n  \"composite\": \"<boolean>\",\n  \"composites\": {\n    \"client\": {\n      \"key_0\": 9796.719173695146\n    },\n    \"realm\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"containerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "151d6874-cf92-4a8f-b99b-8d73855bb284",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) id of role"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": 2484\n  },\n  \"clientRole\": \"<boolean>\",\n  \"composite\": \"<boolean>\",\n  \"composites\": {\n    \"client\": {\n      \"key_0\": false,\n      \"key_1\": 1504,\n      \"key_2\": false\n    },\n    \"realm\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"containerId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13b90103-d70b-40ab-beaf-d4cc80af7d46",
+          "name": "Delete the role",
+          "request": {
+            "name": "Delete the role",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) id of role"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d012569-e6aa-4cb7-854d-e70cf079bdf3",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) id of role"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "035385b1-709a-448a-a989-2927fc779e06",
+          "name": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
+          "request": {
+            "name": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "composites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) Role id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8505aa3-308e-4245-93d3-c1d3897e657f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) Role id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": 8507.58452832616,\n      \"key_1\": \"string\",\n      \"key_2\": 6983.366797951275\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 5168,\n        \"key_3\": false\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": 5061.01288632872,\n      \"key_1\": \"string\"\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c28ab42-6a4d-48d7-a0fc-dc3d9fde6884",
+          "name": "Make the role a composite role by associating some child roles",
+          "request": {
+            "name": "Make the role a composite role by associating some child roles",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "composites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) Role id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"attributes\": {\n      \"key_0\": 1908.8702772055576,\n      \"key_1\": 4441.626816475863,\n      \"key_2\": 7146.303235868957\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 5825,\n        \"key_1\": 5197.9849804449195,\n        \"key_2\": true,\n        \"key_3\": true\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": 1331.4050020100465\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 4521.786809444874,\n        \"key_1\": 8565\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6fe5ebf6-f40a-4eae-870d-62bacb709695",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) Role id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"attributes\": {\n      \"key_0\": 7078.417265067885,\n      \"key_1\": 5156,\n      \"key_2\": true\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 2987\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 1216.7859796094403\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": false,\n        \"key_1\": 352\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b593f4d5-c51e-4459-a204-b03e976e5eb7",
+          "name": "Remove a set of roles from the role’s composite",
+          "request": {
+            "name": "Remove a set of roles from the role’s composite",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "composites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) Role id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"attributes\": {\n      \"key_0\": 1908.8702772055576,\n      \"key_1\": 4441.626816475863,\n      \"key_2\": 7146.303235868957\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 5825,\n        \"key_1\": 5197.9849804449195,\n        \"key_2\": true,\n        \"key_3\": true\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": 1331.4050020100465\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 4521.786809444874,\n        \"key_1\": 8565\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5fc70fc-81ea-4e3c-b3ec-7db905a5203f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) Role id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"attributes\": {\n      \"key_0\": 7078.417265067885,\n      \"key_1\": 5156,\n      \"key_2\": true\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": 2987\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 1216.7859796094403\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": false,\n        \"key_1\": 352\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cdb1b97-53a6-4bd9-b567-fed2219dbfa6",
+          "name": "Get client-level roles for the client that are in the role’s composite",
+          "request": {
+            "name": "Get client-level roles for the client that are in the role’s composite",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "composites",
+                "clients",
+                ":client"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "client",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34f89465-fb1c-4ece-a9f7-d79439d5731d",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "composites",
+                    "clients",
+                    ":client"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": 8507.58452832616,\n      \"key_1\": \"string\",\n      \"key_2\": 6983.366797951275\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 5168,\n        \"key_3\": false\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": 5061.01288632872,\n      \"key_1\": \"string\"\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5ab4c96-d9e7-44fa-82da-979a54b2a4c6",
+          "name": "Get realm-level roles that are in the role’s composite",
+          "request": {
+            "name": "Get realm-level roles that are in the role’s composite",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "composites",
+                "realm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a084f070-8080-4f3c-9997-ab2cdc09c100",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "composites",
+                    "realm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": {\n      \"key_0\": 8507.58452832616,\n      \"key_1\": \"string\",\n      \"key_2\": 6983.366797951275\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 5168,\n        \"key_3\": false\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"attributes\": {\n      \"key_0\": 5061.01288632872,\n      \"key_1\": \"string\"\n    },\n    \"clientRole\": \"<boolean>\",\n    \"composite\": \"<boolean>\",\n    \"composites\": {\n      \"client\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"realm\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"containerId\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "520d65ba-0d01-4199-9bfa-c5e540c6cbbf",
+          "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+          "request": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "management",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a865e26-9c0f-44e3-afda-14f6dc12de03",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "management",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": false,\n  \"resource\": \"string\",\n  \"scopePermissions\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db2227b0-1e7c-488d-8771-06ee65d81982",
+          "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+          "request": {
+            "name": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+            "description": {},
+            "url": {
+              "path": [
+                ":realm",
+                "roles-by-id",
+                ":role-id",
+                "management",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "realm",
+                  "description": "(Required) realm name (not id!)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "role-id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": 2778.8675340486534\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "736eddad-1a7a-46d4-a095-bc729a947b08",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":realm",
+                    "roles-by-id",
+                    ":role-id",
+                    "management",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "realm",
+                      "description": "(Required) realm name (not id!)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "role-id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": false,\n    \"key_1\": 2402.648862407023\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": \"<boolean>\",\n  \"resource\": \"<string>\",\n  \"scopePermissions\": {\n    \"key_0\": false,\n    \"key_1\": 2402.648862407023\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1e84351f-fb0a-4070-960b-f3465b4b04b5",
+    "name": "Controlplane Api ApiChangelog Roles (by ID) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

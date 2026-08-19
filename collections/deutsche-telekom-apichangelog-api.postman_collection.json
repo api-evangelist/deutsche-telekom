@@ -1,0 +1,2176 @@
+{
+  "item": [
+    {
+      "id": "9c7031e6-db56-4dcc-99a0-f66d45652dad",
+      "name": "ApiChangelog",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e199fbe5-5a9b-4aa2-a212-5e6561591ad5",
+          "name": "Find all ApiChangelogs",
+          "request": {
+            "name": "Find all ApiChangelogs",
+            "description": {
+              "content": "Find all ApiChangelogs of a Team",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursor for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c69e7a9d-1efa-481f-be42-3fe060b52921",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"self\": \"http://WUYMKPoyrSGEPKrQONE.jdkdc1wYRtv-hEuiivERU5fmyMb33G\",\n    \"next\": \"http://wIDEFQjesvzlRcuUkLoU.tdrrBJTnoUGq-,aH,Z29D1OXiEJeW+LoAMK5cbPyFdXWfI1+2DxNSzMBItM\"\n  },\n  \"items\": [\n    {\n      \"basePath\": \"/eni/test-api/v1\",\n      \"id\": \"group--team--api-name\",\n      \"items\": [\n        {\n          \"date\": \"2024-03-15\",\n          \"version\": \"1.2.3\",\n          \"description\": \"Security fixes and performance improvements\",\n          \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n        }\n      ],\n      \"name\": \"api-name\",\n      \"status\": {\n        \"processingState\": \"pending\",\n        \"state\": \"invalid\",\n        \"errors\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"basePath\": \"/eni/test-api/v1\",\n      \"id\": \"group--team--api-name\",\n      \"items\": [\n        {\n          \"date\": \"2024-03-15\",\n          \"version\": \"1.2.3\",\n          \"description\": \"Security fixes and performance improvements\",\n          \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n        }\n      ],\n      \"name\": \"api-name\",\n      \"status\": {\n        \"processingState\": \"processing\",\n        \"state\": \"blocked\",\n        \"errors\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warnings\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"infos\": [\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"message\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20dd24ff-0d8d-4f54-99b1-7b057f0d011b",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9698.971599484657,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85f5fae3-47a0-415a-abaa-e7269b60e400",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a9df1e7-5ef6-42db-beb9-1d811e55e1d1",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "177783c0-8ca6-49ed-9a34-65dab45e0e13",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38a78a18-1ecd-49dd-a3f7-51184a4f7256",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "502cc05d-fe19-4445-9326-15ead5755a60",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2b16a8a-320a-4786-b10e-e7e15f7bccd6",
+          "name": "Create a new ApiChangelog",
+          "request": {
+            "name": "Create a new ApiChangelog",
+            "description": {
+              "content": "Create a new ApiChangelog",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basePath\": \"<string>\",\n  \"items\": [\n    {\n      \"date\": \"<string>\",\n      \"version\": \"<string>\",\n      \"description\": \"<string>\",\n      \"versionUrl\": \"<uri>\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce287f24-9605-4118-951f-02d0f90a1445",
+              "name": "ACCEPTED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"id\": \"group--team--api-name\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"name\": \"api-name\",\n  \"status\": {\n    \"processingState\": \"done\",\n    \"state\": \"invalid\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89f07eff-3081-4ae8-8a8c-ba01dc2b5254",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a4c7219-d0a4-46cb-bc64-a460cbd62ab2",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "153c2116-3c20-4b43-937d-6a170fb23993",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2722ec1c-6a82-4a67-821d-15ed133105cb",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "096d3eab-98b8-4f68-af6a-2a5e55ef5f5b",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a669739-eb40-4f7e-85f7-5175b7b8c6f4",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "361d42fd-0a0c-4d4e-b4de-3dc54e949672",
+          "name": "Find an existing ApiChangelog",
+          "request": {
+            "name": "Find an existing ApiChangelog",
+            "description": {
+              "content": "Find an existing ApiChangelog",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs",
+                ":apiChangelogId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiChangelogId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "eccddc35-f22c-4d9f-8358-b259061984e9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"id\": \"group--team--api-name\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"name\": \"api-name\",\n  \"status\": {\n    \"processingState\": \"done\",\n    \"state\": \"invalid\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e19d8df-84d0-426f-b7ec-508a3072c003",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f43bf1d9-c1af-456c-bbcb-4701109f6017",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4a24656-7793-4ea3-b6db-8344297723cb",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91bba88c-110e-46ef-bff0-07a4c8a46579",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8262baf-ec90-4e1d-8851-8d3b6b96eb44",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06e29cdf-69f5-4756-944e-0e55a0ab24a4",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b34867cf-733f-4fe7-bb05-f68f6cdc2a18",
+          "name": "Create or update an ApiChangelog",
+          "request": {
+            "name": "Create or update an ApiChangelog",
+            "description": {
+              "content": "Create or update an ApiChangelog using declarative PUT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs",
+                ":apiChangelogId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiChangelogId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basePath\": \"<string>\",\n  \"items\": [\n    {\n      \"date\": \"<string>\",\n      \"version\": \"<string>\",\n      \"description\": \"<string>\",\n      \"versionUrl\": \"<uri>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "927ec181-b36d-465b-9ce4-eb071beff018",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"id\": \"group--team--api-name\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ],\n  \"name\": \"api-name\",\n  \"status\": {\n    \"processingState\": \"done\",\n    \"state\": \"invalid\",\n    \"errors\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"warnings\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ],\n    \"infos\": [\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      },\n      {\n        \"message\": \"string\",\n        \"cause\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47864b30-c184-49ab-b000-9d9a5bb69d64",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "041be93f-a773-46ee-90e0-16c56b612eb3",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74b0a252-9acb-49ce-8ec6-bf8c258c57e1",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c31215d4-de3f-4483-ba3b-49e3f355ac57",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26f22b00-b825-40ba-ac5a-f217e69bda11",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e9f2a74-a433-4263-865f-41f1436a70d4",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basePath\": \"/eni/test-api/v1\",\n  \"items\": [\n    {\n      \"date\": \"2024-03-15\",\n      \"version\": \"1.2.3\",\n      \"description\": \"Security fixes and performance improvements\",\n      \"versionUrl\": \"https://example.com/releases/v1.2.3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e8678bf-17fc-4729-85f7-27a541ff2b06",
+          "name": "Delete an ApiChangelog",
+          "request": {
+            "name": "Delete an ApiChangelog",
+            "description": {
+              "content": "Delete an ApiChangelog",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs",
+                ":apiChangelogId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiChangelogId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "170c085c-52d9-46b3-9308-b42a9861feab",
+              "name": "DELETED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d593a64a-3880-47f9-b174-1142ba19b8e3",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "517488ab-7a4b-4719-b188-164ea2b6d59b",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67db79b1-7834-4092-90f5-6a5f79a4b91c",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8dcdf70-af62-47d2-9fbb-0a38de30e320",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3606caeb-bc6d-408c-aa0f-997e80945caa",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e2363d9-0772-4b0b-b899-941fae0277cc",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a8e9019-52d4-4169-9819-8ba4181c9bd9",
+          "name": "Find an existing ApiChangelog and return its status",
+          "request": {
+            "name": "Find an existing ApiChangelog and return its status",
+            "description": {
+              "content": "Find an existing ApiChangelog and return its status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apichangelogs",
+                ":apiChangelogId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiChangelogId",
+                  "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "b4b9ef6c-069a-44de-8ade-fdbd22410e52",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"state\": \"none\",\n  \"processingState\": \"failed\",\n  \"overallStatus\": \"blocked\",\n  \"createdAt\": \"1987-08-15T12:02:55.770Z\",\n  \"processedAt\": \"2018-09-26T19:15:45.658Z\",\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ],\n  \"infos\": [\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"cause\": \"string\",\n      \"resource\": {\n        \"apiVersion\": \"string\",\n        \"kind\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"path\": \"string\"\n      },\n      \"context\": \"string\",\n      \"details\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15c08cd3-98be-49a9-bd0d-b49450ee3857",
+              "name": "BAD_REQUEST",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dca1ad5c-ad84-49a6-8cd8-83b1aa7fa2aa",
+              "name": "UNAUTHORIZED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1eb5829-f360-4960-aade-b1f0b7ce367c",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29de880e-59d4-4b07-bc83-e3794d54aa94",
+              "name": "NOT_FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dd21090-e685-49e3-9d40-cbd3e95c415c",
+              "name": "UNSUPPORTED_MEDIATYPE",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a676cae0-1886-43f1-b72e-1865500ae464",
+              "name": "SERVER_ERROR",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apichangelogs",
+                    ":apiChangelogId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiChangelogId",
+                      "description": "(Required) The unique id of this resource following the pattern group--team--basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6395.2354149278035,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"errorCode\": \"string\",\n  \"fields\": [\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telekom.de/controlplane/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eefb399a-feff-4a2f-b80b-935ad3aa215a",
+    "name": "Controlplane Api ApiChangelog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured\n\nContact Support:\n Name: TARDIS\n Email: FMB_TARDIS_Support@telekom.de",
+      "type": "text/plain"
+    }
+  }
+}

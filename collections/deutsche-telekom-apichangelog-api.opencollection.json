@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiChangelog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all ApiChangelogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursor for pagination"
+              }
+            ]
+          },
+          "docs": "Find all ApiChangelogs of a Team"
+        },
+        {
+          "info": {
+            "name": "Create a new ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Create or update an ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an ApiChangelog using declarative PUT."
+        },
+        {
+          "info": {
+            "name": "Delete an ApiChangelog",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs/:apiChangelogId",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Delete an ApiChangelog"
+        },
+        {
+          "info": {
+            "name": "Find an existing ApiChangelog and return its status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telekom.de/controlplane/v1/apichangelogs/:apiChangelogId/status",
+            "params": [
+              {
+                "name": "apiChangelogId",
+                "value": "",
+                "type": "path",
+                "description": "The unique id of this resource following the pattern group--team--basePath"
+              }
+            ]
+          },
+          "docs": "Find an existing ApiChangelog and return its status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

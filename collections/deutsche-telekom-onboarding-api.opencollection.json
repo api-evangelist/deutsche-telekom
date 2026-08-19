@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Controlplane Api ApiChangelog onboarding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "onboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update an environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an environment that is identified by its reference in the request body"
+        },
+        {
+          "info": {
+            "name": "Delete an environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              }
+            ]
+          },
+          "docs": "Delete an environment that is identified by its reference in the request body"
+        },
+        {
+          "info": {
+            "name": "Create or update a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId/teams/:teamId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              },
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to a team"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a team that is identified by its reference in the request body"
+        },
+        {
+          "info": {
+            "name": "Delete a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId/teams/:teamId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              },
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to a team"
+              }
+            ]
+          },
+          "docs": "Delete a team that is identified by its reference in the request body"
+        },
+        {
+          "info": {
+            "name": "Create or update an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId/teams/:teamId/apps/:appId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              },
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to a team"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an app"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an app that is identified by its reference in the request body"
+        },
+        {
+          "info": {
+            "name": "Delete an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telekom.de/controlplane/v1/v1/onboarding/environments/:envId/teams/:teamId/apps/:appId",
+            "params": [
+              {
+                "name": "envId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an environment"
+              },
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to a team"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The id or reference to an app"
+              }
+            ]
+          },
+          "docs": "Delete an app that is identified by its reference in the request body"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
