@@ -1,16 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog ApiExposure API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: Stargate API Exposure API
+  description: "API of the TARDIS control plane. With this API, you can manage your\nApiExposures and ApiSubscriptions. \nThis is a **read-only** API. You can only read the resources. \nFor creating and updating resources, you may use the Rover-API.\n\n**Important:** \n- You may use this API by subscribing to it by using the usual process. \nYou **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.\nIf you require more permissions, please contact the TARDIS team.\n\n- This is a Team-API and may be used by any team using TARDIS. \nIn the future, you can simply use your Team-credentials to access this API.\n"
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
     email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+  version: 2.0.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://api.telekom.de/stargate/v2
+security:
+- OAuth2:
+  - tardis:admin:all
 tags:
 - name: ApiExposure
   description: 'With an ApiExposure you can define and API you want to expose on TARDIS,
@@ -435,47 +437,110 @@ components:
           type: array
           items:
             type: string
-    ExposureFailover:
+    ApiExposureListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiExposureResponse'
+    LoadBalancing:
+      type: object
+      readOnly: true
+      properties:
+        servers:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Server'
+    RateLimit:
       type: object
       properties:
-        zone:
-          type: string
-          example: aws
-    SubscriptionFailover:
-      type: array
-      readOnly: true
-      items:
-        type: object
-        properties:
-          zone:
-            type: string
-            readOnly: true
-            example: aws
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+        second:
+          format: int32
+          type: integer
+        minute:
+          format: int32
+          type: integer
+        hour:
+          format: int32
+          type: integer
+        faultTolerant:
+          type: boolean
+        hideClientHeaders:
+          type: boolean
     ApprovalStrategy:
       enum:
       - AUTO
       - SIMPLE
       - FOUREYES
       type: string
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
-    Visibility:
-      enum:
-      - ENTERPRISE
-      - WORLD
-      - ZONE
-      type: string
+    Server:
+      type: object
+      readOnly: true
+      properties:
+        upstream:
+          type: string
+          readOnly: true
+        weight:
+          type: integer
+          readOnly: true
+    ApiExposureCreateRequest:
+      type: object
+      required:
+      - basePath
+      - upstream
+      - visibility
+      allOf:
+      - $ref: '#/components/schemas/ApiExposure'
+    Approval:
+      type: object
+      readOnly: true
+      required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    ApiSubscription:
+      type: object
+      properties:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+          type: string
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
     ApiExposureResponse:
       type: object
       readOnly: true
@@ -497,16 +562,33 @@ components:
             readOnly: true
           status:
             $ref: common.yaml#/components/schemas/Status
-    ApiSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSubscriptionResponse'
+    ApiSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: eni-echo-v1
+          zone:
+            type: string
+            readOnly: true
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/Approval'
+          failover:
+            $ref: '#/components/schemas/SubscriptionFailover'
     OAuth2:
       type: object
       required:
@@ -540,16 +622,35 @@ components:
           - body
           - header
           description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    Server:
-      type: object
+    Visibility:
+      enum:
+      - ENTERPRISE
+      - WORLD
+      - ZONE
+      type: string
+    SubscriptionFailover:
+      type: array
       readOnly: true
-      properties:
-        upstream:
-          type: string
-          readOnly: true
-        weight:
-          type: integer
-          readOnly: true
+      items:
+        type: object
+        properties:
+          zone:
+            type: string
+            readOnly: true
+            example: aws
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
     ApiExposureUpdateRequest:
       type: object
       required:
@@ -559,112 +660,13 @@ components:
       - visibility
       allOf:
       - $ref: '#/components/schemas/ApiExposure'
-    ApiSubscription:
+    ExposureFailover:
       type: object
       properties:
-        basePath:
-          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+        zone:
           type: string
-          example: /my-hub/my-app/v1
-          pattern: ^\/[a-zA-Z0-9\/-]*$
-        security:
-          $ref: '#/components/schemas/SubscriberSecurity'
-    ApiSubscriptionResponse:
-      type: object
-      readOnly: true
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: eni-echo-v1
-          zone:
-            type: string
-            readOnly: true
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-          status:
-            $ref: common.yaml#/components/schemas/Status
-          application:
-            $ref: common.yaml#/components/schemas/ApplicationRef
-          team:
-            $ref: common.yaml#/components/schemas/TeamRef
-          approval:
-            $ref: '#/components/schemas/Approval'
-          failover:
-            $ref: '#/components/schemas/SubscriptionFailover'
-    RateLimit:
-      type: object
-      properties:
-        second:
-          format: int32
-          type: integer
-        minute:
-          format: int32
-          type: integer
-        hour:
-          format: int32
-          type: integer
-        faultTolerant:
-          type: boolean
-        hideClientHeaders:
-          type: boolean
-    BasicAuth:
-      type: object
-      required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    ApiExposureCreateRequest:
-      type: object
-      required:
-      - basePath
-      - upstream
-      - visibility
-      allOf:
-      - $ref: '#/components/schemas/ApiExposure'
-    LoadBalancing:
-      type: object
-      readOnly: true
-      properties:
-        servers:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Server'
-    Approval:
-      type: object
-      readOnly: true
-      required:
-      - status
-      - comment
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
-    ApiExposureListResponse:
+          example: aws
+    ApiSubscriptionListResponse:
       properties:
         paging:
           $ref: common.yaml#/components/schemas/Paging
@@ -673,4 +675,4 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/ApiExposureResponse'
+            $ref: '#/components/schemas/ApiSubscriptionResponse'

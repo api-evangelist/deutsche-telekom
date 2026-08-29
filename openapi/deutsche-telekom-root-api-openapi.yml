@@ -1,16 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog Root API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
-  contact:
-    name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
-servers:
-- url: https://api.telekom.de/controlplane/v1
+  title: Keycloak Admin REST Root API
+  description: This is a REST API reference for the Keycloak Admin
+  version: '1'
+security:
+- access_token: []
 tags:
 - name: Root
 paths:
@@ -28,27 +22,19 @@ paths:
                 $ref: '#/components/schemas/ServerInfoRepresentation'
 components:
   schemas:
-    MemoryInfoRepresentation:
+    PasswordPolicyTypeRepresentation:
       type: object
       properties:
-        free:
-          type: integer
-          format: int64
-        freeFormated:
+        configType:
           type: string
-        freePercentage:
-          type: integer
-          format: int64
-        total:
-          type: integer
-          format: int64
-        totalFormated:
+        defaultValue:
           type: string
-        used:
-          type: integer
-          format: int64
-        usedFormated:
+        displayName:
           type: string
+        id:
+          type: string
+        multipleSupported:
+          type: boolean
     ProfileInfoRepresentation:
       type: object
       properties:
@@ -106,19 +92,6 @@ components:
           type: string
         version:
           type: string
-    PasswordPolicyTypeRepresentation:
-      type: object
-      properties:
-        configType:
-          type: string
-        defaultValue:
-          type: string
-        displayName:
-          type: string
-        id:
-          type: string
-        multipleSupported:
-          type: boolean
     ServerInfoRepresentation:
       type: object
       properties:
@@ -168,3 +141,32 @@ components:
         themes:
           type: object
           additionalProperties: true
+    MemoryInfoRepresentation:
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int64
+        freeFormated:
+          type: string
+        freePercentage:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+        totalFormated:
+          type: string
+        used:
+          type: integer
+          format: int64
+        usedFormated:
+          type: string
+  securitySchemes:
+    access_token:
+      type: http
+      scheme: bearer
+      bearerFormat: null
+externalDocs:
+  description: Schema source code
+  url: https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations

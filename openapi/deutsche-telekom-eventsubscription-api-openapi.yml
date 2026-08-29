@@ -1,16 +1,39 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog EventSubscription API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: Event Subscription API
+  description: 'API of the TARDIS control plane for the eventing domain. With this API, you can manage your EventExposures and EventSubscriptions, and browse registered EventTypes.
+
+
+    This is a **read-only** API. You can only read the resources.
+
+    For creating and updating resources, you may use the Rover-API.
+
+
+    **Important:**
+
+    - You may use this API by subscribing to it by using the usual process.
+
+    You **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.
+
+    If you require more permissions, please contact the TARDIS team.
+
+
+    - This is a Team-API and may be used by any team using TARDIS.
+
+    In the future, you can simply use your Team-credentials to access this API.
+
+    '
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
     email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+  version: 2.0.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://api.telekom.de/event/v2
+security:
+- OAuth2:
+  - tardis:admin:all
 tags:
 - name: EventSubscription
   description: 'An EventSubscription declares that your application wants to receive
@@ -170,6 +193,30 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
+    EventSubscriptionApproval:
+      type: object
+      readOnly: true
+      description: Approval status of the event subscription.
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    ResponseFilterMode:
+      enum:
+      - Include
+      - Exclude
+      type: string
+      description: Controls whether the response filter includes or excludes the specified fields.
     EventSubscription:
       type: object
       description: 'Declaration that an application subscribes to events of a specific type.
@@ -198,6 +245,16 @@ components:
             type: string
           example:
           - high-priority
+    EventSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSubscriptionResponse'
     ResponseFilter:
       type: object
       description: Controls which fields are included or excluded from the event payload.
@@ -212,6 +269,26 @@ components:
           - $.data.status
         mode:
           $ref: '#/components/schemas/ResponseFilterMode'
+    SelectionFilter:
+      type: object
+      description: Defines criteria for selecting which events are delivered.
+      properties:
+        attributes:
+          type: object
+          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
+
+            '
+          additionalProperties:
+            type: string
+          example:
+            source: de.telekom.eni.quickstart
+            type: de.telekom.eni.quickstart.v1
+        expression:
+          type: object
+          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
+
+            '
+          additionalProperties: true
     EventTrigger:
       type: object
       description: 'Defines filtering criteria for event delivery.
@@ -224,24 +301,16 @@ components:
           $ref: '#/components/schemas/ResponseFilter'
         selectionFilter:
           $ref: '#/components/schemas/SelectionFilter'
-    EventSubscriptionApproval:
-      type: object
-      readOnly: true
-      description: Approval status of the event subscription.
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
+    DeliveryType:
+      enum:
+      - Callback
+      - ServerSentEvent
+      type: string
+      description: 'Defines how events are delivered to subscribers.
+
+        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
+
+        '
     Delivery:
       type: object
       description: 'Configures how events are delivered to the subscriber.
@@ -298,16 +367,6 @@ components:
         Maps to EventSubscriptionSpec.Delivery.Payload in the EventSubscription CR.
 
         '
-    DeliveryType:
-      enum:
-      - Callback
-      - ServerSentEvent
-      type: string
-      description: 'Defines how events are delivered to subscribers.
-
-        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
-
-        '
     EventSubscriptionResponse:
       type: object
       readOnly: true
@@ -345,39 +404,3 @@ components:
             $ref: common.yaml#/components/schemas/TeamRef
           approval:
             $ref: '#/components/schemas/EventSubscriptionApproval'
-    EventSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSubscriptionResponse'
-    ResponseFilterMode:
-      enum:
-      - Include
-      - Exclude
-      type: string
-      description: Controls whether the response filter includes or excludes the specified fields.
-    SelectionFilter:
-      type: object
-      description: Defines criteria for selecting which events are delivered.
-      properties:
-        attributes:
-          type: object
-          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
-
-            '
-          additionalProperties:
-            type: string
-          example:
-            source: de.telekom.eni.quickstart
-            type: de.telekom.eni.quickstart.v1
-        expression:
-          type: object
-          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
-
-            '
-          additionalProperties: true

@@ -1,16 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog Authentication Management API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
-  contact:
-    name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
-servers:
-- url: https://api.telekom.de/controlplane/v1
+  title: Keycloak Admin REST Authentication Management API
+  description: This is a REST API reference for the Keycloak Admin
+  version: '1'
+security:
+- access_token: []
 tags:
 - name: Authentication Management
 paths:
@@ -708,75 +702,6 @@ paths:
                   additionalProperties: true
 components:
   schemas:
-    AuthenticationExecutionInfoRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        authenticationConfig:
-          type: string
-        authenticationFlow:
-          type: boolean
-        configurable:
-          type: boolean
-        displayName:
-          type: string
-        flowId:
-          type: string
-        id:
-          type: string
-        index:
-          type: integer
-          format: int32
-        level:
-          type: integer
-          format: int32
-        providerId:
-          type: string
-        requirement:
-          type: string
-        requirementChoices:
-          type: array
-          items:
-            type: string
-    ConfigPropertyRepresentation:
-      type: object
-      properties:
-        defaultValue:
-          type: object
-        helpText:
-          type: string
-        label:
-          type: string
-        name:
-          type: string
-        options:
-          type: array
-          items:
-            type: string
-        secret:
-          type: boolean
-        type:
-          type: string
-    RequiredActionProviderRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        config:
-          type: object
-          additionalProperties: true
-        defaultAction:
-          type: boolean
-        enabled:
-          type: boolean
-        name:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        providerId:
-          type: string
     AuthenticationExecutionRepresentation:
       type: object
       properties:
@@ -809,25 +734,6 @@ components:
           additionalProperties: true
         id:
           type: string
-    AuthenticationFlowRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        authenticationExecutions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
-        builtIn:
-          type: boolean
-        description:
-          type: string
-        id:
-          type: string
-        providerId:
-          type: string
-        topLevel:
-          type: boolean
     AuthenticationExecutionExportRepresentation:
       type: object
       properties:
@@ -848,6 +754,56 @@ components:
           type: string
         userSetupAllowed:
           type: boolean
+    ConfigPropertyRepresentation:
+      type: object
+      properties:
+        defaultValue:
+          type: object
+        helpText:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
+          type: string
+    AuthenticationExecutionInfoRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationConfig:
+          type: string
+        authenticationFlow:
+          type: boolean
+        configurable:
+          type: boolean
+        displayName:
+          type: string
+        flowId:
+          type: string
+        id:
+          type: string
+        index:
+          type: integer
+          format: int32
+        level:
+          type: integer
+          format: int32
+        providerId:
+          type: string
+        requirement:
+          type: string
+        requirementChoices:
+          type: array
+          items:
+            type: string
     AuthenticatorConfigInfoRepresentation:
       type: object
       properties:
@@ -861,3 +817,49 @@ components:
             $ref: '#/components/schemas/ConfigPropertyRepresentation'
         providerId:
           type: string
+    AuthenticationFlowRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationExecutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
+        builtIn:
+          type: boolean
+        description:
+          type: string
+        id:
+          type: string
+        providerId:
+          type: string
+        topLevel:
+          type: boolean
+    RequiredActionProviderRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        defaultAction:
+          type: boolean
+        enabled:
+          type: boolean
+        name:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        providerId:
+          type: string
+  securitySchemes:
+    access_token:
+      type: http
+      scheme: bearer
+      bearerFormat: null
+externalDocs:
+  description: Schema source code
+  url: https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations

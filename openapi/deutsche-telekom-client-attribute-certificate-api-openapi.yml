@@ -1,16 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog Client Attribute Certificate API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
-  contact:
-    name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
-servers:
-- url: https://api.telekom.de/controlplane/v1
+  title: Keycloak Admin REST Client Attribute Certificate API
+  description: This is a REST API reference for the Keycloak Admin
+  version: '1'
+security:
+- access_token: []
 tags:
 - name: Client Attribute Certificate
 paths:
@@ -230,6 +224,17 @@ paths:
                 $ref: '#/components/schemas/CertificateRepresentation'
 components:
   schemas:
+    CertificateRepresentation:
+      type: object
+      properties:
+        certificate:
+          type: string
+        kid:
+          type: string
+        privateKey:
+          type: string
+        publicKey:
+          type: string
     KeyStoreConfig:
       type: object
       properties:
@@ -245,14 +250,11 @@ components:
           type: boolean
         storePassword:
           type: string
-    CertificateRepresentation:
-      type: object
-      properties:
-        certificate:
-          type: string
-        kid:
-          type: string
-        privateKey:
-          type: string
-        publicKey:
-          type: string
+  securitySchemes:
+    access_token:
+      type: http
+      scheme: bearer
+      bearerFormat: null
+externalDocs:
+  description: Schema source code
+  url: https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations

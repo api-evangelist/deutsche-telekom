@@ -1,16 +1,20 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog onboarding API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: Secret Manager Onboarding API
+  description: 'This API can be used to resolve secrets from references and returns its actual confidential value.
+
+    '
+  version: 0.0.1
   contact:
     name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+    email: tadis@nop.telekom.de
+    url: https://developer.telekom.de/
+  license:
+    name: Apache 2.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://locahost:8080
+  description: For local development
 tags:
 - name: onboarding
 paths:
@@ -180,125 +184,6 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
-  schemas:
-    ListSecretItem:
-      type: object
-      required:
-      - name
-      - id
-      properties:
-        name:
-          type: string
-          description: The name of the secret
-        id:
-          $ref: '#/components/schemas/SecretRef'
-    ApiProblem:
-      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
-      type: object
-      required:
-      - type
-      - status
-      - title
-      - detail
-      properties:
-        type:
-          type: string
-        status:
-          type: integer
-        title:
-          type: string
-        detail:
-          type: string
-        instance:
-          type: string
-    SecretRef:
-      description: A reference to a secret
-      type: string
-    TeamWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the team
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
-    ApplicationWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the application
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
-    EnvironmentWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the environment
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
-    NamedSecret:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-          description: The name of the secret
-        value:
-          type: string
-          description: The value of the secret
-    WriteStrategy:
-      type: string
-      enum:
-      - merge
-      - replace
-      default: replace
-      description: 'The strategy defines how the provided secrets should be applied.
-
-        With "merge", the provided secrets will be merged with the existing secrets. With "replace",
-
-        the provided secrets will replace the existing secrets.
-
-        If not provided, "replace" will be used as default strategy.
-
-        '
-  requestBodies:
-    TeamWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TeamWriteRequest'
-    EnvironmentWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EnvironmentWriteRequest'
-    ApplicationWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ApplicationWriteRequest'
   responses:
     ErrorResponse:
       description: In case of any error, this object is returned
@@ -324,3 +209,122 @@ components:
                   $ref: '#/components/schemas/ListSecretItem'
     NoContent:
       description: Successful operation with no content
+  schemas:
+    ApplicationWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the application
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+    NamedSecret:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        value:
+          type: string
+          description: The value of the secret
+    EnvironmentWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the environment
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    WriteStrategy:
+      type: string
+      enum:
+      - merge
+      - replace
+      default: replace
+      description: 'The strategy defines how the provided secrets should be applied.
+
+        With "merge", the provided secrets will be merged with the existing secrets. With "replace",
+
+        the provided secrets will replace the existing secrets.
+
+        If not provided, "replace" will be used as default strategy.
+
+        '
+    SecretRef:
+      description: A reference to a secret
+      type: string
+    ListSecretItem:
+      type: object
+      required:
+      - name
+      - id
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        id:
+          $ref: '#/components/schemas/SecretRef'
+    TeamWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the team
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+  requestBodies:
+    EnvironmentWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EnvironmentWriteRequest'
+    ApplicationWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApplicationWriteRequest'
+    TeamWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeamWriteRequest'

@@ -1,16 +1,29 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: Rover API Changelog API
+  description: API of the TARDIS control plane. With this API, you can manage your Rovers, ApiSpecifications, ApiRoadmaps, FileSpecifications and EventSpecifications.
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
     email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
+  version: 3.0.0
+  x-api-category: Infrastructure
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://{host}/rover/v3
+  description: API where access must be approved. Supports more access-scopes.
+  variables:
+    host:
+      default: api.telekom.de
+      description: The Stargate host, see [docs](https://developer.telekom.de/docs/src/tardis_customer_handbook/StarGate_Environment_Overview/#stargate-and-iris)
+- url: https://{host}/rover/api
+  description: Team-API that every team may use automatically, but supports only team-access. This API is also used by rover-ctl.
+  variables:
+    host:
+      default: api.telekom.de
+      description: The Stargate host, see [docs](https://developer.telekom.de/docs/src/tardis_customer_handbook/StarGate_Environment_Overview/#stargate-and-iris)
+security:
+- OAuth2:
+  - tardis:admin:all
 tags:
 - name: ApiChangelog
 paths:
@@ -228,84 +241,30 @@ paths:
         - tardis:team:all
         - tardis:team:read
 components:
-  parameters:
-    ApiChangelogId:
-      name: apiChangelogId
-      description: The unique id of this resource following the pattern group--team--basePath
-      in: path
-      required: true
-      schema:
-        type: string
-  responses:
-    UnsupportedMediaType:
-      description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: NOT_FOUND
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: FORBIDDEN
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: SERVER_ERROR
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    ApiChangelogListResponse:
+    Error:
+      description: RFC-7807 conform object sent on any error
       type: object
+      required:
+      - type
+      - title
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
           type: array
           items:
-            $ref: '#/components/schemas/ApiChangelogResponse'
-    ApiChangelogResponse:
-      required:
-      - id
-      - name
-      - basePath
-      - items
-      allOf:
-      - $ref: '#/components/schemas/ApiChangelog'
-      - type: object
-        properties:
-          id:
-            readOnly: true
-            description: Unique id of this resource
-            type: string
-            example: group--team--api-name
-          name:
-            readOnly: true
-            description: Name of the changelog
-            type: string
-            example: api-name
-          status:
-            readOnly: true
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/FieldProblem'
     ApiChangelogItem:
       type: object
       required:
@@ -331,29 +290,6 @@ components:
           type: string
           format: uri
           example: https://example.com/releases/v1.2.3
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-    ApiChangelog:
-      type: object
-      required:
-      - basePath
-      - items
-      properties:
-        basePath:
-          description: The API basePath
-          type: string
-          example: /eni/test-api/v1
-        items:
-          description: List of changelog version entries
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/ApiChangelogItem'
     ApiChangelogCreateRequest:
       allOf:
       - $ref: '#/components/schemas/ApiChangelog'
@@ -362,73 +298,16 @@ components:
           team:
             description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
             type: string
-    Links:
-      description: HATEOAS links for pagination
+    StateInfo:
       type: object
+      readOnly: true
       required:
-      - self
-      - next
+      - message
       properties:
-        self:
+        message:
           type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
+        cause:
           type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
-      enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
-      - none
-      type: string
-    ApiChangelogUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiChangelog'
-    ResourceStatusResponse:
-      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
-      required:
-      - state
-      - processingState
-      - overallStatus
-      type: object
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-          description: Time when the resource was created
-        processedAt:
-          type: string
-          format: date-time
-          description: Time when the resource was last processed
-        state:
-          $ref: '#/components/schemas/State'
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        overallStatus:
-          $ref: '#/components/schemas/OverallStatus'
-        errors:
-          description: List of errors that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        warnings:
-          description: List of warnings that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        infos:
-          description: List of infos that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
     Problem:
       type: object
       required:
@@ -445,39 +324,18 @@ components:
           type: string
         details:
           type: string
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
     ProcessingState:
       enum:
       - none
@@ -529,6 +387,38 @@ components:
           type: string
         path:
           type: string
+    ApiChangelogListResponse:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiChangelogResponse'
+    ApiChangelogResponse:
+      required:
+      - id
+      - name
+      - basePath
+      - items
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+      - type: object
+        properties:
+          id:
+            readOnly: true
+            description: Unique id of this resource
+            type: string
+            example: group--team--api-name
+          name:
+            readOnly: true
+            description: Name of the changelog
+            type: string
+            example: api-name
+          status:
+            readOnly: true
+            $ref: '#/components/schemas/Status'
     FieldProblem:
       type: object
       required:
@@ -540,3 +430,147 @@ components:
           type: string
         path:
           type: string
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    ApiChangelogUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+    ApiChangelog:
+      type: object
+      required:
+      - basePath
+      - items
+      properties:
+        basePath:
+          description: The API basePath
+          type: string
+          example: /eni/test-api/v1
+        items:
+          description: List of changelog version entries
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ApiChangelogItem'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+  responses:
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ApiChangelogId:
+      name: apiChangelogId
+      description: The unique id of this resource following the pattern group--team--basePath
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 client_credentials flow
+      flows:
+        clientCredentials:
+          tokenUrl: https://example.com/auth/realms/realm//protocol/openid-connect/token
+          scopes:
+            tardis:admin:all: Admin access to all resources
+            tardis:admin:read: Admin read access to all resources
+            tardis:admin:obfuscated: Admin obfuscated access to all resources
+            tardis:supervisor:read: (deprecated) Admin obfuscated access to all resources
+            tardis:hub:all: Access to all resources of a hub
+            tardis:hub:read: Read access to all resources of a hub
+            tardis:hub:obfuscated: Obfuscated access to all resources of a hub
+            tardis:team:all: Access to all resources of a team
+            tardis:team:read: Read access to all resources of a team
+            tardis:team:obfuscated: Obfuscated access to all resources of a team
+            tardis:user:all: (deprecated) Access to all resources of a team
+            tardis:user:read: (deprecated) Read access to all resources of a team
+            tardis:user:obfuscated: (deprecated) Obfuscated access to all resources of a team

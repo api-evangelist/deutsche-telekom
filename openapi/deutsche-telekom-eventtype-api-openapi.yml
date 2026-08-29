@@ -1,16 +1,39 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog EventType API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: Event Type API
+  description: 'API of the TARDIS control plane for the eventing domain. With this API, you can manage your EventExposures and EventSubscriptions, and browse registered EventTypes.
+
+
+    This is a **read-only** API. You can only read the resources.
+
+    For creating and updating resources, you may use the Rover-API.
+
+
+    **Important:**
+
+    - You may use this API by subscribing to it by using the usual process.
+
+    You **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.
+
+    If you require more permissions, please contact the TARDIS team.
+
+
+    - This is a Team-API and may be used by any team using TARDIS.
+
+    In the future, you can simply use your Team-credentials to access this API.
+
+    '
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
     email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+  version: 2.0.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://api.telekom.de/event/v2
+security:
+- OAuth2:
+  - tardis:admin:all
 tags:
 - name: EventType
   description: 'An EventType is a registry entry representing a known event type. It
@@ -224,48 +247,6 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    EventTypeResponse:
-      type: object
-      readOnly: true
-      required:
-      - name
-      - type
-      - version
-      allOf:
-      - $ref: '#/components/schemas/EventType'
-      - properties:
-          id:
-            type: string
-            readOnly: true
-            description: 'The complete resource identifier of the EventType
-
-              '
-            example: eni--hyperion--de-telekom-eni-quickstart-v1
-          name:
-            type: string
-            readOnly: true
-            description: 'Resource name (dot-to-hyphen conversion of type, e.g. "de-telekom-eni-quickstart-v1").
-
-              '
-            example: de-telekom-eni-quickstart-v1
-          active:
-            type: boolean
-            readOnly: true
-            description: 'Whether this EventType is the active singleton for its type string. When multiple EventTypes exist for the same type, only the oldest non-deleted one is active.
-
-              '
-          status:
-            $ref: common.yaml#/components/schemas/Status
-    EventTypeListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventTypeResponse'
     EventType:
       type: object
       description: 'Registry entry for a known event type. Serves as the canonical reference
@@ -301,3 +282,45 @@ components:
           description: 'File ID reference from the file manager for the optional JSON schema that describes the event payload.
 
             '
+    EventTypeListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventTypeResponse'
+    EventTypeResponse:
+      type: object
+      readOnly: true
+      required:
+      - name
+      - type
+      - version
+      allOf:
+      - $ref: '#/components/schemas/EventType'
+      - properties:
+          id:
+            type: string
+            readOnly: true
+            description: 'The complete resource identifier of the EventType
+
+              '
+            example: eni--hyperion--de-telekom-eni-quickstart-v1
+          name:
+            type: string
+            readOnly: true
+            description: 'Resource name (dot-to-hyphen conversion of type, e.g. "de-telekom-eni-quickstart-v1").
+
+              '
+            example: de-telekom-eni-quickstart-v1
+          active:
+            type: boolean
+            readOnly: true
+            description: 'Whether this EventType is the active singleton for its type string. When multiple EventTypes exist for the same type, only the oldest non-deleted one is active.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status

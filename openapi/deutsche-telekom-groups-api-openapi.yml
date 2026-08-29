@@ -1,16 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog Groups API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
-  contact:
-    name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
-servers:
-- url: https://api.telekom.de/controlplane/v1
+  title: Keycloak Admin REST Groups API
+  description: This is a REST API reference for the Keycloak Admin
+  version: '1'
+security:
+- access_token: []
 tags:
 - name: Groups
 paths:
@@ -270,6 +264,63 @@ paths:
                   $ref: '#/components/schemas/UserRepresentation'
 components:
   schemas:
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
     UserRepresentation:
       type: object
       properties:
@@ -338,63 +389,6 @@ components:
           type: string
         username:
           type: string
-    CredentialRepresentation:
-      type: object
-      properties:
-        createdDate:
-          type: integer
-          format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
-          type: string
-    UserConsentRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        createdDate:
-          type: integer
-          format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
-          type: integer
-          format: int64
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
-    FederatedIdentityRepresentation:
-      type: object
-      properties:
-        identityProvider:
-          type: string
-        userId:
-          type: string
-        userName:
-          type: string
     GroupRepresentation:
       type: object
       properties:
@@ -421,3 +415,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
+  securitySchemes:
+    access_token:
+      type: http
+      scheme: bearer
+      bearerFormat: null
+externalDocs:
+  description: Schema source code
+  url: https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations

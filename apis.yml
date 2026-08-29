@@ -834,6 +834,9 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deutsche-t
 access: 3rd-Party
 position: Provider
 common:
+- type: CapabilityMap
+  url: capabilities/deutsche-telekom-capability-edges.yml
+  name: Deutsche Telekom Business Capability Map
 - type: IssueTracker
   url: https://github.com/telekom/controlplane/issues
 - type: Releases

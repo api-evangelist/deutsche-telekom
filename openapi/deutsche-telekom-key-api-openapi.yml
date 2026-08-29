@@ -1,16 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog Key API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
-  contact:
-    name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
-  x-api-category: TARDIS
-  x-vendor: false
-servers:
-- url: https://api.telekom.de/controlplane/v1
+  title: Keycloak Admin REST Key API
+  description: This is a REST API reference for the Keycloak Admin
+  version: '1'
+security:
+- access_token: []
 tags:
 - name: Key
 paths:
@@ -65,3 +59,11 @@ components:
           type: string
         type:
           type: string
+  securitySchemes:
+    access_token:
+      type: http
+      scheme: bearer
+      bearerFormat: null
+externalDocs:
+  description: Schema source code
+  url: https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations

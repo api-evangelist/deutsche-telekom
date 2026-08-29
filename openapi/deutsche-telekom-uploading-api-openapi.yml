@@ -1,16 +1,20 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog uploading API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: File manager Uploading API
+  description: A simple file manager for uploading and downloading files.
+  version: 0.0.1
   contact:
     name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+    email: tardis@nop.telekom.de
+    url: https://developer.telekom.de/
+  license:
+    name: Apache 2.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://locahost:8080
+  description: For local development
+security:
+- bearerAuth: []
 tags:
 - name: uploading
   description: An endpoint to upload new files
@@ -53,6 +57,26 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
+  schemas:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
   responses:
     ErrorResponse:
       description: In case of any error, this object is returned
@@ -80,26 +104,6 @@ components:
             properties:
               id:
                 type: string
-  schemas:
-    ApiProblem:
-      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
-      type: object
-      required:
-      - type
-      - status
-      - title
-      - detail
-      properties:
-        type:
-          type: string
-        status:
-          type: integer
-        title:
-          type: string
-        detail:
-          type: string
-        instance:
-          type: string
   requestBodies:
     FileUploadRequest:
       content:
@@ -107,3 +111,9 @@ components:
           schema:
             type: string
             format: binary
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT Bearer token authentication

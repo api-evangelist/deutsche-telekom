@@ -1,16 +1,20 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Controlplane Api ApiChangelog downloading API
-  description: API of the TARDIS control plane. With this API configuration connectivity between different Tardis instances in ensured
+  title: File manager Downloading API
+  description: A simple file manager for uploading and downloading files.
+  version: 0.0.1
   contact:
     name: TARDIS
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
-    email: FMB_TARDIS_Support@telekom.de
-  version: 1.0.0
+    email: tardis@nop.telekom.de
+    url: https://developer.telekom.de/
+  license:
+    name: Apache 2.0
   x-api-category: TARDIS
-  x-vendor: false
 servers:
-- url: https://api.telekom.de/controlplane/v1
+- url: https://locahost:8080
+  description: For local development
+security:
+- bearerAuth: []
 tags:
 - name: downloading
   description: An endpoint to download existing files
@@ -82,3 +86,9 @@ components:
           type: string
         instance:
           type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT Bearer token authentication
