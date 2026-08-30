@@ -101,7 +101,7 @@ apis:
   - Artificial Intelligence
   - Communications
   - Conversational
-  - Natural-Language
+  - Natural Language
   tags_raw:
   - AI
   - Communications
@@ -170,8 +170,8 @@ apis:
   name: Open Telekom Cloud
   tags:
   - Cloud
-  - Infrastructure-as-a-Service
-  - Platform-as-a-Service
+  - IaaS
+  - PaaS
   - OpenStack
   - T-Systems
   tags_raw:
@@ -216,7 +216,7 @@ apis:
   description: The ApiChangelog API from Deutsche Telekom — 3 operation(s) for apichangelog.
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
-  - API Changelog
+  - ApiChangelog
   tags_raw:
   - ApiChangelog
   properties:
@@ -266,7 +266,7 @@ apis:
   description: Manage ApiSpecifications
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
-  - API Specification
+  - ApiSpecification
   tags_raw:
   - ApiSpecification
   properties:
@@ -521,7 +521,7 @@ apis:
     identifier (e.g. "de.telekom.eni.quickstart.v1").
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
-  - Event Type
+  - EventType
   tags_raw:
   - EventType
   properties:
@@ -725,7 +725,7 @@ apis:
   description: An endpoint to upload new files
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
-  - Uploading
+  - uploading
   tags_raw:
   - uploading
   properties:
