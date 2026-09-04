@@ -832,7 +832,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deutsche-telekom.png
 access: 3rd-Party
-position: Provider
+position: Producing
 common:
 - type: CapabilityMap
   url: capabilities/deutsche-telekom-capability-edges.yml
