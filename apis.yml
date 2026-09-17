@@ -261,21 +261,6 @@ apis:
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook
   - type: SourceCode
     url: https://github.com/telekom/controlplane
-- aid: deutsche-telekom:deutsche-telekom-apispecification-api
-  name: Deutsche Telekom ApiSpecification API
-  description: Manage ApiSpecifications
-  humanURL: https://developer.telekom.com/en/products/sms-api
-  tags:
-  - API Specification
-  tags_raw:
-  - ApiSpecification
-  properties:
-  - type: OpenAPI
-    url: openapi/deutsche-telekom-apispecification-api-openapi.yml
-  - type: Documentation
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
-  - type: SourceCode
-    url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-apisubscription-api
   name: Deutsche Telekom ApiSubscription API
   description: >-
@@ -509,28 +494,6 @@ apis:
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook
   - type: SourceCode
     url: https://github.com/telekom/controlplane
-- aid: deutsche-telekom:deutsche-telekom-eventtype-api
-  name: Deutsche Telekom EventType API
-  description: >-
-    An EventType is a registry entry representing a known event type. It
-
-    serves as the canonical reference that both EventExposures and
-
-    EventSubscriptions point to. EventTypes are identified by a dot-separated
-
-    identifier (e.g. "de.telekom.eni.quickstart.v1").
-  humanURL: https://developer.telekom.com/en/products/sms-api
-  tags:
-  - Event Type
-  tags_raw:
-  - EventType
-  properties:
-  - type: OpenAPI
-    url: openapi/deutsche-telekom-eventtype-api-openapi.yml
-  - type: Documentation
-    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
-  - type: SourceCode
-    url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-groups-api
   name: Deutsche Telekom Groups API
   description: The Groups API from Deutsche Telekom — 6 operation(s) for groups.
@@ -760,6 +723,39 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/deutsche-telekom-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-api-specification-api
+  name: Deutsche Telekom API Specification API
+  description: Manage ApiSpecifications
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - API Specification
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-api-specification-api-openapi.yml
+  - type: Documentation
+    url: https://developer.telekom.de/docs/src/tardis_customer_handbook
+  - type: SourceCode
+    url: https://github.com/telekom/controlplane
+- aid: deutsche-telekom:deutsche-telekom-event-type-api
+  name: Deutsche Telekom Event Type API
+  description: >-
+    An EventType is a registry entry representing a known event type. It
+
+    serves as the canonical reference that both EventExposures and
+
+    EventSubscriptions point to. EventTypes are identified by a dot-separated
+
+    identifier (e.g. "de.telekom.eni.quickstart.v1").
+  humanURL: https://developer.telekom.com/en/products/sms-api
+  tags:
+  - Event Type
+  properties:
+  - type: OpenAPI
+    url: openapi/deutsche-telekom-event-type-api-openapi.yml
   - type: Documentation
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook
   - type: SourceCode
