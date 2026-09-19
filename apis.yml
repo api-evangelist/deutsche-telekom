@@ -121,6 +121,11 @@ apis:
   tags:
   - Authentication
   - Identity
+  - Network APIs
+  - CAMARA
+  tags_raw:
+  - Authentication
+  - Identity
   - Network API
   - CAMARA
   humanURL: https://developer.telekom.com/en/products/number-verify
@@ -139,6 +144,11 @@ apis:
   - Authentication
   - Identity
   - 2FA
+  - Network APIs
+  tags_raw:
+  - Authentication
+  - Identity
+  - 2FA
   - Network API
   humanURL: https://developer.telekom.com/en/products/verify-api
   properties:
@@ -152,6 +162,11 @@ apis:
 - aid: deutsche-telekom:5g-slices-api
   name: Deutsche Telekom 5G Slices for App Developers
   tags:
+  - 5G
+  - Network APIs
+  - Network Slicing
+  - Quality of Service
+  tags_raw:
   - 5G
   - Network API
   - Network Slicing
@@ -407,6 +422,8 @@ apis:
   description: The Component API from Deutsche Telekom — 3 operation(s) for component.
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
+  - Components
+  tags_raw:
   - Component
   properties:
   - type: OpenAPI
@@ -766,7 +783,7 @@ tags:
 - Telco
 - Mobile Network Operator
 - CPaaS
-- Network API
+- Network APIs
 - 5G
 - Cloud
 - Identity
