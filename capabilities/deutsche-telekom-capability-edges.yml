@@ -1,0 +1,205 @@
+slug: deutsche-telekom
+provider: Deutsche Telekom
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 19
+edges:
+- tag: Authentication Management
+  spec_file: deutsche-telekom-authentication-management-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: GET /{realm}/authentication/authenticator-providers; schemas AuthenticationFlowRepresentation,
+    RequiredActionProviderRepresentation
+  reason: Operations configure authentication flows, executions and authenticator providers in Keycloak
+    — squarely identity and access management, not a telecom subscriber authentication surface.
+- tag: Client Role Mappings
+  spec_file: deutsche-telekom-client-role-mappings-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: POST /{realm}/users/{id}/role-mappings/clients/{client} — "Add client-level roles to the user
+    role mapping"
+  reason: Assignment of roles to users and groups is core access administration in the Keycloak identity
+    provider.
+- tag: Role Mapper
+  spec_file: deutsche-telekom-role-mapper-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: POST /{realm}/users/{id}/role-mappings/realm "Add realm-level role mappings to the user";
+    schema MappingsRepresentation
+  reason: Assignment of roles to users and groups — textbook access rights administration.
+- tag: Groups
+  spec_file: deutsche-telekom-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.88
+  evidence: GET /{realm}/groups "Get group hierarchy."; GET /{realm}/groups/{id}/members "Get users";
+    schema GroupRepresentation, ManagementPermissionReference
+  reason: Keycloak Admin API group hierarchy, membership and authorization permissions — directly identity
+    and access administration.
+- tag: Identity Providers
+  spec_file: deutsche-telekom-identity-providers-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.88
+  evidence: POST /{realm}/identity-provider/instances "Create a new identity provider"; "Export public
+    broker configuration for identity provider"
+  reason: Configuration of federated identity providers and mappers in Keycloak — identity federation,
+    a core IAM function.
+- tag: Roles
+  spec_file: deutsche-telekom-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.88
+  evidence: POST /{realm}/clients/{id}/roles "Create a new role for the realm or client"; "Get composites
+    of the role"
+  reason: Definition and composition of realm/client roles in Keycloak — authorisation model management
+    within IAM, not HR job roles.
+- tag: Clients
+  spec_file: deutsche-telekom-clients-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /{realm}/clients/{id}/client-secret — "Generate a new secret for the client"; schemas
+    ClientRepresentation, UserSessionRepresentation
+  reason: CRUD over OAuth clients, their secrets, scopes and sessions in Keycloak — identity and access
+    management, not customer/CRM 'clients'.
+- tag: Roles (by ID)
+  spec_file: deutsche-telekom-roles-by-id-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: GET /{realm}/roles-by-id/{role-id} "Get a specific role’s representation"; "Make the role
+    a composite role by associating some child roles"
+  reason: Same Keycloak role/permission model addressed by id — access management configuration.
+- tag: Users
+  spec_file: deutsche-telekom-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /{realm}/users — "Create a new user Username must be unique."; "Remove a credential for
+    a user"; schemas UserRepresentation, CredentialRepresentation, FederatedIdentityRepresentation
+  reason: These are identity-provider account and credential administration operations (users, credentials,
+    consents, sessions, groups) — IAM, not customer/subscriber master data.
+- tag: Scope Mappings
+  spec_file: deutsche-telekom-scope-mappings-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: GET /{realm}/client-scopes/{id}/scope-mappings — "Get all scope mappings for the client";
+    "Add client-level roles to the client’s scope"; schema RoleRepresentation
+  reason: Keycloak Admin REST operations manage role-to-scope assignments for OAuth clients — role/permission
+    administration in an identity provider, i.e. Identity & Access Management, not any telecom business
+    capability.
+- tag: Client Scopes
+  spec_file: deutsche-telekom-client-scopes-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /{realm}/client-scopes — "Get client scopes belonging to the realm"; schema ClientScopeRepresentation,
+    ProtocolMapperRepresentation
+  reason: OAuth/OIDC client scope definitions and protocol mappers — authorisation configuration inside
+    the IAM platform.
+- tag: Protocol Mappers
+  spec_file: deutsche-telekom-protocol-mappers-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /{realm}/clients/{id}/protocol-mappers/add-models "Create multiple mappers"; schema ProtocolMapperRepresentation
+  reason: Keycloak protocol mappers control token claim mapping for clients and client scopes — configuration
+    of the access/identity token pipeline, part of IAM administration.
+- tag: Realms Admin
+  spec_file: deutsche-telekom-realms-admin-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /{realm} "Get the top-level representation of the realm"; "Get client policies"; schemas
+    RealmRepresentation, ClientPoliciesRepresentation, RealmEventsConfigRepresentation
+  reason: Administration of Keycloak realms — the identity domain containing users, clients, roles and
+    policies. Some operations are pure cache/technical plumbing, hence not maximal confidence.
+- tag: User Storage Provider
+  spec_file: deutsche-telekom-user-storage-provider-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: POST /{realm}/user-storage/{id}/sync — "Trigger sync of users"; "Unlink imported users from
+    a storage provider"; "sync of mapper data related to ldap mapper (roles, groups, …)"
+  reason: Federated user directory (LDAP) synchronisation and user import management inside Keycloak —
+    identity federation and account lifecycle, which sits under Identity & Access Management.
+- tag: secrets
+  spec_file: deutsche-telekom-secrets-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.78
+  evidence: 'PUT /v1/secrets/{secretId} putSecret — "Create or update a secret"; description: "This API
+    can be used to resolve secrets from references and returns its actual confidential value."'
+  reason: Read/write lifecycle of runtime secrets consumed by applications — this is Configuration & Secrets
+    Management for software services, not a telecom capability.
+- tag: ApiSpecification
+  spec_file: deutsche-telekom-apispecification-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.75
+  evidence: 'POST /apispecifications  createApiSpecification  Create an ApiSpecification; schemas: ApiSpecificationUpdateRequest,
+    ApiSpecificationListResponse'
+  reason: Directly manages API specification artefacts in an API management platform, matching 'Specification,
+    versioning, and deprecation of public APIs exposed to external developers'.
+- tag: ApiChangelog
+  spec_file: deutsche-telekom-apichangelog-api-openapi.yml
+  capability_id: BC-4270.10
+  capability_id_l1: BC-4270
+  capability_name: Public API Lifecycle Management
+  confidence: 0.7
+  evidence: POST /apichangelogs  createApiChangelog  Create a new ApiChangelog — "API of the TARDIS control
+    plane. With this API, you can manage your Rovers, ApiSpecifications, ApiRoadmaps..."
+  reason: CRUD over API changelog artefacts within an API management control plane; changelogs document
+    API versioning/change, which sits in public API lifecycle management. Some chance this is better read
+    as internal IT platform tooling, hence 0.7.
+- tag: ApiExposure
+  spec_file: deutsche-telekom-apiexposure-api-openapi.yml
+  capability_id: BC-4270
+  capability_id_l1: BC-4270
+  capability_name: Developer Platform & API Ecosystem Management
+  confidence: 0.7
+  evidence: 'POST /applications/{applicationId}/apiexposures  createApiExposure  Create an ApiExposures;
+    schemas: RateLimit, Visibility, ApprovalStrategy, SubscriberSecurity'
+  reason: Manages the exposure of APIs to consumers with visibility, rate limits, approval and subscriber
+    security — API ecosystem management. The surface spans both API publication and consumption governance,
+    so only the L1 is asserted.
+- tag: Client Attribute Certificate
+  spec_file: deutsche-telekom-client-attribute-certificate-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /{realm}/clients/{id}/certificates/{attr}/generate — "Generate a new certificate with
+    new key pair"; schemas CertificateRepresentation, KeyStoreConfig
+  reason: Manages keypairs/certificates used as credentials for OAuth clients in the identity provider
+    — credential administration within IAM.
