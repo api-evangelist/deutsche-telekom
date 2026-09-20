@@ -162,7 +162,8 @@ edges:
   reason: Read/write lifecycle of runtime secrets consumed by applications — this is Configuration & Secrets
     Management for software services, not a telecom capability.
 - tag: ApiSpecification
-  spec_file: deutsche-telekom-apispecification-api-openapi.yml
+  spec_file: deutsche-telekom-api-specification-api-openapi.yml
+  reanchored_from: deutsche-telekom-apispecification-api-openapi.yml
   capability_id: BC-4270.10
   capability_id_l1: BC-4270
   capability_name: Public API Lifecycle Management
