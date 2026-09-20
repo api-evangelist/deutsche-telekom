@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 19
+edge_count: 20
 edges:
 - tag: Authentication Management
   spec_file: deutsche-telekom-authentication-management-api-openapi.yml
@@ -194,6 +194,17 @@ edges:
   reason: Manages the exposure of APIs to consumers with visibility, rate limits, approval and subscriber
     security — API ecosystem management. The surface spans both API publication and consumption governance,
     so only the L1 is asserted.
+- tag: Attack Detection
+  spec_file: deutsche-telekom-attack-detection-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: GET /{realm}/attack-detection/brute-force/users/{userId} 'Get status of a username in brute
+    force detection'; 'Clear any user login failures ... release temporary disabled users'
+  reason: Keycloak brute-force login protection administration — a cybersecurity control. Ambiguous between
+    identity/access administration and threat detection, so L1 only.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Client Attribute Certificate
   spec_file: deutsche-telekom-client-attribute-certificate-api-openapi.yml
   capability_id: BC-620.20
