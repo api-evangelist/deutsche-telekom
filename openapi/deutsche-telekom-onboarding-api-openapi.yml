@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Secret Manager Onboarding API
-  description: 'This API can be used to resolve secrets from references and returns its actual confidential value.
-
-    '
+  description: This API can be used to resolve secrets from references and returns its actual confidential value.
   version: 0.0.1
   contact:
     name: TARDIS
@@ -16,7 +14,7 @@ servers:
 - url: https://locahost:8080
   description: For local development
 tags:
-- name: onboarding
+- name: Onboarding
 paths:
   /v1/onboarding/environments/{envId}:
     put:
@@ -24,7 +22,7 @@ paths:
       summary: Create or update an environment
       description: Create or update an environment that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -46,7 +44,7 @@ paths:
       summary: Delete an environment
       description: Delete an environment that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -67,7 +65,7 @@ paths:
       summary: Create or update a team
       description: Create or update a team that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -95,7 +93,7 @@ paths:
       summary: Delete a team
       description: Delete a team that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -122,7 +120,7 @@ paths:
       summary: Create or update an app
       description: Create or update an app that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -156,7 +154,7 @@ paths:
       summary: Delete an app
       description: Delete an app that is identified by its reference in the request body
       tags:
-      - onboarding
+      - Onboarding
       parameters:
       - name: envId
         in: path
@@ -184,77 +182,34 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
-  responses:
-    ErrorResponse:
-      description: In case of any error, this object is returned
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ApiProblem'
-    OnboardingResponse:
-      description: Successful retrieval of secrets
+  requestBodies:
+    EnvironmentWriteRequest:
       content:
         application/json:
           schema:
-            type: object
-            required:
-            - items
-            properties:
-              items:
-                type: array
-                description: A list of available secret references
-                minItems: 0
-                maxItems: 10
-                items:
-                  $ref: '#/components/schemas/ListSecretItem'
-    NoContent:
-      description: Successful operation with no content
-  schemas:
+            $ref: '#/components/schemas/EnvironmentWriteRequest'
+    TeamWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeamWriteRequest'
     ApplicationWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the application
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
-    ApiProblem:
-      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
-      type: object
-      required:
-      - type
-      - status
-      - title
-      - detail
-      properties:
-        type:
-          type: string
-        status:
-          type: integer
-        title:
-          type: string
-        detail:
-          type: string
-        instance:
-          type: string
-    NamedSecret:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApplicationWriteRequest'
+  schemas:
+    ListSecretItem:
       type: object
       required:
       - name
-      - value
+      - id
       properties:
         name:
           type: string
           description: The name of the secret
-        value:
-          type: string
-          description: The value of the secret
+        id:
+          $ref: '#/components/schemas/SecretRef'
     EnvironmentWriteRequest:
       type: object
       required:
@@ -265,6 +220,20 @@ components:
         secrets:
           type: array
           description: A list of secrets to be created or updated for the environment
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    TeamWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the team
           minItems: 0
           maxItems: 10
           items:
@@ -284,21 +253,26 @@ components:
         If not provided, "replace" will be used as default strategy.
 
         '
-    SecretRef:
-      description: A reference to a secret
-      type: string
-    ListSecretItem:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
       type: object
       required:
-      - name
-      - id
+      - type
+      - status
+      - title
+      - detail
       properties:
-        name:
+        type:
           type: string
-          description: The name of the secret
-        id:
-          $ref: '#/components/schemas/SecretRef'
-    TeamWriteRequest:
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+    ApplicationWriteRequest:
       type: object
       required:
       - secrets
@@ -307,24 +281,48 @@ components:
           $ref: '#/components/schemas/WriteStrategy'
         secrets:
           type: array
-          description: A list of secrets to be created or updated for the team
+          description: A list of secrets to be created or updated for the application
           minItems: 0
           maxItems: 10
           items:
             $ref: '#/components/schemas/NamedSecret'
-  requestBodies:
-    EnvironmentWriteRequest:
+    NamedSecret:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        value:
+          type: string
+          description: The value of the secret
+    SecretRef:
+      description: A reference to a secret
+      type: string
+  responses:
+    OnboardingResponse:
+      description: Successful retrieval of secrets
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EnvironmentWriteRequest'
-    ApplicationWriteRequest:
+            type: object
+            required:
+            - items
+            properties:
+              items:
+                type: array
+                description: A list of available secret references
+                minItems: 0
+                maxItems: 10
+                items:
+                  $ref: '#/components/schemas/ListSecretItem'
+    NoContent:
+      description: Successful operation with no content
+    ErrorResponse:
+      description: In case of any error, this object is returned
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: '#/components/schemas/ApplicationWriteRequest'
-    TeamWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TeamWriteRequest'
+            $ref: '#/components/schemas/ApiProblem'

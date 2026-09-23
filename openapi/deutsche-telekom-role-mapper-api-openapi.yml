@@ -34,6 +34,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MappingsRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappings
+      x-operation-id-source: derived
   /{realm}/groups/{id}/role-mappings/realm:
     parameters:
     - in: path
@@ -62,6 +64,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsRealm
+      x-operation-id-source: derived
     post:
       tags:
       - Role Mapper
@@ -78,6 +82,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmGroupsByIdRoleMappingsRealm
+      x-operation-id-source: derived
     delete:
       tags:
       - Role Mapper
@@ -93,6 +99,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmGroupsByIdRoleMappingsRealm
+      x-operation-id-source: derived
   /{realm}/groups/{id}/role-mappings/realm/available:
     parameters:
     - in: path
@@ -121,6 +129,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsRealmAvailable
+      x-operation-id-source: derived
   /{realm}/groups/{id}/role-mappings/realm/composite:
     parameters:
     - in: path
@@ -139,7 +149,7 @@ paths:
     get:
       tags:
       - Role Mapper
-      summary: Get effective realm-level role mappings   This will recurse all composite roles to get the result.
+      summary: Get effective realm-level role mappings This will recurse all composite roles…
       responses:
         2XX:
           description: success
@@ -149,6 +159,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsRealmComposite
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings:
     parameters:
     - in: path
@@ -176,6 +188,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MappingsRepresentation'
+      operationId: getByRealmUsersByIdRoleMappings
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/realm:
     parameters:
     - in: path
@@ -205,6 +219,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsRealm
+      x-operation-id-source: derived
     post:
       tags:
       - Role Mapper
@@ -221,6 +237,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmUsersByIdRoleMappingsRealm
+      x-operation-id-source: derived
     delete:
       tags:
       - Role Mapper
@@ -236,6 +254,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmUsersByIdRoleMappingsRealm
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/realm/available:
     parameters:
     - in: path
@@ -265,6 +285,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsRealmAvailable
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/realm/composite:
     parameters:
     - in: path
@@ -284,7 +306,7 @@ paths:
     get:
       tags:
       - Role Mapper
-      summary: Get effective realm-level role mappings   This will recurse all composite roles to get the result.
+      summary: Get effective realm-level role mappings This will recurse all composite roles…
       responses:
         2XX:
           description: success
@@ -294,18 +316,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsRealmComposite
+      x-operation-id-source: derived
 components:
   schemas:
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -326,6 +340,16 @@ components:
           type: string
         name:
           type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     MappingsRepresentation:
       type: object
       properties:

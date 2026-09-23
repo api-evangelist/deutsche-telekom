@@ -42,6 +42,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
     post:
       tags:
       - Client Role Mappings
@@ -57,6 +59,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmGroupsByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
     delete:
       tags:
       - Client Role Mappings
@@ -72,6 +76,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmGroupsByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
   /{realm}/groups/{id}/role-mappings/clients/{client}/available:
     parameters:
     - in: path
@@ -106,6 +112,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsClientsByClientAvailable
+      x-operation-id-source: derived
   /{realm}/groups/{id}/role-mappings/clients/{client}/composite:
     parameters:
     - in: path
@@ -130,7 +138,7 @@ paths:
     get:
       tags:
       - Client Role Mappings
-      summary: Get effective client-level role mappings   This recurses any composite roles
+      summary: Get effective client-level role mappings This recurses any composite roles
       responses:
         2XX:
           description: success
@@ -140,6 +148,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmGroupsByIdRoleMappingsClientsByClientComposite
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/clients/{client}:
     parameters:
     - in: path
@@ -175,6 +185,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
     post:
       tags:
       - Client Role Mappings
@@ -190,6 +202,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmUsersByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
     delete:
       tags:
       - Client Role Mappings
@@ -205,6 +219,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmUsersByIdRoleMappingsClientsByClient
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/clients/{client}/available:
     parameters:
     - in: path
@@ -240,6 +256,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsClientsByClientAvailable
+      x-operation-id-source: derived
   /{realm}/users/{id}/role-mappings/clients/{client}/composite:
     parameters:
     - in: path
@@ -265,7 +283,7 @@ paths:
     get:
       tags:
       - Client Role Mappings
-      summary: Get effective client-level role mappings   This recurses any composite roles
+      summary: Get effective client-level role mappings This recurses any composite roles
       responses:
         2XX:
           description: success
@@ -275,18 +293,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmUsersByIdRoleMappingsClientsByClientComposite
+      x-operation-id-source: derived
 components:
   schemas:
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -307,6 +317,16 @@ components:
           type: string
         name:
           type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
   securitySchemes:
     access_token:
       type: http

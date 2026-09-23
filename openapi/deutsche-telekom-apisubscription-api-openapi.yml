@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Stargate API Subscription API
-  description: "API of the TARDIS control plane. With this API, you can manage your\nApiExposures and ApiSubscriptions. \nThis is a **read-only** API. You can only read the resources. \nFor creating and updating resources, you may use the Rover-API.\n\n**Important:** \n- You may use this API by subscribing to it by using the usual process. \nYou **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.\nIf you require more permissions, please contact the TARDIS team.\n\n- This is a Team-API and may be used by any team using TARDIS. \nIn the future, you can simply use your Team-credentials to access this API.\n"
+  description: API of the TARDIS control plane.
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
@@ -19,9 +19,7 @@ tags:
 
     only possible to subscribe to the entire API. It is not possible to
 
-    subscribe only to a single resource
-
-    '
+    subscribe only to a single resource'
 paths:
   /applications/{applicationId}/apisubscriptions:
     get:
@@ -97,9 +95,7 @@ paths:
 
         there can occur failures in the after processing. That will be shown in
 
-        the status if you request the appropriate resource.
-
-        '
+        the status if you request the appropriate resource.'
       operationId: createApiSubscription
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -136,7 +132,6 @@ paths:
       tags:
       - ApiSubscription
       summary: Find an existing ApiSubscription
-      description: Find an existing ApiSubscription
       operationId: getApiSubscription
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -205,9 +200,7 @@ paths:
 
         there can occur failures in the after processing. That will be shown in
 
-        the status if you request the appropriate resource.
-
-        '
+        the status if you request the appropriate resource.'
       operationId: updateApiSubscription
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -252,7 +245,6 @@ paths:
       tags:
       - ApiSubscription
       summary: Delete an ApiSubscription
-      description: Delete an ApiSubscription
       operationId: deleteApiSubscription
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -288,7 +280,6 @@ paths:
       tags:
       - ApiSubscription
       summary: Find an existing ApiSubscription and return its status
-      description: Find an existing ApiSubscription and return its status
       operationId: getApiSubscriptionStatus
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -334,26 +325,15 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    Approval:
-      type: object
-      readOnly: true
-      required:
-      - status
-      - comment
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
     SubscriptionFailover:
       type: array
       readOnly: true
@@ -368,36 +348,6 @@ components:
             type: string
             readOnly: true
             example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-    BasicAuth:
-      type: object
-      required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    ApiSubscriptionCreateRequest:
-      required:
-      - basePath
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
     ApiSubscription:
       type: object
       properties:
@@ -408,39 +358,6 @@ components:
           pattern: ^\/[a-zA-Z0-9\/-]*$
         security:
           $ref: '#/components/schemas/SubscriberSecurity'
-    ApiSubscriptionResponse:
-      type: object
-      readOnly: true
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: eni-echo-v1
-          zone:
-            type: string
-            readOnly: true
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-          status:
-            $ref: common.yaml#/components/schemas/Status
-          application:
-            $ref: common.yaml#/components/schemas/ApplicationRef
-          team:
-            $ref: common.yaml#/components/schemas/TeamRef
-          approval:
-            $ref: '#/components/schemas/Approval'
-          failover:
-            $ref: '#/components/schemas/SubscriptionFailover'
-    ApiSubscriptionUpdateRequest:
-      required:
-      - basePath
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
     OAuth2:
       type: object
       required:
@@ -484,3 +401,77 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiSubscriptionResponse'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    Approval:
+      type: object
+      readOnly: true
+      required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    ApiSubscriptionUpdateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+    ApiSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: eni-echo-v1
+          zone:
+            type: string
+            readOnly: true
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/Approval'
+          failover:
+            $ref: '#/components/schemas/SubscriptionFailover'
+    ApiSubscriptionCreateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'

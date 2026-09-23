@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: Get group hierarchy.
+      summary: Get group hierarchy
       parameters:
       - in: query
         name: briefRepresentation
@@ -53,10 +53,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GroupRepresentation'
+      operationId: getByRealmGroups
+      x-operation-id-source: derived
     post:
       tags:
       - Groups
-      summary: create or add a top level realm groupSet or create child.
+      summary: create or add a top level realm groupSet or create child
       requestBody:
         content:
           application/json:
@@ -66,6 +68,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmGroups
+      x-operation-id-source: derived
   /{realm}/groups/count:
     parameters:
     - in: path
@@ -78,7 +82,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: Returns the groups counts.
+      summary: Returns the groups counts
       parameters:
       - in: query
         name: search
@@ -98,6 +102,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: getByRealmGroupsCount
+      x-operation-id-source: derived
   /{realm}/groups/{id}:
     parameters:
     - in: path
@@ -123,10 +129,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GroupRepresentation'
+      summary: Get by realm groups by id
+      x-summary-source: derived
+      operationId: getByRealmGroupsById
+      x-operation-id-source: derived
     put:
       tags:
       - Groups
-      summary: Update group, ignores subgroups.
+      summary: Update group, ignores subgroups
       requestBody:
         content:
           application/json:
@@ -136,12 +146,18 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmGroupsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Groups
       responses:
         2XX:
           description: success
+      summary: Delete by realm groups by id
+      x-summary-source: derived
+      operationId: deleteByRealmGroupsById
+      x-operation-id-source: derived
   /{realm}/groups/{id}/children:
     parameters:
     - in: path
@@ -160,7 +176,7 @@ paths:
     post:
       tags:
       - Groups
-      summary: Set or create child.
+      summary: Set or create child
       requestBody:
         content:
           application/json:
@@ -170,6 +186,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmGroupsByIdChildren
+      x-operation-id-source: derived
   /{realm}/groups/{id}/management/permissions:
     parameters:
     - in: path
@@ -188,7 +206,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been…
       responses:
         2XX:
           description: success
@@ -196,10 +214,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ManagementPermissionReference'
+      operationId: getByRealmGroupsByIdManagementPermissions
+      x-operation-id-source: derived
     put:
       tags:
       - Groups
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been…
       requestBody:
         content:
           application/json:
@@ -213,6 +233,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ManagementPermissionReference'
+      operationId: putByRealmGroupsByIdManagementPermissions
+      x-operation-id-source: derived
   /{realm}/groups/{id}/members:
     parameters:
     - in: path
@@ -231,7 +253,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: Get users   Returns a list of users, filtered according to query parameters
+      summary: Get users Returns a list of users, filtered according to query parameters
       parameters:
       - in: query
         name: briefRepresentation
@@ -262,65 +284,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserRepresentation'
+      operationId: getByRealmGroupsByIdMembers
+      x-operation-id-source: derived
 components:
   schemas:
-    UserConsentRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        createdDate:
-          type: integer
-          format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
-          type: integer
-          format: int64
-    CredentialRepresentation:
-      type: object
-      properties:
-        createdDate:
-          type: integer
-          format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
-          type: string
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
-    FederatedIdentityRepresentation:
-      type: object
-      properties:
-        identityProvider:
-          type: string
-        userId:
-          type: string
-        userName:
-          type: string
     UserRepresentation:
       type: object
       properties:
@@ -389,6 +356,30 @@ components:
           type: string
         username:
           type: string
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
     GroupRepresentation:
       type: object
       properties:
@@ -415,6 +406,39 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
   securitySchemes:
     access_token:
       type: http

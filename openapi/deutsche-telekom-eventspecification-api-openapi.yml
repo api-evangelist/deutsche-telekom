@@ -120,7 +120,6 @@ paths:
       tags:
       - EventSpecification
       summary: Find an existing EventSpecification
-      description: Find an existing EventSpecification
       operationId: getEventSpecification
       parameters:
       - name: eventSpecificationId
@@ -210,7 +209,9 @@ paths:
       tags:
       - EventSpecification
       summary: Delete an EventSpecification
-      description: "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an EventSpecification\n"
+      description: '**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.
+
+        Delete an EventSpecification'
       operationId: deleteEventSpecification
       parameters:
       - name: eventSpecificationId
@@ -245,7 +246,6 @@ paths:
       tags:
       - EventSpecification
       summary: Find an existing EventSpecification and return its status
-      description: Find an existing EventSpecification and return its status
       operationId: getEventSpecificationStatus
       parameters:
       - name: eventSpecificationId
@@ -290,9 +290,36 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    EventSpecificationUpdateRequest:
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    EventSpecificationResponse:
+      required:
+      - id
+      - type
+      - version
+      - category
+      - description
       allOf:
       - $ref: '#/components/schemas/EventSpecification'
+      - type: object
+        properties:
+          status:
+            $ref: '#/components/schemas/Status'
+          id:
+            readOnly: true
+            description: Your event type name (separated with dashes)
+            type: string
+            example: my-hub--my-team--de-telekom-eni-quickstart-v1
     Error:
       description: RFC-7807 conform object sent on any error
       type: object
@@ -316,15 +343,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FieldProblem'
-    EventSpecificationListResponse:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSpecificationResponse'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
     StateInfo:
       type: object
       readOnly: true
@@ -335,6 +360,17 @@ components:
           type: string
         cause:
           type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
     EventSpecificationCreateRequest:
       allOf:
       - $ref: '#/components/schemas/EventSpecification'
@@ -344,34 +380,88 @@ components:
             type: string
             example: hyperion
             description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-    Problem:
+    Category:
+      type: string
+    EventSpecificationListResponse:
       type: object
-      required:
-      - message
-      - cause
       properties:
-        resource:
-          $ref: '#/components/schemas/ResourceRef'
-        context:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSpecificationResponse'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
           type: string
-        message:
+        kind:
           type: string
-        cause:
+        name:
           type: string
-        details:
+        namespace:
           type: string
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
+        path:
+          type: string
+    ProcessingState:
       enum:
-      - invalid
+      - none
+      - pending
       - processing
       - failed
-      - blocked
-      - pending
-      - complete
       - done
-      - none
       type: string
+    EventSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
+    EventSpecification:
+      type: object
+      required:
+      - type
+      - version
+      - description
+      properties:
+        type:
+          description: Your event type (separated with dots)
+          type: string
+          example: de.telekom.eni.quickstart.v1
+        version:
+          type: string
+          example: 1.0.0
+        category:
+          allOf:
+          - $ref: '#/components/schemas/Category'
+          - description: Category of this EventSpecification
+        description:
+          description: A short description for your events
+          type: string
+          example: An event type for the quickstart guide
+        specification:
+          description: Optional JSON scheme
+          type: object
+          additionalProperties: true
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
     Status:
       type: object
       readOnly: true
@@ -396,61 +486,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StateInfo'
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    ResourceRef:
-      type: object
-      readOnly: true
-      required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
-      properties:
-        apiVersion:
-          type: string
-        kind:
-          type: string
-        name:
-          type: string
-        namespace:
-          type: string
-        path:
-          type: string
-    Category:
-      type: string
-    FieldProblem:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          type: string
-        detail:
-          type: string
-        path:
-          type: string
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
       required:
@@ -488,109 +523,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    EventSpecificationResponse:
-      required:
-      - id
-      - type
-      - version
-      - category
-      - description
-      allOf:
-      - $ref: '#/components/schemas/EventSpecification'
-      - type: object
-        properties:
-          status:
-            $ref: '#/components/schemas/Status'
-          id:
-            readOnly: true
-            description: Your event type name (separated with dashes)
-            type: string
-            example: my-hub--my-team--de-telekom-eni-quickstart-v1
-    EventSpecification:
+    Problem:
       type: object
       required:
-      - type
-      - version
-      - description
+      - message
+      - cause
       properties:
-        type:
-          description: Your event type (separated with dots)
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
           type: string
-          example: de.telekom.eni.quickstart.v1
-        version:
+        message:
           type: string
-          example: 1.0.0
-        category:
-          allOf:
-          - $ref: '#/components/schemas/Category'
-          - description: Category of this EventSpecification
-        description:
-          description: A short description for your events
+        cause:
           type: string
-          example: An event type for the quickstart guide
-        specification:
-          description: Optional JSON scheme
-          type: object
-          additionalProperties: true
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-  headers:
-    XTotalCount:
-      description: Total number of items matching criteria.
-      schema:
-        type: integer
-        minimum: 0
-    XResultCount:
-      description: Actual number of items returned in the response body for this page.
-      schema:
-        type: integer
-        minimum: 0
-  parameters:
-    Sort:
-      name: sort
-      in: query
-      description: list of fields to be used for sorting. Default is name
-      required: false
-      schema:
-        type: string
-        enum:
-        - name
-    Cursor:
-      name: cursor
-      in: query
-      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
-      required: false
-      schema:
-        type: string
-    Limit:
-      name: limit
-      description: page size requested by the consumer; must not be larger than the maximal page size
-      in: query
-      required: false
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 20
-        default: 20
+        details:
+          type: string
   responses:
-    ServerError:
-      description: SERVER_ERROR
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
     BadRequest:
       description: BAD_REQUEST
       content:
@@ -603,18 +552,69 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    UnsupportedMediaType:
-      description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
     NotFound:
       description: NOT_FOUND
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  headers:
+    XResultCount:
+      description: Actual number of items returned in the response body for this page.
+      schema:
+        type: integer
+        minimum: 0
+    XTotalCount:
+      description: Total number of items matching criteria.
+      schema:
+        type: integer
+        minimum: 0
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
+    Sort:
+      name: sort
+      in: query
+      description: list of fields to be used for sorting. Default is name
+      required: false
+      schema:
+        type: string
+        enum:
+        - name
+    Limit:
+      name: limit
+      description: page size requested by the consumer; must not be larger than the maximal page size
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 20
+        default: 20
   securitySchemes:
     OAuth2:
       type: oauth2

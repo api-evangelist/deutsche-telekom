@@ -45,6 +45,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ComponentRepresentation'
+      summary: Get by realm components
+      x-summary-source: derived
+      operationId: getByRealmComponents
+      x-operation-id-source: derived
     post:
       tags:
       - Component
@@ -57,6 +61,10 @@ paths:
       responses:
         2XX:
           description: success
+      summary: Create by realm components
+      x-summary-source: derived
+      operationId: postByRealmComponents
+      x-operation-id-source: derived
   /{realm}/components/{id}:
     parameters:
     - in: path
@@ -82,6 +90,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ComponentRepresentation'
+      summary: Get by realm components by id
+      x-summary-source: derived
+      operationId: getByRealmComponentsById
+      x-operation-id-source: derived
     put:
       tags:
       - Component
@@ -94,12 +106,20 @@ paths:
       responses:
         2XX:
           description: success
+      summary: Replace by realm components by id
+      x-summary-source: derived
+      operationId: putByRealmComponentsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Component
       responses:
         2XX:
           description: success
+      summary: Delete by realm components by id
+      x-summary-source: derived
+      operationId: deleteByRealmComponentsById
+      x-operation-id-source: derived
   /{realm}/components/{id}/sub-component-types:
     parameters:
     - in: path
@@ -118,7 +138,7 @@ paths:
     get:
       tags:
       - Component
-      summary: List of subcomponent types that are available to configure for a particular parent component.
+      summary: List of subcomponent types that are available to configure for a particular…
       parameters:
       - in: query
         name: type
@@ -134,50 +154,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ComponentTypeRepresentation'
+      operationId: getByRealmComponentsByIdSubComponentTypes
+      x-operation-id-source: derived
 components:
   schemas:
-    ComponentRepresentation:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/MultivaluedHashMap'
-        id:
-          type: string
-        name:
-          type: string
-        parentId:
-          type: string
-        providerId:
-          type: string
-        providerType:
-          type: string
-        subType:
-          type: string
-    ComponentTypeRepresentation:
-      type: object
-      properties:
-        helpText:
-          type: string
-        id:
-          type: string
-        metadata:
-          type: object
-          additionalProperties: true
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigPropertyRepresentation'
-    MultivaluedHashMap:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        loadFactor:
-          type: number
-          format: float
-        threshold:
-          type: integer
-          format: int32
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -196,6 +176,48 @@ components:
         secret:
           type: boolean
         type:
+          type: string
+    MultivaluedHashMap:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        loadFactor:
+          type: number
+          format: float
+        threshold:
+          type: integer
+          format: int32
+    ComponentTypeRepresentation:
+      type: object
+      properties:
+        helpText:
+          type: string
+        id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
+    ComponentRepresentation:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MultivaluedHashMap'
+        id:
+          type: string
+        name:
+          type: string
+        parentId:
+          type: string
+        providerId:
+          type: string
+        providerType:
+          type: string
+        subType:
           type: string
   securitySchemes:
     access_token:

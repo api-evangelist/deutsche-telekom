@@ -35,6 +35,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmRolesByIdByRoleId
+      x-operation-id-source: derived
     put:
       tags:
       - Roles (by ID)
@@ -48,6 +50,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmRolesByIdByRoleId
+      x-operation-id-source: derived
     delete:
       tags:
       - Roles (by ID)
@@ -55,6 +59,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmRolesByIdByRoleId
+      x-operation-id-source: derived
   /{realm}/roles-by-id/{role-id}/composites:
     parameters:
     - in: path
@@ -74,7 +80,7 @@ paths:
     get:
       tags:
       - Roles (by ID)
-      summary: Get role’s children   Returns a set of role’s children provided the role is a composite.
+      summary: Get role’s children Returns a set of role’s children provided the role is a…
       responses:
         2XX:
           description: success
@@ -84,6 +90,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmRolesByIdByRoleIdComposites
+      x-operation-id-source: derived
     post:
       tags:
       - Roles (by ID)
@@ -99,6 +107,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmRolesByIdByRoleIdComposites
+      x-operation-id-source: derived
     delete:
       tags:
       - Roles (by ID)
@@ -115,6 +125,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmRolesByIdByRoleIdComposites
+      x-operation-id-source: derived
   /{realm}/roles-by-id/{role-id}/composites/clients/{client}:
     parameters:
     - in: path
@@ -149,6 +161,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmRolesByIdByRoleIdCompositesClientsByClient
+      x-operation-id-source: derived
   /{realm}/roles-by-id/{role-id}/composites/realm:
     parameters:
     - in: path
@@ -177,6 +191,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmRolesByIdByRoleIdCompositesRealm
+      x-operation-id-source: derived
   /{realm}/roles-by-id/{role-id}/management/permissions:
     parameters:
     - in: path
@@ -195,7 +211,7 @@ paths:
     get:
       tags:
       - Roles (by ID)
-      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been…
       responses:
         2XX:
           description: success
@@ -203,10 +219,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ManagementPermissionReference'
+      operationId: getByRealmRolesByIdByRoleIdManagementPermissions
+      x-operation-id-source: derived
     put:
       tags:
       - Roles (by ID)
-      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been…
       requestBody:
         content:
           application/json:
@@ -220,18 +238,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ManagementPermissionReference'
+      operationId: putByRealmRolesByIdByRoleIdManagementPermissions
+      x-operation-id-source: derived
 components:
   schemas:
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -252,6 +262,16 @@ components:
           type: string
         name:
           type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     ManagementPermissionReference:
       type: object
       properties:

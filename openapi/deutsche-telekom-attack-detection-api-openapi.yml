@@ -20,10 +20,12 @@ paths:
     delete:
       tags:
       - Attack Detection
-      summary: Clear any user login failures for all users   This can release temporary disabled users
+      summary: Clear any user login failures for all users This can release temporary disabled…
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAttackDetectionBruteForceUsers
+      x-operation-id-source: derived
   /{realm}/attack-detection/brute-force/users/{userId}:
     parameters:
     - in: path
@@ -51,13 +53,17 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: getByRealmAttackDetectionBruteForceUsersByUserId
+      x-operation-id-source: derived
     delete:
       tags:
       - Attack Detection
-      summary: Clear any user login failures for the user   This can release temporary disabled user
+      summary: Clear any user login failures for the user This can release temporary disabled…
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAttackDetectionBruteForceUsersByUserId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     access_token:

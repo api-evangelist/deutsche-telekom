@@ -27,6 +27,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeysMetadataRepresentation'
+      summary: Get by realm keys
+      x-summary-source: derived
+      operationId: getByRealmKeys
+      x-operation-id-source: derived
 components:
   schemas:
     KeysMetadataRepresentation:

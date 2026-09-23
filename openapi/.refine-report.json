@@ -50,7 +50,9 @@
     "deutsche-telekom-onboarding-api-openapi.yml",
     "deutsche-telekom-secrets-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -86,13 +88,15 @@
     "controlplane-rover-server-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "controlplane-rover-server-openapi.yml: declared missing tag: ApiChangelog",
     "controlplane-secret-manager-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "controlplane-secret-manager-openapi.yml: declared missing tag: onboarding"
+    "controlplane-secret-manager-openapi.yml: declared missing tag: onboarding",
+    "superseded outputs removed: deutsche-telekom-api-specification-api-openapi.yml, deutsche-telekom-event-type-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 50 total)"
   ],
   "skipped": [
+    "deutsche-telekom-api-specification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-apichangelog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-apiexposure-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-apiroadmap-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "deutsche-telekom-apispecification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-apisubscription-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-application-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-attack-detection-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -106,10 +110,10 @@
     "deutsche-telekom-component-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-deleting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-downloading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deutsche-telekom-event-type-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-eventexposure-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-eventspecification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-eventsubscription-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "deutsche-telekom-eventtype-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-identity-providers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "deutsche-telekom-key-api-openapi.yml: previously refined output, superseded by openapi/_original/",

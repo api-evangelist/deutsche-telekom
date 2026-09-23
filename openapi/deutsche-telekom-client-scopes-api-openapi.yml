@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Client Scopes
-      summary: Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm
+      summary: Get client scopes belonging to the realm Returns a list of client scopes…
       responses:
         2XX:
           description: success
@@ -30,10 +30,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ClientScopeRepresentation'
+      operationId: getByRealmClientScopes
+      x-operation-id-source: derived
     post:
       tags:
       - Client Scopes
-      summary: Create a new client scope   Client Scope’s name must be unique!
+      summary: Create a new client scope Client Scope’s name must be unique!
       requestBody:
         content:
           application/json:
@@ -43,6 +45,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientScopes
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}:
     parameters:
     - in: path
@@ -70,6 +74,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientScopeRepresentation'
+      operationId: getByRealmClientScopesById
+      x-operation-id-source: derived
     put:
       tags:
       - Client Scopes
@@ -83,6 +89,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmClientScopesById
+      x-operation-id-source: derived
     delete:
       tags:
       - Client Scopes
@@ -90,22 +98,10 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientScopesById
+      x-operation-id-source: derived
 components:
   schemas:
-    ProtocolMapperRepresentation:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        name:
-          type: string
-        protocol:
-          type: string
-        protocolMapper:
-          type: string
     ClientScopeRepresentation:
       type: object
       properties:
@@ -124,6 +120,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    ProtocolMapperRepresentation:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMapper:
+          type: string
   securitySchemes:
     access_token:
       type: http

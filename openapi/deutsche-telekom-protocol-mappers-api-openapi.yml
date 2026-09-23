@@ -40,6 +40,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientScopesById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
     put:
       tags:
       - Protocol Mappers
@@ -53,6 +55,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmClientScopesById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
     delete:
       tags:
       - Protocol Mappers
@@ -60,6 +64,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientScopesById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/protocol-mappers/add-models:
     parameters:
     - in: path
@@ -91,6 +97,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientScopesByIdProtocolMappersAddModels
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/protocol-mappers/models:
     parameters:
     - in: path
@@ -120,6 +128,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientScopesByIdProtocolMappersModels
+      x-operation-id-source: derived
     post:
       tags:
       - Protocol Mappers
@@ -133,6 +143,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientScopesByIdProtocolMappersModels
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}:
     parameters:
     - in: path
@@ -168,6 +180,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientScopesByIdProtocolMappersProtocolByProtocol
+      x-operation-id-source: derived
   /{realm}/clients/{id1}/protocol-mappers/models/{id2}:
     parameters:
     - in: path
@@ -200,6 +214,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientsById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
     put:
       tags:
       - Protocol Mappers
@@ -213,6 +229,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmClientsById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
     delete:
       tags:
       - Protocol Mappers
@@ -220,6 +238,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientsById1ProtocolMappersModelsById2
+      x-operation-id-source: derived
   /{realm}/clients/{id}/protocol-mappers/add-models:
     parameters:
     - in: path
@@ -251,6 +271,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientsByIdProtocolMappersAddModels
+      x-operation-id-source: derived
   /{realm}/clients/{id}/protocol-mappers/models:
     parameters:
     - in: path
@@ -280,6 +302,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientsByIdProtocolMappersModels
+      x-operation-id-source: derived
     post:
       tags:
       - Protocol Mappers
@@ -293,6 +317,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientsByIdProtocolMappersModels
+      x-operation-id-source: derived
   /{realm}/clients/{id}/protocol-mappers/protocol/{protocol}:
     parameters:
     - in: path
@@ -328,6 +354,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ProtocolMapperRepresentation'
+      operationId: getByRealmClientsByIdProtocolMappersProtocolByProtocol
+      x-operation-id-source: derived
 components:
   schemas:
     ProtocolMapperRepresentation:

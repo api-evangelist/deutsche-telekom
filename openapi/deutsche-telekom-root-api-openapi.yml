@@ -12,7 +12,7 @@ paths:
     get:
       tags:
       - Root
-      summary: Get themes, social providers, auth providers, and event listeners available on this server
+      summary: Get themes, social providers, auth providers, and event listeners available on…
       responses:
         2XX:
           description: success
@@ -20,21 +20,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerInfoRepresentation'
+      operationId: getRoot
+      x-operation-id-source: derived
 components:
   schemas:
-    PasswordPolicyTypeRepresentation:
-      type: object
-      properties:
-        configType:
-          type: string
-        defaultValue:
-          type: string
-        displayName:
-          type: string
-        id:
-          type: string
-        multipleSupported:
-          type: boolean
     ProfileInfoRepresentation:
       type: object
       properties:
@@ -92,6 +81,40 @@ components:
           type: string
         version:
           type: string
+    PasswordPolicyTypeRepresentation:
+      type: object
+      properties:
+        configType:
+          type: string
+        defaultValue:
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        multipleSupported:
+          type: boolean
+    MemoryInfoRepresentation:
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int64
+        freeFormated:
+          type: string
+        freePercentage:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+        totalFormated:
+          type: string
+        used:
+          type: integer
+          format: int64
+        usedFormated:
+          type: string
     ServerInfoRepresentation:
       type: object
       properties:
@@ -141,27 +164,6 @@ components:
         themes:
           type: object
           additionalProperties: true
-    MemoryInfoRepresentation:
-      type: object
-      properties:
-        free:
-          type: integer
-          format: int64
-        freeFormated:
-          type: string
-        freePercentage:
-          type: integer
-          format: int64
-        total:
-          type: integer
-          format: int64
-        totalFormated:
-          type: string
-        used:
-          type: integer
-          format: int64
-        usedFormated:
-          type: string
   securitySchemes:
     access_token:
       type: http

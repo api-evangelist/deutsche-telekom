@@ -35,6 +35,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MappingsRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappings
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/clients/{client}:
     parameters:
     - in: path
@@ -60,7 +62,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get the roles associated with a client’s scope   Returns roles for the client.
+      summary: Get the roles associated with a client’s scope Returns roles for the client
       responses:
         2XX:
           description: success
@@ -70,6 +72,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
     post:
       tags:
       - Scope Mappings
@@ -85,10 +89,12 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientScopesByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
     delete:
       tags:
       - Scope Mappings
-      summary: Remove client-level roles from the client’s scope.
+      summary: Remove client-level roles from the client’s scope
       requestBody:
         content:
           application/json:
@@ -100,6 +106,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientScopesByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available:
     parameters:
     - in: path
@@ -125,7 +133,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: The available client-level roles   Returns the roles for the client that can be associated with the client’s scope
+      summary: The available client-level roles Returns the roles for the client that can be…
       responses:
         2XX:
           description: success
@@ -135,6 +143,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsClientsByClientAvailable
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite:
     parameters:
     - in: path
@@ -160,7 +170,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get effective client roles   Returns the roles for the client that are associated with the client’s scope.
+      summary: Get effective client roles Returns the roles for the client that are associated…
       responses:
         2XX:
           description: success
@@ -170,6 +180,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsClientsByClientComposite
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/realm:
     parameters:
     - in: path
@@ -199,6 +211,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsRealm
+      x-operation-id-source: derived
     post:
       tags:
       - Scope Mappings
@@ -214,6 +228,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientScopesByIdScopeMappingsRealm
+      x-operation-id-source: derived
     delete:
       tags:
       - Scope Mappings
@@ -229,6 +245,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientScopesByIdScopeMappingsRealm
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/realm/available:
     parameters:
     - in: path
@@ -258,6 +276,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsRealmAvailable
+      x-operation-id-source: derived
   /{realm}/client-scopes/{id}/scope-mappings/realm/composite:
     parameters:
     - in: path
@@ -277,7 +297,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.
+      summary: Get effective realm-level roles associated with the client’s scope What this…
       responses:
         2XX:
           description: success
@@ -287,6 +307,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientScopesByIdScopeMappingsRealmComposite
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings:
     parameters:
     - in: path
@@ -314,6 +336,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MappingsRepresentation'
+      operationId: getByRealmClientsByIdScopeMappings
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/clients/{client}:
     parameters:
     - in: path
@@ -339,7 +363,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get the roles associated with a client’s scope   Returns roles for the client.
+      summary: Get the roles associated with a client’s scope Returns roles for the client
       responses:
         2XX:
           description: success
@@ -349,6 +373,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
     post:
       tags:
       - Scope Mappings
@@ -364,10 +390,12 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientsByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
     delete:
       tags:
       - Scope Mappings
-      summary: Remove client-level roles from the client’s scope.
+      summary: Remove client-level roles from the client’s scope
       requestBody:
         content:
           application/json:
@@ -379,6 +407,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientsByIdScopeMappingsClientsByClient
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/clients/{client}/available:
     parameters:
     - in: path
@@ -404,7 +434,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: The available client-level roles   Returns the roles for the client that can be associated with the client’s scope
+      summary: The available client-level roles Returns the roles for the client that can be…
       responses:
         2XX:
           description: success
@@ -414,6 +444,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsClientsByClientAvailable
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/clients/{client}/composite:
     parameters:
     - in: path
@@ -439,7 +471,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get effective client roles   Returns the roles for the client that are associated with the client’s scope.
+      summary: Get effective client roles Returns the roles for the client that are associated…
       responses:
         2XX:
           description: success
@@ -449,6 +481,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsClientsByClientComposite
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/realm:
     parameters:
     - in: path
@@ -478,6 +512,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsRealm
+      x-operation-id-source: derived
     post:
       tags:
       - Scope Mappings
@@ -493,6 +529,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmClientsByIdScopeMappingsRealm
+      x-operation-id-source: derived
     delete:
       tags:
       - Scope Mappings
@@ -508,6 +546,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmClientsByIdScopeMappingsRealm
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/realm/available:
     parameters:
     - in: path
@@ -537,6 +577,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsRealmAvailable
+      x-operation-id-source: derived
   /{realm}/clients/{id}/scope-mappings/realm/composite:
     parameters:
     - in: path
@@ -556,7 +598,7 @@ paths:
     get:
       tags:
       - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.
+      summary: Get effective realm-level roles associated with the client’s scope What this…
       responses:
         2XX:
           description: success
@@ -566,18 +608,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleRepresentation'
+      operationId: getByRealmClientsByIdScopeMappingsRealmComposite
+      x-operation-id-source: derived
 components:
   schemas:
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -598,6 +632,16 @@ components:
           type: string
         name:
           type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     MappingsRepresentation:
       type: object
       properties:

@@ -57,33 +57,7 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
-  schemas:
-    ApiProblem:
-      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
-      type: object
-      required:
-      - type
-      - status
-      - title
-      - detail
-      properties:
-        type:
-          type: string
-        status:
-          type: integer
-        title:
-          type: string
-        detail:
-          type: string
-        instance:
-          type: string
   responses:
-    ErrorResponse:
-      description: In case of any error, this object is returned
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ApiProblem'
     FileUploadResponse:
       description: Successful upload of a file. Contains the assigned id.
       headers:
@@ -104,6 +78,12 @@ components:
             properties:
               id:
                 type: string
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
   requestBodies:
     FileUploadRequest:
       content:
@@ -111,6 +91,26 @@ components:
           schema:
             type: string
             format: binary
+  schemas:
+    ApiProblem:
+      description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
+      type: object
+      required:
+      - type
+      - status
+      - title
+      - detail
+      properties:
+        type:
+          type: string
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -19,7 +19,7 @@ paths:
     get:
       tags:
       - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328
+      summary: Need this for admin console to display simple name of provider when displaying…
       responses:
         2XX:
           description: success
@@ -28,6 +28,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: getByIdName
+      x-operation-id-source: derived
   /{realm}/user-storage/{id}/name:
     parameters:
     - in: path
@@ -46,7 +48,7 @@ paths:
     get:
       tags:
       - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328
+      summary: Need this for admin console to display simple name of provider when displaying…
       responses:
         2XX:
           description: success
@@ -55,6 +57,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: getByRealmUserStorageByIdName
+      x-operation-id-source: derived
   /{realm}/user-storage/{id}/remove-imported-users:
     parameters:
     - in: path
@@ -77,6 +81,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmUserStorageByIdRemoveImportedUsers
+      x-operation-id-source: derived
   /{realm}/user-storage/{id}/sync:
     parameters:
     - in: path
@@ -95,7 +101,7 @@ paths:
     post:
       tags:
       - User Storage Provider
-      summary: Trigger sync of users   Action can be "triggerFullSync" or "triggerChangedUsersSync"
+      summary: Trigger sync of users Action can be "triggerFullSync" or…
       parameters:
       - in: query
         name: action
@@ -109,6 +115,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SynchronizationResult'
+      operationId: postByRealmUserStorageByIdSync
+      x-operation-id-source: derived
   /{realm}/user-storage/{id}/unlink-users:
     parameters:
     - in: path
@@ -131,6 +139,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmUserStorageByIdUnlinkUsers
+      x-operation-id-source: derived
   /{realm}/user-storage/{parentId}/mappers/{id}/sync:
     parameters:
     - in: path
@@ -155,7 +165,7 @@ paths:
     post:
       tags:
       - User Storage Provider
-      summary: Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is "fedToKeycloak" or "keycloakToFed"
+      summary: Trigger sync of mapper data related to ldap mapper (roles, groups, …​)…
       parameters:
       - in: query
         name: direction
@@ -169,6 +179,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SynchronizationResult'
+      operationId: postByRealmUserStorageByParentIdMappersByIdSync
+      x-operation-id-source: derived
 components:
   schemas:
     SynchronizationResult:

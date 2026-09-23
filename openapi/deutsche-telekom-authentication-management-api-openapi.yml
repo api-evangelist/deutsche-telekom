@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get authenticator providers   Returns a list of authenticator providers.
+      summary: Get authenticator providers Returns a list of authenticator providers
       responses:
         2XX:
           description: success
@@ -31,6 +31,8 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getByRealmAuthenticationAuthenticatorProviders
+      x-operation-id-source: derived
   /{realm}/authentication/client-authenticator-providers:
     parameters:
     - in: path
@@ -43,7 +45,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get client authenticator providers   Returns a list of client authenticator providers.
+      summary: Get client authenticator providers Returns a list of client authenticator…
       responses:
         2XX:
           description: success
@@ -54,6 +56,8 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getByRealmAuthenticationClientAuthenticatorProviders
+      x-operation-id-source: derived
   /{realm}/authentication/config-description/{providerId}:
     parameters:
     - in: path
@@ -80,6 +84,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthenticatorConfigInfoRepresentation'
+      operationId: getByRealmAuthenticationConfigDescriptionByProviderId
+      x-operation-id-source: derived
   /{realm}/authentication/config/{id}:
     parameters:
     - in: path
@@ -107,6 +113,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
+      operationId: getByRealmAuthenticationConfigById
+      x-operation-id-source: derived
     put:
       tags:
       - Authentication Management
@@ -121,6 +129,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmAuthenticationConfigById
+      x-operation-id-source: derived
     delete:
       tags:
       - Authentication Management
@@ -128,6 +138,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAuthenticationConfigById
+      x-operation-id-source: derived
   /{realm}/authentication/executions:
     parameters:
     - in: path
@@ -151,6 +163,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationExecutions
+      x-operation-id-source: derived
   /{realm}/authentication/executions/{executionId}:
     parameters:
     - in: path
@@ -174,6 +188,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: getByRealmAuthenticationExecutionsByExecutionId
+      x-operation-id-source: derived
     delete:
       tags:
       - Authentication Management
@@ -181,6 +197,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAuthenticationExecutionsByExecutionId
+      x-operation-id-source: derived
   /{realm}/authentication/executions/{executionId}/config:
     parameters:
     - in: path
@@ -211,6 +229,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationExecutionsByExecutionIdConfig
+      x-operation-id-source: derived
   /{realm}/authentication/executions/{executionId}/lower-priority:
     parameters:
     - in: path
@@ -234,6 +254,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationExecutionsByExecutionIdLowerPriority
+      x-operation-id-source: derived
   /{realm}/authentication/executions/{executionId}/raise-priority:
     parameters:
     - in: path
@@ -257,6 +279,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationExecutionsByExecutionIdRaisePriority
+      x-operation-id-source: derived
   /{realm}/authentication/flows:
     parameters:
     - in: path
@@ -269,7 +293,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get authentication flows   Returns a list of authentication flows.
+      summary: Get authentication flows Returns a list of authentication flows
       responses:
         2XX:
           description: success
@@ -279,6 +303,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+      operationId: getByRealmAuthenticationFlows
+      x-operation-id-source: derived
     post:
       tags:
       - Authentication Management
@@ -293,6 +319,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationFlows
+      x-operation-id-source: derived
   /{realm}/authentication/flows/{flowAlias}/copy:
     parameters:
     - in: path
@@ -312,7 +340,7 @@ paths:
     post:
       tags:
       - Authentication Management
-      summary: Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object
+      summary: Copy existing authentication flow under a new name The new name is given as…
       requestBody:
         description: JSON containing 'newName' attribute
         content:
@@ -324,6 +352,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationFlowsByFlowAliasCopy
+      x-operation-id-source: derived
   /{realm}/authentication/flows/{flowAlias}/executions:
     parameters:
     - in: path
@@ -347,6 +377,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: getByRealmAuthenticationFlowsByFlowAliasExecutions
+      x-operation-id-source: derived
     put:
       tags:
       - Authentication Management
@@ -360,6 +392,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmAuthenticationFlowsByFlowAliasExecutions
+      x-operation-id-source: derived
   /{realm}/authentication/flows/{flowAlias}/executions/execution:
     parameters:
     - in: path
@@ -391,6 +425,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationFlowsByFlowAliasExecutionsExecution
+      x-operation-id-source: derived
   /{realm}/authentication/flows/{flowAlias}/executions/flow:
     parameters:
     - in: path
@@ -422,6 +458,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationFlowsByFlowAliasExecutionsFlow
+      x-operation-id-source: derived
   /{realm}/authentication/flows/{id}:
     parameters:
     - in: path
@@ -449,6 +487,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+      operationId: getByRealmAuthenticationFlowsById
+      x-operation-id-source: derived
     put:
       tags:
       - Authentication Management
@@ -463,6 +503,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmAuthenticationFlowsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Authentication Management
@@ -470,6 +512,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAuthenticationFlowsById
+      x-operation-id-source: derived
   /{realm}/authentication/form-action-providers:
     parameters:
     - in: path
@@ -482,7 +526,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get form action providers   Returns a list of form action providers.
+      summary: Get form action providers Returns a list of form action providers
       responses:
         2XX:
           description: success
@@ -493,6 +537,8 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getByRealmAuthenticationFormActionProviders
+      x-operation-id-source: derived
   /{realm}/authentication/form-providers:
     parameters:
     - in: path
@@ -505,7 +551,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get form providers   Returns a list of form providers.
+      summary: Get form providers Returns a list of form providers
       responses:
         2XX:
           description: success
@@ -516,6 +562,8 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getByRealmAuthenticationFormProviders
+      x-operation-id-source: derived
   /{realm}/authentication/per-client-config-description:
     parameters:
     - in: path
@@ -537,6 +585,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: getByRealmAuthenticationPerClientConfigDescription
+      x-operation-id-source: derived
   /{realm}/authentication/register-required-action:
     parameters:
     - in: path
@@ -561,6 +611,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationRegisterRequiredAction
+      x-operation-id-source: derived
   /{realm}/authentication/required-actions:
     parameters:
     - in: path
@@ -573,7 +625,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get required actions   Returns a list of required actions.
+      summary: Get required actions Returns a list of required actions
       responses:
         2XX:
           description: success
@@ -583,6 +635,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+      operationId: getByRealmAuthenticationRequiredActions
+      x-operation-id-source: derived
   /{realm}/authentication/required-actions/{alias}:
     parameters:
     - in: path
@@ -610,6 +664,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+      operationId: getByRealmAuthenticationRequiredActionsByAlias
+      x-operation-id-source: derived
     put:
       tags:
       - Authentication Management
@@ -624,6 +680,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: putByRealmAuthenticationRequiredActionsByAlias
+      x-operation-id-source: derived
     delete:
       tags:
       - Authentication Management
@@ -631,6 +689,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: deleteByRealmAuthenticationRequiredActionsByAlias
+      x-operation-id-source: derived
   /{realm}/authentication/required-actions/{alias}/lower-priority:
     parameters:
     - in: path
@@ -654,6 +714,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationRequiredActionsByAliasLowerPriority
+      x-operation-id-source: derived
   /{realm}/authentication/required-actions/{alias}/raise-priority:
     parameters:
     - in: path
@@ -677,6 +739,8 @@ paths:
       responses:
         2XX:
           description: success
+      operationId: postByRealmAuthenticationRequiredActionsByAliasRaisePriority
+      x-operation-id-source: derived
   /{realm}/authentication/unregistered-required-actions:
     parameters:
     - in: path
@@ -689,7 +753,7 @@ paths:
     get:
       tags:
       - Authentication Management
-      summary: Get unregistered required actions   Returns a list of unregistered required actions.
+      summary: Get unregistered required actions Returns a list of unregistered required…
       responses:
         2XX:
           description: success
@@ -700,8 +764,49 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
+      operationId: getByRealmAuthenticationUnregisteredRequiredActions
+      x-operation-id-source: derived
 components:
   schemas:
+    ConfigPropertyRepresentation:
+      type: object
+      properties:
+        defaultValue:
+          type: object
+        helpText:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
+          type: string
+    AuthenticationExecutionExportRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowAlias:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
+          type: string
+        userSetupAllowed:
+          type: boolean
     AuthenticationExecutionRepresentation:
       type: object
       properties:
@@ -724,7 +829,7 @@ components:
           format: int32
         requirement:
           type: string
-    AuthenticatorConfigRepresentation:
+    RequiredActionProviderRepresentation:
       type: object
       properties:
         alias:
@@ -732,46 +837,16 @@ components:
         config:
           type: object
           additionalProperties: true
-        id:
-          type: string
-    AuthenticationExecutionExportRepresentation:
-      type: object
-      properties:
-        authenticator:
-          type: string
-        authenticatorConfig:
-          type: string
-        authenticatorFlow:
+        defaultAction:
           type: boolean
-        autheticatorFlow:
+        enabled:
           type: boolean
-        flowAlias:
+        name:
           type: string
         priority:
           type: integer
           format: int32
-        requirement:
-          type: string
-        userSetupAllowed:
-          type: boolean
-    ConfigPropertyRepresentation:
-      type: object
-      properties:
-        defaultValue:
-          type: object
-        helpText:
-          type: string
-        label:
-          type: string
-        name:
-          type: string
-        options:
-          type: array
-          items:
-            type: string
-        secret:
-          type: boolean
-        type:
+        providerId:
           type: string
     AuthenticationExecutionInfoRepresentation:
       type: object
@@ -804,18 +879,15 @@ components:
           type: array
           items:
             type: string
-    AuthenticatorConfigInfoRepresentation:
+    AuthenticatorConfigRepresentation:
       type: object
       properties:
-        helpText:
+        alias:
           type: string
-        name:
-          type: string
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigPropertyRepresentation'
-        providerId:
+        config:
+          type: object
+          additionalProperties: true
+        id:
           type: string
     AuthenticationFlowRepresentation:
       type: object
@@ -836,23 +908,17 @@ components:
           type: string
         topLevel:
           type: boolean
-    RequiredActionProviderRepresentation:
+    AuthenticatorConfigInfoRepresentation:
       type: object
       properties:
-        alias:
+        helpText:
           type: string
-        config:
-          type: object
-          additionalProperties: true
-        defaultAction:
-          type: boolean
-        enabled:
-          type: boolean
         name:
           type: string
-        priority:
-          type: integer
-          format: int32
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
         providerId:
           type: string
   securitySchemes:

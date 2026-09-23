@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Api Application API
-  description: "API of the TARDIS control plane. With this API, you can manage your Applications.\nThis is a **read-only** API. You can only read the resources. \nFor creating and updating resources, you may use the Rover-API.\n\n**Important:** \n- You may use this API by subscribing to it by using the usual process. \nYou **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.\nIf you require more permissions, please contact the TARDIS team.\n\n- This is a Team-API and may be used by any team using TARDIS. \nIn the future, you can simply use your Team-credentials to access this API."
+  description: API of the TARDIS control plane.
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
@@ -22,7 +22,6 @@ paths:
       tags:
       - Application
       summary: Find all Applications
-      description: Find all Applications
       operationId: getAllApplications
       parameters:
       - $ref: '#/components/parameters/Icto'
@@ -109,7 +108,6 @@ paths:
       tags:
       - Application
       summary: Find an existing Application
-      description: Find an existing Application
       operationId: getApplication
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -222,7 +220,6 @@ paths:
       tags:
       - Application
       summary: Find an existing Application and return its status
-      description: Find an existing Application and return its status
       operationId: getApplicationStatus
       parameters:
       - $ref: common.yaml#/components/parameters/ApplicationId
@@ -261,6 +258,28 @@ paths:
         - tardis:user:read
         - tardis:user:obfuscated
 components:
+  parameters:
+    Icto:
+      name: icto
+      in: query
+      description: Filter by icto
+      required: false
+      schema:
+        type: string
+    Apid:
+      name: apid
+      in: query
+      description: Filter by apid
+      required: false
+      schema:
+        type: string
+    Psiid:
+      name: psiid
+      in: query
+      description: Filter by psiid (pattern configurable via PSIID_PATTERN env var)
+      required: false
+      schema:
+        type: string
   schemas:
     Security:
       type: object
@@ -270,6 +289,25 @@ components:
       properties:
         ipRestrictions:
           $ref: '#/components/schemas/IpRestrictions'
+    ApplicationListResponse:
+      type: object
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationResponse'
+    IpRestrictions:
+      type: object
+      description: A list of allowed IP addresses that will be used to consume APIs this application is subscribed to.  The IP addresses need to be in a valid CIDR notation. For example 125.5.89.20 or 160.77.58.30/16.
+      properties:
+        allow:
+          type: array
+          items:
+            type: string
     ApplicationResponse:
       type: object
       readOnly: true
@@ -279,6 +317,15 @@ components:
       - team
       - name
       - zone
+      allOf:
+      - $ref: '#/components/schemas/Application'
+    ApplicationCreateRequest:
+      required:
+      - hub
+      - team
+      - name
+      - zone
+      type: object
       allOf:
       - $ref: '#/components/schemas/Application'
     Team:
@@ -342,34 +389,6 @@ components:
           $ref: common.yaml#/components/schemas/Status
         security:
           $ref: '#/components/schemas/Security'
-    ApplicationListResponse:
-      type: object
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationResponse'
-    ApplicationCreateRequest:
-      required:
-      - hub
-      - team
-      - name
-      - zone
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Application'
-    IpRestrictions:
-      type: object
-      description: A list of allowed IP addresses that will be used to consume APIs this application is subscribed to.  The IP addresses need to be in a valid CIDR notation. For example 125.5.89.20 or 160.77.58.30/16.
-      properties:
-        allow:
-          type: array
-          items:
-            type: string
     ApplicationUpdateRequest:
       required:
       - team
@@ -393,25 +412,3 @@ components:
           type: string
           description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
           example: PSI-123456
-  parameters:
-    Icto:
-      name: icto
-      in: query
-      description: Filter by icto
-      required: false
-      schema:
-        type: string
-    Psiid:
-      name: psiid
-      in: query
-      description: Filter by psiid (pattern configurable via PSIID_PATTERN env var)
-      required: false
-      schema:
-        type: string
-    Apid:
-      name: apid
-      in: query
-      description: Filter by apid
-      required: false
-      schema:
-        type: string

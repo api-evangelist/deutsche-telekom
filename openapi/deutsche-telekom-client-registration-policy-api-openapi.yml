@@ -30,22 +30,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ComponentTypeRepresentation'
+      operationId: getByRealmClientRegistrationPolicyProviders
+      x-operation-id-source: derived
 components:
   schemas:
-    ComponentTypeRepresentation:
-      type: object
-      properties:
-        helpText:
-          type: string
-        id:
-          type: string
-        metadata:
-          type: object
-          additionalProperties: true
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigPropertyRepresentation'
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -65,6 +53,20 @@ components:
           type: boolean
         type:
           type: string
+    ComponentTypeRepresentation:
+      type: object
+      properties:
+        helpText:
+          type: string
+        id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
   securitySchemes:
     access_token:
       type: http

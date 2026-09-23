@@ -1,28 +1,7 @@
 openapi: 3.2.0
 info:
   title: Event Type API
-  description: 'API of the TARDIS control plane for the eventing domain. With this API, you can manage your EventExposures and EventSubscriptions, and browse registered EventTypes.
-
-
-    This is a **read-only** API. You can only read the resources.
-
-    For creating and updating resources, you may use the Rover-API.
-
-
-    **Important:**
-
-    - You may use this API by subscribing to it by using the usual process.
-
-    You **do not** need to add `scopes` as the default scope is set to `tardis:user:read`.
-
-    If you require more permissions, please contact the TARDIS team.
-
-
-    - This is a Team-API and may be used by any team using TARDIS.
-
-    In the future, you can simply use your Team-credentials to access this API.
-
-    '
+  description: API of the TARDIS control plane for the eventing domain.
   contact:
     name: TARDIS
     url: https://developer.telekom.de/docs/src/tardis_customer_handbook/support/
@@ -35,23 +14,23 @@ security:
 - OAuth2:
   - tardis:admin:all
 tags:
-- name: EventType
+- name: Event Type
   description: 'An EventType is a registry entry representing a known event type. It
 
     serves as the canonical reference that both EventExposures and
 
     EventSubscriptions point to. EventTypes are identified by a dot-separated
 
-    identifier (e.g. "de.telekom.eni.quickstart.v1").
-
-    '
+    identifier (e.g. "de.telekom.eni.quickstart.v1").'
 paths:
   /eventtypes:
     get:
       tags:
-      - EventType
+      - Event Type
       summary: Find all EventTypes
-      description: "Find all registered EventTypes without any restrictions. \nThis operation is global and not scoped to a specific application or team.\n"
+      description: 'Find all registered EventTypes without any restrictions.
+
+        This operation is global and not scoped to a specific application or team.'
       operationId: getAllEventTypes
       parameters:
       - $ref: common.yaml#/components/parameters/Limit
@@ -96,7 +75,7 @@ paths:
   /eventtypes/{eventTypeId}:
     get:
       tags:
-      - EventType
+      - Event Type
       summary: Find an existing EventType
       description: Find an existing EventType by its complete identifier
       operationId: getEventType
@@ -146,9 +125,8 @@ paths:
   /eventtypes/{eventTypeId}/status:
     get:
       tags:
-      - EventType
+      - Event Type
       summary: Find an existing EventType and return its status
-      description: Find an existing EventType and return its status
       operationId: getEventTypeStatus
       parameters:
       - name: eventTypeId
@@ -196,11 +174,9 @@ paths:
   /eventtypes/{eventTypeName}/active:
     get:
       tags:
-      - EventType
+      - Event Type
       summary: Find the active EventType for a given name
-      description: 'Returns the currently active EventType for the given resource name. This operation is global and not scoped to a specific application or team.
-
-        '
+      description: Returns the currently active EventType for the given resource name. This operation is global and not scoped to a specific application or team.
       operationId: getActiveEventType
       parameters:
       - name: eventTypeName
@@ -282,16 +258,6 @@ components:
           description: 'File ID reference from the file manager for the optional JSON schema that describes the event payload.
 
             '
-    EventTypeListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventTypeResponse'
     EventTypeResponse:
       type: object
       readOnly: true
@@ -324,3 +290,13 @@ components:
               '
           status:
             $ref: common.yaml#/components/schemas/Status
+    EventTypeListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventTypeResponse'

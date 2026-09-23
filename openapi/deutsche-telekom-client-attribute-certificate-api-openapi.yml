@@ -41,6 +41,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CertificateRepresentation'
+      operationId: getByRealmClientsByIdCertificatesByAttr
+      x-operation-id-source: derived
   /{realm}/clients/{id}/certificates/{attr}/download:
     parameters:
     - in: path
@@ -66,7 +68,7 @@ paths:
     post:
       tags:
       - Client Attribute Certificate
-      summary: Get a keystore file for the client, containing private key and public certificate
+      summary: Get a keystore file for the client, containing private key and public…
       requestBody:
         description: Keystore configuration as JSON
         content:
@@ -82,6 +84,8 @@ paths:
               schema:
                 type: string
                 format: byte
+      operationId: postByRealmClientsByIdCertificatesByAttrDownload
+      x-operation-id-source: derived
   /{realm}/clients/{id}/certificates/{attr}/generate:
     parameters:
     - in: path
@@ -115,6 +119,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CertificateRepresentation'
+      operationId: postByRealmClientsByIdCertificatesByAttrGenerate
+      x-operation-id-source: derived
   /{realm}/clients/{id}/certificates/{attr}/generate-and-download:
     parameters:
     - in: path
@@ -140,7 +146,7 @@ paths:
     post:
       tags:
       - Client Attribute Certificate
-      summary: Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.
+      summary: Generate a new keypair and certificate, and get the private key file Generates…
       requestBody:
         description: Keystore configuration as JSON
         content:
@@ -156,6 +162,8 @@ paths:
               schema:
                 type: string
                 format: byte
+      operationId: postByRealmClientsByIdCertificatesByAttrGenerateAndDownload
+      x-operation-id-source: derived
   /{realm}/clients/{id}/certificates/{attr}/upload:
     parameters:
     - in: path
@@ -189,6 +197,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CertificateRepresentation'
+      operationId: postByRealmClientsByIdCertificatesByAttrUpload
+      x-operation-id-source: derived
   /{realm}/clients/{id}/certificates/{attr}/upload-certificate:
     parameters:
     - in: path
@@ -222,6 +232,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CertificateRepresentation'
+      operationId: postByRealmClientsByIdCertificatesByAttrUploadCertificate
+      x-operation-id-source: derived
 components:
   schemas:
     CertificateRepresentation:

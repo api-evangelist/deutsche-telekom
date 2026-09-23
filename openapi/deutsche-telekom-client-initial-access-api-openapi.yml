@@ -29,10 +29,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ClientInitialAccessPresentation'
+      summary: Get by realm clients initial access
+      x-summary-source: derived
+      operationId: getByRealmClientsInitialAccess
+      x-operation-id-source: derived
     post:
       tags:
       - Client Initial Access
-      summary: Create a new initial access token.
+      summary: Create a new initial access token
       requestBody:
         content:
           application/json:
@@ -46,6 +50,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientInitialAccessPresentation'
+      operationId: postByRealmClientsInitialAccess
+      x-operation-id-source: derived
   /{realm}/clients-initial-access/{id}:
     parameters:
     - in: path
@@ -67,8 +73,21 @@ paths:
       responses:
         2XX:
           description: success
+      summary: Delete by realm clients initial access by id
+      x-summary-source: derived
+      operationId: deleteByRealmClientsInitialAccessById
+      x-operation-id-source: derived
 components:
   schemas:
+    ClientInitialAccessCreatePresentation:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        expiration:
+          type: integer
+          format: int32
     ClientInitialAccessPresentation:
       type: object
       properties:
@@ -88,15 +107,6 @@ components:
           format: int32
         token:
           type: string
-    ClientInitialAccessCreatePresentation:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        expiration:
-          type: integer
-          format: int32
   securitySchemes:
     access_token:
       type: http

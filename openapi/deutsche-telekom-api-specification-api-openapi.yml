@@ -25,13 +25,13 @@ security:
 - OAuth2:
   - tardis:admin:all
 tags:
-- name: ApiSpecification
+- name: API Specification
   description: Manage ApiSpecifications
 paths:
   /apispecifications:
     get:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Find all ApiSpecifications
       description: Find all API Specifications of a Team
       operationId: getAllApiSpecifications
@@ -80,7 +80,7 @@ paths:
         - tardis:user:obfuscated
     post:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Create an ApiSpecification
       description: Create an ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
       operationId: createApiSpecification
@@ -118,9 +118,8 @@ paths:
   /apispecifications/{apiSpecificationId}/status:
     get:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Find an existing ApiSpecification and return its status
-      description: Find an existing ApiSpecification and return its status
       operationId: getApiSpecificationStatus
       parameters:
       - $ref: '#/components/parameters/ApiSpecificationId'
@@ -157,9 +156,8 @@ paths:
   /apispecifications/{apiSpecificationId}:
     get:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Find an existing ApiSpecification
-      description: Find an existing ApiSpecification
       operationId: getApiSpecifications
       parameters:
       - $ref: '#/components/parameters/ApiSpecificationId'
@@ -199,7 +197,7 @@ paths:
         - tardis:user:obfuscated
     put:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Update an existing ApiSpecification
       description: Update an existing ApiSpecification. Creating and updating resources is asynchronous, which is why the status is given as an answer to a POST/PUT request, since it is possible that the resource to be created has not yet been processed at the time the response is created. If the status after creation is in state "Processing", the resource must be queried with GET to see whether it was created successfully or whether errors/warnings are written in the status. If the creation/update is incorrect, the processing status will be set to blocked. Otherwise to "failed". Status 201 means, that we accepted the request and there are no syntactic or semantic errors, but there can occur failures in the after processing. That will be shown in the status if you request the appropriate resource.
       operationId: updateApiSpecification
@@ -237,9 +235,11 @@ paths:
         - tardis:user:all
     delete:
       tags:
-      - ApiSpecification
+      - API Specification
       summary: Delete an ApiSpecification
-      description: "**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.  \nDelete an ApiSpecification\n"
+      description: '**Important:** The deletion is done asynchronously to ensure that the resource was actually deleted, use this or the GET resource until you receive a 404 response.
+
+        Delete an ApiSpecification'
       operationId: deleteApiSpecification
       parameters:
       - $ref: '#/components/parameters/ApiSpecificationId'
@@ -266,6 +266,49 @@ paths:
         - tardis:user:all
 components:
   schemas:
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ApiSpecificationResponse:
+      type: object
+      required:
+      - id
+      - name
+      - category
+      - vendorApi
+      - specification
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        specification:
+          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
+          type: object
+          additionalProperties: true
+        id:
+          description: Unique id of this resource. Can be used to directly address this specific resource
+          type: string
+          example: my-hub--my-team--eni-foo-v3
+        category:
+          description: Category of this api
+          type: string
+          example: G_API
+        vendorApi:
+          description: Whether this api is an vendor api
+          type: boolean
+        name:
+          description: Name of the created api (subset of id)
+          type: string
+          example: eni-foo-v3
     Error:
       description: RFC-7807 conform object sent on any error
       type: object
@@ -289,9 +332,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FieldProblem'
-    ApiSpecificationUpdateRequest:
+    ApiSpecificationCreateRequest:
       allOf:
       - $ref: '#/components/schemas/ApiSpecification'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
     StateInfo:
       type: object
       readOnly: true
@@ -302,94 +351,13 @@ components:
           type: string
         cause:
           type: string
-    Problem:
-      type: object
-      required:
-      - message
-      - cause
-      properties:
-        resource:
-          $ref: '#/components/schemas/ResourceRef'
-        context:
-          type: string
-        message:
-          type: string
-        cause:
-          type: string
-        details:
-          type: string
-    ApiSpecificationCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiSpecification'
-      - type: object
-        properties:
-          team:
-            type: string
-            example: hyperion
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
+    State:
       enum:
+      - none
       - invalid
-      - processing
-      - failed
       - blocked
-      - pending
       - complete
-      - done
-      - none
       type: string
-    Status:
-      type: object
-      readOnly: true
-      required:
-      - processingState
-      - state
-      - time
-      properties:
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        state:
-          $ref: '#/components/schemas/State'
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        infos:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    ResourceRef:
-      type: object
-      readOnly: true
-      required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
-      properties:
-        apiVersion:
-          type: string
-        kind:
-          type: string
-        name:
-          type: string
-        namespace:
-          type: string
-        path:
-          type: string
     ApiSpecification:
       type: object
       required:
@@ -410,6 +378,47 @@ components:
           type: string
         path:
           type: string
+    ApiSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiSpecification'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    ApiSpecificationListResponse:
+      type: object
+      required:
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSpecificationResponse'
     Links:
       description: HATEOAS links for pagination
       type: object
@@ -462,87 +471,49 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    ApiSpecificationListResponse:
+    Problem:
       type: object
       required:
-      - items
+      - message
+      - cause
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/ApiSpecificationResponse'
-    ApiSpecificationResponse:
-      type: object
-      required:
-      - id
-      - name
-      - category
-      - vendorApi
-      - specification
-      - status
-      properties:
-        status:
-          $ref: '#/components/schemas/Status'
-        specification:
-          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
-          type: object
-          additionalProperties: true
-        id:
-          description: Unique id of this resource. Can be used to directly address this specific resource
-          type: string
-          example: my-hub--my-team--eni-foo-v3
-        category:
-          description: Category of this api
-          type: string
-          example: G_API
-        vendorApi:
-          description: Whether this api is an vendor api
-          type: boolean
-        name:
-          description: Name of the created api (subset of id)
-          type: string
-          example: eni-foo-v3
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-  headers:
-    XTotalCount:
-      description: Total number of items matching criteria.
-      schema:
-        type: integer
-        minimum: 0
-    XResultCount:
-      description: Actual number of items returned in the response body for this page.
-      schema:
-        type: integer
-        minimum: 0
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
   responses:
-    ServerError:
-      description: SERVER_ERROR
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
     BadRequest:
       description: BAD_REQUEST
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: FORBIDDEN
       content:
         application/problem+json:
           schema:
@@ -553,22 +524,42 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
     NotFound:
       description: NOT_FOUND
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    Sort:
-      name: sort
-      in: query
-      description: list of fields to be used for sorting. Default is name
-      required: false
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  headers:
+    XResultCount:
+      description: Actual number of items returned in the response body for this page.
       schema:
-        type: string
-        enum:
-        - name
+        type: integer
+        minimum: 0
+    XTotalCount:
+      description: Total number of items matching criteria.
+      schema:
+        type: integer
+        minimum: 0
+  parameters:
     Cursor:
       name: cursor
       in: query
@@ -583,6 +574,15 @@ components:
       required: true
       schema:
         type: string
+    Sort:
+      name: sort
+      in: query
+      description: list of fields to be used for sorting. Default is name
+      required: false
+      schema:
+        type: string
+        enum:
+        - name
     Limit:
       name: limit
       description: page size requested by the consumer; must not be larger than the maximal page size
