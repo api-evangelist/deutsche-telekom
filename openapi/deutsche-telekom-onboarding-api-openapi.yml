@@ -182,48 +182,19 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
-  requestBodies:
-    EnvironmentWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EnvironmentWriteRequest'
-    TeamWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TeamWriteRequest'
-    ApplicationWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ApplicationWriteRequest'
   schemas:
-    ListSecretItem:
+    NamedSecret:
       type: object
       required:
       - name
-      - id
+      - value
       properties:
         name:
           type: string
           description: The name of the secret
-        id:
-          $ref: '#/components/schemas/SecretRef'
-    EnvironmentWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the environment
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
+        value:
+          type: string
+          description: The value of the secret
     TeamWriteRequest:
       type: object
       required:
@@ -238,6 +209,9 @@ components:
           maxItems: 10
           items:
             $ref: '#/components/schemas/NamedSecret'
+    SecretRef:
+      description: A reference to a secret
+      type: string
     WriteStrategy:
       type: string
       enum:
@@ -253,6 +227,31 @@ components:
         If not provided, "replace" will be used as default strategy.
 
         '
+    ApplicationWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the application
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
+    ListSecretItem:
+      type: object
+      required:
+      - name
+      - id
+      properties:
+        name:
+          type: string
+          description: The name of the secret
+        id:
+          $ref: '#/components/schemas/SecretRef'
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
       type: object
@@ -272,7 +271,7 @@ components:
           type: string
         instance:
           type: string
-    ApplicationWriteRequest:
+    EnvironmentWriteRequest:
       type: object
       required:
       - secrets
@@ -281,26 +280,11 @@ components:
           $ref: '#/components/schemas/WriteStrategy'
         secrets:
           type: array
-          description: A list of secrets to be created or updated for the application
+          description: A list of secrets to be created or updated for the environment
           minItems: 0
           maxItems: 10
           items:
             $ref: '#/components/schemas/NamedSecret'
-    NamedSecret:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-          description: The name of the secret
-        value:
-          type: string
-          description: The value of the secret
-    SecretRef:
-      description: A reference to a secret
-      type: string
   responses:
     OnboardingResponse:
       description: Successful retrieval of secrets
@@ -326,3 +310,19 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/ApiProblem'
+  requestBodies:
+    ApplicationWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApplicationWriteRequest'
+    EnvironmentWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EnvironmentWriteRequest'
+    TeamWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeamWriteRequest'

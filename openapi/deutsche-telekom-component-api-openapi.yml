@@ -158,6 +158,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MultivaluedHashMap:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        loadFactor:
+          type: number
+          format: float
+        threshold:
+          type: integer
+          format: int32
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -177,17 +188,6 @@ components:
           type: boolean
         type:
           type: string
-    MultivaluedHashMap:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        loadFactor:
-          type: number
-          format: float
-        threshold:
-          type: integer
-          format: int32
     ComponentTypeRepresentation:
       type: object
       properties:

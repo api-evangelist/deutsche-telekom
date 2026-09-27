@@ -768,24 +768,24 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConfigPropertyRepresentation:
+    RequiredActionProviderRepresentation:
       type: object
       properties:
-        defaultValue:
+        alias:
+          type: string
+        config:
           type: object
-        helpText:
-          type: string
-        label:
-          type: string
+          additionalProperties: true
+        defaultAction:
+          type: boolean
+        enabled:
+          type: boolean
         name:
           type: string
-        options:
-          type: array
-          items:
-            type: string
-        secret:
-          type: boolean
-        type:
+        priority:
+          type: integer
+          format: int32
+        providerId:
           type: string
     AuthenticationExecutionExportRepresentation:
       type: object
@@ -807,46 +807,24 @@ components:
           type: string
         userSetupAllowed:
           type: boolean
-    AuthenticationExecutionRepresentation:
+    ConfigPropertyRepresentation:
       type: object
       properties:
-        authenticator:
-          type: string
-        authenticatorConfig:
-          type: string
-        authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
-          type: boolean
-        flowId:
-          type: string
-        id:
-          type: string
-        parentFlow:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        requirement:
-          type: string
-    RequiredActionProviderRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        config:
+        defaultValue:
           type: object
-          additionalProperties: true
-        defaultAction:
-          type: boolean
-        enabled:
-          type: boolean
+        helpText:
+          type: string
+        label:
+          type: string
         name:
           type: string
-        priority:
-          type: integer
-          format: int32
-        providerId:
+        options:
+          type: array
+          items:
+            type: string
+        secret:
+          type: boolean
+        type:
           type: string
     AuthenticationExecutionInfoRepresentation:
       type: object
@@ -879,15 +857,27 @@ components:
           type: array
           items:
             type: string
-    AuthenticatorConfigRepresentation:
+    AuthenticationExecutionRepresentation:
       type: object
       properties:
-        alias:
+        authenticator:
           type: string
-        config:
-          type: object
-          additionalProperties: true
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowId:
+          type: string
         id:
+          type: string
+        parentFlow:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
           type: string
     AuthenticationFlowRepresentation:
       type: object
@@ -920,6 +910,16 @@ components:
           items:
             $ref: '#/components/schemas/ConfigPropertyRepresentation'
         providerId:
+          type: string
+    AuthenticatorConfigRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        id:
           type: string
   securitySchemes:
     access_token:

@@ -24,6 +24,76 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ServerInfoRepresentation:
+      type: object
+      properties:
+        builtinProtocolMappers:
+          type: object
+          additionalProperties: true
+        clientImporters:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        clientInstallations:
+          type: object
+          additionalProperties: true
+        componentTypes:
+          type: object
+          additionalProperties: true
+        enums:
+          type: object
+          additionalProperties: true
+        identityProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        memoryInfo:
+          $ref: '#/components/schemas/MemoryInfoRepresentation'
+        passwordPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PasswordPolicyTypeRepresentation'
+        profileInfo:
+          $ref: '#/components/schemas/ProfileInfoRepresentation'
+        protocolMapperTypes:
+          type: object
+          additionalProperties: true
+        providers:
+          type: object
+          additionalProperties: true
+        socialProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        systemInfo:
+          $ref: '#/components/schemas/SystemInfoRepresentation'
+        themes:
+          type: object
+          additionalProperties: true
+    MemoryInfoRepresentation:
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int64
+        freeFormated:
+          type: string
+        freePercentage:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+        totalFormated:
+          type: string
+        used:
+          type: integer
+          format: int64
+        usedFormated:
+          type: string
     ProfileInfoRepresentation:
       type: object
       properties:
@@ -94,76 +164,6 @@ components:
           type: string
         multipleSupported:
           type: boolean
-    MemoryInfoRepresentation:
-      type: object
-      properties:
-        free:
-          type: integer
-          format: int64
-        freeFormated:
-          type: string
-        freePercentage:
-          type: integer
-          format: int64
-        total:
-          type: integer
-          format: int64
-        totalFormated:
-          type: string
-        used:
-          type: integer
-          format: int64
-        usedFormated:
-          type: string
-    ServerInfoRepresentation:
-      type: object
-      properties:
-        builtinProtocolMappers:
-          type: object
-          additionalProperties: true
-        clientImporters:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        clientInstallations:
-          type: object
-          additionalProperties: true
-        componentTypes:
-          type: object
-          additionalProperties: true
-        enums:
-          type: object
-          additionalProperties: true
-        identityProviders:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        memoryInfo:
-          $ref: '#/components/schemas/MemoryInfoRepresentation'
-        passwordPolicies:
-          type: array
-          items:
-            $ref: '#/components/schemas/PasswordPolicyTypeRepresentation'
-        profileInfo:
-          $ref: '#/components/schemas/ProfileInfoRepresentation'
-        protocolMapperTypes:
-          type: object
-          additionalProperties: true
-        providers:
-          type: object
-          additionalProperties: true
-        socialProviders:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        systemInfo:
-          $ref: '#/components/schemas/SystemInfoRepresentation'
-        themes:
-          type: object
-          additionalProperties: true
   securitySchemes:
     access_token:
       type: http

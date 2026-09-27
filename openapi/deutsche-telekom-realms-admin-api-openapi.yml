@@ -925,105 +925,116 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserRepresentation:
+    RequiredActionProviderRepresentation:
       type: object
       properties:
-        access:
-          type: object
-          additionalProperties: true
-        attributes:
-          type: object
-          additionalProperties: true
-        clientConsents:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserConsentRepresentation'
-        clientRoles:
-          type: object
-          additionalProperties: true
-        createdTimestamp:
-          type: integer
-          format: int64
-        credentials:
-          type: array
-          items:
-            $ref: '#/components/schemas/CredentialRepresentation'
-        disableableCredentialTypes:
-          type: array
-          items:
-            type: string
-        email:
+        alias:
           type: string
-        emailVerified:
+        config:
+          type: object
+          additionalProperties: true
+        defaultAction:
           type: boolean
         enabled:
           type: boolean
-        federatedIdentities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FederatedIdentityRepresentation'
-        federationLink:
-          type: string
-        firstName:
-          type: string
-        groups:
-          type: array
-          items:
-            type: string
-        id:
-          type: string
-        lastName:
-          type: string
-        notBefore:
-          type: integer
-          format: int32
-        origin:
-          type: string
-        realmRoles:
-          type: array
-          items:
-            type: string
-        requiredActions:
-          type: array
-          items:
-            type: string
-        self:
-          type: string
-        serviceAccountClientId:
-          type: string
-        username:
-          type: string
-    AuthenticationExecutionExportRepresentation:
-      type: object
-      properties:
-        authenticator:
-          type: string
-        authenticatorConfig:
-          type: string
-        authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
-          type: boolean
-        flowAlias:
+        name:
           type: string
         priority:
           type: integer
           format: int32
-        requirement:
+        providerId:
           type: string
-        userSetupAllowed:
+    MultivaluedHashMap:
+      type: object
+      properties:
+        empty:
           type: boolean
-    AuthDetailsRepresentation:
+        loadFactor:
+          type: number
+          format: float
+        threshold:
+          type: integer
+          format: int32
+    IdentityProviderRepresentation:
+      type: object
+      properties:
+        addReadTokenRoleOnCreate:
+          type: boolean
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        displayName:
+          type: string
+        enabled:
+          type: boolean
+        firstBrokerLoginFlowAlias:
+          type: string
+        internalId:
+          type: string
+        linkOnly:
+          type: boolean
+        postBrokerLoginFlowAlias:
+          type: string
+        providerId:
+          type: string
+        storeToken:
+          type: boolean
+        trustEmail:
+          type: boolean
+    EventRepresentation:
       type: object
       properties:
         clientId:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+        error:
           type: string
         ipAddress:
           type: string
         realmId:
           type: string
+        sessionId:
+          type: string
+        time:
+          type: integer
+          format: int64
+        type:
+          type: string
         userId:
           type: string
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    AuthenticationFlowRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationExecutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
+        builtIn:
+          type: boolean
+        description:
+          type: string
+        id:
+          type: string
+        providerId:
+          type: string
+        topLevel:
+          type: boolean
     ClientRepresentation:
       type: object
       properties:
@@ -1138,51 +1149,55 @@ components:
           type: array
           items:
             type: string
-    RequiredActionProviderRepresentation:
+    AdminEventRepresentation:
       type: object
       properties:
-        alias:
+        authDetails:
+          $ref: '#/components/schemas/AuthDetailsRepresentation'
+        error:
           type: string
-        config:
-          type: object
-          additionalProperties: true
-        defaultAction:
+        operationType:
+          type: string
+        realmId:
+          type: string
+        representation:
+          type: string
+        resourcePath:
+          type: string
+        resourceType:
+          type: string
+        time:
+          type: integer
+          format: int64
+    AuthenticationExecutionExportRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
           type: boolean
-        enabled:
+        autheticatorFlow:
           type: boolean
-        name:
+        flowAlias:
           type: string
         priority:
           type: integer
           format: int32
-        providerId:
+        requirement:
           type: string
-    ResourceRepresentation:
+        userSetupAllowed:
+          type: boolean
+    ClientPolicyConditionRepresentation:
       type: object
       properties:
-        id:
+        condition:
           type: string
-        attributes:
+        configuration:
+          description: Configuration settings as a JSON object
           type: object
           additionalProperties: true
-        displayName:
-          type: string
-        icon_uri:
-          type: string
-        name:
-          type: string
-        ownerManagedAccess:
-          type: boolean
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScopeRepresentation'
-        type:
-          type: string
-        uris:
-          type: array
-          items:
-            type: string
     RoleRepresentation-Composites:
       type: object
       properties:
@@ -1193,112 +1208,6 @@ components:
           type: array
           items:
             type: string
-    UserFederationProviderRepresentation:
-      type: object
-      properties:
-        changedSyncPeriod:
-          type: integer
-          format: int32
-        config:
-          type: object
-          additionalProperties: true
-        displayName:
-          type: string
-        fullSyncPeriod:
-          type: integer
-          format: int32
-        id:
-          type: string
-        lastSync:
-          type: integer
-          format: int32
-        priority:
-          type: integer
-          format: int32
-        providerName:
-          type: string
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
-    ResourceServerRepresentation:
-      type: object
-      properties:
-        allowRemoteResourceManagement:
-          type: boolean
-        clientId:
-          type: string
-        decisionStrategy:
-          type: string
-          enum:
-          - AFFIRMATIVE
-          - UNANIMOUS
-          - CONSENSUS
-        id:
-          type: string
-        name:
-          type: string
-        policies:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyRepresentation'
-        policyEnforcementMode:
-          type: string
-          enum:
-          - ENFORCING
-          - PERMISSIVE
-          - DISABLED
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceRepresentation'
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScopeRepresentation'
-    IdentityProviderMapperRepresentation:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        identityProviderAlias:
-          type: string
-        identityProviderMapper:
-          type: string
-        name:
-          type: string
-    EventRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        details:
-          type: object
-          additionalProperties: true
-        error:
-          type: string
-        ipAddress:
-          type: string
-        realmId:
-          type: string
-        sessionId:
-          type: string
-        time:
-          type: integer
-          format: int64
-        type:
-          type: string
-        userId:
-          type: string
     PolicyRepresentation:
       type: object
       properties:
@@ -1346,25 +1255,6 @@ components:
             $ref: '#/components/schemas/ScopeRepresentation'
         type:
           type: string
-    AuthenticationFlowRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        authenticationExecutions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
-        builtIn:
-          type: boolean
-        description:
-          type: string
-        id:
-          type: string
-        providerId:
-          type: string
-        topLevel:
-          type: boolean
     UserConsentRepresentation:
       type: object
       properties:
@@ -1380,34 +1270,144 @@ components:
         lastUpdatedDate:
           type: integer
           format: int64
-    IdentityProviderRepresentation:
+    RealmEventsConfigRepresentation:
       type: object
       properties:
-        addReadTokenRoleOnCreate:
+        adminEventsDetailsEnabled:
           type: boolean
-        alias:
+        adminEventsEnabled:
+          type: boolean
+        enabledEventTypes:
+          type: array
+          items:
+            type: string
+        eventsEnabled:
+          type: boolean
+        eventsExpiration:
+          type: integer
+          format: int64
+        eventsListeners:
+          type: array
+          items:
+            type: string
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
           type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    ResourceServerRepresentation:
+      type: object
+      properties:
+        allowRemoteResourceManagement:
+          type: boolean
+        clientId:
+          type: string
+        decisionStrategy:
+          type: string
+          enum:
+          - AFFIRMATIVE
+          - UNANIMOUS
+          - CONSENSUS
+        id:
+          type: string
+        name:
+          type: string
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyRepresentation'
+        policyEnforcementMode:
+          type: string
+          enum:
+          - ENFORCING
+          - PERMISSIVE
+          - DISABLED
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRepresentation'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
+    UserFederationMapperRepresentation:
+      type: object
+      properties:
         config:
           type: object
           additionalProperties: true
-        displayName:
+        federationMapperType:
           type: string
-        enabled:
-          type: boolean
-        firstBrokerLoginFlowAlias:
+        federationProviderDisplayName:
           type: string
-        internalId:
+        id:
           type: string
-        linkOnly:
-          type: boolean
-        postBrokerLoginFlowAlias:
+        name:
           type: string
-        providerId:
+    ClientPolicyExecutorRepresentation:
+      type: object
+      properties:
+        executor:
           type: string
-        storeToken:
-          type: boolean
-        trustEmail:
-          type: boolean
+        configuration:
+          description: Configuration settings as a JSON object
+          type: object
+          additionalProperties: true
+    ClientPoliciesRepresentation:
+      type: object
+      properties:
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyRepresentation'
+        globalPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyRepresentation'
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
     ProtocolMapperRepresentation:
       type: object
       properties:
@@ -1422,16 +1422,176 @@ components:
           type: string
         protocolMapper:
           type: string
-    AuthenticatorConfigRepresentation:
+    ClientScopeRepresentation:
       type: object
       properties:
-        alias:
+        attributes:
+          type: object
+          additionalProperties: true
+        description:
           type: string
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMappers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    PartialImportRepresentation:
+      type: object
+      properties:
+        clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientRepresentation'
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+        identityProviders:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityProviderRepresentation'
+        ifResourceExists:
+          type: string
+        policy:
+          type: string
+          enum:
+          - SKIP
+          - OVERWRITE
+          - FAIL
+        roles:
+          $ref: '#/components/schemas/RolesRepresentation'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRepresentation'
+    ScopeRepresentation:
+      type: object
+      properties:
+        displayName:
+          type: string
+        iconUri:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyRepresentation'
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRepresentation'
+    ScopeMappingRepresentation:
+      type: object
+      properties:
+        client:
+          type: string
+        clientScope:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        self:
+          type: string
+    UserFederationProviderRepresentation:
+      type: object
+      properties:
+        changedSyncPeriod:
+          type: integer
+          format: int32
         config:
           type: object
           additionalProperties: true
+        displayName:
+          type: string
+        fullSyncPeriod:
+          type: integer
+          format: int32
         id:
           type: string
+        lastSync:
+          type: integer
+          format: int32
+        priority:
+          type: integer
+          format: int32
+        providerName:
+          type: string
+    ResourceRepresentation:
+      type: object
+      properties:
+        id:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        displayName:
+          type: string
+        icon_uri:
+          type: string
+        name:
+          type: string
+        ownerManagedAccess:
+          type: boolean
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
+        type:
+          type: string
+        uris:
+          type: array
+          items:
+            type: string
+    ClientProfileRepresentation:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        executors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyExecutorRepresentation'
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    AuthDetailsRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        ipAddress:
+          type: string
+        realmId:
+          type: string
+        userId:
+          type: string
+    RolesRepresentation:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
     RealmRepresentation:
       type: object
       properties:
@@ -1745,268 +1905,31 @@ components:
             type: string
         webAuthnPolicyUserVerificationRequirement:
           type: string
-    UserFederationMapperRepresentation:
+    ClientProfilesRepresentation:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
+        globalProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
+    IdentityProviderMapperRepresentation:
       type: object
       properties:
         config:
           type: object
           additionalProperties: true
-        federationMapperType:
-          type: string
-        federationProviderDisplayName:
-          type: string
         id:
+          type: string
+        identityProviderAlias:
+          type: string
+        identityProviderMapper:
           type: string
         name:
           type: string
-    FederatedIdentityRepresentation:
-      type: object
-      properties:
-        identityProvider:
-          type: string
-        userId:
-          type: string
-        userName:
-          type: string
-    RealmEventsConfigRepresentation:
-      type: object
-      properties:
-        adminEventsDetailsEnabled:
-          type: boolean
-        adminEventsEnabled:
-          type: boolean
-        enabledEventTypes:
-          type: array
-          items:
-            type: string
-        eventsEnabled:
-          type: boolean
-        eventsExpiration:
-          type: integer
-          format: int64
-        eventsListeners:
-          type: array
-          items:
-            type: string
-    RolesRepresentation:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRepresentation'
-    MultivaluedHashMap:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        loadFactor:
-          type: number
-          format: float
-        threshold:
-          type: integer
-          format: int32
-    ClientScopeRepresentation:
-      type: object
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        description:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-        protocol:
-          type: string
-        protocolMappers:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProtocolMapperRepresentation'
-    CredentialRepresentation:
-      type: object
-      properties:
-        createdDate:
-          type: integer
-          format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
-          type: string
-    ClientPoliciesRepresentation:
-      type: object
-      properties:
-        policies:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientPolicyRepresentation'
-        globalPolicies:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientPolicyRepresentation'
-    GroupRepresentation:
-      type: object
-      properties:
-        access:
-          type: object
-          additionalProperties: true
-        attributes:
-          type: object
-          additionalProperties: true
-        clientRoles:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        name:
-          type: string
-        path:
-          type: string
-        realmRoles:
-          type: array
-          items:
-            type: string
-        subGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupRepresentation'
-    ScopeMappingRepresentation:
-      type: object
-      properties:
-        client:
-          type: string
-        clientScope:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        self:
-          type: string
-    PartialImportRepresentation:
-      type: object
-      properties:
-        clients:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientRepresentation'
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupRepresentation'
-        identityProviders:
-          type: array
-          items:
-            $ref: '#/components/schemas/IdentityProviderRepresentation'
-        ifResourceExists:
-          type: string
-        policy:
-          type: string
-          enum:
-          - SKIP
-          - OVERWRITE
-          - FAIL
-        roles:
-          $ref: '#/components/schemas/RolesRepresentation'
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRepresentation'
-    TestLdapConnectionRepresentation:
-      type: object
-      properties:
-        action:
-          type: string
-        bindCredential:
-          type: string
-        bindDn:
-          type: string
-        componentId:
-          type: string
-        connectionTimeout:
-          type: string
-        connectionUrl:
-          type: string
-        startTls:
-          type: string
-        useTruststoreSpi:
-          type: string
-    ScopeRepresentation:
-      type: object
-      properties:
-        displayName:
-          type: string
-        iconUri:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-        policies:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyRepresentation'
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceRepresentation'
-    AdminEventRepresentation:
-      type: object
-      properties:
-        authDetails:
-          $ref: '#/components/schemas/AuthDetailsRepresentation'
-        error:
-          type: string
-        operationType:
-          type: string
-        realmId:
-          type: string
-        representation:
-          type: string
-        resourcePath:
-          type: string
-        resourceType:
-          type: string
-        time:
-          type: integer
-          format: int64
-    ClientPolicyConditionRepresentation:
-      type: object
-      properties:
-        condition:
-          type: string
-        configuration:
-          description: Configuration settings as a JSON object
-          type: object
-          additionalProperties: true
-    ClientProfileRepresentation:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        executors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientPolicyExecutorRepresentation'
     RoleRepresentation:
       type: object
       properties:
@@ -2027,26 +1950,103 @@ components:
           type: string
         name:
           type: string
-    ClientProfilesRepresentation:
+    AuthenticatorConfigRepresentation:
       type: object
       properties:
-        profiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientProfileRepresentation'
-        globalProfiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientProfileRepresentation'
-    ClientPolicyExecutorRepresentation:
-      type: object
-      properties:
-        executor:
+        alias:
           type: string
-        configuration:
-          description: Configuration settings as a JSON object
+        config:
           type: object
           additionalProperties: true
+        id:
+          type: string
+    TestLdapConnectionRepresentation:
+      type: object
+      properties:
+        action:
+          type: string
+        bindCredential:
+          type: string
+        bindDn:
+          type: string
+        componentId:
+          type: string
+        connectionTimeout:
+          type: string
+        connectionUrl:
+          type: string
+        startTls:
+          type: string
+        useTruststoreSpi:
+          type: string
+    UserRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientConsents:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConsentRepresentation'
+        clientRoles:
+          type: object
+          additionalProperties: true
+        createdTimestamp:
+          type: integer
+          format: int64
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialRepresentation'
+        disableableCredentialTypes:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        enabled:
+          type: boolean
+        federatedIdentities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FederatedIdentityRepresentation'
+        federationLink:
+          type: string
+        firstName:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        lastName:
+          type: string
+        notBefore:
+          type: integer
+          format: int32
+        origin:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        requiredActions:
+          type: array
+          items:
+            type: string
+        self:
+          type: string
+        serviceAccountClientId:
+          type: string
+        username:
+          type: string
   securitySchemes:
     access_token:
       type: http

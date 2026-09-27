@@ -297,6 +297,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -317,16 +327,6 @@ components:
           type: string
         name:
           type: string
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
   securitySchemes:
     access_token:
       type: http

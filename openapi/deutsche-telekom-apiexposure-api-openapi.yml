@@ -378,6 +378,58 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
+    Visibility:
+      enum:
+      - ENTERPRISE
+      - WORLD
+      - ZONE
+      type: string
+    LoadBalancing:
+      type: object
+      readOnly: true
+      properties:
+        servers:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Server'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    ExposureFailover:
+      type: object
+      properties:
+        zone:
+          type: string
+          example: aws
+    ApiExposureListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiExposureResponse'
+    ApprovalStrategy:
+      enum:
+      - AUTO
+      - SIMPLE
+      - FOUREYES
+      type: string
     ApiSubscriptionListResponse:
       properties:
         paging:
@@ -388,68 +440,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiSubscriptionResponse'
-    Approval:
-      type: object
-      readOnly: true
-      required:
-      - status
-      - comment
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
-    ApiExposureResponse:
-      type: object
-      readOnly: true
-      required:
-      - name
-      - zone
-      - basePath
-      - upstream
-      - visibility
-      allOf:
-      - $ref: '#/components/schemas/ApiExposure'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: eni-heartbeat-v1
-          zone:
-            type: string
-            readOnly: true
-          status:
-            $ref: common.yaml#/components/schemas/Status
-    ApprovalStrategy:
-      enum:
-      - AUTO
-      - SIMPLE
-      - FOUREYES
-      type: string
-    ExposureFailover:
-      type: object
-      properties:
-        zone:
-          type: string
-          example: aws
-    LoadBalancing:
-      type: object
-      readOnly: true
-      properties:
-        servers:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Server'
     ApiExposure:
       type: object
       properties:
@@ -499,15 +489,42 @@ components:
           type: array
           items:
             type: string
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
+    RateLimit:
+      type: object
+      properties:
+        second:
+          format: int32
+          type: integer
+        minute:
+          format: int32
+          type: integer
+        hour:
+          format: int32
+          type: integer
+        faultTolerant:
+          type: boolean
+        hideClientHeaders:
+          type: boolean
+    Server:
+      type: object
+      readOnly: true
+      properties:
+        upstream:
+          type: string
+          readOnly: true
+        weight:
+          type: integer
+          readOnly: true
+    ApiSubscription:
+      type: object
+      properties:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+          type: string
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
     SubscriptionFailover:
       type: array
       readOnly: true
@@ -522,12 +539,6 @@ components:
             type: string
             readOnly: true
             example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-    Visibility:
-      enum:
-      - ENTERPRISE
-      - WORLD
-      - ZONE
-      type: string
     ApiExposureUpdateRequest:
       type: object
       required:
@@ -537,34 +548,74 @@ components:
       - visibility
       allOf:
       - $ref: '#/components/schemas/ApiExposure'
-    Server:
+    Approval:
       type: object
       readOnly: true
-      properties:
-        upstream:
-          type: string
-          readOnly: true
-        weight:
-          type: integer
-          readOnly: true
-    ApiExposureCreateRequest:
-      type: object
       required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    ApiExposureResponse:
+      type: object
+      readOnly: true
+      required:
+      - name
+      - zone
       - basePath
       - upstream
       - visibility
       allOf:
       - $ref: '#/components/schemas/ApiExposure'
-    ApiSubscription:
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: eni-heartbeat-v1
+          zone:
+            type: string
+            readOnly: true
+          status:
+            $ref: common.yaml#/components/schemas/Status
+    ApiSubscriptionResponse:
       type: object
-      properties:
-        basePath:
-          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
-          type: string
-          example: /my-hub/my-app/v1
-          pattern: ^\/[a-zA-Z0-9\/-]*$
-        security:
-          $ref: '#/components/schemas/SubscriberSecurity'
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: eni-echo-v1
+          zone:
+            type: string
+            readOnly: true
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/Approval'
+          failover:
+            $ref: '#/components/schemas/SubscriptionFailover'
     OAuth2:
       type: object
       required:
@@ -598,71 +649,20 @@ components:
           - body
           - header
           description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    ApiExposureListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiExposureResponse'
-    BasicAuth:
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    ApiExposureCreateRequest:
       type: object
       required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    RateLimit:
-      type: object
-      properties:
-        second:
-          format: int32
-          type: integer
-        minute:
-          format: int32
-          type: integer
-        hour:
-          format: int32
-          type: integer
-        faultTolerant:
-          type: boolean
-        hideClientHeaders:
-          type: boolean
-    ApiSubscriptionResponse:
-      type: object
-      readOnly: true
+      - basePath
+      - upstream
+      - visibility
       allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: eni-echo-v1
-          zone:
-            type: string
-            readOnly: true
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-          status:
-            $ref: common.yaml#/components/schemas/Status
-          application:
-            $ref: common.yaml#/components/schemas/ApplicationRef
-          team:
-            $ref: common.yaml#/components/schemas/TeamRef
-          approval:
-            $ref: '#/components/schemas/Approval'
-          failover:
-            $ref: '#/components/schemas/SubscriptionFailover'
+      - $ref: '#/components/schemas/ApiExposure'

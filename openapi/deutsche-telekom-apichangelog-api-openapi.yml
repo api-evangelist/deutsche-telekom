@@ -238,6 +238,113 @@ paths:
         - tardis:team:read
 components:
   schemas:
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    ApiChangelogUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
     OverallStatus:
       description: Status of this resource and all its relevant sub-resources
       enum:
@@ -250,6 +357,30 @@ components:
       - done
       - none
       type: string
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
     Error:
       description: RFC-7807 conform object sent on any error
       type: object
@@ -273,23 +404,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FieldProblem'
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
     ApiChangelogCreateRequest:
       allOf:
       - $ref: '#/components/schemas/ApiChangelog'
@@ -298,20 +412,22 @@ components:
           team:
             description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
             type: string
-    FieldProblem:
+    ApiChangelog:
       type: object
       required:
-      - title
+      - basePath
+      - items
       properties:
-        title:
+        basePath:
+          description: The API basePath
           type: string
-        detail:
-          type: string
-        path:
-          type: string
-    ApiChangelogUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiChangelog'
+          example: /eni/test-api/v1
+        items:
+          description: List of changelog version entries
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ApiChangelogItem'
     ApiChangelogResponse:
       required:
       - id
@@ -335,22 +451,6 @@ components:
           status:
             readOnly: true
             $ref: '#/components/schemas/Status'
-    ApiChangelog:
-      type: object
-      required:
-      - basePath
-      - items
-      properties:
-        basePath:
-          description: The API basePath
-          type: string
-          example: /eni/test-api/v1
-        items:
-          description: List of changelog version entries
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/ApiChangelogItem'
     ApiChangelogItem:
       type: object
       required:
@@ -395,14 +495,6 @@ components:
           type: string
         path:
           type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
     ApiChangelogListResponse:
       type: object
       properties:
@@ -412,101 +504,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiChangelogResponse'
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
-    Status:
-      type: object
-      readOnly: true
-      required:
-      - processingState
-      - state
-      - time
-      properties:
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        state:
-          $ref: '#/components/schemas/State'
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        infos:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-    ResourceStatusResponse:
-      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
-      required:
-      - state
-      - processingState
-      - overallStatus
-      type: object
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-          description: Time when the resource was created
-        processedAt:
-          type: string
-          format: date-time
-          description: Time when the resource was last processed
-        state:
-          $ref: '#/components/schemas/State'
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        overallStatus:
-          $ref: '#/components/schemas/OverallStatus'
-        errors:
-          description: List of errors that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        warnings:
-          description: List of warnings that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        infos:
-          description: List of infos that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-    Problem:
-      type: object
-      required:
-      - message
-      - cause
-      properties:
-        resource:
-          $ref: '#/components/schemas/ResourceRef'
-        context:
-          type: string
-        message:
-          type: string
-        cause:
-          type: string
-        details:
-          type: string
   responses:
-    BadRequest:
-      description: BAD_REQUEST
+    ServerError:
+      description: SERVER_ERROR
       content:
         application/problem+json:
           schema:
@@ -517,8 +517,14 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: NOT_FOUND
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:
@@ -529,14 +535,8 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    ServerError:
-      description: SERVER_ERROR
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    UnsupportedMediaType:
-      description: UNSUPPORTED_MEDIATYPE
+    NotFound:
+      description: NOT_FOUND
       content:
         application/problem+json:
           schema:

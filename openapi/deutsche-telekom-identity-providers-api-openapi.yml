@@ -356,20 +356,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdentityProviderMapperRepresentation:
+    ManagementPermissionReference:
       type: object
       properties:
-        config:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
           type: object
           additionalProperties: true
-        id:
-          type: string
-        identityProviderAlias:
-          type: string
-        identityProviderMapper:
-          type: string
-        name:
-          type: string
     IdentityProviderRepresentation:
       type: object
       properties:
@@ -398,16 +394,20 @@ components:
           type: boolean
         trustEmail:
           type: boolean
-    ManagementPermissionReference:
+    IdentityProviderMapperRepresentation:
       type: object
       properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
+        config:
           type: object
           additionalProperties: true
+        id:
+          type: string
+        identityProviderAlias:
+          type: string
+        identityProviderMapper:
+          type: string
+        name:
+          type: string
   securitySchemes:
     access_token:
       type: http

@@ -223,6 +223,48 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
+    EventTypeListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventTypeResponse'
+    EventTypeResponse:
+      type: object
+      readOnly: true
+      required:
+      - name
+      - type
+      - version
+      allOf:
+      - $ref: '#/components/schemas/EventType'
+      - properties:
+          id:
+            type: string
+            readOnly: true
+            description: 'The complete resource identifier of the EventType
+
+              '
+            example: eni--hyperion--de-telekom-eni-quickstart-v1
+          name:
+            type: string
+            readOnly: true
+            description: 'Resource name (dot-to-hyphen conversion of type, e.g. "de-telekom-eni-quickstart-v1").
+
+              '
+            example: de-telekom-eni-quickstart-v1
+          active:
+            type: boolean
+            readOnly: true
+            description: 'Whether this EventType is the active singleton for its type string. When multiple EventTypes exist for the same type, only the oldest non-deleted one is active.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status
     EventType:
       type: object
       description: 'Registry entry for a known event type. Serves as the canonical reference
@@ -258,45 +300,3 @@ components:
           description: 'File ID reference from the file manager for the optional JSON schema that describes the event payload.
 
             '
-    EventTypeResponse:
-      type: object
-      readOnly: true
-      required:
-      - name
-      - type
-      - version
-      allOf:
-      - $ref: '#/components/schemas/EventType'
-      - properties:
-          id:
-            type: string
-            readOnly: true
-            description: 'The complete resource identifier of the EventType
-
-              '
-            example: eni--hyperion--de-telekom-eni-quickstart-v1
-          name:
-            type: string
-            readOnly: true
-            description: 'Resource name (dot-to-hyphen conversion of type, e.g. "de-telekom-eni-quickstart-v1").
-
-              '
-            example: de-telekom-eni-quickstart-v1
-          active:
-            type: boolean
-            readOnly: true
-            description: 'Whether this EventType is the active singleton for its type string. When multiple EventTypes exist for the same type, only the oldest non-deleted one is active.
-
-              '
-          status:
-            $ref: common.yaml#/components/schemas/Status
-    EventTypeListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventTypeResponse'

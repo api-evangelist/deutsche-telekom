@@ -325,15 +325,22 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
+    ApiSubscription:
+      type: object
+      properties:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+          type: string
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
+    ApiSubscriptionCreateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
     SubscriptionFailover:
       type: array
       readOnly: true
@@ -348,59 +355,6 @@ components:
             type: string
             readOnly: true
             example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-    ApiSubscription:
-      type: object
-      properties:
-        basePath:
-          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
-          type: string
-          example: /my-hub/my-app/v1
-          pattern: ^\/[a-zA-Z0-9\/-]*$
-        security:
-          $ref: '#/components/schemas/SubscriberSecurity'
-    OAuth2:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-          enum:
-          - oauth2
-        tokenEndpoint:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-        username:
-          type: string
-        password:
-          type: string
-        refreshToken:
-          type: string
-        grantType:
-          type: string
-        tokenRequest:
-          type: string
-          enum:
-          - body
-          - header
-          description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    ApiSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSubscriptionResponse'
     BasicAuth:
       type: object
       required:
@@ -416,26 +370,16 @@ components:
           type: string
         password:
           type: string
-    Approval:
-      type: object
-      readOnly: true
-      required:
-      - status
-      - comment
+    ApiSubscriptionListResponse:
       properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSubscriptionResponse'
     ApiSubscriptionUpdateRequest:
       required:
       - basePath
@@ -469,9 +413,65 @@ components:
             $ref: '#/components/schemas/Approval'
           failover:
             $ref: '#/components/schemas/SubscriptionFailover'
-    ApiSubscriptionCreateRequest:
-      required:
-      - basePath
+    OAuth2:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
+      required:
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - oauth2
+        tokenEndpoint:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        username:
+          type: string
+        password:
+          type: string
+        refreshToken:
+          type: string
+        grantType:
+          type: string
+        tokenRequest:
+          type: string
+          enum:
+          - body
+          - header
+          description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    Approval:
+      type: object
+      readOnly: true
+      required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'

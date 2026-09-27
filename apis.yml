@@ -38,6 +38,11 @@ apis:
   tags:
   - Communications
   - CPaaS
+  - Conversational AI
+  - Marketing
+  tags_raw:
+  - Communications
+  - CPaaS
   - Conversational
   - Marketing
   humanURL: https://developer.telekom.com/en/products/conversational_connect
@@ -100,7 +105,7 @@ apis:
   tags:
   - Artificial Intelligence
   - Communications
-  - Conversational
+  - Conversational AI
   - Natural-Language
   tags_raw:
   - AI
@@ -433,7 +438,7 @@ apis:
   - type: SourceCode
     url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-deleting-api
-  name: Deutsche Telekom deleting API
+  name: Deutsche Telekom Deleting API
   description: The deleting API from Deutsche Telekom — 1 operation(s) for deleting.
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
@@ -446,7 +451,7 @@ apis:
   - type: SourceCode
     url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-downloading-api
-  name: Deutsche Telekom downloading API
+  name: Deutsche Telekom Downloading API
   description: An endpoint to download existing files
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
@@ -554,7 +559,7 @@ apis:
   - type: SourceCode
     url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-onboarding-api
-  name: Deutsche Telekom onboarding API
+  name: Deutsche Telekom Onboarding API
   description: The onboarding API from Deutsche Telekom — 3 operation(s) for onboarding.
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
@@ -686,7 +691,7 @@ apis:
   - type: SourceCode
     url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-secrets-api
-  name: Deutsche Telekom secrets API
+  name: Deutsche Telekom Secrets API
   description: Everything regarding storing and resolving secrets
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
@@ -701,7 +706,7 @@ apis:
   - type: SourceCode
     url: https://github.com/telekom/controlplane
 - aid: deutsche-telekom:deutsche-telekom-uploading-api
-  name: Deutsche Telekom uploading API
+  name: Deutsche Telekom Uploading API
   description: An endpoint to upload new files
   humanURL: https://developer.telekom.com/en/products/sms-api
   tags:
@@ -780,7 +785,6 @@ apis:
 name: Deutsche Telekom
 tags:
 - Telecommunications
-- Telco
 - Mobile Network Operator
 - CPaaS
 - Network APIs
@@ -795,7 +799,7 @@ tags:
 - Magenta
 - MagentaBusiness
 - API Gateway
-- Open-Source
+- Open Source
 - Germany
 - Europe
 tags_raw:
@@ -818,9 +822,15 @@ tags_raw:
 - Open Source
 - Germany
 - Europe
+- Open-Source
 kind: contract
 deliveryModel:
   model: unknown
+  license_evidence:
+    not_product:
+    - telekom/controlplane
+    - telekom/gateway-jumper
+    - telekom/gateway-kong-charts
   open_source: unknown
   commercial: false
   callable_host: true
@@ -828,8 +838,8 @@ deliveryModel:
   confidence: low
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown

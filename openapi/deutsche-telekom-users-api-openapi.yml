@@ -959,26 +959,56 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserSessionRepresentation:
+    FederatedIdentityRepresentation:
       type: object
       properties:
-        clients:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
           type: object
           additionalProperties: true
         id:
           type: string
-        ipAddress:
+        name:
           type: string
-        lastAccess:
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
           type: integer
           format: int64
-        start:
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
           type: integer
           format: int64
-        userId:
-          type: string
-        username:
-          type: string
     UserRepresentation:
       type: object
       properties:
@@ -1047,56 +1077,26 @@ components:
           type: string
         username:
           type: string
-    FederatedIdentityRepresentation:
+    UserSessionRepresentation:
       type: object
       properties:
-        identityProvider:
-          type: string
-        userId:
-          type: string
-        userName:
-          type: string
-    GroupRepresentation:
-      type: object
-      properties:
-        access:
-          type: object
-          additionalProperties: true
-        attributes:
-          type: object
-          additionalProperties: true
-        clientRoles:
+        clients:
           type: object
           additionalProperties: true
         id:
           type: string
-        name:
+        ipAddress:
           type: string
-        path:
-          type: string
-        realmRoles:
-          type: array
-          items:
-            type: string
-        subGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupRepresentation'
-    UserConsentRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        createdDate:
+        lastAccess:
           type: integer
           format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
+        start:
           type: integer
           format: int64
+        userId:
+          type: string
+        username:
+          type: string
     CredentialRepresentation:
       type: object
       properties:

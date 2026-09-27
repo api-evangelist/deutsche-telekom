@@ -612,6 +612,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MappingsRepresentation:
+      type: object
+      properties:
+        clientMappings:
+          type: object
+          additionalProperties: true
+        realmMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     RoleRepresentation:
       type: object
       properties:
@@ -632,26 +652,6 @@ components:
           type: string
         name:
           type: string
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
-    MappingsRepresentation:
-      type: object
-      properties:
-        clientMappings:
-          type: object
-          additionalProperties: true
-        realmMappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRepresentation'
   securitySchemes:
     access_token:
       type: http

@@ -258,104 +258,7 @@ paths:
         - tardis:user:read
         - tardis:user:obfuscated
 components:
-  parameters:
-    Icto:
-      name: icto
-      in: query
-      description: Filter by icto
-      required: false
-      schema:
-        type: string
-    Apid:
-      name: apid
-      in: query
-      description: Filter by apid
-      required: false
-      schema:
-        type: string
-    Psiid:
-      name: psiid
-      in: query
-      description: Filter by psiid (pattern configurable via PSIID_PATTERN env var)
-      required: false
-      schema:
-        type: string
   schemas:
-    Security:
-      type: object
-      required:
-      - ipRestrictions
-      description: Contains information related to security configuration like IP restrictions etc.
-      properties:
-        ipRestrictions:
-          $ref: '#/components/schemas/IpRestrictions'
-    ApplicationListResponse:
-      type: object
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationResponse'
-    IpRestrictions:
-      type: object
-      description: A list of allowed IP addresses that will be used to consume APIs this application is subscribed to.  The IP addresses need to be in a valid CIDR notation. For example 125.5.89.20 or 160.77.58.30/16.
-      properties:
-        allow:
-          type: array
-          items:
-            type: string
-    ApplicationResponse:
-      type: object
-      readOnly: true
-      required:
-      - id
-      - hub
-      - team
-      - name
-      - zone
-      allOf:
-      - $ref: '#/components/schemas/Application'
-    ApplicationCreateRequest:
-      required:
-      - hub
-      - team
-      - name
-      - zone
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Application'
-    Team:
-      type: object
-      required:
-      - hub
-      - name
-      - email
-      - category
-      description: Team is a group of people who are responsible for the application. The team is used for notifications and access control.
-      properties:
-        hub:
-          type: string
-          description: 'allowed characters: [a-z],[0-9],[-]'
-          pattern: '[a-z0-9-]+'
-          example: eni
-        name:
-          type: string
-          description: 'allowed characters: [a-z],[0-9],[-]'
-          pattern: '[a-z0-9-]+'
-          example: hyperion
-        email:
-          type: string
-          readOnly: true
-          description: contact email address of the team
-          format: email
-        category:
-          type: string
-          readOnly: true
-          example: CUSTOMER
     Application:
       type: object
       properties:
@@ -389,6 +292,25 @@ components:
           $ref: common.yaml#/components/schemas/Status
         security:
           $ref: '#/components/schemas/Security'
+    Security:
+      type: object
+      required:
+      - ipRestrictions
+      description: Contains information related to security configuration like IP restrictions etc.
+      properties:
+        ipRestrictions:
+          $ref: '#/components/schemas/IpRestrictions'
+    ApplicationListResponse:
+      type: object
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationResponse'
     ApplicationUpdateRequest:
       required:
       - team
@@ -412,3 +334,81 @@ components:
           type: string
           description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
           example: PSI-123456
+    IpRestrictions:
+      type: object
+      description: A list of allowed IP addresses that will be used to consume APIs this application is subscribed to.  The IP addresses need to be in a valid CIDR notation. For example 125.5.89.20 or 160.77.58.30/16.
+      properties:
+        allow:
+          type: array
+          items:
+            type: string
+    Team:
+      type: object
+      required:
+      - hub
+      - name
+      - email
+      - category
+      description: Team is a group of people who are responsible for the application. The team is used for notifications and access control.
+      properties:
+        hub:
+          type: string
+          description: 'allowed characters: [a-z],[0-9],[-]'
+          pattern: '[a-z0-9-]+'
+          example: eni
+        name:
+          type: string
+          description: 'allowed characters: [a-z],[0-9],[-]'
+          pattern: '[a-z0-9-]+'
+          example: hyperion
+        email:
+          type: string
+          readOnly: true
+          description: contact email address of the team
+          format: email
+        category:
+          type: string
+          readOnly: true
+          example: CUSTOMER
+    ApplicationResponse:
+      type: object
+      readOnly: true
+      required:
+      - id
+      - hub
+      - team
+      - name
+      - zone
+      allOf:
+      - $ref: '#/components/schemas/Application'
+    ApplicationCreateRequest:
+      required:
+      - hub
+      - team
+      - name
+      - zone
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Application'
+  parameters:
+    Icto:
+      name: icto
+      in: query
+      description: Filter by icto
+      required: false
+      schema:
+        type: string
+    Psiid:
+      name: psiid
+      in: query
+      description: Filter by psiid (pattern configurable via PSIID_PATTERN env var)
+      required: false
+      schema:
+        type: string
+    Apid:
+      name: apid
+      in: query
+      description: Filter by apid
+      required: false
+      schema:
+        type: string
