@@ -168,57 +168,6 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    ResponseFilter:
-      type: object
-      description: Controls which fields are included or excluded from the event payload.
-      properties:
-        paths:
-          type: array
-          description: JSON paths to include or exclude from the event payload.
-          items:
-            type: string
-          example:
-          - $.data.orderId
-          - $.data.status
-        mode:
-          $ref: '#/components/schemas/ResponseFilterMode'
-    EventSubscriptionResponse:
-      type: object
-      readOnly: true
-      allOf:
-      - $ref: '#/components/schemas/EventSubscription'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: de-telekom-eni-quickstart-v1
-          zone:
-            type: string
-            readOnly: true
-            description: 'The zone where this subscription is placed. Maps to EventSubscriptionSpec.Zone in the EventSubscription CR.
-
-              '
-          url:
-            type: string
-            readOnly: true
-            description: 'SSE endpoint URL for this subscription. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.URL.
-
-              '
-            example: https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1
-          subscriptionId:
-            type: string
-            readOnly: true
-            description: 'Unique identifier of the subscriber. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.SubscriptionId.
-
-              '
-          status:
-            $ref: common.yaml#/components/schemas/Status
-          application:
-            $ref: common.yaml#/components/schemas/ApplicationRef
-          team:
-            $ref: common.yaml#/components/schemas/TeamRef
-          approval:
-            $ref: '#/components/schemas/EventSubscriptionApproval'
     EventSubscription:
       type: object
       description: 'Declaration that an application subscribes to events of a specific type.
@@ -267,6 +216,123 @@ components:
         Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
 
         '
+    ResponseFilterMode:
+      enum:
+      - Include
+      - Exclude
+      type: string
+      description: Controls whether the response filter includes or excludes the specified fields.
+    EventSubscriptionApproval:
+      type: object
+      readOnly: true
+      description: Approval status of the event subscription.
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    EventSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/EventSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: de-telekom-eni-quickstart-v1
+          zone:
+            type: string
+            readOnly: true
+            description: 'The zone where this subscription is placed. Maps to EventSubscriptionSpec.Zone in the EventSubscription CR.
+
+              '
+          url:
+            type: string
+            readOnly: true
+            description: 'SSE endpoint URL for this subscription. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.URL.
+
+              '
+            example: https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1
+          subscriptionId:
+            type: string
+            readOnly: true
+            description: 'Unique identifier of the subscriber. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.SubscriptionId.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/EventSubscriptionApproval'
+    EventTrigger:
+      type: object
+      description: 'Defines filtering criteria for event delivery.
+
+        Maps to EventTrigger in the EventExposure/EventSubscription CR.
+
+        '
+      properties:
+        responseFilter:
+          $ref: '#/components/schemas/ResponseFilter'
+        selectionFilter:
+          $ref: '#/components/schemas/SelectionFilter'
+    EventSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSubscriptionResponse'
+    SelectionFilter:
+      type: object
+      description: Defines criteria for selecting which events are delivered.
+      properties:
+        attributes:
+          type: object
+          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
+
+            '
+          additionalProperties:
+            type: string
+          example:
+            source: de.telekom.eni.quickstart
+            type: de.telekom.eni.quickstart.v1
+        expression:
+          type: object
+          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
+
+            '
+          additionalProperties: true
+    ResponseFilter:
+      type: object
+      description: Controls which fields are included or excluded from the event payload.
+      properties:
+        paths:
+          type: array
+          description: JSON paths to include or exclude from the event payload.
+          items:
+            type: string
+          example:
+          - $.data.orderId
+          - $.data.status
+        mode:
+          $ref: '#/components/schemas/ResponseFilterMode'
     Delivery:
       type: object
       description: 'Configures how events are delivered to the subscriber.
@@ -313,69 +379,3 @@ components:
           type: boolean
           description: Forces GET for health check probes instead of HEAD.
           default: false
-    EventSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSubscriptionResponse'
-    ResponseFilterMode:
-      enum:
-      - Include
-      - Exclude
-      type: string
-      description: Controls whether the response filter includes or excludes the specified fields.
-    EventSubscriptionApproval:
-      type: object
-      readOnly: true
-      description: Approval status of the event subscription.
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
-    EventTrigger:
-      type: object
-      description: 'Defines filtering criteria for event delivery.
-
-        Maps to EventTrigger in the EventExposure/EventSubscription CR.
-
-        '
-      properties:
-        responseFilter:
-          $ref: '#/components/schemas/ResponseFilter'
-        selectionFilter:
-          $ref: '#/components/schemas/SelectionFilter'
-    SelectionFilter:
-      type: object
-      description: Defines criteria for selecting which events are delivered.
-      properties:
-        attributes:
-          type: object
-          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
-
-            '
-          additionalProperties:
-            type: string
-          example:
-            source: de.telekom.eni.quickstart
-            type: de.telekom.eni.quickstart.v1
-        expression:
-          type: object
-          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
-
-            '
-          additionalProperties: true

@@ -768,45 +768,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RequiredActionProviderRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        config:
-          type: object
-          additionalProperties: true
-        defaultAction:
-          type: boolean
-        enabled:
-          type: boolean
-        name:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        providerId:
-          type: string
-    AuthenticationExecutionExportRepresentation:
-      type: object
-      properties:
-        authenticator:
-          type: string
-        authenticatorConfig:
-          type: string
-        authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
-          type: boolean
-        flowAlias:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        requirement:
-          type: string
-        userSetupAllowed:
-          type: boolean
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -825,59 +786,6 @@ components:
         secret:
           type: boolean
         type:
-          type: string
-    AuthenticationExecutionInfoRepresentation:
-      type: object
-      properties:
-        alias:
-          type: string
-        authenticationConfig:
-          type: string
-        authenticationFlow:
-          type: boolean
-        configurable:
-          type: boolean
-        displayName:
-          type: string
-        flowId:
-          type: string
-        id:
-          type: string
-        index:
-          type: integer
-          format: int32
-        level:
-          type: integer
-          format: int32
-        providerId:
-          type: string
-        requirement:
-          type: string
-        requirementChoices:
-          type: array
-          items:
-            type: string
-    AuthenticationExecutionRepresentation:
-      type: object
-      properties:
-        authenticator:
-          type: string
-        authenticatorConfig:
-          type: string
-        authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
-          type: boolean
-        flowId:
-          type: string
-        id:
-          type: string
-        parentFlow:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        requirement:
           type: string
     AuthenticationFlowRepresentation:
       type: object
@@ -911,6 +819,48 @@ components:
             $ref: '#/components/schemas/ConfigPropertyRepresentation'
         providerId:
           type: string
+    AuthenticationExecutionRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowId:
+          type: string
+        id:
+          type: string
+        parentFlow:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
+          type: string
+    AuthenticationExecutionExportRepresentation:
+      type: object
+      properties:
+        authenticator:
+          type: string
+        authenticatorConfig:
+          type: string
+        authenticatorFlow:
+          type: boolean
+        autheticatorFlow:
+          type: boolean
+        flowAlias:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        requirement:
+          type: string
+        userSetupAllowed:
+          type: boolean
     AuthenticatorConfigRepresentation:
       type: object
       properties:
@@ -920,6 +870,56 @@ components:
           type: object
           additionalProperties: true
         id:
+          type: string
+    AuthenticationExecutionInfoRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        authenticationConfig:
+          type: string
+        authenticationFlow:
+          type: boolean
+        configurable:
+          type: boolean
+        displayName:
+          type: string
+        flowId:
+          type: string
+        id:
+          type: string
+        index:
+          type: integer
+          format: int32
+        level:
+          type: integer
+          format: int32
+        providerId:
+          type: string
+        requirement:
+          type: string
+        requirementChoices:
+          type: array
+          items:
+            type: string
+    RequiredActionProviderRepresentation:
+      type: object
+      properties:
+        alias:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        defaultAction:
+          type: boolean
+        enabled:
+          type: boolean
+        name:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        providerId:
           type: string
   securitySchemes:
     access_token:

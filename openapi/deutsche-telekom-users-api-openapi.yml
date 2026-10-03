@@ -959,6 +959,29 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
     FederatedIdentityRepresentation:
       type: object
       properties:
@@ -994,21 +1017,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
-    UserConsentRepresentation:
+    UserSessionRepresentation:
       type: object
       properties:
-        clientId:
+        clients:
+          type: object
+          additionalProperties: true
+        id:
           type: string
-        createdDate:
+        ipAddress:
+          type: string
+        lastAccess:
           type: integer
           format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
+        start:
           type: integer
           format: int64
+        userId:
+          type: string
+        username:
+          type: string
     UserRepresentation:
       type: object
       properties:
@@ -1077,49 +1105,21 @@ components:
           type: string
         username:
           type: string
-    UserSessionRepresentation:
+    UserConsentRepresentation:
       type: object
       properties:
-        clients:
-          type: object
-          additionalProperties: true
-        id:
+        clientId:
           type: string
-        ipAddress:
-          type: string
-        lastAccess:
-          type: integer
-          format: int64
-        start:
-          type: integer
-          format: int64
-        userId:
-          type: string
-        username:
-          type: string
-    CredentialRepresentation:
-      type: object
-      properties:
         createdDate:
           type: integer
           format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
           type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
-          type: string
+          format: int64
   securitySchemes:
     access_token:
       type: http

@@ -79,15 +79,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ClientInitialAccessCreatePresentation:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        expiration:
-          type: integer
-          format: int32
     ClientInitialAccessPresentation:
       type: object
       properties:
@@ -107,6 +98,15 @@ components:
           format: int32
         token:
           type: string
+    ClientInitialAccessCreatePresentation:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        expiration:
+          type: integer
+          format: int32
   securitySchemes:
     access_token:
       type: http

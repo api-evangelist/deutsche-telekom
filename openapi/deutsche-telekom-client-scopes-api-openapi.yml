@@ -102,20 +102,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ProtocolMapperRepresentation:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        name:
-          type: string
-        protocol:
-          type: string
-        protocolMapper:
-          type: string
     ClientScopeRepresentation:
       type: object
       properties:
@@ -134,6 +120,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProtocolMapperRepresentation'
+    ProtocolMapperRepresentation:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        protocol:
+          type: string
+        protocolMapper:
+          type: string
   securitySchemes:
     access_token:
       type: http

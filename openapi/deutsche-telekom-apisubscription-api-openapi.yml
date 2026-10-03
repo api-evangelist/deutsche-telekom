@@ -325,61 +325,6 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    ApiSubscription:
-      type: object
-      properties:
-        basePath:
-          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
-          type: string
-          example: /my-hub/my-app/v1
-          pattern: ^\/[a-zA-Z0-9\/-]*$
-        security:
-          $ref: '#/components/schemas/SubscriberSecurity'
-    ApiSubscriptionCreateRequest:
-      required:
-      - basePath
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-    SubscriptionFailover:
-      type: array
-      readOnly: true
-      items:
-        type: object
-        properties:
-          zone:
-            type: string
-            readOnly: true
-            example: aws
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-    BasicAuth:
-      type: object
-      required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    ApiSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSubscriptionResponse'
     ApiSubscriptionUpdateRequest:
       required:
       - basePath
@@ -413,6 +358,40 @@ components:
             $ref: '#/components/schemas/Approval'
           failover:
             $ref: '#/components/schemas/SubscriptionFailover'
+    Approval:
+      type: object
+      readOnly: true
+      required:
+      - status
+      - comment
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    SubscriptionFailover:
+      type: array
+      readOnly: true
+      items:
+        type: object
+        properties:
+          zone:
+            type: string
+            readOnly: true
+            example: aws
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
     OAuth2:
       type: object
       required:
@@ -446,6 +425,16 @@ components:
           - body
           - header
           description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
+    ApiSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSubscriptionResponse'
     SubscriberSecurity:
       discriminator:
         propertyName: type
@@ -455,23 +444,34 @@ components:
       oneOf:
       - $ref: '#/components/schemas/OAuth2'
       - $ref: '#/components/schemas/BasicAuth'
-    Approval:
-      type: object
-      readOnly: true
+    ApiSubscriptionCreateRequest:
       required:
-      - status
-      - comment
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+    ApiSubscription:
+      type: object
       properties:
-        status:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
           type: string
-          example: granted
-        comment:
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
           type: string
-          example: trusted team
-        decider:
+          enum:
+          - basicAuth
+        username:
           type: string
-          example: hyperion@telekom.de
-        timestamp:
+        password:
           type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'

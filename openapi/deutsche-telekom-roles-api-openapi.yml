@@ -842,6 +842,59 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RoleRepresentation:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRole:
+          type: boolean
+        composite:
+          type: boolean
+        composites:
+          $ref: '#/components/schemas/RoleRepresentation-Composites'
+        containerId:
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
     FederatedIdentityRepresentation:
       type: object
       properties:
@@ -851,16 +904,6 @@ components:
           type: string
         userName:
           type: string
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
     GroupRepresentation:
       type: object
       properties:
@@ -887,74 +930,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
-    RoleRepresentation-Composites:
+    ManagementPermissionReference:
       type: object
       properties:
-        client:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
           type: object
           additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
-    CredentialRepresentation:
-      type: object
-      properties:
-        createdDate:
-          type: integer
-          format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
-          type: string
-    UserConsentRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        createdDate:
-          type: integer
-          format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
-          type: integer
-          format: int64
-    RoleRepresentation:
-      type: object
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        clientRole:
-          type: boolean
-        composite:
-          type: boolean
-        composites:
-          $ref: '#/components/schemas/RoleRepresentation-Composites'
-        containerId:
-          type: string
-        description:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
     UserRepresentation:
       type: object
       properties:
@@ -1023,6 +1008,21 @@ components:
           type: string
         username:
           type: string
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
   securitySchemes:
     access_token:
       type: http

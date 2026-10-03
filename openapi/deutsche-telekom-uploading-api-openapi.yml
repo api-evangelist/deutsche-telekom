@@ -84,6 +84,13 @@ components:
             properties:
               id:
                 type: string
+  requestBodies:
+    FileUploadRequest:
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
   schemas:
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
@@ -104,13 +111,6 @@ components:
           type: string
         instance:
           type: string
-  requestBodies:
-    FileUploadRequest:
-      content:
-        application/octet-stream:
-          schema:
-            type: string
-            format: binary
   securitySchemes:
     bearerAuth:
       type: http

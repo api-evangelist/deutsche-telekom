@@ -24,55 +24,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ServerInfoRepresentation:
-      type: object
-      properties:
-        builtinProtocolMappers:
-          type: object
-          additionalProperties: true
-        clientImporters:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        clientInstallations:
-          type: object
-          additionalProperties: true
-        componentTypes:
-          type: object
-          additionalProperties: true
-        enums:
-          type: object
-          additionalProperties: true
-        identityProviders:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        memoryInfo:
-          $ref: '#/components/schemas/MemoryInfoRepresentation'
-        passwordPolicies:
-          type: array
-          items:
-            $ref: '#/components/schemas/PasswordPolicyTypeRepresentation'
-        profileInfo:
-          $ref: '#/components/schemas/ProfileInfoRepresentation'
-        protocolMapperTypes:
-          type: object
-          additionalProperties: true
-        providers:
-          type: object
-          additionalProperties: true
-        socialProviders:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        systemInfo:
-          $ref: '#/components/schemas/SystemInfoRepresentation'
-        themes:
-          type: object
-          additionalProperties: true
     MemoryInfoRepresentation:
       type: object
       properties:
@@ -94,23 +45,6 @@ components:
           format: int64
         usedFormated:
           type: string
-    ProfileInfoRepresentation:
-      type: object
-      properties:
-        disabledFeatures:
-          type: array
-          items:
-            type: string
-        experimentalFeatures:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        previewFeatures:
-          type: array
-          items:
-            type: string
     SystemInfoRepresentation:
       type: object
       properties:
@@ -164,6 +98,72 @@ components:
           type: string
         multipleSupported:
           type: boolean
+    ServerInfoRepresentation:
+      type: object
+      properties:
+        builtinProtocolMappers:
+          type: object
+          additionalProperties: true
+        clientImporters:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        clientInstallations:
+          type: object
+          additionalProperties: true
+        componentTypes:
+          type: object
+          additionalProperties: true
+        enums:
+          type: object
+          additionalProperties: true
+        identityProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        memoryInfo:
+          $ref: '#/components/schemas/MemoryInfoRepresentation'
+        passwordPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PasswordPolicyTypeRepresentation'
+        profileInfo:
+          $ref: '#/components/schemas/ProfileInfoRepresentation'
+        protocolMapperTypes:
+          type: object
+          additionalProperties: true
+        providers:
+          type: object
+          additionalProperties: true
+        socialProviders:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        systemInfo:
+          $ref: '#/components/schemas/SystemInfoRepresentation'
+        themes:
+          type: object
+          additionalProperties: true
+    ProfileInfoRepresentation:
+      type: object
+      properties:
+        disabledFeatures:
+          type: array
+          items:
+            type: string
+        experimentalFeatures:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        previewFeatures:
+          type: array
+          items:
+            type: string
   securitySchemes:
     access_token:
       type: http

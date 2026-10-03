@@ -183,6 +183,20 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
+    EnvironmentWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the environment
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
     NamedSecret:
       type: object
       required:
@@ -195,23 +209,6 @@ components:
         value:
           type: string
           description: The value of the secret
-    TeamWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the team
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
-    SecretRef:
-      description: A reference to a secret
-      type: string
     WriteStrategy:
       type: string
       enum:
@@ -252,6 +249,23 @@ components:
           description: The name of the secret
         id:
           $ref: '#/components/schemas/SecretRef'
+    SecretRef:
+      description: A reference to a secret
+      type: string
+    TeamWriteRequest:
+      type: object
+      required:
+      - secrets
+      properties:
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the team
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
       type: object
@@ -271,20 +285,6 @@ components:
           type: string
         instance:
           type: string
-    EnvironmentWriteRequest:
-      type: object
-      required:
-      - secrets
-      properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the environment
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
   responses:
     OnboardingResponse:
       description: Successful retrieval of secrets
@@ -302,27 +302,27 @@ components:
                 maxItems: 10
                 items:
                   $ref: '#/components/schemas/ListSecretItem'
-    NoContent:
-      description: Successful operation with no content
     ErrorResponse:
       description: In case of any error, this object is returned
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/ApiProblem'
+    NoContent:
+      description: Successful operation with no content
   requestBodies:
-    ApplicationWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ApplicationWriteRequest'
-    EnvironmentWriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EnvironmentWriteRequest'
     TeamWriteRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/TeamWriteRequest'
+    EnvironmentWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EnvironmentWriteRequest'
+    ApplicationWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApplicationWriteRequest'

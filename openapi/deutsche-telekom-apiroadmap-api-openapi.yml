@@ -239,6 +239,45 @@ paths:
         - tardis:team:read
 components:
   schemas:
+    ApiRoadmapItem:
+      type: object
+      required:
+      - date
+      - title
+      - description
+      properties:
+        date:
+          description: Timeline date or period
+          type: string
+          example: Q1 2024
+        title:
+          description: Milestone title
+          type: string
+          example: MVP Release
+        description:
+          description: Detailed description of the milestone
+          type: string
+          example: Initial release with core features
+        titleUrl:
+          description: Optional URL for more information
+          type: string
+          format: uri
+          example: https://example.com/mvp
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
     Problem:
       type: object
       required:
@@ -255,15 +294,60 @@ components:
           type: string
         details:
           type: string
-    ApiRoadmapCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiRoadmap'
-      - type: object
-        properties:
-          team:
-            type: string
-            example: hyperion
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
       required:
@@ -301,32 +385,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    FieldProblem:
+    Status:
       type: object
+      readOnly: true
       required:
-      - title
+      - processingState
+      - state
+      - time
       properties:
-        title:
-          type: string
-        detail:
-          type: string
-        path:
-          type: string
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
     ApiRoadmap:
       type: object
       required:
@@ -353,21 +435,45 @@ components:
           type: string
         cause:
           type: string
-    Links:
-      description: HATEOAS links for pagination
+    ApiRoadmapListResponse:
       type: object
       required:
-      - self
-      - next
+      - items
       properties:
-        self:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiRoadmapResponse'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    ApiRoadmapCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
           type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
+        detail:
           type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
+        path:
+          type: string
     ApiRoadmapUpdateRequest:
       allOf:
       - $ref: '#/components/schemas/ApiRoadmap'
@@ -388,120 +494,20 @@ components:
             example: my-roadmap
           status:
             $ref: '#/components/schemas/Status'
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
+    State:
       enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
       - none
+      - invalid
+      - blocked
+      - complete
       type: string
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    Status:
-      type: object
-      readOnly: true
-      required:
-      - processingState
-      - state
-      - time
-      properties:
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        state:
-          $ref: '#/components/schemas/State'
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        infos:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-    ApiRoadmapListResponse:
-      type: object
-      required:
-      - items
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiRoadmapResponse'
-    ApiRoadmapItem:
-      type: object
-      required:
-      - date
-      - title
-      - description
-      properties:
-        date:
-          description: Timeline date or period
-          type: string
-          example: Q1 2024
-        title:
-          description: Milestone title
-          type: string
-          example: MVP Release
-        description:
-          description: Detailed description of the milestone
-          type: string
-          example: Initial release with core features
-        titleUrl:
-          description: Optional URL for more information
-          type: string
-          format: uri
-          example: https://example.com/mvp
-    ResourceRef:
-      type: object
-      readOnly: true
-      required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
-      properties:
-        apiVersion:
-          type: string
-        kind:
-          type: string
-        name:
-          type: string
-        namespace:
-          type: string
-        path:
-          type: string
   responses:
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
     ServerError:
       description: SERVER_ERROR
       content:
@@ -516,12 +522,6 @@ components:
             $ref: '#/components/schemas/Error'
     UnsupportedMediaType:
       description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:

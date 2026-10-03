@@ -238,6 +238,15 @@ paths:
         - tardis:team:read
 components:
   schemas:
+    ApiChangelogListResponse:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiChangelogResponse'
     Problem:
       type: object
       required:
@@ -254,6 +263,116 @@ components:
           type: string
         details:
           type: string
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ApiChangelog:
+      type: object
+      required:
+      - basePath
+      - items
+      properties:
+        basePath:
+          description: The API basePath
+          type: string
+          example: /eni/test-api/v1
+        items:
+          description: List of changelog version entries
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ApiChangelogItem'
+    ApiChangelogItem:
+      type: object
+      required:
+      - date
+      - version
+      - description
+      properties:
+        date:
+          description: Release date or period
+          type: string
+          example: '2024-03-15'
+        version:
+          description: Semantic version number
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+          example: 1.2.3
+        description:
+          description: Description of changes in this version
+          type: string
+          example: Security fixes and performance improvements
+        versionUrl:
+          description: Optional URL to release notes
+          type: string
+          format: uri
+          example: https://example.com/releases/v1.2.3
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
       required:
@@ -291,72 +410,37 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    FieldProblem:
-      type: object
+    ApiChangelogResponse:
       required:
-      - title
-      properties:
-        title:
-          type: string
-        detail:
-          type: string
-        path:
-          type: string
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    ApiChangelogUpdateRequest:
+      - id
+      - name
+      - basePath
+      - items
       allOf:
       - $ref: '#/components/schemas/ApiChangelog'
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
-      enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
-      - none
-      type: string
+      - type: object
+        properties:
+          id:
+            readOnly: true
+            description: Unique id of this resource
+            type: string
+            example: group--team--api-name
+          name:
+            readOnly: true
+            description: Name of the changelog
+            type: string
+            example: api-name
+          status:
+            readOnly: true
+            $ref: '#/components/schemas/Status'
+    ApiChangelogCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+      - type: object
+        properties:
+          team:
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+            type: string
     Status:
       type: object
       readOnly: true
@@ -381,130 +465,52 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StateInfo'
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    ApiChangelogCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiChangelog'
-      - type: object
-        properties:
-          team:
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-            type: string
-    ApiChangelog:
-      type: object
-      required:
-      - basePath
-      - items
-      properties:
-        basePath:
-          description: The API basePath
-          type: string
-          example: /eni/test-api/v1
-        items:
-          description: List of changelog version entries
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/ApiChangelogItem'
-    ApiChangelogResponse:
-      required:
-      - id
-      - name
-      - basePath
-      - items
-      allOf:
-      - $ref: '#/components/schemas/ApiChangelog'
-      - type: object
-        properties:
-          id:
-            readOnly: true
-            description: Unique id of this resource
-            type: string
-            example: group--team--api-name
-          name:
-            readOnly: true
-            description: Name of the changelog
-            type: string
-            example: api-name
-          status:
-            readOnly: true
-            $ref: '#/components/schemas/Status'
-    ApiChangelogItem:
-      type: object
-      required:
-      - date
-      - version
-      - description
-      properties:
-        date:
-          description: Release date or period
-          type: string
-          example: '2024-03-15'
-        version:
-          description: Semantic version number
-          type: string
-          pattern: ^\d+\.\d+\.\d+$
-          example: 1.2.3
-        description:
-          description: Description of changes in this version
-          type: string
-          example: Security fixes and performance improvements
-        versionUrl:
-          description: Optional URL to release notes
-          type: string
-          format: uri
-          example: https://example.com/releases/v1.2.3
-    ResourceRef:
+    StateInfo:
       type: object
       readOnly: true
       required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
+      - message
       properties:
-        apiVersion:
+        message:
           type: string
-        kind:
+        cause:
           type: string
-        name:
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
           type: string
-        namespace:
+        detail:
           type: string
         path:
           type: string
-    ApiChangelogListResponse:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiChangelogResponse'
+    ApiChangelogUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiChangelog'
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
   responses:
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
     ServerError:
       description: SERVER_ERROR
       content:
@@ -519,12 +525,6 @@ components:
             $ref: '#/components/schemas/Error'
     UnsupportedMediaType:
       description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:

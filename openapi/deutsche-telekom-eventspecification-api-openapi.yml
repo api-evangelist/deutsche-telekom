@@ -290,13 +290,6 @@ paths:
         - tardis:user:obfuscated
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
-      required: false
-      schema:
-        type: string
     Limit:
       name: limit
       description: page size requested by the consumer; must not be larger than the maximal page size
@@ -308,6 +301,13 @@ components:
         minimum: 1
         maximum: 20
         default: 20
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
     Sort:
       name: sort
       in: query
@@ -334,6 +334,89 @@ components:
           type: string
         details:
           type: string
+    EventSpecificationListResponse:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSpecificationResponse'
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    Category:
+      type: string
+    EventSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
       required:
@@ -371,145 +454,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
-      type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    FieldProblem:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          type: string
-        detail:
-          type: string
-        path:
-          type: string
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    EventSpecificationResponse:
-      required:
-      - id
-      - type
-      - version
-      - category
-      - description
-      allOf:
-      - $ref: '#/components/schemas/EventSpecification'
-      - type: object
-        properties:
-          status:
-            $ref: '#/components/schemas/Status'
-          id:
-            readOnly: true
-            description: Your event type name (separated with dashes)
-            type: string
-            example: my-hub--my-team--de-telekom-eni-quickstart-v1
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
-    EventSpecificationListResponse:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSpecificationResponse'
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
-      enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
-      - none
-      type: string
-    Status:
-      type: object
-      readOnly: true
-      required:
-      - processingState
-      - state
-      - time
-      properties:
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        state:
-          $ref: '#/components/schemas/State'
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-        infos:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateInfo'
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    Category:
-      type: string
     EventSpecification:
       type: object
       required:
@@ -536,6 +480,66 @@ components:
           description: Optional JSON scheme
           type: object
           additionalProperties: true
+    EventSpecificationResponse:
+      required:
+      - id
+      - type
+      - version
+      - category
+      - description
+      allOf:
+      - $ref: '#/components/schemas/EventSpecification'
+      - type: object
+        properties:
+          status:
+            $ref: '#/components/schemas/Status'
+          id:
+            readOnly: true
+            description: Your event type name (separated with dashes)
+            type: string
+            example: my-hub--my-team--de-telekom-eni-quickstart-v1
+    Status:
+      type: object
+      readOnly: true
+      required:
+      - processingState
+      - state
+      - time
+      properties:
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        state:
+          $ref: '#/components/schemas/State'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+        infos:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateInfo'
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
     EventSpecificationCreateRequest:
       allOf:
       - $ref: '#/components/schemas/EventSpecification'
@@ -545,29 +549,31 @@ components:
             type: string
             example: hyperion
             description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-    EventSpecificationUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/EventSpecification'
-    ResourceRef:
+    FieldProblem:
       type: object
-      readOnly: true
       required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
+      - title
       properties:
-        apiVersion:
+        title:
           type: string
-        kind:
-          type: string
-        name:
-          type: string
-        namespace:
+        detail:
           type: string
         path:
           type: string
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
   responses:
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
     ServerError:
       description: SERVER_ERROR
       content:
@@ -582,12 +588,6 @@ components:
             $ref: '#/components/schemas/Error'
     UnsupportedMediaType:
       description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:

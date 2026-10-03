@@ -440,13 +440,6 @@ paths:
         - tardis:user:obfuscated
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
-      required: false
-      schema:
-        type: string
     Limit:
       name: limit
       description: page size requested by the consumer; must not be larger than the maximal page size
@@ -458,6 +451,28 @@ components:
         minimum: 1
         maximum: 20
         default: 20
+    ShallowInfo:
+      name: shallowInfo
+      in: query
+      description: If true, the status and information of all sub-resources will be omitted in the response. Only the information about the application itself will be returned. This will significantly reduce the response size and time. Default is false.
+      required: false
+      schema:
+        type: boolean
+        default: false
+    RoverId:
+      name: roverId
+      description: The unique id of this resource following the pattern group--team--resourceName
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
     Sort:
       name: sort
       in: query
@@ -467,81 +482,22 @@ components:
         type: string
         enum:
         - name
-    RoverId:
-      name: roverId
-      description: The unique id of this resource following the pattern group--team--resourceName
-      in: path
-      required: true
-      schema:
-        type: string
-    ShallowInfo:
-      name: shallowInfo
-      in: query
-      description: If true, the status and information of all sub-resources will be omitted in the response. Only the information about the application itself will be returned. This will significantly reduce the response size and time. Default is false.
-      required: false
-      schema:
-        type: boolean
-        default: false
   schemas:
-    EventExposure:
+    ApiExposureInfo:
       type: object
-      required:
-      - type
-      - approval
-      - visibility
-      - eventType
-      properties:
-        type:
-          type: string
-        approval:
-          $ref: '#/components/schemas/ApprovalStrategy'
-        trustedTeams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrustedTeam'
-        visibility:
-          $ref: '#/components/schemas/Visibility'
-        eventType:
-          type: string
-        eventCategory:
-          $ref: '#/components/schemas/Category'
-        additionalPublisherIds:
-          uniqueItems: true
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/ApiExposure'
+      - properties:
+          type:
             type: string
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventScope'
+            enum:
+            - api
     Visibility:
       enum:
       - ENTERPRISE
       - WORLD
       - ZONE
       type: string
-    SubscriptionInfo:
-      readOnly: true
-      discriminator:
-        propertyName: type
-        mapping:
-          api: '#/components/schemas/ApiSubscriptionInfo'
-          event: '#/components/schemas/EventSubscriptionInfo'
-      oneOf:
-      - $ref: '#/components/schemas/ApiSubscriptionInfo'
-      - $ref: '#/components/schemas/EventSubscriptionInfo'
-    LoadBalancing:
-      type: object
-      required:
-      - servers
-      properties:
-        servers:
-          description: Provide a list of servers to use for loadBalancing
-          type: array
-          items:
-            $ref: '#/components/schemas/Server'
-        health:
-          $ref: '#/components/schemas/Health'
     Problem:
       type: object
       required:
@@ -558,6 +514,21 @@ components:
           type: string
         details:
           type: string
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
     Data:
       type: object
       properties:
@@ -565,215 +536,12 @@ components:
           type: string
         value:
           type: string
-    ApiExposureInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiExposure'
-      - properties:
-          type:
-            type: string
-            enum:
-            - api
-    BasicAuth:
-      type: object
-      required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    ConsumerRateLimitContainer:
-      type: object
-      properties:
-        consumerDefault:
-          $ref: '#/components/schemas/RateLimit'
-        consumers:
-          type: array
-          description: 'Rate limits for specific consumers. This will be merged with the default rate limit. This will take precedence over the default rate limit.
-
-            '
-          items:
-            $ref: '#/components/schemas/ConsumerRateLimit'
-    ResourceStatusResponse:
-      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
-      required:
-      - state
-      - processingState
-      - overallStatus
-      type: object
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-          description: Time when the resource was created
-        processedAt:
-          type: string
-          format: date-time
-          description: Time when the resource was last processed
-        state:
-          $ref: '#/components/schemas/State'
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        overallStatus:
-          $ref: '#/components/schemas/OverallStatus'
-        errors:
-          description: List of errors that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        warnings:
-          description: List of warnings that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-        infos:
-          description: List of infos that resulted while processing this resource
-          type: array
-          items:
-            $ref: '#/components/schemas/Problem'
-    State:
+    GrantType:
       enum:
-      - none
-      - invalid
-      - blocked
-      - complete
+      - PASSWORD
+      - CLIENT_CREDENTIALS
+      - REFRESH_TOKEN
       type: string
-    RateLimitContainer:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ConsumerRateLimitContainer'
-      - properties:
-          provider:
-            $ref: '#/components/schemas/RateLimit'
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    RoverResponse:
-      allOf:
-      - $ref: '#/components/schemas/Rover'
-      - properties:
-          name:
-            type: string
-            example: myapp
-    RoverSecretRotationStatusResponse:
-      type: object
-      readOnly: true
-      required:
-      - clientId
-      - processingState
-      - overallStatus
-      properties:
-        clientId:
-          type: string
-          description: The clientId of the application
-        processingState:
-          $ref: '#/components/schemas/ProcessingState'
-        overallStatus:
-          $ref: '#/components/schemas/OverallStatus'
-        rotatedExpiresAt:
-          type: string
-          format: date-time
-          description: When the rotated (old) secret stops being accepted
-        currentExpiresAt:
-          type: string
-          format: date-time
-          description: When the current secret will expire and should be rotated
-        clientSecret:
-          type: string
-          description: The current (new) client secret value
-        rotatedClientSecret:
-          type: string
-          description: The previous (rotated) client secret value, valid until rotatedExpiresAt
-    RoverSecretRotationAcceptedResponse:
-      type: object
-      readOnly: true
-      required:
-      - clientId
-      - message
-      - _links
-      properties:
-        clientId:
-          type: string
-          description: The clientId of the application
-        message:
-          type: string
-          description: Human-readable message about the initiated rotation
-        _links:
-          type: object
-          required:
-          - status
-          properties:
-            status:
-              type: string
-              format: uri
-              description: URL to poll for the rotation status
-    AuthorizationInfo:
-      type: object
-      properties:
-        resource:
-          type: string
-        role:
-          type: string
-        actions:
-          type: array
-          items:
-            type: string
-        permissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthorizationPermissionInfo'
-    EventScope:
-      type: object
-      properties:
-        name:
-          type: string
-        trigger:
-          $ref: '#/components/schemas/EventTrigger'
-    ApprovalStrategy:
-      enum:
-      - AUTO
-      - SIMPLE
-      - FOUREYES
-      type: string
-    Security:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/Oauth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/Oauth2'
-      - $ref: '#/components/schemas/BasicAuth'
-    SecretInfo:
-      type: object
-      properties:
-        clientSecret:
-          type: string
-          description: The current client secret value
-        currentExpiresAt:
-          type: string
-          format: date-time
-          description: When the current secret will expire and should be rotated
-        rotatedClientSecret:
-          type: string
-          description: The previous (rotated) client secret value, valid until rotatedExpiresAt
-        rotatedExpiresAt:
-          type: string
-          format: date-time
-          description: When the rotated (old) secret stops being accepted
     RoverUpdateRequest:
       allOf:
       - $ref: '#/components/schemas/Rover'
@@ -783,6 +551,19 @@ components:
             description: 'This field is only used for migration purposes and will be ignored otherwise.
 
               '
+    EventSubscriptionInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/EventSubscription'
+      - properties:
+          type:
+            type: string
+            enum:
+            - event
+          horizonSubscriptionId:
+            type: string
+          horizonSubscriptionUrl:
+            type: string
     ApiExposure:
       type: object
       required:
@@ -820,120 +601,6 @@ components:
           description: Allows you to specify a list of header names that will be removed before forwarding the request to the provider
         circuitBreaker:
           $ref: '#/components/schemas/CircuitBreaker'
-    FieldProblem:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          type: string
-        detail:
-          type: string
-        path:
-          type: string
-    ApiSubscriptionInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-      - properties:
-          type:
-            type: string
-            enum:
-            - api
-          failoverInfos:
-            type: array
-            items:
-              $ref: '#/components/schemas/FailoverInfo'
-    TrustedTeam:
-      description: A trusted team is a team that is allowed to access the resource without explicit approval
-      type: object
-      properties:
-        team:
-          type: string
-      required:
-      - team
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    RateLimit:
-      type: object
-      properties:
-        second:
-          format: int32
-          type: integer
-        minute:
-          format: int32
-          type: integer
-        hour:
-          format: int32
-          type: integer
-        faultTolerant:
-          type: boolean
-        hideClientHeaders:
-          type: boolean
-    Oauth2:
-      required:
-      - type
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - oauth2
-        scopes:
-          type: array
-          items:
-            type: string
-        tokenEndpoint:
-          type: string
-          format: uri
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        clientKey:
-          type: string
-        password:
-          type: string
-        username:
-          type: string
-        refreshToken:
-          type: string
-        grantType:
-          $ref: '#/components/schemas/GrantType'
-        tokenRequest:
-          type: string
-          enum:
-          - body
-          - header
-          description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    Health:
-      type: object
-      properties:
-        httpPath:
-          type: string
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
     Server:
       type: object
       required:
@@ -943,29 +610,228 @@ components:
           type: string
         weight:
           type: integer
-    EventSubscriptionInfo:
+    Error:
+      description: RFC-7807 conform object sent on any error
       type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
+    RoverResponse:
       allOf:
-      - $ref: '#/components/schemas/EventSubscription'
+      - $ref: '#/components/schemas/Rover'
       - properties:
-          type:
+          name:
             type: string
-            enum:
-            - event
-          horizonSubscriptionId:
-            type: string
-          horizonSubscriptionUrl:
-            type: string
-    Subscription:
+            example: myapp
+    ResourceRef:
+      type: object
+      readOnly: true
+      required:
+      - apiVersion
+      - kind
+      - name
+      - namespace
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        path:
+          type: string
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    TrustedTeam:
+      description: A trusted team is a team that is allowed to access the resource without explicit approval
+      type: object
+      properties:
+        team:
+          type: string
+      required:
+      - team
+    Category:
+      type: string
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ConsumerRateLimitContainer:
+      type: object
+      properties:
+        consumerDefault:
+          $ref: '#/components/schemas/RateLimit'
+        consumers:
+          type: array
+          description: 'Rate limits for specific consumers. This will be merged with the default rate limit. This will take precedence over the default rate limit.
+
+            '
+          items:
+            $ref: '#/components/schemas/ConsumerRateLimit'
+    Security:
       type: object
       discriminator:
         propertyName: type
         mapping:
-          api: '#/components/schemas/ApiSubscription'
-          event: '#/components/schemas/EventSubscription'
+          oauth2: '#/components/schemas/Oauth2'
+          basicAuth: '#/components/schemas/BasicAuth'
       oneOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-      - $ref: '#/components/schemas/EventSubscription'
+      - $ref: '#/components/schemas/Oauth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    ConsumerRateLimit:
+      type: object
+      required:
+      - id
+      allOf:
+      - $ref: '#/components/schemas/RateLimit'
+      - properties:
+          id:
+            type: string
+            description: The unique ID of this consumer (their clientId)
+    RateLimitContainer:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ConsumerRateLimitContainer'
+      - properties:
+          provider:
+            $ref: '#/components/schemas/RateLimit'
+    ApiSubscription:
+      type: object
+      required:
+      - type
+      - basePath
+      properties:
+        type:
+          type: string
+        basePath:
+          type: string
+        failover:
+          $ref: '#/components/schemas/Failover'
+        security:
+          $ref: '#/components/schemas/Security'
+    Rover:
+      type: object
+      required:
+      - zone
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        id:
+          readOnly: true
+          type: string
+          example: hub42--team2--myapp
+        zone:
+          type: string
+          example: aws
+        icto:
+          type: string
+          pattern: ^icto-[0-9]+$
+          example: icto-12345
+        psiid:
+          type: string
+          pattern: ^PSI-[0-9]{6}$
+          example: PSI-103596
+          description: PSI system number identifier attached to this application
+        exposures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Exposure'
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        authentication:
+          $ref: '#/components/schemas/Authentication'
+        ipRestrictions:
+          $ref: '#/components/schemas/IpRestrictions'
+        authorization:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthorizationInfo'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    ResourceStatusResponse:
+      description: Response resource which contains information about the status of the resource and all its relevant sub-resources
+      required:
+      - state
+      - processingState
+      - overallStatus
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+          description: Time when the resource was created
+        processedAt:
+          type: string
+          format: date-time
+          description: Time when the resource was last processed
+        state:
+          $ref: '#/components/schemas/State'
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        errors:
+          description: List of errors that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        warnings:
+          description: List of warnings that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
+        infos:
+          description: List of infos that resulted while processing this resource
+          type: array
+          items:
+            $ref: '#/components/schemas/Problem'
     EventSubscription:
       type: object
       required:
@@ -1019,32 +885,70 @@ components:
           description: 'If true, the health check will be performed with a GET request instead of a HEAD request
 
             '
-    ApiSubscription:
+    FailoverInfo:
+      type: object
+      readOnly: true
+      properties:
+        zone:
+          type: string
+          readOnly: true
+        stargateApiEndpointUrl:
+          type: string
+          readOnly: true
+        irisTokenEndpointUrl:
+          type: string
+          readOnly: true
+    SubscriptionInfo:
+      readOnly: true
+      discriminator:
+        propertyName: type
+        mapping:
+          api: '#/components/schemas/ApiSubscriptionInfo'
+          event: '#/components/schemas/EventSubscriptionInfo'
+      oneOf:
+      - $ref: '#/components/schemas/ApiSubscriptionInfo'
+      - $ref: '#/components/schemas/EventSubscriptionInfo'
+    RoverCreateRequest:
+      required:
+      - zone
+      - name
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rover'
+      - properties:
+          name:
+            type: string
+            example: myapp
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
+    LoadBalancing:
       type: object
       required:
-      - type
-      - basePath
+      - servers
       properties:
-        type:
+        servers:
+          description: Provide a list of servers to use for loadBalancing
+          type: array
+          items:
+            $ref: '#/components/schemas/Server'
+        health:
+          $ref: '#/components/schemas/Health'
+    Health:
+      type: object
+      properties:
+        httpPath:
           type: string
-        basePath:
-          type: string
-        failover:
-          $ref: '#/components/schemas/Failover'
-        security:
-          $ref: '#/components/schemas/Security'
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
-      enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
-      - none
-      type: string
+    CircuitBreaker:
+      type: object
+      required:
+      - enabled
+      allOf:
+      - properties:
+          enabled:
+            type: boolean
+            description: Flags if the Kong circuit breaker feature should be used
     Exposure:
       type: object
       discriminator:
@@ -1055,15 +959,27 @@ components:
       oneOf:
       - $ref: '#/components/schemas/ApiExposure'
       - $ref: '#/components/schemas/EventExposure'
-    ExposureInfo:
-      discriminator:
-        propertyName: type
-        mapping:
-          api: '#/components/schemas/ApiExposureInfo'
-          event: '#/components/schemas/EventExposureInfo'
-      oneOf:
-      - $ref: '#/components/schemas/ApiExposureInfo'
-      - $ref: '#/components/schemas/EventExposureInfo'
+    RoverListResponse:
+      type: object
+      required:
+      - _links
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoverResponse'
+    EventExposureInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/EventExposure'
+      - properties:
+          type:
+            type: string
+            enum:
+            - event
     Status:
       type: object
       readOnly: true
@@ -1088,67 +1004,52 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StateInfo'
-    AuthorizationPermissionInfo:
-      type: object
-      properties:
-        resource:
-          type: string
-        role:
-          type: string
-        actions:
-          type: array
-          items:
-            type: string
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
+    Oauth2:
       required:
       - type
-      - title
+      type: object
       properties:
         type:
           type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    Failover:
-      type: object
-      required:
-      - zones
-      properties:
-        zones:
-          description: Provide a list of zones which you are able to use for failover
+          enum:
+          - oauth2
+        scopes:
           type: array
           items:
             type: string
-            minItems: 1
-            uniqueItems: true
-    FailoverInfo:
+        tokenEndpoint:
+          type: string
+          format: uri
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        clientKey:
+          type: string
+        password:
+          type: string
+        username:
+          type: string
+        refreshToken:
+          type: string
+        grantType:
+          $ref: '#/components/schemas/GrantType'
+        tokenRequest:
+          type: string
+          enum:
+          - body
+          - header
+          description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
+    Subscription:
       type: object
-      readOnly: true
-      properties:
-        zone:
-          type: string
-          readOnly: true
-        stargateApiEndpointUrl:
-          type: string
-          readOnly: true
-        irisTokenEndpointUrl:
-          type: string
-          readOnly: true
-    Category:
-      type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          api: '#/components/schemas/ApiSubscription'
+          event: '#/components/schemas/EventSubscription'
+      oneOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+      - $ref: '#/components/schemas/EventSubscription'
     RoverInfoResponse:
       type: object
       readOnly: true
@@ -1168,30 +1069,144 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApplicationInfo'
-    RoverCreateRequest:
+    StateInfo:
+      type: object
+      readOnly: true
       required:
-      - zone
-      - name
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    RoverSecretRotationStatusResponse:
+      type: object
+      readOnly: true
+      required:
+      - clientId
+      - processingState
+      - overallStatus
+      properties:
+        clientId:
+          type: string
+          description: The clientId of the application
+        processingState:
+          $ref: '#/components/schemas/ProcessingState'
+        overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
+        rotatedExpiresAt:
+          type: string
+          format: date-time
+          description: When the rotated (old) secret stops being accepted
+        currentExpiresAt:
+          type: string
+          format: date-time
+          description: When the current secret will expire and should be rotated
+        clientSecret:
+          type: string
+          description: The current (new) client secret value
+        rotatedClientSecret:
+          type: string
+          description: The previous (rotated) client secret value, valid until rotatedExpiresAt
+    SecretInfo:
+      type: object
+      properties:
+        clientSecret:
+          type: string
+          description: The current client secret value
+        currentExpiresAt:
+          type: string
+          format: date-time
+          description: When the current secret will expire and should be rotated
+        rotatedClientSecret:
+          type: string
+          description: The previous (rotated) client secret value, valid until rotatedExpiresAt
+        rotatedExpiresAt:
+          type: string
+          format: date-time
+          description: When the rotated (old) secret stops being accepted
+    ExposureInfo:
+      discriminator:
+        propertyName: type
+        mapping:
+          api: '#/components/schemas/ApiExposureInfo'
+          event: '#/components/schemas/EventExposureInfo'
+      oneOf:
+      - $ref: '#/components/schemas/ApiExposureInfo'
+      - $ref: '#/components/schemas/EventExposureInfo'
+    FieldProblem:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        detail:
+          type: string
+        path:
+          type: string
+    RoverSecretRotationAcceptedResponse:
+      type: object
+      readOnly: true
+      required:
+      - clientId
+      - message
+      - _links
+      properties:
+        clientId:
+          type: string
+          description: The clientId of the application
+        message:
+          type: string
+          description: Human-readable message about the initiated rotation
+        _links:
+          type: object
+          required:
+          - status
+          properties:
+            status:
+              type: string
+              format: uri
+              description: URL to poll for the rotation status
+    AuthorizationPermissionInfo:
+      type: object
+      properties:
+        resource:
+          type: string
+        role:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+    ApiSubscriptionInfo:
       type: object
       allOf:
-      - $ref: '#/components/schemas/Rover'
-      - properties:
-          name:
-            type: string
-            example: myapp
-          team:
-            type: string
-            example: hyperion
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-    EventExposureInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/EventExposure'
+      - $ref: '#/components/schemas/ApiSubscription'
       - properties:
           type:
             type: string
             enum:
-            - event
+            - api
+          failoverInfos:
+            type: array
+            items:
+              $ref: '#/components/schemas/FailoverInfo'
+    AuthorizationInfo:
+      type: object
+      properties:
+        resource:
+          type: string
+        role:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthorizationPermissionInfo'
     ApplicationInfo:
       type: object
       readOnly: true
@@ -1277,25 +1292,67 @@ components:
           description: Permission rules configured for this application
         secretInfo:
           $ref: '#/components/schemas/SecretInfo'
-    ResourceRef:
+    EventTrigger:
       type: object
-      readOnly: true
-      required:
-      - apiVersion
-      - kind
-      - name
-      - namespace
       properties:
-        apiVersion:
+        responseFilter:
+          type: array
+          items:
+            type: string
+        responseFilterMode:
           type: string
-        kind:
-          type: string
+          default: include
+          enum:
+          - include
+          - exclude
+        selectionFilter:
+          type: object
+          additionalProperties:
+            type: string
+        advancedSelectionFilter:
+          type: object
+    EventScope:
+      type: object
+      properties:
         name:
           type: string
-        namespace:
-          type: string
-        path:
-          type: string
+        trigger:
+          $ref: '#/components/schemas/EventTrigger'
+    Failover:
+      type: object
+      required:
+      - zones
+      properties:
+        zones:
+          description: Provide a list of zones which you are able to use for failover
+          type: array
+          items:
+            type: string
+            minItems: 1
+            uniqueItems: true
+    IpRestrictions:
+      type: object
+      properties:
+        allow:
+          type: array
+          items:
+            type: string
+    RateLimit:
+      type: object
+      properties:
+        second:
+          format: int32
+          type: integer
+        minute:
+          format: int32
+          type: integer
+        hour:
+          format: int32
+          type: integer
+        faultTolerant:
+          type: boolean
+        hideClientHeaders:
+          type: boolean
     Authentication:
       type: object
       properties:
@@ -1318,109 +1375,58 @@ components:
             type: string
         applicationScope:
           type: string
-    CircuitBreaker:
-      type: object
-      required:
-      - enabled
-      allOf:
-      - properties:
-          enabled:
-            type: boolean
-            description: Flags if the Kong circuit breaker feature should be used
-    ConsumerRateLimit:
-      type: object
-      required:
-      - id
-      allOf:
-      - $ref: '#/components/schemas/RateLimit'
-      - properties:
-          id:
-            type: string
-            description: The unique ID of this consumer (their clientId)
-    GrantType:
+    ApprovalStrategy:
       enum:
-      - PASSWORD
-      - CLIENT_CREDENTIALS
-      - REFRESH_TOKEN
+      - AUTO
+      - SIMPLE
+      - FOUREYES
       type: string
-    IpRestrictions:
-      type: object
-      properties:
-        allow:
-          type: array
-          items:
-            type: string
-    Rover:
+    EventExposure:
       type: object
       required:
-      - zone
+      - type
+      - approval
+      - visibility
+      - eventType
       properties:
-        status:
-          $ref: '#/components/schemas/Status'
-        id:
-          readOnly: true
+        type:
           type: string
-          example: hub42--team2--myapp
-        zone:
-          type: string
-          example: aws
-        icto:
-          type: string
-          pattern: ^icto-[0-9]+$
-          example: icto-12345
-        psiid:
-          type: string
-          pattern: ^PSI-[0-9]{6}$
-          example: PSI-103596
-          description: PSI system number identifier attached to this application
-        exposures:
+        approval:
+          $ref: '#/components/schemas/ApprovalStrategy'
+        trustedTeams:
           type: array
           items:
-            $ref: '#/components/schemas/Exposure'
-        subscriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
-        authentication:
-          $ref: '#/components/schemas/Authentication'
-        ipRestrictions:
-          $ref: '#/components/schemas/IpRestrictions'
-        authorization:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthorizationInfo'
-    RoverListResponse:
-      type: object
-      required:
-      - _links
-      - items
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoverResponse'
-    EventTrigger:
-      type: object
-      properties:
-        responseFilter:
+            $ref: '#/components/schemas/TrustedTeam'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        eventType:
+          type: string
+        eventCategory:
+          $ref: '#/components/schemas/Category'
+        additionalPublisherIds:
+          uniqueItems: true
           type: array
           items:
             type: string
-        responseFilterMode:
-          type: string
-          default: include
-          enum:
-          - include
-          - exclude
-        selectionFilter:
-          type: object
-          additionalProperties:
-            type: string
-        advancedSelectionFilter:
-          type: object
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventScope'
+    ProcessingState:
+      enum:
+      - none
+      - pending
+      - processing
+      - failed
+      - done
+      type: string
   responses:
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
     ServerError:
       description: SERVER_ERROR
       content:
@@ -1435,12 +1441,6 @@ components:
             $ref: '#/components/schemas/Error'
     UnsupportedMediaType:
       description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:

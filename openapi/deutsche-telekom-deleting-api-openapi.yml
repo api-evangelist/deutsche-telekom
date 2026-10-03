@@ -44,6 +44,13 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
+  responses:
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
   schemas:
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
@@ -64,13 +71,6 @@ components:
           type: string
         instance:
           type: string
-  responses:
-    ErrorResponse:
-      description: In case of any error, this object is returned
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ApiProblem'
   securitySchemes:
     bearerAuth:
       type: http
