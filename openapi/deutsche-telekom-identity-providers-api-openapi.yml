@@ -370,6 +370,16 @@ components:
           type: string
         name:
           type: string
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
     IdentityProviderRepresentation:
       type: object
       properties:
@@ -398,16 +408,6 @@ components:
           type: boolean
         trustEmail:
           type: boolean
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
   securitySchemes:
     access_token:
       type: http

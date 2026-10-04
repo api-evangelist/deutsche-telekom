@@ -218,44 +218,96 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    EventSubscription:
+    Delivery:
       type: object
-      description: 'Declaration that an application subscribes to events of a specific type.
+      description: 'Configures how events are delivered to the subscriber.
 
-        Maps to EventSubscriptionSpec in the EventSubscription CR.
+        Maps to EventSubscriptionSpec.Delivery in the EventSubscription CR.
 
         '
+      required:
+      - type
       properties:
-        eventType:
+        type:
+          $ref: '#/components/schemas/DeliveryType'
+        payload:
+          $ref: '#/components/schemas/PayloadType'
+        callback:
           type: string
-          description: 'Dot-separated event type identifier (e.g. "de.telekom.eni.quickstart.v1"). References the EventType CR.
+          format: uri
+          description: 'URL where events are delivered. Required when type is "Callback", must not be set for "ServerSentEvent".
 
             '
-          minLength: 1
-          example: de.telekom.eni.quickstart.v1
-        delivery:
-          $ref: '#/components/schemas/Delivery'
-        trigger:
-          $ref: '#/components/schemas/EventTrigger'
-        scopes:
+          example: https://myapp.example.com/events/callback
+        eventRetentionTime:
+          type: string
+          description: How long events are retained for this subscriber.
+          example: 7d
+        circuitBreakerOptOut:
+          type: boolean
+          description: Disables the circuit breaker for this subscription.
+          default: false
+        retryableStatusCodes:
           type: array
-          description: 'Selects which publisher-defined scopes to subscribe to. Must match scope names defined on the corresponding EventExposure. Maps to EventSubscriptionSpec.Scopes in the EventSubscription CR.
-
-            '
+          description: HTTP status codes that should trigger a retry.
+          items:
+            type: integer
+          example:
+          - 502
+          - 503
+          - 504
+        redeliveriesPerSecond:
+          type: integer
+          description: Limits the rate of event redeliveries.
+          example: 10
+        enforceGetHttpRequestMethodForHealthCheck:
+          type: boolean
+          description: Forces GET for health check probes instead of HEAD.
+          default: false
+    ResponseFilter:
+      type: object
+      description: Controls which fields are included or excluded from the event payload.
+      properties:
+        paths:
+          type: array
+          description: JSON paths to include or exclude from the event payload.
           items:
             type: string
           example:
-          - high-priority
-    PayloadType:
+          - $.data.orderId
+          - $.data.status
+        mode:
+          $ref: '#/components/schemas/ResponseFilterMode'
+    DeliveryType:
       enum:
-      - Data
-      - DataRef
+      - Callback
+      - ServerSentEvent
       type: string
-      description: 'Defines the event payload format.
+      description: 'Defines how events are delivered to subscribers.
 
-        Maps to EventSubscriptionSpec.Delivery.Payload in the EventSubscription CR.
+        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
 
         '
+    SelectionFilter:
+      type: object
+      description: Defines criteria for selecting which events are delivered.
+      properties:
+        attributes:
+          type: object
+          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
+
+            '
+          additionalProperties:
+            type: string
+          example:
+            source: de.telekom.eni.quickstart
+            type: de.telekom.eni.quickstart.v1
+        expression:
+          type: object
+          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
+
+            '
+          additionalProperties: true
     EventExposure:
       type: object
       description: 'Declaration that an application publishes events of a specific type.
@@ -291,6 +343,200 @@ components:
             type: string
           example:
           - hub42--team2--secondary-publisher
+    PayloadType:
+      enum:
+      - Data
+      - DataRef
+      type: string
+      description: 'Defines the event payload format.
+
+        Maps to EventSubscriptionSpec.Delivery.Payload in the EventSubscription CR.
+
+        '
+    EventApprovalStrategy:
+      enum:
+      - Auto
+      - Simple
+      - FourEyes
+      type: string
+      description: 'Defines the approval mode for event subscriptions.
+
+        Maps to EventExposureSpec.Approval.Strategy in the EventExposure CR.
+
+        '
+    EventSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSubscriptionResponse'
+    ResponseFilterMode:
+      enum:
+      - Include
+      - Exclude
+      type: string
+      description: Controls whether the response filter includes or excludes the specified fields.
+    EventSubscription:
+      type: object
+      description: 'Declaration that an application subscribes to events of a specific type.
+
+        Maps to EventSubscriptionSpec in the EventSubscription CR.
+
+        '
+      properties:
+        eventType:
+          type: string
+          description: 'Dot-separated event type identifier (e.g. "de.telekom.eni.quickstart.v1"). References the EventType CR.
+
+            '
+          minLength: 1
+          example: de.telekom.eni.quickstart.v1
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+        trigger:
+          $ref: '#/components/schemas/EventTrigger'
+        scopes:
+          type: array
+          description: 'Selects which publisher-defined scopes to subscribe to. Must match scope names defined on the corresponding EventExposure. Maps to EventSubscriptionSpec.Scopes in the EventSubscription CR.
+
+            '
+          items:
+            type: string
+          example:
+          - high-priority
+    EventVisibility:
+      enum:
+      - World
+      - Zone
+      - Enterprise
+      type: string
+      description: 'Defines who can see and subscribe to an exposed event.
+
+        Maps to EventExposureSpec.Visibility in the EventExposure CR.
+
+        '
+    EventSubscriptionResponse:
+      type: object
+      readOnly: true
+      allOf:
+      - $ref: '#/components/schemas/EventSubscription'
+      - properties:
+          name:
+            type: string
+            readOnly: true
+            example: de-telekom-eni-quickstart-v1
+          zone:
+            type: string
+            readOnly: true
+            description: 'The zone where this subscription is placed. Maps to EventSubscriptionSpec.Zone in the EventSubscription CR.
+
+              '
+          url:
+            type: string
+            readOnly: true
+            description: 'SSE endpoint URL for this subscription. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.URL.
+
+              '
+            example: https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1
+          subscriptionId:
+            type: string
+            readOnly: true
+            description: 'Unique identifier of the subscriber. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.SubscriptionId.
+
+              '
+          status:
+            $ref: common.yaml#/components/schemas/Status
+          application:
+            $ref: common.yaml#/components/schemas/ApplicationRef
+          team:
+            $ref: common.yaml#/components/schemas/TeamRef
+          approval:
+            $ref: '#/components/schemas/EventSubscriptionApproval'
+    EventTrigger:
+      type: object
+      description: 'Defines filtering criteria for event delivery.
+
+        Maps to EventTrigger in the EventExposure/EventSubscription CR.
+
+        '
+      properties:
+        responseFilter:
+          $ref: '#/components/schemas/ResponseFilter'
+        selectionFilter:
+          $ref: '#/components/schemas/SelectionFilter'
+    EventScope:
+      type: object
+      description: 'A named scope with publisher-side trigger filtering.
+
+        Scopes allow publishers to partition their events and apply filters.
+
+        Maps to EventExposureSpec.Scopes[] in the EventExposure CR.
+
+        '
+      required:
+      - name
+      - trigger
+      properties:
+        name:
+          type: string
+          description: Unique identifier for this scope.
+          minLength: 1
+          example: high-priority
+        trigger:
+          $ref: '#/components/schemas/EventTrigger'
+    EventSubscriptionApproval:
+      type: object
+      readOnly: true
+      description: Approval status of the event subscription.
+      properties:
+        status:
+          type: string
+          example: granted
+        comment:
+          type: string
+          example: trusted team
+        decider:
+          type: string
+          example: hyperion@telekom.de
+        timestamp:
+          type: string
+          format: date-time
+          example: '2022-09-28T16:05:46.384Z'
+    EventApproval:
+      type: object
+      description: 'Configures how subscriptions to this event are approved.
+
+        Maps to EventExposureSpec.Approval in the EventExposure CR.
+
+        '
+      properties:
+        strategy:
+          $ref: '#/components/schemas/EventApprovalStrategy'
+          description: Defines the approval mode. Defaults to Auto.
+        trustedTeams:
+          type: array
+          description: 'Teams that are trusted for auto-approval of subscriptions. By default your own team is trusted.
+
+            '
+          items:
+            type: string
+          maxItems: 10
+          example:
+          - eni--hyperion
+    EventExposureListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventExposureResponse'
     EventExposureResponse:
       type: object
       readOnly: true
@@ -341,249 +587,3 @@ components:
             $ref: common.yaml#/components/schemas/ApplicationRef
           team:
             $ref: common.yaml#/components/schemas/TeamRef
-    DeliveryType:
-      enum:
-      - Callback
-      - ServerSentEvent
-      type: string
-      description: 'Defines how events are delivered to subscribers.
-
-        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
-
-        '
-    ResponseFilterMode:
-      enum:
-      - Include
-      - Exclude
-      type: string
-      description: Controls whether the response filter includes or excludes the specified fields.
-    EventSubscriptionApproval:
-      type: object
-      readOnly: true
-      description: Approval status of the event subscription.
-      properties:
-        status:
-          type: string
-          example: granted
-        comment:
-          type: string
-          example: trusted team
-        decider:
-          type: string
-          example: hyperion@telekom.de
-        timestamp:
-          type: string
-          format: date-time
-          example: '2022-09-28T16:05:46.384Z'
-    EventSubscriptionResponse:
-      type: object
-      readOnly: true
-      allOf:
-      - $ref: '#/components/schemas/EventSubscription'
-      - properties:
-          name:
-            type: string
-            readOnly: true
-            example: de-telekom-eni-quickstart-v1
-          zone:
-            type: string
-            readOnly: true
-            description: 'The zone where this subscription is placed. Maps to EventSubscriptionSpec.Zone in the EventSubscription CR.
-
-              '
-          url:
-            type: string
-            readOnly: true
-            description: 'SSE endpoint URL for this subscription. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.URL.
-
-              '
-            example: https://stargate-playground.live.dhei.telekom.de/sse/eni/quickstart/v1
-          subscriptionId:
-            type: string
-            readOnly: true
-            description: 'Unique identifier of the subscriber. Set when delivery type is ServerSentEvent. Maps to EventSubscriptionStatus.SubscriptionId.
-
-              '
-          status:
-            $ref: common.yaml#/components/schemas/Status
-          application:
-            $ref: common.yaml#/components/schemas/ApplicationRef
-          team:
-            $ref: common.yaml#/components/schemas/TeamRef
-          approval:
-            $ref: '#/components/schemas/EventSubscriptionApproval'
-    EventTrigger:
-      type: object
-      description: 'Defines filtering criteria for event delivery.
-
-        Maps to EventTrigger in the EventExposure/EventSubscription CR.
-
-        '
-      properties:
-        responseFilter:
-          $ref: '#/components/schemas/ResponseFilter'
-        selectionFilter:
-          $ref: '#/components/schemas/SelectionFilter'
-    EventExposureListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventExposureResponse'
-    EventApprovalStrategy:
-      enum:
-      - Auto
-      - Simple
-      - FourEyes
-      type: string
-      description: 'Defines the approval mode for event subscriptions.
-
-        Maps to EventExposureSpec.Approval.Strategy in the EventExposure CR.
-
-        '
-    EventScope:
-      type: object
-      description: 'A named scope with publisher-side trigger filtering.
-
-        Scopes allow publishers to partition their events and apply filters.
-
-        Maps to EventExposureSpec.Scopes[] in the EventExposure CR.
-
-        '
-      required:
-      - name
-      - trigger
-      properties:
-        name:
-          type: string
-          description: Unique identifier for this scope.
-          minLength: 1
-          example: high-priority
-        trigger:
-          $ref: '#/components/schemas/EventTrigger'
-    EventSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSubscriptionResponse'
-    SelectionFilter:
-      type: object
-      description: Defines criteria for selecting which events are delivered.
-      properties:
-        attributes:
-          type: object
-          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
-
-            '
-          additionalProperties:
-            type: string
-          example:
-            source: de.telekom.eni.quickstart
-            type: de.telekom.eni.quickstart.v1
-        expression:
-          type: object
-          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
-
-            '
-          additionalProperties: true
-    EventVisibility:
-      enum:
-      - World
-      - Zone
-      - Enterprise
-      type: string
-      description: 'Defines who can see and subscribe to an exposed event.
-
-        Maps to EventExposureSpec.Visibility in the EventExposure CR.
-
-        '
-    EventApproval:
-      type: object
-      description: 'Configures how subscriptions to this event are approved.
-
-        Maps to EventExposureSpec.Approval in the EventExposure CR.
-
-        '
-      properties:
-        strategy:
-          $ref: '#/components/schemas/EventApprovalStrategy'
-          description: Defines the approval mode. Defaults to Auto.
-        trustedTeams:
-          type: array
-          description: 'Teams that are trusted for auto-approval of subscriptions. By default your own team is trusted.
-
-            '
-          items:
-            type: string
-          maxItems: 10
-          example:
-          - eni--hyperion
-    ResponseFilter:
-      type: object
-      description: Controls which fields are included or excluded from the event payload.
-      properties:
-        paths:
-          type: array
-          description: JSON paths to include or exclude from the event payload.
-          items:
-            type: string
-          example:
-          - $.data.orderId
-          - $.data.status
-        mode:
-          $ref: '#/components/schemas/ResponseFilterMode'
-    Delivery:
-      type: object
-      description: 'Configures how events are delivered to the subscriber.
-
-        Maps to EventSubscriptionSpec.Delivery in the EventSubscription CR.
-
-        '
-      required:
-      - type
-      properties:
-        type:
-          $ref: '#/components/schemas/DeliveryType'
-        payload:
-          $ref: '#/components/schemas/PayloadType'
-        callback:
-          type: string
-          format: uri
-          description: 'URL where events are delivered. Required when type is "Callback", must not be set for "ServerSentEvent".
-
-            '
-          example: https://myapp.example.com/events/callback
-        eventRetentionTime:
-          type: string
-          description: How long events are retained for this subscriber.
-          example: 7d
-        circuitBreakerOptOut:
-          type: boolean
-          description: Disables the circuit breaker for this subscription.
-          default: false
-        retryableStatusCodes:
-          type: array
-          description: HTTP status codes that should trigger a retry.
-          items:
-            type: integer
-          example:
-          - 502
-          - 503
-          - 504
-        redeliveriesPerSecond:
-          type: integer
-          description: Limits the rate of event redeliveries.
-          example: 10
-        enforceGetHttpRequestMethodForHealthCheck:
-          type: boolean
-          description: Forces GET for health check probes instead of HEAD.
-          default: false

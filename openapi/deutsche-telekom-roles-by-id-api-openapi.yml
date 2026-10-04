@@ -242,26 +242,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RoleRepresentation-Composites:
-      type: object
-      properties:
-        client:
-          type: object
-          additionalProperties: true
-        realm:
-          type: array
-          items:
-            type: string
-    ManagementPermissionReference:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        resource:
-          type: string
-        scopePermissions:
-          type: object
-          additionalProperties: true
     RoleRepresentation:
       type: object
       properties:
@@ -282,6 +262,26 @@ components:
           type: string
         name:
           type: string
+    ManagementPermissionReference:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        resource:
+          type: string
+        scopePermissions:
+          type: object
+          additionalProperties: true
+    RoleRepresentation-Composites:
+      type: object
+      properties:
+        client:
+          type: object
+          additionalProperties: true
+        realm:
+          type: array
+          items:
+            type: string
   securitySchemes:
     access_token:
       type: http

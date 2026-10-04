@@ -24,80 +24,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MemoryInfoRepresentation:
-      type: object
-      properties:
-        free:
-          type: integer
-          format: int64
-        freeFormated:
-          type: string
-        freePercentage:
-          type: integer
-          format: int64
-        total:
-          type: integer
-          format: int64
-        totalFormated:
-          type: string
-        used:
-          type: integer
-          format: int64
-        usedFormated:
-          type: string
-    SystemInfoRepresentation:
-      type: object
-      properties:
-        fileEncoding:
-          type: string
-        javaHome:
-          type: string
-        javaRuntime:
-          type: string
-        javaVendor:
-          type: string
-        javaVersion:
-          type: string
-        javaVm:
-          type: string
-        javaVmVersion:
-          type: string
-        osArchitecture:
-          type: string
-        osName:
-          type: string
-        osVersion:
-          type: string
-        serverTime:
-          type: string
-        uptime:
-          type: string
-        uptimeMillis:
-          type: integer
-          format: int64
-        userDir:
-          type: string
-        userLocale:
-          type: string
-        userName:
-          type: string
-        userTimezone:
-          type: string
-        version:
-          type: string
-    PasswordPolicyTypeRepresentation:
-      type: object
-      properties:
-        configType:
-          type: string
-        defaultValue:
-          type: string
-        displayName:
-          type: string
-        id:
-          type: string
-        multipleSupported:
-          type: boolean
     ServerInfoRepresentation:
       type: object
       properties:
@@ -147,6 +73,19 @@ components:
         themes:
           type: object
           additionalProperties: true
+    PasswordPolicyTypeRepresentation:
+      type: object
+      properties:
+        configType:
+          type: string
+        defaultValue:
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        multipleSupported:
+          type: boolean
     ProfileInfoRepresentation:
       type: object
       properties:
@@ -164,6 +103,67 @@ components:
           type: array
           items:
             type: string
+    SystemInfoRepresentation:
+      type: object
+      properties:
+        fileEncoding:
+          type: string
+        javaHome:
+          type: string
+        javaRuntime:
+          type: string
+        javaVendor:
+          type: string
+        javaVersion:
+          type: string
+        javaVm:
+          type: string
+        javaVmVersion:
+          type: string
+        osArchitecture:
+          type: string
+        osName:
+          type: string
+        osVersion:
+          type: string
+        serverTime:
+          type: string
+        uptime:
+          type: string
+        uptimeMillis:
+          type: integer
+          format: int64
+        userDir:
+          type: string
+        userLocale:
+          type: string
+        userName:
+          type: string
+        userTimezone:
+          type: string
+        version:
+          type: string
+    MemoryInfoRepresentation:
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int64
+        freeFormated:
+          type: string
+        freePercentage:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+        totalFormated:
+          type: string
+        used:
+          type: integer
+          format: int64
+        usedFormated:
+          type: string
   securitySchemes:
     access_token:
       type: http

@@ -325,12 +325,16 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    ApiSubscriptionUpdateRequest:
-      required:
-      - basePath
+    ApiSubscription:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
+      properties:
+        basePath:
+          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
+          type: string
+          example: /my-hub/my-app/v1
+          pattern: ^\/[a-zA-Z0-9\/-]*$
+        security:
+          $ref: '#/components/schemas/SubscriberSecurity'
     ApiSubscriptionResponse:
       type: object
       readOnly: true
@@ -358,6 +362,54 @@ components:
             $ref: '#/components/schemas/Approval'
           failover:
             $ref: '#/components/schemas/SubscriptionFailover'
+    SubscriptionFailover:
+      type: array
+      readOnly: true
+      items:
+        type: object
+        properties:
+          zone:
+            type: string
+            readOnly: true
+            example: aws
+          gatewayUrl:
+            type: string
+            readOnly: true
+            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    ApiSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSubscriptionResponse'
     Approval:
       type: object
       readOnly: true
@@ -378,20 +430,6 @@ components:
           type: string
           format: date-time
           example: '2022-09-28T16:05:46.384Z'
-    SubscriptionFailover:
-      type: array
-      readOnly: true
-      items:
-        type: object
-        properties:
-          zone:
-            type: string
-            readOnly: true
-            example: aws
-          gatewayUrl:
-            type: string
-            readOnly: true
-            example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
     OAuth2:
       type: object
       required:
@@ -425,53 +463,15 @@ components:
           - body
           - header
           description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    ApiSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSubscriptionResponse'
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
+    ApiSubscriptionUpdateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
     ApiSubscriptionCreateRequest:
       required:
       - basePath
       type: object
       allOf:
       - $ref: '#/components/schemas/ApiSubscription'
-    ApiSubscription:
-      type: object
-      properties:
-        basePath:
-          description: Must match pattern ^\/[a-zA-Z0-9\/-]*$
-          type: string
-          example: /my-hub/my-app/v1
-          pattern: ^\/[a-zA-Z0-9\/-]*$
-        security:
-          $ref: '#/components/schemas/SubscriberSecurity'
-    BasicAuth:
-      type: object
-      required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
