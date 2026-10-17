@@ -340,16 +340,6 @@ components:
           type: string
         name:
           type: string
-    MappingsRepresentation:
-      type: object
-      properties:
-        clientMappings:
-          type: object
-          additionalProperties: true
-        realmMappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRepresentation'
     RoleRepresentation-Composites:
       type: object
       properties:
@@ -360,6 +350,16 @@ components:
           type: array
           items:
             type: string
+    MappingsRepresentation:
+      type: object
+      properties:
+        clientMappings:
+          type: object
+          additionalProperties: true
+        realmMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
   securitySchemes:
     access_token:
       type: http

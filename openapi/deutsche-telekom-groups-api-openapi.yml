@@ -288,15 +288,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    FederatedIdentityRepresentation:
-      type: object
-      properties:
-        identityProvider:
-          type: string
-        userId:
-          type: string
-        userName:
-          type: string
     ManagementPermissionReference:
       type: object
       properties:
@@ -307,6 +298,79 @@ components:
         scopePermissions:
           type: object
           additionalProperties: true
+    GroupRepresentation:
+      type: object
+      properties:
+        access:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: object
+          additionalProperties: true
+        clientRoles:
+          type: object
+          additionalProperties: true
+        id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        subGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+    UserConsentRepresentation:
+      type: object
+      properties:
+        clientId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        grantedClientScopes:
+          type: array
+          items:
+            type: string
+        lastUpdatedDate:
+          type: integer
+          format: int64
+    CredentialRepresentation:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          format: int64
+        credentialData:
+          type: string
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        secretData:
+          type: string
+        temporary:
+          type: boolean
+        type:
+          type: string
+        userLabel:
+          type: string
+        value:
+          type: string
+    FederatedIdentityRepresentation:
+      type: object
+      properties:
+        identityProvider:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
     UserRepresentation:
       type: object
       properties:
@@ -374,70 +438,6 @@ components:
         serviceAccountClientId:
           type: string
         username:
-          type: string
-    GroupRepresentation:
-      type: object
-      properties:
-        access:
-          type: object
-          additionalProperties: true
-        attributes:
-          type: object
-          additionalProperties: true
-        clientRoles:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        name:
-          type: string
-        path:
-          type: string
-        realmRoles:
-          type: array
-          items:
-            type: string
-        subGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupRepresentation'
-    UserConsentRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        createdDate:
-          type: integer
-          format: int64
-        grantedClientScopes:
-          type: array
-          items:
-            type: string
-        lastUpdatedDate:
-          type: integer
-          format: int64
-    CredentialRepresentation:
-      type: object
-      properties:
-        createdDate:
-          type: integer
-          format: int64
-        credentialData:
-          type: string
-        id:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        secretData:
-          type: string
-        temporary:
-          type: boolean
-        type:
-          type: string
-        userLabel:
-          type: string
-        value:
           type: string
   securitySchemes:
     access_token:

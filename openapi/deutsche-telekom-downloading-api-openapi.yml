@@ -44,12 +44,6 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   responses:
-    ErrorResponse:
-      description: In case of any error, this object is returned
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ApiProblem'
     FileDownloadResponse:
       description: Successful download of a file with the specified id. Responds with the file contents.
       headers:
@@ -66,6 +60,12 @@ components:
           schema:
             type: string
             format: binary
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
   schemas:
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html

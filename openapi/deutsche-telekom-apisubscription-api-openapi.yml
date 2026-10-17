@@ -325,6 +325,30 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
+    SubscriberSecurity:
+      discriminator:
+        propertyName: type
+        mapping:
+          oauth2: '#/components/schemas/OAuth2'
+          basicAuth: '#/components/schemas/BasicAuth'
+      oneOf:
+      - $ref: '#/components/schemas/OAuth2'
+      - $ref: '#/components/schemas/BasicAuth'
+    BasicAuth:
+      type: object
+      required:
+      - type
+      - username
+      - password
+      properties:
+        type:
+          type: string
+          enum:
+          - basicAuth
+        username:
+          type: string
+        password:
+          type: string
     ApiSubscription:
       type: object
       properties:
@@ -376,30 +400,18 @@ components:
             type: string
             readOnly: true
             example: https://stargate-playground.live.dhei.telekom.de/eni/echo/v1
-    BasicAuth:
-      type: object
+    ApiSubscriptionCreateRequest:
       required:
-      - type
-      - username
-      - password
-      properties:
-        type:
-          type: string
-          enum:
-          - basicAuth
-        username:
-          type: string
-        password:
-          type: string
-    SubscriberSecurity:
-      discriminator:
-        propertyName: type
-        mapping:
-          oauth2: '#/components/schemas/OAuth2'
-          basicAuth: '#/components/schemas/BasicAuth'
-      oneOf:
-      - $ref: '#/components/schemas/OAuth2'
-      - $ref: '#/components/schemas/BasicAuth'
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
+    ApiSubscriptionUpdateRequest:
+      required:
+      - basePath
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ApiSubscription'
     ApiSubscriptionListResponse:
       properties:
         paging:
@@ -463,15 +475,3 @@ components:
           - body
           - header
           description: Specifies if the authentication data should be sent to the external IDP via headers or in the body of the request
-    ApiSubscriptionUpdateRequest:
-      required:
-      - basePath
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'
-    ApiSubscriptionCreateRequest:
-      required:
-      - basePath
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ApiSubscription'

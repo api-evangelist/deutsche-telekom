@@ -33,16 +33,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    KeysMetadataRepresentation:
-      type: object
-      properties:
-        active:
-          type: object
-          additionalProperties: true
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeysMetadataRepresentation-KeyMetadataRepresentation'
     KeysMetadataRepresentation-KeyMetadataRepresentation:
       type: object
       properties:
@@ -63,6 +53,16 @@ components:
           type: string
         type:
           type: string
+    KeysMetadataRepresentation:
+      type: object
+      properties:
+        active:
+          type: object
+          additionalProperties: true
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeysMetadataRepresentation-KeyMetadataRepresentation'
   securitySchemes:
     access_token:
       type: http

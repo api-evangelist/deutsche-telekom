@@ -266,6 +266,22 @@ paths:
         - tardis:user:all
 components:
   parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
+      required: false
+      schema:
+        type: string
+    Sort:
+      name: sort
+      in: query
+      description: list of fields to be used for sorting. Default is name
+      required: false
+      schema:
+        type: string
+        enum:
+        - name
     ApiSpecificationId:
       name: apiSpecificationId
       description: The unique id of this resource following the pattern group--team--resourceName
@@ -284,23 +300,33 @@ components:
         minimum: 1
         maximum: 20
         default: 20
-    Sort:
-      name: sort
-      in: query
-      description: list of fields to be used for sorting. Default is name
-      required: false
-      schema:
-        type: string
-        enum:
-        - name
-    Cursor:
-      name: cursor
-      in: query
-      description: cursor to be used for pagination. If not provided, the first page will be returned. The cursor is a string that points to a page of data.
-      required: false
-      schema:
-        type: string
   schemas:
+    ApiSpecificationUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiSpecification'
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
     Problem:
       type: object
       required:
@@ -317,37 +343,15 @@ components:
           type: string
         details:
           type: string
-    ApiSpecificationResponse:
-      type: object
-      required:
-      - id
-      - name
-      - category
-      - vendorApi
-      - specification
-      - status
-      properties:
-        status:
-          $ref: '#/components/schemas/Status'
-        specification:
-          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
-          type: object
-          additionalProperties: true
-        id:
-          description: Unique id of this resource. Can be used to directly address this specific resource
-          type: string
-          example: my-hub--my-team--eni-foo-v3
-        category:
-          description: Category of this api
-          type: string
-          example: G_API
-        vendorApi:
-          description: Whether this api is an vendor api
-          type: boolean
-        name:
-          description: Name of the created api (subset of id)
-          type: string
-          example: eni-foo-v3
+    ApiSpecificationCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiSpecification'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
     ResourceRef:
       type: object
       readOnly: true
@@ -367,27 +371,6 @@ components:
           type: string
         path:
           type: string
-    ApiSpecificationCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiSpecification'
-      - type: object
-        properties:
-          team:
-            type: string
-            example: hyperion
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
-      enum:
-      - invalid
-      - processing
-      - failed
-      - blocked
-      - pending
-      - complete
-      - done
-      - none
-      type: string
     Links:
       description: HATEOAS links for pagination
       type: object
@@ -403,46 +386,14 @@ components:
           type: string
           format: uri
           description: the URI for the next page for requested pagination, based on the requested limit value
-    ApiSpecificationListResponse:
-      type: object
-      required:
-      - items
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSpecificationResponse'
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    ApiSpecificationUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiSpecification'
-    State:
+    ProcessingState:
       enum:
       - none
-      - invalid
-      - blocked
-      - complete
+      - pending
+      - processing
+      - failed
+      - done
       type: string
-    ApiSpecification:
-      type: object
-      required:
-      - specification
-      properties:
-        specification:
-          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
-          type: object
-          additionalProperties: true
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
       required:
@@ -480,6 +431,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
+    ApiSpecification:
+      type: object
+      required:
+      - specification
+      properties:
+        specification:
+          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
+          type: object
+          additionalProperties: true
     FieldProblem:
       type: object
       required:
@@ -491,37 +451,6 @@ components:
           type: string
         path:
           type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
     Status:
       type: object
       readOnly: true
@@ -546,26 +475,80 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StateInfo'
-  headers:
-    XResultCount:
-      description: Actual number of items returned in the response body for this page.
-      schema:
-        type: integer
-        minimum: 0
-    XTotalCount:
-      description: Total number of items matching criteria.
-      schema:
-        type: integer
-        minimum: 0
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    ApiSpecificationResponse:
+      type: object
+      required:
+      - id
+      - name
+      - category
+      - vendorApi
+      - specification
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        specification:
+          description: A valid API-specification according to the guidelines in openapi or swagger (deprecated) format
+          type: object
+          additionalProperties: true
+        id:
+          description: Unique id of this resource. Can be used to directly address this specific resource
+          type: string
+          example: my-hub--my-team--eni-foo-v3
+        category:
+          description: Category of this api
+          type: string
+          example: G_API
+        vendorApi:
+          description: Whether this api is an vendor api
+          type: boolean
+        name:
+          description: Name of the created api (subset of id)
+          type: string
+          example: eni-foo-v3
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ApiSpecificationListResponse:
+      type: object
+      required:
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSpecificationResponse'
   responses:
-    Forbidden:
-      description: FORBIDDEN
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: SERVER_ERROR
+    BadRequest:
+      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:
@@ -576,8 +559,8 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
+    ServerError:
+      description: SERVER_ERROR
       content:
         application/problem+json:
           schema:
@@ -588,12 +571,29 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
+    Unauthorized:
+      description: UNAUTHORIZED
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  headers:
+    XTotalCount:
+      description: Total number of items matching criteria.
+      schema:
+        type: integer
+        minimum: 0
+    XResultCount:
+      description: Actual number of items returned in the response body for this page.
+      schema:
+        type: integer
+        minimum: 0
   securitySchemes:
     OAuth2:
       type: oauth2

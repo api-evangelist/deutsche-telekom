@@ -214,50 +214,12 @@ components:
           type: boolean
           description: Forces GET for health check probes instead of HEAD.
           default: false
-    ResponseFilter:
-      type: object
-      description: Controls which fields are included or excluded from the event payload.
-      properties:
-        paths:
-          type: array
-          description: JSON paths to include or exclude from the event payload.
-          items:
-            type: string
-          example:
-          - $.data.orderId
-          - $.data.status
-        mode:
-          $ref: '#/components/schemas/ResponseFilterMode'
-    DeliveryType:
+    ResponseFilterMode:
       enum:
-      - Callback
-      - ServerSentEvent
+      - Include
+      - Exclude
       type: string
-      description: 'Defines how events are delivered to subscribers.
-
-        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
-
-        '
-    SelectionFilter:
-      type: object
-      description: Defines criteria for selecting which events are delivered.
-      properties:
-        attributes:
-          type: object
-          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
-
-            '
-          additionalProperties:
-            type: string
-          example:
-            source: de.telekom.eni.quickstart
-            type: de.telekom.eni.quickstart.v1
-        expression:
-          type: object
-          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
-
-            '
-          additionalProperties: true
+      description: Controls whether the response filter includes or excludes the specified fields.
     PayloadType:
       enum:
       - Data
@@ -268,22 +230,6 @@ components:
         Maps to EventSubscriptionSpec.Delivery.Payload in the EventSubscription CR.
 
         '
-    EventSubscriptionListResponse:
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSubscriptionResponse'
-    ResponseFilterMode:
-      enum:
-      - Include
-      - Exclude
-      type: string
-      description: Controls whether the response filter includes or excludes the specified fields.
     EventSubscriptionResponse:
       type: object
       readOnly: true
@@ -321,6 +267,16 @@ components:
             $ref: common.yaml#/components/schemas/TeamRef
           approval:
             $ref: '#/components/schemas/EventSubscriptionApproval'
+    EventSubscriptionListResponse:
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSubscriptionResponse'
     EventTrigger:
       type: object
       description: 'Defines filtering criteria for event delivery.
@@ -351,6 +307,20 @@ components:
           type: string
           format: date-time
           example: '2022-09-28T16:05:46.384Z'
+    ResponseFilter:
+      type: object
+      description: Controls which fields are included or excluded from the event payload.
+      properties:
+        paths:
+          type: array
+          description: JSON paths to include or exclude from the event payload.
+          items:
+            type: string
+          example:
+          - $.data.orderId
+          - $.data.status
+        mode:
+          $ref: '#/components/schemas/ResponseFilterMode'
     EventSubscription:
       type: object
       description: 'Declaration that an application subscribes to events of a specific type.
@@ -379,3 +349,33 @@ components:
             type: string
           example:
           - high-priority
+    DeliveryType:
+      enum:
+      - Callback
+      - ServerSentEvent
+      type: string
+      description: 'Defines how events are delivered to subscribers.
+
+        Maps to EventSubscriptionSpec.Delivery.Type in the EventSubscription CR.
+
+        '
+    SelectionFilter:
+      type: object
+      description: Defines criteria for selecting which events are delivered.
+      properties:
+        attributes:
+          type: object
+          description: 'Simple key-value equality matches on CloudEvents attributes. All entries are AND-ed together.
+
+            '
+          additionalProperties:
+            type: string
+          example:
+            source: de.telekom.eni.quickstart
+            type: de.telekom.eni.quickstart.v1
+        expression:
+          type: object
+          description: 'Arbitrary JSON filter expression tree using logical operators (and, or) and comparisons (eq, ge, gt, le, lt, ne). Passed through to the configuration backend without structural validation.
+
+            '
+          additionalProperties: true

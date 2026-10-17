@@ -158,17 +158,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MultivaluedHashMap:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        loadFactor:
-          type: number
-          format: float
-        threshold:
-          type: integer
-          format: int32
     ComponentTypeRepresentation:
       type: object
       properties:
@@ -183,6 +172,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConfigPropertyRepresentation'
+    ComponentRepresentation:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MultivaluedHashMap'
+        id:
+          type: string
+        name:
+          type: string
+        parentId:
+          type: string
+        providerId:
+          type: string
+        providerType:
+          type: string
+        subType:
+          type: string
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -202,23 +208,17 @@ components:
           type: boolean
         type:
           type: string
-    ComponentRepresentation:
+    MultivaluedHashMap:
       type: object
       properties:
-        config:
-          $ref: '#/components/schemas/MultivaluedHashMap'
-        id:
-          type: string
-        name:
-          type: string
-        parentId:
-          type: string
-        providerId:
-          type: string
-        providerType:
-          type: string
-        subType:
-          type: string
+        empty:
+          type: boolean
+        loadFactor:
+          type: number
+          format: float
+        threshold:
+          type: integer
+          format: int32
   securitySchemes:
     access_token:
       type: http

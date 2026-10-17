@@ -24,6 +24,46 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SystemInfoRepresentation:
+      type: object
+      properties:
+        fileEncoding:
+          type: string
+        javaHome:
+          type: string
+        javaRuntime:
+          type: string
+        javaVendor:
+          type: string
+        javaVersion:
+          type: string
+        javaVm:
+          type: string
+        javaVmVersion:
+          type: string
+        osArchitecture:
+          type: string
+        osName:
+          type: string
+        osVersion:
+          type: string
+        serverTime:
+          type: string
+        uptime:
+          type: string
+        uptimeMillis:
+          type: integer
+          format: int64
+        userDir:
+          type: string
+        userLocale:
+          type: string
+        userName:
+          type: string
+        userTimezone:
+          type: string
+        version:
+          type: string
     ServerInfoRepresentation:
       type: object
       properties:
@@ -86,63 +126,6 @@ components:
           type: string
         multipleSupported:
           type: boolean
-    ProfileInfoRepresentation:
-      type: object
-      properties:
-        disabledFeatures:
-          type: array
-          items:
-            type: string
-        experimentalFeatures:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        previewFeatures:
-          type: array
-          items:
-            type: string
-    SystemInfoRepresentation:
-      type: object
-      properties:
-        fileEncoding:
-          type: string
-        javaHome:
-          type: string
-        javaRuntime:
-          type: string
-        javaVendor:
-          type: string
-        javaVersion:
-          type: string
-        javaVm:
-          type: string
-        javaVmVersion:
-          type: string
-        osArchitecture:
-          type: string
-        osName:
-          type: string
-        osVersion:
-          type: string
-        serverTime:
-          type: string
-        uptime:
-          type: string
-        uptimeMillis:
-          type: integer
-          format: int64
-        userDir:
-          type: string
-        userLocale:
-          type: string
-        userName:
-          type: string
-        userTimezone:
-          type: string
-        version:
-          type: string
     MemoryInfoRepresentation:
       type: object
       properties:
@@ -164,6 +147,23 @@ components:
           format: int64
         usedFormated:
           type: string
+    ProfileInfoRepresentation:
+      type: object
+      properties:
+        disabledFeatures:
+          type: array
+          items:
+            type: string
+        experimentalFeatures:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        previewFeatures:
+          type: array
+          items:
+            type: string
   securitySchemes:
     access_token:
       type: http

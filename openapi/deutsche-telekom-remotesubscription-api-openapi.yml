@@ -106,22 +106,57 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    Security:
+    Requester:
       type: object
       properties:
-        oauth2:
-          $ref: '#/components/schemas/SecurityOauth2'
-    Response:
+        application:
+          description: 'The name of the Application that is used to subscribe. **Note:** This needs to exactly match the application used on the source CP.
+
+            '
+          type: string
+        team:
+          $ref: '#/components/schemas/Team'
+      required:
+      - application
+      - team
+    RemoteSubscriptionResponse:
       type: object
+      readOnly: true
       required:
       - id
       - updated
+      allOf:
+      - $ref: '#/components/schemas/Response'
+    SecurityOauth2:
+      type: object
       properties:
-        id:
+        scopes:
+          items:
+            type: string
+          type: array
+    Error:
+      description: RFC-7807 conform object sent on any error
+      type: object
+      required:
+      - type
+      - title
+      properties:
+        type:
           type: string
-          example: team123--my-api-v1
-        updated:
-          type: boolean
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldProblem'
     StatusCondition:
       description: '**Note:** This is a 1:1 copy of the StatusCondition from the Kubernetes API. Condition contains details for one aspect of the current state of this API Resource
 
@@ -189,23 +224,38 @@ components:
       - status
       - type
       type: object
-    ApprovalInfo:
+    Security:
       type: object
       properties:
-        state:
-          description: The current state of the approval
+        oauth2:
+          $ref: '#/components/schemas/SecurityOauth2'
+    Team:
+      type: object
+      properties:
+        name:
+          description: 'The name of the Team that is used to subscribe. **Note:** This needs to exactly match the team used on the source CP.
+
+            '
           type: string
-          enum:
-          - Granted
-          - Pending
-          - Rejected
-          - Suspended
-        message:
-          description: An optional message from the Decider to the Requester.
+        email:
+          description: 'The email address that can be used in case the provider wants to contact the subscribing team.
+
+            '
           type: string
       required:
-      - state
-      - message
+      - name
+      - email
+    Response:
+      type: object
+      required:
+      - id
+      - updated
+      properties:
+        id:
+          type: string
+          example: team123--my-api-v1
+        updated:
+          type: boolean
     RemoteSubscriptionSpec:
       type: object
       properties:
@@ -219,13 +269,6 @@ components:
       required:
       - apiBasePath
       - requester
-    SecurityOauth2:
-      type: object
-      properties:
-        scopes:
-          items:
-            type: string
-          type: array
     FieldProblem:
       type: object
       required:
@@ -237,27 +280,6 @@ components:
           type: string
         path:
           type: string
-    RemoteSubscriptionResponse:
-      type: object
-      readOnly: true
-      required:
-      - id
-      - updated
-      allOf:
-      - $ref: '#/components/schemas/Response'
-    Requester:
-      type: object
-      properties:
-        application:
-          description: 'The name of the Application that is used to subscribe. **Note:** This needs to exactly match the application used on the source CP.
-
-            '
-          type: string
-        team:
-          $ref: '#/components/schemas/Team'
-      required:
-      - application
-      - team
     RemoteSubscriptionStatus:
       description: RemoteSubscriptionStatus defines the state of RemoteSubscription
       properties:
@@ -276,62 +298,26 @@ components:
       - conditions
       - gatewayUrl
       type: object
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    Team:
+    ApprovalInfo:
       type: object
       properties:
-        name:
-          description: 'The name of the Team that is used to subscribe. **Note:** This needs to exactly match the team used on the source CP.
-
-            '
+        state:
+          description: The current state of the approval
           type: string
-        email:
-          description: 'The email address that can be used in case the provider wants to contact the subscribing team.
-
-            '
+          enum:
+          - Granted
+          - Pending
+          - Rejected
+          - Suspended
+        message:
+          description: An optional message from the Decider to the Requester.
           type: string
       required:
-      - name
-      - email
-  parameters:
-    RemoteSubscriptionId:
-      name: remoteSubscriptionId
-      in: path
-      description: Unique resource id of this remoteSubscription
-      required: true
-      schema:
-        type: string
+      - state
+      - message
   responses:
-    Forbidden:
-      description: FORBIDDEN
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: SERVER_ERROR
+    BadRequest:
+      description: BAD_REQUEST
       content:
         application/problem+json:
           schema:
@@ -342,8 +328,8 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
+    ServerError:
+      description: SERVER_ERROR
       content:
         application/problem+json:
           schema:
@@ -354,9 +340,23 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
+    Unauthorized:
+      description: UNAUTHORIZED
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    RemoteSubscriptionId:
+      name: remoteSubscriptionId
+      in: path
+      description: Unique resource id of this remoteSubscription
+      required: true
+      schema:
+        type: string

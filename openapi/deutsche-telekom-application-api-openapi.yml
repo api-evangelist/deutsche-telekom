@@ -259,90 +259,6 @@ paths:
         - tardis:user:obfuscated
 components:
   schemas:
-    ApplicationCreateRequest:
-      required:
-      - hub
-      - team
-      - name
-      - zone
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Application'
-    Security:
-      type: object
-      required:
-      - ipRestrictions
-      description: Contains information related to security configuration like IP restrictions etc.
-      properties:
-        ipRestrictions:
-          $ref: '#/components/schemas/IpRestrictions'
-    ApplicationListResponse:
-      type: object
-      properties:
-        paging:
-          $ref: common.yaml#/components/schemas/Paging
-        _links:
-          $ref: common.yaml#/components/schemas/Links
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationResponse'
-    ApplicationUpdateRequest:
-      required:
-      - team
-      - zone
-      type: object
-      properties:
-        team:
-          $ref: '#/components/schemas/Team'
-        zone:
-          type: string
-          example: aws
-        icto:
-          type: string
-          pattern: icto-[0-9]{5}
-          example: icto-12345
-        apid:
-          type: string
-          pattern: ^AP-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$
-          example: AP-12AB-34AB-56AB
-        psiid:
-          type: string
-          description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
-          example: PSI-123456
-    Application:
-      type: object
-      properties:
-        id:
-          type: string
-          example: hub42--team2--myapp
-          readOnly: true
-        name:
-          description: 'allowed characters: [a-z],[0-9],[-]'
-          type: string
-          pattern: '[a-z0-9-]+'
-          example: myapp
-        team:
-          $ref: '#/components/schemas/Team'
-        zone:
-          type: string
-          example: aws
-        icto:
-          type: string
-          pattern: icto-[0-9]{5}
-          example: icto-12345
-        apid:
-          type: string
-          pattern: ^AP-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$
-          example: AP-12AB-34AB-56AB
-        psiid:
-          type: string
-          description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
-          example: PSI-123456
-        status:
-          $ref: common.yaml#/components/schemas/Status
-        security:
-          $ref: '#/components/schemas/Security'
     ApplicationResponse:
       type: object
       readOnly: true
@@ -382,6 +298,29 @@ components:
           type: string
           readOnly: true
           example: CUSTOMER
+    ApplicationUpdateRequest:
+      required:
+      - team
+      - zone
+      type: object
+      properties:
+        team:
+          $ref: '#/components/schemas/Team'
+        zone:
+          type: string
+          example: aws
+        icto:
+          type: string
+          pattern: icto-[0-9]{5}
+          example: icto-12345
+        apid:
+          type: string
+          pattern: ^AP-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$
+          example: AP-12AB-34AB-56AB
+        psiid:
+          type: string
+          description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
+          example: PSI-123456
     IpRestrictions:
       type: object
       description: A list of allowed IP addresses that will be used to consume APIs this application is subscribed to.  The IP addresses need to be in a valid CIDR notation. For example 125.5.89.20 or 160.77.58.30/16.
@@ -390,18 +329,79 @@ components:
           type: array
           items:
             type: string
+    Security:
+      type: object
+      required:
+      - ipRestrictions
+      description: Contains information related to security configuration like IP restrictions etc.
+      properties:
+        ipRestrictions:
+          $ref: '#/components/schemas/IpRestrictions'
+    ApplicationCreateRequest:
+      required:
+      - hub
+      - team
+      - name
+      - zone
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Application'
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          example: hub42--team2--myapp
+          readOnly: true
+        name:
+          description: 'allowed characters: [a-z],[0-9],[-]'
+          type: string
+          pattern: '[a-z0-9-]+'
+          example: myapp
+        team:
+          $ref: '#/components/schemas/Team'
+        zone:
+          type: string
+          example: aws
+        icto:
+          type: string
+          pattern: icto-[0-9]{5}
+          example: icto-12345
+        apid:
+          type: string
+          pattern: ^AP-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$
+          example: AP-12AB-34AB-56AB
+        psiid:
+          type: string
+          description: PSI identifier (pattern configurable via PSIID_PATTERN env var, default ^PSI-[0-9]{6}$)
+          example: PSI-123456
+        status:
+          $ref: common.yaml#/components/schemas/Status
+        security:
+          $ref: '#/components/schemas/Security'
+    ApplicationListResponse:
+      type: object
+      properties:
+        paging:
+          $ref: common.yaml#/components/schemas/Paging
+        _links:
+          $ref: common.yaml#/components/schemas/Links
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationResponse'
   parameters:
-    Apid:
-      name: apid
-      in: query
-      description: Filter by apid
-      required: false
-      schema:
-        type: string
     Icto:
       name: icto
       in: query
       description: Filter by icto
+      required: false
+      schema:
+        type: string
+    Apid:
+      name: apid
+      in: query
+      description: Filter by apid
       required: false
       schema:
         type: string

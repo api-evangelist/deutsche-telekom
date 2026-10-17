@@ -182,46 +182,18 @@ paths:
         '500':
           $ref: '#/components/responses/ErrorResponse'
 components:
-  responses:
-    ErrorResponse:
-      description: In case of any error, this object is returned
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ApiProblem'
-    NoContent:
-      description: Successful operation with no content
-    OnboardingResponse:
-      description: Successful retrieval of secrets
-      content:
-        application/json:
-          schema:
-            type: object
-            required:
-            - items
-            properties:
-              items:
-                type: array
-                description: A list of available secret references
-                minItems: 0
-                maxItems: 10
-                items:
-                  $ref: '#/components/schemas/ListSecretItem'
   schemas:
-    TeamWriteRequest:
+    ListSecretItem:
       type: object
       required:
-      - secrets
+      - name
+      - id
       properties:
-        strategy:
-          $ref: '#/components/schemas/WriteStrategy'
-        secrets:
-          type: array
-          description: A list of secrets to be created or updated for the team
-          minItems: 0
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/NamedSecret'
+        name:
+          type: string
+          description: The name of the secret
+        id:
+          $ref: '#/components/schemas/SecretRef'
     ApiProblem:
       description: Based on https://www.rfc-editor.org/rfc/rfc9457.html
       type: object
@@ -241,6 +213,21 @@ components:
           type: string
         instance:
           type: string
+    WriteStrategy:
+      type: string
+      enum:
+      - merge
+      - replace
+      default: replace
+      description: 'The strategy defines how the provided secrets should be applied.
+
+        With "merge", the provided secrets will be merged with the existing secrets. With "replace",
+
+        the provided secrets will replace the existing secrets.
+
+        If not provided, "replace" will be used as default strategy.
+
+        '
     ApplicationWriteRequest:
       type: object
       required:
@@ -255,18 +242,20 @@ components:
           maxItems: 10
           items:
             $ref: '#/components/schemas/NamedSecret'
-    NamedSecret:
+    TeamWriteRequest:
       type: object
       required:
-      - name
-      - value
+      - secrets
       properties:
-        name:
-          type: string
-          description: The name of the secret
-        value:
-          type: string
-          description: The value of the secret
+        strategy:
+          $ref: '#/components/schemas/WriteStrategy'
+        secrets:
+          type: array
+          description: A list of secrets to be created or updated for the team
+          minItems: 0
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/NamedSecret'
     SecretRef:
       description: A reference to a secret
       type: string
@@ -284,43 +273,54 @@ components:
           maxItems: 10
           items:
             $ref: '#/components/schemas/NamedSecret'
-    ListSecretItem:
+    NamedSecret:
       type: object
       required:
       - name
-      - id
+      - value
       properties:
         name:
           type: string
           description: The name of the secret
-        id:
-          $ref: '#/components/schemas/SecretRef'
-    WriteStrategy:
-      type: string
-      enum:
-      - merge
-      - replace
-      default: replace
-      description: 'The strategy defines how the provided secrets should be applied.
-
-        With "merge", the provided secrets will be merged with the existing secrets. With "replace",
-
-        the provided secrets will replace the existing secrets.
-
-        If not provided, "replace" will be used as default strategy.
-
-        '
-  requestBodies:
-    TeamWriteRequest:
+        value:
+          type: string
+          description: The value of the secret
+  responses:
+    OnboardingResponse:
+      description: Successful retrieval of secrets
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/TeamWriteRequest'
+            type: object
+            required:
+            - items
+            properties:
+              items:
+                type: array
+                description: A list of available secret references
+                minItems: 0
+                maxItems: 10
+                items:
+                  $ref: '#/components/schemas/ListSecretItem'
+    ErrorResponse:
+      description: In case of any error, this object is returned
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ApiProblem'
+    NoContent:
+      description: Successful operation with no content
+  requestBodies:
     ApplicationWriteRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ApplicationWriteRequest'
+    TeamWriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TeamWriteRequest'
     EnvironmentWriteRequest:
       content:
         application/json:

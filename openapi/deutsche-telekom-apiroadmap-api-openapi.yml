@@ -238,23 +238,44 @@ paths:
         - tardis:team:all
         - tardis:team:read
 components:
+  responses:
+    BadRequest:
+      description: BAD_REQUEST
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnsupportedMediaType:
+      description: UNSUPPORTED_MEDIATYPE
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: SERVER_ERROR
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: NOT_FOUND
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: UNAUTHORIZED
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: FORBIDDEN
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Problem:
-      type: object
-      required:
-      - message
-      - cause
-      properties:
-        resource:
-          $ref: '#/components/schemas/ResourceRef'
-        context:
-          type: string
-        message:
-          type: string
-        cause:
-          type: string
-        details:
-          type: string
     ApiRoadmapItem:
       type: object
       required:
@@ -279,22 +300,80 @@ components:
           type: string
           format: uri
           example: https://example.com/mvp
-    ApiRoadmap:
+    Error:
+      description: RFC-7807 conform object sent on any error
       type: object
       required:
-      - basePath
-      - items
+      - type
+      - title
       properties:
-        basePath:
-          description: The API basePath
+        type:
           type: string
-          example: /eni/test-api/v1
-        items:
-          description: List of roadmap timeline entries
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+        errorCode:
+          type: string
+        fields:
           type: array
-          minItems: 1
           items:
-            $ref: '#/components/schemas/ApiRoadmapItem'
+            $ref: '#/components/schemas/FieldProblem'
+    Problem:
+      type: object
+      required:
+      - message
+      - cause
+      properties:
+        resource:
+          $ref: '#/components/schemas/ResourceRef'
+        context:
+          type: string
+        message:
+          type: string
+        cause:
+          type: string
+        details:
+          type: string
+    ApiRoadmapUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+    ApiRoadmapResponse:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+      - type: object
+        properties:
+          id:
+            description: Unique id of this resource
+            type: string
+            readOnly: true
+            example: my-hub--my-team--my-roadmap
+          name:
+            description: Name of the roadmap
+            type: string
+            readOnly: true
+            example: my-roadmap
+          status:
+            $ref: '#/components/schemas/Status'
+    Links:
+      description: HATEOAS links for pagination
+      type: object
+      required:
+      - self
+      - next
+      properties:
+        self:
+          type: string
+          format: uri
+          description: the URI for the current page for requested pagination
+        next:
+          type: string
+          format: uri
+          description: the URI for the next page for requested pagination, based on the requested limit value
     ResourceRef:
       type: object
       readOnly: true
@@ -314,52 +393,13 @@ components:
           type: string
         path:
           type: string
-    ApiRoadmapUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiRoadmap'
-    OverallStatus:
-      description: Status of this resource and all its relevant sub-resources
+    ProcessingState:
       enum:
-      - invalid
+      - none
+      - pending
       - processing
       - failed
-      - blocked
-      - pending
-      - complete
       - done
-      - none
-      type: string
-    Links:
-      description: HATEOAS links for pagination
-      type: object
-      required:
-      - self
-      - next
-      properties:
-        self:
-          type: string
-          format: uri
-          description: the URI for the current page for requested pagination
-        next:
-          type: string
-          format: uri
-          description: the URI for the next page for requested pagination, based on the requested limit value
-    StateInfo:
-      type: object
-      readOnly: true
-      required:
-      - message
-      properties:
-        message:
-          type: string
-        cause:
-          type: string
-    State:
-      enum:
-      - none
-      - invalid
-      - blocked
-      - complete
       type: string
     ResourceStatusResponse:
       description: Response resource which contains information about the status of the resource and all its relevant sub-resources
@@ -398,17 +438,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Problem'
-    ApiRoadmapListResponse:
+    ApiRoadmap:
       type: object
       required:
+      - basePath
       - items
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
+        basePath:
+          description: The API basePath
+          type: string
+          example: /eni/test-api/v1
         items:
+          description: List of roadmap timeline entries
           type: array
+          minItems: 1
           items:
-            $ref: '#/components/schemas/ApiRoadmapResponse'
+            $ref: '#/components/schemas/ApiRoadmapItem'
     FieldProblem:
       type: object
       required:
@@ -420,63 +465,6 @@ components:
           type: string
         path:
           type: string
-    ProcessingState:
-      enum:
-      - none
-      - pending
-      - processing
-      - failed
-      - done
-      type: string
-    ApiRoadmapResponse:
-      allOf:
-      - $ref: '#/components/schemas/ApiRoadmap'
-      - type: object
-        properties:
-          id:
-            description: Unique id of this resource
-            type: string
-            readOnly: true
-            example: my-hub--my-team--my-roadmap
-          name:
-            description: Name of the roadmap
-            type: string
-            readOnly: true
-            example: my-roadmap
-          status:
-            $ref: '#/components/schemas/Status'
-    Error:
-      description: RFC-7807 conform object sent on any error
-      type: object
-      required:
-      - type
-      - title
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: number
-        detail:
-          type: string
-        instance:
-          type: string
-        errorCode:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldProblem'
-    ApiRoadmapCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/ApiRoadmap'
-      - type: object
-        properties:
-          team:
-            type: string
-            example: hyperion
-            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
     Status:
       type: object
       readOnly: true
@@ -501,43 +489,55 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StateInfo'
-  responses:
-    Forbidden:
-      description: FORBIDDEN
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: SERVER_ERROR
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    UnsupportedMediaType:
-      description: UNSUPPORTED_MEDIATYPE
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: UNAUTHORIZED
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: NOT_FOUND
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: BAD_REQUEST
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    OverallStatus:
+      description: Status of this resource and all its relevant sub-resources
+      enum:
+      - invalid
+      - processing
+      - failed
+      - blocked
+      - pending
+      - complete
+      - done
+      - none
+      type: string
+    ApiRoadmapListResponse:
+      type: object
+      required:
+      - items
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiRoadmapResponse'
+    StateInfo:
+      type: object
+      readOnly: true
+      required:
+      - message
+      properties:
+        message:
+          type: string
+        cause:
+          type: string
+    State:
+      enum:
+      - none
+      - invalid
+      - blocked
+      - complete
+      type: string
+    ApiRoadmapCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/ApiRoadmap'
+      - type: object
+        properties:
+          team:
+            type: string
+            example: hyperion
+            description: This field is only used for hub-scoped access to control the target team of the resource. For everything else, it can be ignored
   parameters:
     ApiRoadmapId:
       name: apiRoadmapId
