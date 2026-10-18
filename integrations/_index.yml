@@ -109,3 +109,36 @@
     detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
+- slug: deutsche-telekom-ccadb-root-programs-apple-chrome-microsoft-mozilla
+  label: CCADB root programs (Apple, Chrome, Microsoft, Mozilla)
+  partner_name: CCADB root programs (Apple, Chrome, Microsoft, Mozilla)
+  category: externally-operated subordinate CA
+  type: register
+  channel: standard-directory
+  evidence: https://ccadb.my.salesforce-sites.com/ccadb/AllCertificateRecordsCSVFormatv4
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CCADB AllCertificateRecordsCSVFormatv4 (ccadb.my.salesforce-sites.com)
+    standard: CCADB root programs
+    spec_file: null
+    role: subordinate-ca-operator
+    registered_name: Deutsche Telekom
+    register_id: Deutsche Telekom
+    matched_domain: telekom.com
+    matched_by: domain
+    domain_source: wikidata Q9396 'Deutsche Telekom' P856 https://telekom.com/ (labelled provenance step)
+    country:
+    - Germany
+    audit_types: []
+    auditors_not_linked:
+    - TÜViT - TÜV Informationstechnik GmbH
+    capabilities: []
+    signal_note: certified_products = one entry per ROOT STORE (Apple / Chrome / Microsoft / Mozilla), current when
+      any root is Included, lapsed when every root there is Removed / Blocked / Disabled; root counts, audit seals
+      and auditors are context, never counted. A subordinate operator is participation only
+    detected_by: sweep-pki-encryption.py
+    detected: '2026-10-18'
+    identity_source: wikidata Q9396 'Deutsche Telekom' P856 https://telekom.com/ (labelled provenance step)
+  status: not-a-workflow
+  arazzo: null
